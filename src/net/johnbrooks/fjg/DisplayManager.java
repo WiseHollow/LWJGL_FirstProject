@@ -4,6 +4,9 @@ import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import static org.lwjgl.opengl.GL11.*;
 
 /**
@@ -15,6 +18,8 @@ public class DisplayManager
 
     private static final int WIDTH = 800;
     private static final int HEIGHT = 600;
+
+    private static List<IDrawable> drawableList = new ArrayList<>();
 
     public static void create()
     {
@@ -33,24 +38,28 @@ public class DisplayManager
         glLoadIdentity();
         glOrtho(0, WIDTH, HEIGHT, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
+
+        drawableList.add(new Rectangle(10, 20, 100, 30));
+        drawableList.add(new Rectangle(15, 120, 100, 30));
+        Rectangle rect = new Rectangle(300, 50, 100, 30);
+        rect.setColor(1f, 0.3f, 0.1f);
+        drawableList.add(rect);
     }
 
     public static void draw()
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        glColor3f(0.8f, 0.3f, 0.9f);
+        glClearColor(0.3921568f, 0.5843137f, 0.9294117f, 1f);
 
-        glBegin(GL_LINES);
-        glVertex2f(10, 10);
-        glVertex2f(50, 10);
-        glEnd();
+        for (IDrawable drawable : drawableList)
+            drawable.draw();
 
-        glBegin(GL_QUADS);
-        glVertex2f(100, 100);
-        glVertex2f(150, 100);
-        glVertex2f(150, 150);
-        glVertex2f(100, 150);
-        glEnd();
+        //glBegin(GL_LINES);
+        //glVertex2f(10, 10);
+        //glVertex2f(50, 10);
+        //glEnd();
+
+
     }
 
     public static void update()
