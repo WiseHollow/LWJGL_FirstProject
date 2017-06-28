@@ -49,6 +49,7 @@ public class DisplayManager
         glLoadIdentity();
         glOrtho(0, WIDTH, HEIGHT, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
+        glEnable(GL_TEXTURE_2D);
 
         // Create example drawables
         drawableList.add(new Rectangle(10, 20, 100, 30));
