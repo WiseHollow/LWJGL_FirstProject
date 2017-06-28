@@ -9,7 +9,7 @@ public class Game
 
     public Game()
     {
-        displayManager = new DisplayManager(800, 600);
+        displayManager = new DisplayManager(1280, 960);
     }
 
     public void init()

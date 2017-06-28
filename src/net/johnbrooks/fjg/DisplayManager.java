@@ -19,8 +19,8 @@ public class DisplayManager
 {
     private static final int FPS_LIMIT = 60;
 
-    private int WIDTH = 800;
-    private int HEIGHT = 600;
+    private int WIDTH;
+    private int HEIGHT;
 
     private List<IDrawable> drawableList = new ArrayList<>();
 
