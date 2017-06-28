@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.shapes;
+package net.johnbrooks.fjg.drawables;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.glEnd;

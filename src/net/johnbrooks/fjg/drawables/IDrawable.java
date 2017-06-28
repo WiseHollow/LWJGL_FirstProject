@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.shapes;
+package net.johnbrooks.fjg.drawables;
 
 /**
  * Created by ieatl on 6/27/2017.

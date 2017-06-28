@@ -1,8 +1,8 @@
 package net.johnbrooks.fjg;
 
-import net.johnbrooks.fjg.shapes.IDrawable;
-import net.johnbrooks.fjg.shapes.Line;
-import net.johnbrooks.fjg.shapes.Rectangle;
+import net.johnbrooks.fjg.drawables.IDrawable;
+import net.johnbrooks.fjg.drawables.Line;
+import net.johnbrooks.fjg.drawables.Rectangle;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -19,13 +19,20 @@ public class DisplayManager
 {
     private static final int FPS_LIMIT = 60;
 
-    private static final int WIDTH = 800;
-    private static final int HEIGHT = 600;
+    private int WIDTH = 800;
+    private int HEIGHT = 600;
 
-    private static List<IDrawable> drawableList = new ArrayList<>();
+    private List<IDrawable> drawableList = new ArrayList<>();
 
-    public static void create()
+    public DisplayManager(int WIDTH, int HEIGHT)
     {
+        this.WIDTH = WIDTH;
+        this.HEIGHT = HEIGHT;
+    }
+
+    public void init()
+    {
+        // Create display
         DisplayMode displayMode = new DisplayMode(WIDTH, HEIGHT);
 
         try
@@ -37,11 +44,13 @@ public class DisplayManager
             e.printStackTrace();
         }
 
+        // Begin session
         glMatrixMode(GL_PROJECTION);
         glLoadIdentity();
         glOrtho(0, WIDTH, HEIGHT, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
 
+        // Create example drawables
         drawableList.add(new Rectangle(10, 20, 100, 30));
         drawableList.add(new Rectangle(15, 120, 100, 30));
         drawableList.add(new Line(200, 50, 200, 550));
@@ -50,7 +59,7 @@ public class DisplayManager
         drawableList.add(rect);
     }
 
-    public static void draw()
+    public void draw()
     {
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearColor(0.3921568f, 0.5843137f, 0.9294117f, 1f);
@@ -59,13 +68,13 @@ public class DisplayManager
             drawable.draw();
     }
 
-    public static void update()
+    public void update()
     {
         Display.sync(FPS_LIMIT);
         Display.update();
     }
 
-    public static void close()
+    public void close()
     {
         Display.destroy();
     }

@@ -7,18 +7,19 @@ import org.lwjgl.opengl.Display;
  */
 public class Main
 {
+    public static Game game;
+
     public static void main(String[] args)
     {
-        DisplayManager.create();
+        game = new Game();
+        game.init();
 
         while (!Display.isCloseRequested())
         {
-            //update and draw
-
-            DisplayManager.draw();
-            DisplayManager.update();
+            game.draw();
+            game.update();
         }
 
-        DisplayManager.close();
+        game.exit();
     }
 }
