@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg;
+package net.johnbrooks.fjg.shapes;
 
 import static org.lwjgl.opengl.GL11.*;
 

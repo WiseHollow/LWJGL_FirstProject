@@ -1,5 +1,8 @@
 package net.johnbrooks.fjg;
 
+import net.johnbrooks.fjg.shapes.IDrawable;
+import net.johnbrooks.fjg.shapes.Line;
+import net.johnbrooks.fjg.shapes.Rectangle;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -41,6 +44,7 @@ public class DisplayManager
 
         drawableList.add(new Rectangle(10, 20, 100, 30));
         drawableList.add(new Rectangle(15, 120, 100, 30));
+        drawableList.add(new Line(200, 50, 200, 550));
         Rectangle rect = new Rectangle(300, 50, 100, 30);
         rect.setColor(1f, 0.3f, 0.1f);
         drawableList.add(rect);
@@ -53,13 +57,6 @@ public class DisplayManager
 
         for (IDrawable drawable : drawableList)
             drawable.draw();
-
-        //glBegin(GL_LINES);
-        //glVertex2f(10, 10);
-        //glVertex2f(50, 10);
-        //glEnd();
-
-
     }
 
     public static void update()
