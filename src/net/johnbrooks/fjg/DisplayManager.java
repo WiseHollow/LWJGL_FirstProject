@@ -55,7 +55,11 @@ public class DisplayManager
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         glClearColor(0.3921568f, 0.5843137f, 0.9294117f, 1f);
 
-        for (IDrawable drawable : Game.getGame().getDrawables())
+        for (IDrawable drawable : Game.getGame().getLayer0())
+            drawable.draw();
+        for (IDrawable drawable : Game.getGame().getLayer1())
+            drawable.draw();
+        for (IDrawable drawable : Game.getGame().getLayer2())
             drawable.draw();
     }
 
@@ -64,7 +68,11 @@ public class DisplayManager
         Display.sync(FPS_LIMIT);
         Display.update();
 
-        for (IDrawable drawable : Game.getGame().getDrawables())
+        for (IDrawable drawable : Game.getGame().getLayer0())
+            drawable.update();
+        for (IDrawable drawable : Game.getGame().getLayer1())
+            drawable.update();
+        for (IDrawable drawable : Game.getGame().getLayer2())
             drawable.update();
     }
 

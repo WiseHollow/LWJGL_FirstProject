@@ -22,7 +22,10 @@ public class Game
     }
 
     private DisplayManager displayManager;
-    private List<IDrawable> drawables = new ArrayList<>();
+
+    private List<IDrawable> layer0 = new ArrayList<>();
+    private List<IDrawable> layer1 = new ArrayList<>();
+    private List<IDrawable> layer2 = new ArrayList<>();
 
     private Game()
     {
@@ -33,8 +36,8 @@ public class Game
     {
         displayManager.init();
 
-        drawables.add(new Tile(0, 0, 64, 64, TileType.GRASS));
-        drawables.add(new Tile(64, 0, 64, 64, TileType.GRASS));
+        layer0.add(new Tile(0, 0, 64, 64, TileType.GRASS));
+        layer0.add(new Tile(64, 0, 64, 64, TileType.DIRT));
     }
 
     /**
@@ -58,9 +61,13 @@ public class Game
      */
     public void exit()
     {
-        drawables.clear();
+        layer0.clear();
+        layer1.clear();
+        layer2.clear();
         displayManager.close();
     }
 
-    public List<IDrawable> getDrawables() { return drawables; }
+    public List<IDrawable> getLayer0() { return layer0; }
+    public List<IDrawable> getLayer1() { return layer1; }
+    public List<IDrawable> getLayer2() { return layer2; }
 }
