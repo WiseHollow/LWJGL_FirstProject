@@ -3,7 +3,6 @@ package net.johnbrooks.fjg;
 import net.johnbrooks.fjg.drawables.IDrawable;
 import net.johnbrooks.fjg.drawables.Tile;
 import net.johnbrooks.fjg.drawables.TileType;
-import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +31,9 @@ public class Game
         displayManager = new DisplayManager(1280, 960);
     }
 
+    /**
+     * Setup variables and needed GUI for game-play. This should only be called once.
+     */
     public void init()
     {
         displayManager.init();

@@ -1,14 +1,9 @@
 package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.IDrawable;
-import net.johnbrooks.fjg.drawables.Line;
-import net.johnbrooks.fjg.drawables.Rectangle;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.lwjgl.opengl.GL11.*;
 
