@@ -79,4 +79,9 @@ public class Tile implements IDrawable
     {
 
     }
+
+    public TileType getTileType()
+    {
+        return tileType;
+    }
 }
