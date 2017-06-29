@@ -2,6 +2,7 @@ package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.IDrawable;
 import net.johnbrooks.fjg.drawables.Tile;
+import net.johnbrooks.fjg.drawables.TileType;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
@@ -32,13 +33,8 @@ public class Game
     {
         displayManager.init();
 
-        Texture textureGrass = Tile.loadTexture("grass.png");
-        Texture textureDirt = Tile.loadTexture("dirt.png");
-        if (textureGrass != null)
-        {
-            drawables.add(new Tile(0, 0, 64, 64, textureGrass));
-            drawables.add(new Tile(64, 0, 64, 64, textureDirt));
-        }
+        drawables.add(new Tile(0, 0, 64, 64, TileType.GRASS));
+        drawables.add(new Tile(64, 0, 64, 64, TileType.GRASS));
     }
 
     /**

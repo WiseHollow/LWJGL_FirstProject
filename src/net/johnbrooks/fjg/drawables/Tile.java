@@ -6,6 +6,7 @@ import org.newdawn.slick.util.ResourceLoader;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.HashMap;
 
 import static org.lwjgl.opengl.GL11.*;
 
@@ -14,14 +15,20 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class Tile implements IDrawable
 {
+    private static HashMap<String, Texture> textureHashMap = new HashMap<>();
+
     public static Texture loadTexture(String name)
     {
+        if (textureHashMap.containsKey(name))
+            return textureHashMap.get(name);
+
         Texture texture = null;
 
-        InputStream inputStream = ResourceLoader.getResourceAsStream("res/tiles/" + name);
+        InputStream inputStream = ResourceLoader.getResourceAsStream("res/tiles/" + name + ".png");
         try
         {
             texture = TextureLoader.getTexture("PNG", inputStream);
+            textureHashMap.put(name, texture);
         } catch (IOException e)
         {
             e.printStackTrace();
@@ -31,15 +38,17 @@ public class Tile implements IDrawable
     }
 
     private float x, y, width, height;
+    private TileType tileType;
     private Texture texture;
 
-    public Tile(float x, float y, float width, float height, Texture texture)
+    public Tile(float x, float y, float width, float height, TileType tileType)
     {
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
-        this.texture = texture;
+        this.tileType = tileType;
+        this.texture = loadTexture(tileType.textureName);
     }
 
     @Override
