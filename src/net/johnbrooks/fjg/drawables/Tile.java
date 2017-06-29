@@ -1,6 +1,12 @@
 package net.johnbrooks.fjg.drawables;
 
 import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.opengl.TextureLoader;
+import org.newdawn.slick.util.ResourceLoader;
+
+import java.io.IOException;
+import java.io.InputStream;
+
 import static org.lwjgl.opengl.GL11.*;
 
 /**
@@ -8,6 +14,22 @@ import static org.lwjgl.opengl.GL11.*;
  */
 public class Tile implements IDrawable
 {
+    public static Texture loadTexture(String name)
+    {
+        Texture texture = null;
+
+        InputStream inputStream = ResourceLoader.getResourceAsStream("res/tiles/" + name);
+        try
+        {
+            texture = TextureLoader.getTexture("PNG", inputStream);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return texture;
+    }
+
     private float x, y, width, height;
     private Texture texture;
 
@@ -39,8 +61,8 @@ public class Tile implements IDrawable
         glTexCoord2f(0, 1);
         glVertex2f(0, height);
 
-        glLoadIdentity();
         glEnd();
+        glLoadIdentity();
     }
 
     @Override

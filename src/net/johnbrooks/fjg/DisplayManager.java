@@ -22,8 +22,6 @@ public class DisplayManager
     private int WIDTH;
     private int HEIGHT;
 
-    private List<IDrawable> drawableList = new ArrayList<>();
-
     public DisplayManager(int WIDTH, int HEIGHT)
     {
         this.WIDTH = WIDTH;
