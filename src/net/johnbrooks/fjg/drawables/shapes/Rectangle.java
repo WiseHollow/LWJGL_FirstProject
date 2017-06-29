@@ -1,4 +1,6 @@
-package net.johnbrooks.fjg.drawables;
+package net.johnbrooks.fjg.drawables.shapes;
+
+import net.johnbrooks.fjg.drawables.IDrawable;
 
 import static org.lwjgl.opengl.GL11.*;
 

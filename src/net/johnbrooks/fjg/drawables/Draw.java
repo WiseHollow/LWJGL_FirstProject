@@ -1,0 +1,60 @@
+package net.johnbrooks.fjg.drawables;
+
+import net.johnbrooks.fjg.TileGrid;
+import org.newdawn.slick.opengl.Texture;
+
+import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL11.glLoadIdentity;
+
+/**
+ * Created by ieatl on 6/29/2017.
+ */
+public class Draw
+{
+    public static void drawTexture(Texture texture, int x, int y)
+    {
+        int width = texture.getImageWidth();
+        int height = texture.getImageHeight();
+
+        texture.bind();
+        glTranslatef(x, y, 0);
+        glBegin(GL_QUADS);
+
+        glTexCoord2f(0, 0);
+        glVertex2f(0, 0);
+
+        glTexCoord2f(1, 0);
+        glVertex2f(width, 0);
+
+        glTexCoord2f(1, 1);
+        glVertex2f(width, height);
+
+        glTexCoord2f(0, 1);
+        glVertex2f(0, height);
+
+        glEnd();
+        glLoadIdentity();
+    }
+
+    public static void drawTexture(Texture texture, int x, int y, int width, int height)
+    {
+        texture.bind();
+        glTranslatef(x, y, 0);
+        glBegin(GL_QUADS);
+
+        glTexCoord2f(0, 0);
+        glVertex2f(0, 0);
+
+        glTexCoord2f(1, 0);
+        glVertex2f(width, 0);
+
+        glTexCoord2f(1, 1);
+        glVertex2f(width, height);
+
+        glTexCoord2f(0, 1);
+        glVertex2f(0, height);
+
+        glEnd();
+        glLoadIdentity();
+    }
+}

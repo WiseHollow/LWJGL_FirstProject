@@ -1,11 +1,11 @@
-package net.johnbrooks.fjg.drawables;
+package net.johnbrooks.fjg.drawables.tiles;
 
 /**
  * Created by ieatl on 6/29/2017.
  */
 public enum TileType
 {
-    GRASS("grass", true, 0), DIRT("dirt", true, 1);
+    GRASS("grass", true, 0), DIRT("dirt", true, 1), WATER("water", false, 2);
 
     public static TileType getTileType(final int id) throws Exception
     {

@@ -1,5 +1,7 @@
-package net.johnbrooks.fjg.drawables;
+package net.johnbrooks.fjg.drawables.tiles;
 
+import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.IDrawable;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
@@ -37,11 +39,11 @@ public class Tile implements IDrawable
         return texture;
     }
 
-    private float x, y, width, height;
+    private int x, y, width, height;
     private TileType tileType;
     private Texture texture;
 
-    public Tile(float x, float y, float width, float height, TileType tileType)
+    public Tile(int x, int y, int width, int height, TileType tileType)
     {
         this.x = x;
         this.y = y;
@@ -54,24 +56,7 @@ public class Tile implements IDrawable
     @Override
     public void draw()
     {
-        texture.bind();
-        glTranslatef(x, y, 0);
-        glBegin(GL_QUADS);
-
-        glTexCoord2f(0, 0);
-        glVertex2f(0, 0);
-
-        glTexCoord2f(1, 0);
-        glVertex2f(width, 0);
-
-        glTexCoord2f(1, 1);
-        glVertex2f(width, height);
-
-        glTexCoord2f(0, 1);
-        glVertex2f(0, height);
-
-        glEnd();
-        glLoadIdentity();
+        Draw.drawTexture(texture, x, y);
     }
 
     @Override
