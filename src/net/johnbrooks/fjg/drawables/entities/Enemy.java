@@ -83,7 +83,6 @@ public class Enemy
                     y < targetCheckpoint.getTile().getY() + 3
                     )
             {
-                Log.info("Reached checkpoint. Change direction...");
                 reached = true;
 
                 // Snap to grid
