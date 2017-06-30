@@ -1,9 +1,10 @@
-package net.johnbrooks.fjg.levels;
+package net.johnbrooks.fjg.level.levels;
 
-import net.johnbrooks.fjg.TileGrid;
-import net.johnbrooks.fjg.Wave;
+import net.johnbrooks.fjg.level.TileGrid;
+import net.johnbrooks.fjg.level.Wave;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
+import net.johnbrooks.fjg.level.Level;
 
 /**
  * Created by ieatl on 6/29/2017.

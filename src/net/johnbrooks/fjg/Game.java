@@ -1,9 +1,7 @@
 package net.johnbrooks.fjg;
 
-import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.entities.Enemy;
-import net.johnbrooks.fjg.levels.Level;
-import net.johnbrooks.fjg.levels.Level1Easy;
+import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.level.levels.Level1Easy;
 
 /**
  * Created by ieatl on 6/28/2017.

@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg;
+package net.johnbrooks.fjg.drawables;
 
 import net.johnbrooks.fjg.drawables.IDrawable;
 import org.lwjgl.LWJGLException;

@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg;
 
+import net.johnbrooks.fjg.drawables.DisplayManager;
 import org.lwjgl.opengl.Display;
 
 /**

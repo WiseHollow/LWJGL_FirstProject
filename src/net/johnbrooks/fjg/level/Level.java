@@ -1,7 +1,4 @@
-package net.johnbrooks.fjg.levels;
-
-import net.johnbrooks.fjg.TileGrid;
-import net.johnbrooks.fjg.Wave;
+package net.johnbrooks.fjg.level;
 
 /**
  * Created by ieatl on 6/29/2017.
