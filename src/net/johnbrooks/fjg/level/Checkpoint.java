@@ -33,6 +33,8 @@ public class Checkpoint
         while(nextTile.getTileType() == tile.getTileType())
         {
             nextTile = level.tileGrid.getTile(nextTile.getXSlot() + currentDirection.getX(), nextTile.getYSlot() + currentDirection.getY());
+            if (nextTile == null)
+                return null;
         }
 
         Tile endTile = level.tileGrid.getTile(nextTile.getXSlot() - currentDirection.getX(), nextTile.getYSlot() - currentDirection.getY());

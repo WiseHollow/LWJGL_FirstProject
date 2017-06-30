@@ -76,19 +76,22 @@ public class Enemy
     private boolean checkpointReached()
     {
         boolean reached = false;
-        if (x > targetCheckpoint.getTile().getX() - 3 &&
-                x < targetCheckpoint.getTile().getX() + 3 &&
-                y > targetCheckpoint.getTile().getY() - 3 &&
-                y < targetCheckpoint.getTile().getY() + 3
-                )
+        if (targetCheckpoint != null)
         {
-            Log.info("Reached checkpoint. Change direction...");
-            reached = true;
+            if (x > targetCheckpoint.getTile().getX() - 3 &&
+                    x < targetCheckpoint.getTile().getX() + 3 &&
+                    y > targetCheckpoint.getTile().getY() - 3 &&
+                    y < targetCheckpoint.getTile().getY() + 3
+                    )
+            {
+                Log.info("Reached checkpoint. Change direction...");
+                reached = true;
 
-            // Snap to grid
-            x = targetCheckpoint.getTile().getX();
-            y = targetCheckpoint.getTile().getY();
-            direction = targetCheckpoint.getDirection();
+                // Snap to grid
+                x = targetCheckpoint.getTile().getX();
+                y = targetCheckpoint.getTile().getY();
+                direction = targetCheckpoint.getDirection();
+            }
         }
 
         return reached;
@@ -107,7 +110,10 @@ public class Enemy
             {
                 // Get next checkpoint
                 targetCheckpointIndex++;
-                targetCheckpoint = level.getCheckpointList().get(targetCheckpointIndex);
+                if (targetCheckpointIndex < level.getCheckpointList().size())
+                    targetCheckpoint = level.getCheckpointList().get(targetCheckpointIndex);
+                else
+                    targetCheckpoint = null;
             }
         }
         else

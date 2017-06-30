@@ -9,14 +9,17 @@ import org.newdawn.slick.util.Log;
  */
 public class TileGrid
 {
-    private static short TILE_WIDTH = 64;
-    private static short TILE_HEIGHT = 64;
+    private static final short TILE_WIDTH = 64;
+    private static final short TILE_HEIGHT = 64;
+
+    public static final short TILES_WIDE = 20;
+    public static final short TILES_HIGH = 15;
 
     private Tile[][] map;
 
     public TileGrid(TileType baseTileType)
     {
-        map = new Tile[20][15];
+        map = new Tile[TILES_WIDE][TILES_HIGH];
         for (int x = 0; x < map.length; x++)
             for (int y = 0; y < map[x].length; y++)
                 map[x][y] = new Tile(x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, baseTileType);
@@ -26,7 +29,7 @@ public class TileGrid
     {
         try
         {
-            map = new Tile[20][15];
+            map = new Tile[TILES_WIDE][TILES_HIGH];
             for (int x = 0; x < map.length; x++)
                 for (int y = 0; y < map[x].length; y++)
                     map[x][y] = new Tile(x * TILE_WIDTH, y * TILE_HEIGHT, TILE_WIDTH, TILE_HEIGHT, TileType.getTileType(layout[y][x]));
