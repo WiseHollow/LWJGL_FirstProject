@@ -1,11 +1,14 @@
 package net.johnbrooks.fjg.drawables.tiles;
 
+import net.johnbrooks.fjg.drawables.TileTexture;
+import org.newdawn.slick.opengl.Texture;
+
 /**
  * Created by ieatl on 6/29/2017.
  */
 public enum TileType
 {
-    GRASS("grass", true, 0), DIRT("dirt", true, 1), WATER("water", false, 2);
+    GRASS(TileTexture.GRASS.getTexture(), true, 0), DIRT(TileTexture.DIRT.getTexture(), true, 1), WATER(TileTexture.WATER.getTexture(), false, 2);
 
     public static TileType getTileType(final int id) throws Exception
     {
@@ -15,18 +18,18 @@ public enum TileType
         throw new Exception("Invalid TileType id (" + id + ").");
     }
 
-    String textureName;
+    Texture texture;
     boolean buildable;
     int id;
 
-    TileType(String textureName, boolean buildable, int id)
+    TileType(Texture texture, boolean buildable, int id)
     {
-        this.textureName = textureName;
+        this.texture = texture;
         this.buildable = buildable;
         this.id = id;
     }
 
-    public String getTextureName() { return textureName; }
+    public Texture getTexture() { return texture; }
     public boolean isBuildable() { return buildable; }
     public int getId() { return id; }
 }
