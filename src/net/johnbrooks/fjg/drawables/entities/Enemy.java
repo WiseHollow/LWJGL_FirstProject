@@ -1,10 +1,8 @@
 package net.johnbrooks.fjg.drawables.entities;
 
+import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.level.Checkpoint;
-import net.johnbrooks.fjg.level.Level;
-import net.johnbrooks.fjg.level.TileGrid;
-import net.johnbrooks.fjg.level.Direction;
+import net.johnbrooks.fjg.level.*;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.util.Log;
 
@@ -16,13 +14,14 @@ import static net.johnbrooks.fjg.Clock.delta;
 public class Enemy
 {
     private Level level;
+    private Wave wave;
     private TileGrid tileGrid;
     private Texture texture;
     private int width, height, health;
     private float x, y, speed;
 
     private Direction direction;
-    private boolean first = true;
+    private boolean first = true, alive = true;
     private Checkpoint targetCheckpoint;
     private int targetCheckpointIndex;
 
@@ -105,6 +104,14 @@ public class Enemy
             {
                 x += delta() * direction.getX() * speed;
                 y += delta() * direction.getY() * speed;
+
+                if (x > DisplayManager.getScreenWidth() + width ||
+                        x < -width ||
+                        y > DisplayManager.getScreenHeight() + height ||
+                        y < -height)
+                {
+                    remove();
+                }
             }
             else
             {
@@ -120,8 +127,18 @@ public class Enemy
             first = false;
     }
 
+    public void remove()
+    {
+        alive = false;
+    }
+
     public void draw()
     {
         Draw.drawTexture(texture, (int)x, (int)y, width, height);
+    }
+
+    public boolean isAlive()
+    {
+        return alive;
     }
 }
