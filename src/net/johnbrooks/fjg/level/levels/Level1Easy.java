@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.level.levels;
 
+import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.level.TileGrid;
 import net.johnbrooks.fjg.level.Wave;
 import net.johnbrooks.fjg.drawables.Draw;
@@ -36,6 +37,7 @@ public class Level1Easy extends Level
         tileGrid = new TileGrid(map);
         Enemy enemyTest = new Enemy(Draw.loadEntityTexture("enemy"), 128, 0, 64, 64, 100, 2);
         wave = new Wave(30, enemyTest);
+        player = new Player(tileGrid);
     }
 
     public TileGrid getTileGrid()

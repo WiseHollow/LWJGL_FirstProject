@@ -1,6 +1,5 @@
 package net.johnbrooks.fjg.drawables;
 
-import net.johnbrooks.fjg.drawables.IDrawable;
 import org.lwjgl.LWJGLException;
 import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
@@ -14,14 +13,17 @@ public class DisplayManager
 {
     private static final int FPS_LIMIT = 60;
 
-    private int WIDTH;
-    private int HEIGHT;
+    private static int WIDTH;
+    private static int HEIGHT;
 
     public DisplayManager(int WIDTH, int HEIGHT)
     {
         this.WIDTH = WIDTH;
         this.HEIGHT = HEIGHT;
     }
+
+    public static int getScreenHeight() { return HEIGHT; }
+    public static int getScreenWidth() { return WIDTH; }
 
     public void init()
     {
