@@ -30,6 +30,11 @@ public class Tile implements IDrawable
         this.texture = Draw.loadTileTexture(tileType.textureName);
     }
 
+    public int getX() { return x; }
+    public int getY() { return y; }
+    public int getXSlot() { return x / 64; }
+    public int getYSlot() { return y / 64; }
+
     @Override
     public void draw()
     {

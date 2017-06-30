@@ -29,6 +29,7 @@ public class Game
     public void init()
     {
         level1Easy = new Level1Easy();
+        level1Easy.init();
     }
 
     /**

@@ -11,12 +11,14 @@ import java.util.List;
  */
 public class Wave
 {
+    private Level level;
     private float timeSinceLastSpawn, timeUntilSpawn;
     private Enemy enemyToSpawn;
     private List<Enemy> enemyList;
 
-    public Wave(float timeUntilSpawn, Enemy enemyToSpawn)
+    public Wave(Level level, float timeUntilSpawn, Enemy enemyToSpawn)
     {
+        this.level = level;
         this.enemyList = new ArrayList<>();
         this.enemyToSpawn = enemyToSpawn;
         this.timeUntilSpawn = timeUntilSpawn;
@@ -44,6 +46,17 @@ public class Wave
 
     public void spawn()
     {
-        enemyList.add(new Enemy(enemyToSpawn));
+        if (enemyList.isEmpty())
+        {
+            Enemy enemy = new Enemy(enemyToSpawn);
+            enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
+            enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
+            enemyList.add(enemy);
+        }
+    }
+
+    public Level getLevel()
+    {
+        return level;
     }
 }

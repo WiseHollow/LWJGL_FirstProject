@@ -1,6 +1,10 @@
 package net.johnbrooks.fjg.drawables.entities;
 
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.level.Checkpoint;
+import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.level.TileGrid;
+import net.johnbrooks.fjg.level.Direction;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.util.Log;
 
@@ -11,14 +15,21 @@ import static net.johnbrooks.fjg.Clock.delta;
  */
 public class Enemy
 {
+    private Level level;
+    private TileGrid tileGrid;
     private Texture texture;
     private int width, height, health;
     private float x, y, speed;
 
+    private Direction direction;
     private boolean first = true;
+    private Checkpoint targetCheckpoint;
+    private int targetCheckpointIndex;
 
-    public Enemy(Texture texture, int x, int y, int width, int height, int health, float speed)
+    public Enemy(Level level, TileGrid tileGrid, Texture texture, int x, int y, int width, int height, int health, float speed)
     {
+        this.level = level;
+        this.tileGrid = tileGrid;
         this.texture = texture;
         this.x = x;
         this.y = y;
@@ -26,10 +37,15 @@ public class Enemy
         this.height = height;
         this.speed = speed;
         this.health = health;
+        this.targetCheckpoint = level.getCheckpointList().get(0);
+        this.targetCheckpointIndex = 0;
+        this.direction = level.getCheckpointList().get(0).getDirection();
     }
 
     public Enemy(Enemy enemy)
     {
+        this.level = enemy.level;
+        this.tileGrid = enemy.tileGrid;
         this.texture = enemy.texture;
         this.x = enemy.x;
         this.y = enemy.y;
@@ -37,12 +53,63 @@ public class Enemy
         this.height = enemy.height;
         this.speed = enemy.speed;
         this.health = enemy.health;
+        this.targetCheckpoint = enemy.targetCheckpoint;
+        this.targetCheckpointIndex = enemy.targetCheckpointIndex;
+        this.direction = enemy.direction;
+    }
+
+    public int getX() { return (int) x; }
+    public int getY() { return (int) y; }
+    public int getTileX() { return (int) Math.floor( (x) * 0.015625f );}
+    public int getTileY() { return (int) Math.floor( (y) * 0.015625f );}
+
+    public void setTileX(int x)
+    {
+        this.x = x * 64;
+    }
+
+    public void setTileY(int y)
+    {
+        this.y = y * 64;
+    }
+
+    private boolean checkpointReached()
+    {
+        boolean reached = false;
+        if (x > targetCheckpoint.getTile().getX() - 3 &&
+                x < targetCheckpoint.getTile().getX() + 3 &&
+                y > targetCheckpoint.getTile().getY() - 3 &&
+                y < targetCheckpoint.getTile().getY() + 3
+                )
+        {
+            Log.info("Reached checkpoint. Change direction...");
+            reached = true;
+
+            // Snap to grid
+            x = targetCheckpoint.getTile().getX();
+            y = targetCheckpoint.getTile().getY();
+            direction = targetCheckpoint.getDirection();
+        }
+
+        return reached;
     }
 
     public void update()
     {
         if (!first)
-            x += delta() * speed;
+        {
+            if (!checkpointReached())
+            {
+                x += delta() * direction.getX() * speed;
+                y += delta() * direction.getY() * speed;
+            }
+            else
+            {
+                // Get next checkpoint
+                targetCheckpointIndex++;
+                targetCheckpoint = level.getCheckpointList().get(targetCheckpointIndex);
+            }
+        }
         else
             first = false;
     }
