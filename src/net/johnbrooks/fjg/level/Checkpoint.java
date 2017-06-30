@@ -29,16 +29,35 @@ public class Checkpoint
 
     public Checkpoint calculateNextCheckpoint()
     {
+        // This is a special flag for if the path has an edge on the edge of the map.
+        boolean edge = false;
+        // Keep track of the next tile in our direction
         Tile nextTile = tile;
+        // Are we on a valid tile type?
         while(nextTile.getTileType() == tile.getTileType())
         {
-            nextTile = level.tileGrid.getTile(nextTile.getXSlot() + currentDirection.getX(), nextTile.getYSlot() + currentDirection.getY());
+            // We need to check one space ahead of us.
+            int _x = nextTile.getXSlot() + currentDirection.getX();
+            int _y = nextTile.getYSlot() + currentDirection.getY();
+            // Make our nextTile equal to the ahead tile.
+            nextTile = level.tileGrid.getTile(_x, _y);
+            // Check for a non-existent tile.
             if (nextTile == null)
-                return null;
+            {
+                // This must be an edge detection. Let's push it through.
+                edge = true;
+                // Get the tile before this edge, so we have a valid tile.
+                nextTile = level.tileGrid.getTile(_x - currentDirection.getX(), _y - currentDirection.getY());
+                break;
+            }
         }
 
-        Tile endTile = level.tileGrid.getTile(nextTile.getXSlot() - currentDirection.getX(), nextTile.getYSlot() - currentDirection.getY());
+        // Set the valid end tile.
+        Tile endTile = nextTile;
+        if (!edge)
+            endTile = level.tileGrid.getTile(nextTile.getXSlot() - currentDirection.getX(), nextTile.getYSlot() - currentDirection.getY());
 
+        // Calculate direction.
         if (currentDirection == Direction.LEFT || currentDirection == Direction.RIGHT)
         {
             Tile up = level.tileGrid.getTile(endTile.getXSlot(), endTile.getYSlot() - 1);
@@ -76,6 +95,7 @@ public class Checkpoint
             }
         }
 
+        // If we cannot find a new checkpoint to make, return null. 
         return null;
     }
 }
