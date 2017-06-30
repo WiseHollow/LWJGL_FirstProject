@@ -1,6 +1,8 @@
 package net.johnbrooks.fjg.level.levels;
 
 import net.johnbrooks.fjg.Player;
+import net.johnbrooks.fjg.drawables.GameTexture;
+import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.*;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
@@ -29,6 +31,8 @@ public class Level1Easy extends Level
                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
+    TowerCannon testCannon;
+
     public Level1Easy()
     {
         super();
@@ -36,9 +40,11 @@ public class Level1Easy extends Level
         Checkpoint spawnCheckPoint = new Checkpoint(this, tileGrid.getTile(0, 2), Direction.RIGHT);
         checkpointList.add(spawnCheckPoint);
 
-        Enemy enemyTest = new Enemy(this, tileGrid, Draw.loadEntityTexture("enemy"), 0, 0, 64, 64, 100, 15);
+        Enemy enemyTest = new Enemy(this, tileGrid, GameTexture.ENEMY.getTexture(), 0, 0, 64, 64, 100, 15);
         wave = new Wave(this, 10, enemyTest);
         player = new Player(tileGrid);
+
+        testCannon = new TowerCannon(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 12);
     }
 
     public TileGrid getTileGrid()
@@ -50,11 +56,13 @@ public class Level1Easy extends Level
     public void draw()
     {
         super.draw();
+        testCannon.draw();
     }
 
     @Override
     public void update()
     {
         super.update();
+        testCannon.update();
     }
 }
