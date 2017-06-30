@@ -33,14 +33,21 @@ public class Player
     {
         while (Keyboard.next())
         {
-            if (Keyboard.getEventKey() == Keyboard.KEY_M && Keyboard.getEventKeyState())
+            if (Keyboard.getEventKeyState())
             {
-                int ordinal = gameMode.ordinal();
-                ordinal++;
-                if (ordinal >= GameMode.values().length)
-                    ordinal = 0;
-                gameMode = GameMode.values()[ordinal];
-                Log.info("Set GameMode to: " + gameMode.name());
+                if (Keyboard.getEventKey() == Keyboard.KEY_M)
+                {
+                    int ordinal = gameMode.ordinal();
+                    ordinal++;
+                    if (ordinal >= GameMode.values().length)
+                        ordinal = 0;
+                    gameMode = GameMode.values()[ordinal];
+                    Log.info("Set GameMode to: " + gameMode.name());
+                }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_P)
+                {
+                    Clock.pause();
+                }
             }
         }
 

@@ -11,6 +11,8 @@ public class Clock
     private static long lastFrame, totalTime;
     public static float delta = 0, multiplier = 1;
 
+    public static boolean isPaused() { return paused; }
+
     public static long getTime()
     {
         return Sys.getTime() * 1000 / Sys.getTimerResolution();
@@ -21,7 +23,12 @@ public class Clock
         long currentTime = getTime();
         int delta = (int) (currentTime - lastFrame);
         lastFrame = getTime();
-        return delta * 0.01f;
+
+        // Limit the delta returned
+        float d = delta * 0.01f;
+        if (d > 0.5f)
+            d = 0.5f;
+        return d;
     }
 
     public static float delta()
