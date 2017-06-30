@@ -43,6 +43,11 @@ public class DisplayManager
         glOrtho(0, WIDTH, HEIGHT, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
         glEnable(GL_TEXTURE_2D);
+
+        // Enable blending
+        glEnable(GL_BLEND);
+        // Allow for alpha channel
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     }
 
     public void draw()

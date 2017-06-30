@@ -10,34 +10,11 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 
-import static org.lwjgl.opengl.GL11.*;
-
 /**
  * Created by ieatl on 6/28/2017.
  */
 public class Tile implements IDrawable
 {
-    private static HashMap<String, Texture> textureHashMap = new HashMap<>();
-
-    public static Texture loadTexture(String name)
-    {
-        if (textureHashMap.containsKey(name))
-            return textureHashMap.get(name);
-
-        Texture texture = null;
-
-        InputStream inputStream = ResourceLoader.getResourceAsStream("res/tiles/" + name + ".png");
-        try
-        {
-            texture = TextureLoader.getTexture("PNG", inputStream);
-            textureHashMap.put(name, texture);
-        } catch (IOException e)
-        {
-            e.printStackTrace();
-        }
-
-        return texture;
-    }
 
     private int x, y, width, height;
     private TileType tileType;
@@ -50,7 +27,7 @@ public class Tile implements IDrawable
         this.width = width;
         this.height = height;
         this.tileType = tileType;
-        this.texture = loadTexture(tileType.textureName);
+        this.texture = Draw.loadTileTexture(tileType.textureName);
     }
 
     @Override

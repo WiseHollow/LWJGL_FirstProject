@@ -2,27 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/res/entities/enemy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/res/tiles/water.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/Line.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/Rectangle.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/Tile.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/TileType.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/levels/Easy1.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Line.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/shapes/Line.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Rectangle.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/shapes/Rectangle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Tile.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/TileType.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Clock.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Wave.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/DisplayManager.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/DisplayManager.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/Game.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/Game.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/TileGrid.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/TileGrid.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/res/tiles/dirt.png" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/res/tiles/dirt.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/res/tiles/grass.png" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/res/tiles/grass.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/grass.png" afterPath="$PROJECT_DIR$/src/res/tiles/grass.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/Main.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/Main.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/Draw.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/Draw.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/entities/Enemy.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/entities/Enemy.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/tiles/Tile.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/drawables/tiles/Tile.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/levels/Level1Easy.class" afterPath="$PROJECT_DIR$/out/production/FirstJavaGame/net/johnbrooks/fjg/levels/Level1Easy.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/TileGrid.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/TileGrid.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level1Easy.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level1Easy.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -36,17 +32,43 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="TileGrid.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/TileGrid.java">
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="30" column="72" lean-forward="false" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
+            <state relative-caret-position="-51">
+              <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1087#1088#0" expanded="true" />
-                <element signature="e#1119#1120#0" expanded="true" />
-                <element signature="e#1183#1184#0" expanded="true" />
-                <element signature="e#1253#1254#0" expanded="true" />
+                <element signature="e#618#619#0" expanded="true" />
+                <element signature="e#663#664#0" expanded="true" />
+                <element signature="e#788#789#0" expanded="true" />
+                <element signature="e#821#822#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DisplayManager.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="631">
+              <caret line="48" column="34" lean-forward="false" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Wave.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Wave.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#981#982#0" expanded="true" />
+                <element signature="e#1035#1036#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,26 +77,25 @@
       <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            <state relative-caret-position="418">
+              <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#619#620#0" expanded="true" />
-                <element signature="e#681#682#0" expanded="true" />
+                <element signature="e#1213#1214#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Tile.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java">
+      <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="45" column="36" lean-forward="false" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
+            <state relative-caret-position="425">
+              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#1504#1505#0" expanded="true" />
-                <element signature="e#1551#1552#0" expanded="true" />
+                <element signature="e#298#299#0" expanded="true" />
+                <element signature="e#327#328#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -83,36 +104,14 @@
       <file leaf-file-name="Level1Easy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level1Easy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+            <state relative-caret-position="255">
+              <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
               <folding>
-                <element signature="e#1469#1470#0" expanded="true" />
-                <element signature="e#1500#1501#0" expanded="true" />
-                <element signature="e#1530#1531#0" expanded="true" />
-                <element signature="e#1561#1562#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TileType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="478">
-              <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-              <folding>
-                <element signature="e#1133#1134#0" expanded="true" />
-                <element signature="e#1171#1172#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1803#1804#0" expanded="true" />
+                <element signature="e#1831#1832#0" expanded="true" />
+                <element signature="e#1877#1878#0" expanded="true" />
+                <element signature="e#1907#1908#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -155,20 +154,23 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/shapes/Rectangle.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/shapes/IDrawable.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/shapes/Line.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Easy1.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/TileType.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Tile.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/shapes/Rectangle.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tile/TileType.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/TileGrid.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Clock.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Wave.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level1Easy.java" />
       </list>
     </option>
@@ -328,6 +330,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drawables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fjg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -650,7 +678,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -688,7 +718,7 @@
         <state relative-caret-position="578">
           <caret line="42" column="0" lean-forward="true" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -715,7 +745,7 @@
         <state relative-caret-position="272">
           <caret line="23" column="52" lean-forward="false" selection-start-line="23" selection-start-column="52" selection-end-line="23" selection-end-column="52" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -741,7 +771,7 @@
         <state relative-caret-position="697">
           <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -775,7 +805,7 @@
         <state relative-caret-position="697">
           <caret line="42" column="16" lean-forward="false" selection-start-line="42" selection-start-column="16" selection-end-line="42" selection-end-column="16" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -859,45 +889,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="12" lean-forward="false" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="699">
-          <caret line="56" column="25" lean-forward="false" selection-start-line="56" selection-start-column="25" selection-end-line="56" selection-end-column="25" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="478">
-          <caret line="41" column="26" lean-forward="false" selection-start-line="41" selection-start-column="26" selection-end-line="41" selection-end-column="26" />
-          <folding>
-            <element signature="e#1133#1134#0" expanded="true" />
-            <element signature="e#1171#1172#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
-          <caret line="39" column="5" lean-forward="false" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/shapes/Rectangle.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="119">
@@ -914,33 +905,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="442">
-          <caret line="27" column="53" lean-forward="false" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#619#620#0" expanded="true" />
-            <element signature="e#681#682#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="45" column="36" lean-forward="false" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1504#1505#0" expanded="true" />
-            <element signature="e#1551#1552#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="119">
+          <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/TileGrid.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="306">
           <caret line="30" column="72" lean-forward="false" selection-start-line="30" selection-start-column="72" selection-end-line="30" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -952,23 +927,120 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java">
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/Tile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="76" lean-forward="false" selection-start-line="7" selection-start-column="76" selection-end-line="7" selection-end-column="76" />
+        <state relative-caret-position="290">
+          <caret line="29" column="44" lean-forward="false" selection-start-line="29" selection-start-column="44" selection-end-line="29" selection-end-column="44" />
+          <folding>
+            <element signature="imports" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Clock.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
+          <folding>
+            <element signature="e#285#286#0" expanded="true" />
+            <element signature="e#355#356#0" expanded="true" />
+            <element signature="e#737#738#0" expanded="true" />
+            <element signature="e#769#770#0" expanded="true" />
+            <element signature="e#816#817#0" expanded="true" />
+            <element signature="e#849#850#0" expanded="true" />
+            <element signature="e#1206#1207#0" expanded="true" />
+            <element signature="e#1238#1239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-102">
+          <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="50" column="5" lean-forward="false" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1213#1214#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Wave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="29" column="9" lean-forward="false" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#981#982#0" expanded="true" />
+            <element signature="e#1035#1036#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/DisplayManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="631">
+          <caret line="48" column="34" lean-forward="false" selection-start-line="48" selection-start-column="34" selection-end-line="48" selection-end-column="34" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="42" column="20" lean-forward="false" selection-start-line="42" selection-start-column="20" selection-end-line="42" selection-end-column="20" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-51">
+          <caret line="24" column="0" lean-forward="true" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#618#619#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#788#789#0" expanded="true" />
+            <element signature="e#821#822#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="24" selection-end-line="25" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#298#299#0" expanded="true" />
+            <element signature="e#327#328#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/levels/Level1Easy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+        <state relative-caret-position="255">
+          <caret line="36" column="25" lean-forward="false" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="25" />
           <folding>
-            <element signature="e#1469#1470#0" expanded="true" />
-            <element signature="e#1500#1501#0" expanded="true" />
-            <element signature="e#1530#1531#0" expanded="true" />
-            <element signature="e#1561#1562#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1803#1804#0" expanded="true" />
+            <element signature="e#1831#1832#0" expanded="true" />
+            <element signature="e#1877#1878#0" expanded="true" />
+            <element signature="e#1907#1908#0" expanded="true" />
           </folding>
         </state>
       </provider>

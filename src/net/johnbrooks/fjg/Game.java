@@ -1,5 +1,8 @@
 package net.johnbrooks.fjg;
 
+import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.entities.Enemy;
+import net.johnbrooks.fjg.levels.Level;
 import net.johnbrooks.fjg.levels.Level1Easy;
 
 /**
@@ -15,13 +18,11 @@ public class Game
         return game;
     }
 
-    private DisplayManager displayManager;
-
-    private Level1Easy level1Easy;
+    private Level level1Easy;
 
     private Game()
     {
-        displayManager = new DisplayManager(1280, 960);
+
     }
 
     /**
@@ -29,7 +30,6 @@ public class Game
      */
     public void init()
     {
-        displayManager.init();
         level1Easy = new Level1Easy();
     }
 
@@ -38,7 +38,6 @@ public class Game
      */
     public void draw()
     {
-        displayManager.draw();
         level1Easy.draw();
     }
 
@@ -47,14 +46,15 @@ public class Game
      */
     public void update()
     {
-        displayManager.update();
+        Clock.update();
+        level1Easy.update();
     }
 
     /**
-     * Cleanup all resources and proceed by removing the display.
+     * Cleanup all resources
      */
     public void exit()
     {
-        displayManager.close();
+
     }
 }
