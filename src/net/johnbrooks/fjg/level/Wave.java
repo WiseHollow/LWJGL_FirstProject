@@ -46,13 +46,10 @@ public class Wave
 
     public void spawn()
     {
-        if (enemyList.isEmpty())
-        {
-            Enemy enemy = new Enemy(enemyToSpawn);
-            enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
-            enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
-            enemyList.add(enemy);
-        }
+        Enemy enemy = new Enemy(enemyToSpawn);
+        enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
+        enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
+        enemyList.add(enemy);
     }
 
     public Level getLevel()

@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Checkpoint.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Checkpoint.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -19,8 +20,8 @@
       <file leaf-file-name="Level1Easy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="98">
-              <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+            <state relative-caret-position="234">
+              <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2229#2230#0" expanded="true" />
@@ -30,11 +31,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wave.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Wave.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="404">
+              <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -77,7 +78,7 @@
       <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="197">
+            <state relative-caret-position="469">
               <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -105,11 +106,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Checkpoint.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Checkpoint.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Checkpoint.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="438">
-              <caret line="97" column="68" lean-forward="false" selection-start-line="97" selection-start-column="68" selection-end-line="97" selection-end-column="68" />
+              <caret line="97" column="67" lean-forward="false" selection-start-line="97" selection-start-column="67" selection-end-line="97" selection-end-column="67" />
               <folding>
                 <element signature="e#534#535#0" expanded="true" />
                 <element signature="e#561#562#0" expanded="true" />
@@ -177,12 +178,12 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Direction.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/CheckpointGrid.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Direction.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/TileGrid.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Checkpoint.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java" />
       </list>
     </option>
   </component>
@@ -1085,16 +1086,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="245">
@@ -1126,19 +1117,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/TileGrid.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="197">
+        <state relative-caret-position="469">
           <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -1150,8 +1131,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="98">
-          <caret line="17" column="26" lean-forward="false" selection-start-line="17" selection-start-column="26" selection-end-line="17" selection-end-column="26" />
+        <state relative-caret-position="234">
+          <caret line="39" column="32" lean-forward="false" selection-start-line="39" selection-start-column="32" selection-end-line="39" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2229#2230#0" expanded="true" />
@@ -1163,10 +1144,30 @@
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Checkpoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="438">
-          <caret line="97" column="68" lean-forward="false" selection-start-line="97" selection-start-column="68" selection-end-line="97" selection-end-column="68" />
+          <caret line="97" column="67" lean-forward="false" selection-start-line="97" selection-start-column="67" selection-end-line="97" selection-end-column="67" />
           <folding>
             <element signature="e#534#535#0" expanded="true" />
             <element signature="e#561#562#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/TileGrid.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="31" column="37" lean-forward="false" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Wave.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="51" column="29" lean-forward="false" selection-start-line="51" selection-start-column="29" selection-end-line="51" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

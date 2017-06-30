@@ -95,7 +95,7 @@ public class Checkpoint
             }
         }
 
-        // If we cannot find a new checkpoint to make, return null. 
+        // If we cannot find a new checkpoint to make, return null.
         return null;
     }
 }

@@ -37,7 +37,7 @@ public class Level1Easy extends Level
         checkpointList.add(spawnCheckPoint);
 
         Enemy enemyTest = new Enemy(this, tileGrid, Draw.loadEntityTexture("enemy"), 0, 0, 64, 64, 100, 15);
-        wave = new Wave(this, 30, enemyTest);
+        wave = new Wave(this, 10, enemyTest);
         player = new Player(tileGrid);
     }
 
