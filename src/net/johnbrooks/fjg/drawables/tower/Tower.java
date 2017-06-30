@@ -46,7 +46,7 @@ public abstract class Tower
 
     public void draw()
     {
-        Draw.drawTexture(baseTexture, (int)x, (int)y, width, height);
+        Draw.drawTexture(baseTexture, x, y, width, height);
     }
 
     protected abstract void shoot();

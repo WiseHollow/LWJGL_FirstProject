@@ -42,9 +42,8 @@ public class TowerCannon extends Tower
     @Override
     protected void shoot()
     {
-        Log.info("Shoot!");
         timeSinceLastShot = 0;
-        Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 5f, damage);
+        Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 20f, damage);
         projectileList.add(projectile);
     }
 }
