@@ -18,9 +18,9 @@ public class TowerCannon extends Tower
     private Texture topTexture;
     private float rotation;
 
-    public TowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, float warmUpTime, float distanceView)
+    public TowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, float warmUpTime, float distanceView, List<Enemy> enemyList)
     {
-        super(level, baseTexture, tile, damage, warmUpTime, distanceView);
+        super(level, baseTexture, tile, damage, warmUpTime, distanceView, enemyList);
         this.topTexture = topTexture;
         this.rotation = 0f;
     }

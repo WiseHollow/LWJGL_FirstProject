@@ -58,7 +58,7 @@ public class Level1Easy extends Level
         waveManager.startWave();
 
         // Setup a test cannon.
-        testCannon = new TowerCannon(this, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128);
+        testCannon = new TowerCannon(this, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, waveManager.getEnemyList());
     }
 
     @Override

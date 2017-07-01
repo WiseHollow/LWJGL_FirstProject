@@ -25,8 +25,9 @@ public abstract class Tower
     protected Texture baseTexture;
 
     protected List<Projectile> projectileList;
+    protected List<Enemy> enemyList;
 
-    public Tower(Level level, Texture baseTexture, Tile tile, int damage, float warmUpTime, float distanceView)
+    public Tower(Level level, Texture baseTexture, Tile tile, int damage, float warmUpTime, float distanceView, List<Enemy> enemyList)
     {
         this.level = level;
         this.baseTexture = baseTexture;
@@ -40,6 +41,7 @@ public abstract class Tower
         this.warmUpTime = warmUpTime;
         this.timeSinceLastShot = 0;
         this.projectileList = new ArrayList<>();
+        this.enemyList = enemyList;
     }
 
     public void update()
@@ -58,7 +60,7 @@ public abstract class Tower
     {
         List<Enemy> withinView = new ArrayList<>();
 
-        for (Enemy enemy : level.getWaveManager().getEnemyList())
+        for (Enemy enemy : enemyList)
         {
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
             if (distance <= distanceView)
