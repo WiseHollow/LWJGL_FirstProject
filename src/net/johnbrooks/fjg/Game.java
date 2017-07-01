@@ -8,6 +8,9 @@ import net.johnbrooks.fjg.level.levels.Level1Easy;
  */
 public class Game
 {
+    public static final int TILE_WIDTH = 64;
+    public static final int TILE_HEIGHT = 64;
+
     private static Game game;
     public static Game getGame()
     {

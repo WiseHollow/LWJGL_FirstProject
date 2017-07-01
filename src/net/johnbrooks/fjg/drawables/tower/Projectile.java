@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.Game;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
@@ -37,8 +38,8 @@ public class Projectile
 
     private void calculateDirection()
     {
-        float xDistance = Math.abs(target.getX() + (target.getTexture().getTextureWidth() * 0.5f) - x + (texture.getTextureWidth() * 0.5f));
-        float yDistance = Math.abs(target.getY() + (target.getTexture().getTextureHeight() * 0.5f) - y + (texture.getTextureHeight() * 0.5f));
+        float xDistance = Math.abs(target.getX() - x - Game.TILE_WIDTH * 0.25f + Game.TILE_WIDTH * 0.5f);
+        float yDistance = Math.abs(target.getY() - y - Game.TILE_HEIGHT * 0.25f + Game.TILE_HEIGHT * 0.5f);
         float totalDistance = xDistance + yDistance;
 
         xVelocity = xDistance / totalDistance;

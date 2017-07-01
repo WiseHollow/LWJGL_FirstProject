@@ -72,6 +72,14 @@ public class Player
                 {
                     Clock.pause();
                 }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
+                {
+                    Clock.changeMultiplier(-0.2f);
+                }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_RIGHT)
+                {
+                    Clock.changeMultiplier(0.2f);
+                }
             }
         }
 
