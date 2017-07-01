@@ -3,7 +3,9 @@ package net.johnbrooks.fjg.drawables.tower;
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
+import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
+import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -14,9 +16,9 @@ public class TowerCannon extends Tower
     private Texture topTexture;
     private float rotation;
 
-    public TowerCannon(Texture baseTexture, Texture topTexture, Tile tile, int damage, float warmUpTime)
+    public TowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, float warmUpTime, float distanceView)
     {
-        super(baseTexture, tile, damage, warmUpTime);
+        super(level, baseTexture, tile, damage, warmUpTime, distanceView);
         this.topTexture = topTexture;
         this.rotation = 0f;
     }
@@ -47,7 +49,12 @@ public class TowerCannon extends Tower
     protected void shoot()
     {
         timeSinceLastShot = 0;
-        Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 50f, damage);
-        projectileList.add(projectile);
+
+        Enemy target = calculateEnemyTarget();
+        if (target != null)
+        {
+            Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 50f, damage);
+            projectileList.add(projectile);
+        }
     }
 }

@@ -22,6 +22,7 @@ public abstract class Level
         checkpointList = new ArrayList<>();
     }
 
+    public WaveManager getWaveManager() { return waveManager; }
     public List<Checkpoint> getCheckpointList() { return checkpointList; }
 
     public void init()
