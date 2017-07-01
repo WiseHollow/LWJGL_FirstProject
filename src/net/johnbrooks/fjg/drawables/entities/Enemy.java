@@ -57,6 +57,22 @@ public class Enemy
         this.direction = enemy.direction;
     }
 
+    public Enemy(EnemyTemplate enemyTemplate, Level level, int x, int y)
+    {
+        this.level = level;
+        this.tileGrid = level.getTileGrid();
+        this.x = x;
+        this.y = y;
+        this.texture = enemyTemplate.getTexture();
+        this.width = enemyTemplate.getWidth();
+        this.height = enemyTemplate.getHeight();
+        this.health = enemyTemplate.getHealth();
+        this.speed = enemyTemplate.getSpeed();
+        this.targetCheckpoint = level.getCheckpointList().get(0);
+        this.targetCheckpointIndex = 0;
+        this.direction = level.getCheckpointList().get(0).getDirection();
+    }
+
     public int getX() { return (int) x; }
     public int getY() { return (int) y; }
     public int getTileX() { return (int) Math.floor( (x) * 0.015625f );}

@@ -46,6 +46,11 @@ public abstract class Level
         }
     }
 
+    public TileGrid getTileGrid()
+    {
+        return tileGrid;
+    }
+
     public void update()
     {
         wave.update();

@@ -40,16 +40,11 @@ public class Level1Easy extends Level
         Checkpoint spawnCheckPoint = new Checkpoint(this, tileGrid.getTile(0, 2), Direction.RIGHT);
         checkpointList.add(spawnCheckPoint);
 
-        Enemy enemyTest = new Enemy(this, tileGrid, GameTexture.ENEMY.getTexture(), 0, 0, 64, 64, 100, 15);
-        wave = new Wave(this, 10, enemyTest);
+        EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 15);
+        wave = new Wave(this, 10, enemyTemplate);
         player = new Player(tileGrid);
 
         testCannon = new TowerCannon(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 12);
-    }
-
-    public TileGrid getTileGrid()
-    {
-        return tileGrid;
     }
 
     @Override

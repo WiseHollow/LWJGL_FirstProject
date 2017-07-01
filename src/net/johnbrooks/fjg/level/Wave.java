@@ -15,14 +15,14 @@ public class Wave
 {
     private Level level;
     private float timeSinceLastSpawn, timeUntilSpawn;
-    private Enemy enemyToSpawn;
+    private EnemyTemplate enemyTemplate;
     private List<Enemy> enemyList;
 
-    public Wave(Level level, float timeUntilSpawn, Enemy enemyToSpawn)
+    public Wave(Level level, float timeUntilSpawn, EnemyTemplate enemyTemplate)
     {
         this.level = level;
         this.enemyList = new ArrayList<>();
-        this.enemyToSpawn = enemyToSpawn;
+        this.enemyTemplate = enemyTemplate;
         this.timeUntilSpawn = timeUntilSpawn;
         this.timeSinceLastSpawn = 0;
     }
@@ -56,9 +56,9 @@ public class Wave
 
     public void spawn()
     {
-        Enemy enemy = new Enemy(enemyToSpawn);
-        enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
-        enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
+        Enemy enemy = new Enemy(enemyTemplate, level, level.getCheckpointList().get(0).getTile().getX(), level.getCheckpointList().get(0).getTile().getY());
+        //enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
+        //enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
         enemyList.add(enemy);
     }
 
