@@ -46,7 +46,7 @@ public class Level1Easy extends Level
         super.init();
 
         // Let's create our template to make our first wave.
-        EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 65);
+        EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 30);
         // Create a wave based on the template.
         Wave wave = new Wave(this, 3, enemyTemplate, 3);
         Wave wave2 = new Wave(this, 2, enemyTemplate, 5);

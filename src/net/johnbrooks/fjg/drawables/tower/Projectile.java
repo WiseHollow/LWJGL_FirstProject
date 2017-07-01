@@ -2,7 +2,9 @@ package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
+import org.lwjgl.util.vector.Vector2f;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -13,17 +15,36 @@ public class Projectile
     private Texture texture;
     private Tile tile;
     private int damage;
-    private float x, y, speed;
+    private float x, y, speed, xVelocity, yVelocity;
+    private Enemy target;
 
-    public Projectile(Texture texture, Tile tile, float speed, int damage)
+    public Projectile(Texture texture, Tile tile, float speed, int damage, Enemy target)
     {
         this.texture = texture;
         this.tile = tile;
         this.speed = speed;
         this.damage = damage;
-        //TODO: Needs to change to the tip of the gun
+        this.target = target;
+        this.xVelocity = 0f;
+        this.yVelocity = 0f;
         this.x = tile.getX() + 16;
         this.y = tile.getY() + 16;
+        this.calculateDirection();
+    }
+
+    private void calculateDirection()
+    {
+        float xDistance = Math.abs(target.getX() - x);
+        float yDistance = Math.abs(target.getY() - y);
+        float totalDistance = xDistance + yDistance;
+
+        xVelocity = xDistance / totalDistance;
+        yVelocity = 1f - xVelocity;
+
+        if (target.getX() < x)
+            xVelocity = -xVelocity;
+        if (target.getY() < y)
+            yVelocity = -yVelocity;
     }
 
     public void draw()
@@ -33,6 +54,7 @@ public class Projectile
 
     public void update()
     {
-        x += Clock.delta() * speed;
+        x += xVelocity * speed * Clock.delta();
+        y += yVelocity * speed * Clock.delta();
     }
 }
