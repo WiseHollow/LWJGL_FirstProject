@@ -69,6 +69,11 @@ public class TileGrid
         map[x][y] = new Tile(x * 64, y * 64, 64, 64, tileType);
     }
 
+    public void update()
+    {
+
+    }
+
     public void draw()
     {
         for (int x = 0; x < map.length; x++)

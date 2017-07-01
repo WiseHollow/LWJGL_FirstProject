@@ -11,13 +11,14 @@ import java.util.List;
 public abstract class Level
 {
     protected TileGrid tileGrid;
-    protected Wave wave;
+    protected WaveManager waveManager;
     protected Player player;
 
     protected List<Checkpoint> checkpointList;
 
     public Level()
     {
+        waveManager = new WaveManager();
         checkpointList = new ArrayList<>();
     }
 
@@ -52,14 +53,15 @@ public abstract class Level
 
     public void update()
     {
-        wave.update();
+        tileGrid.update();
+        waveManager.update();
         player.update();
     }
 
     public void draw()
     {
         tileGrid.draw();
-        wave.draw();
+        waveManager.draw();
         player.draw();
     }
 }

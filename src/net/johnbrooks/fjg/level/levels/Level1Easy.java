@@ -37,12 +37,25 @@ public class Level1Easy extends Level
         tileGrid = new TileGrid(map);
         player = new Player(tileGrid);
 
+        // Create our initial checkpoint for spawning enemies. MUST BE DONE HERE. NOT IN INIT.
         Checkpoint spawnCheckPoint = new Checkpoint(this, tileGrid.getTile(0, 2), Direction.RIGHT);
         checkpointList.add(spawnCheckPoint);
+    }
 
+    @Override
+    public void init()
+    {
+        super.init();
+
+        // Let's create our template to make our first wave.
         EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 15);
-        wave = new Wave(this, 10, enemyTemplate);
+        // Create a wave based on the template.
+        Wave wave = new Wave(this, 10, enemyTemplate, 10);
+        // Add and start the wave in the WaveManager.
+        waveManager.addWave(wave);
+        waveManager.startWave();
 
+        // Setup a test cannon.
         testCannon = new TowerCannon(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 12);
     }
 
