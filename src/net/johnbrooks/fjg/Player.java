@@ -84,7 +84,7 @@ public class Player
 
                 if (getTower(x, y) == null)
                 {
-                    TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 128, level.getWaveManager().getEnemyList());
+                    TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
                     towerList.add(cannon);
                 }
             }

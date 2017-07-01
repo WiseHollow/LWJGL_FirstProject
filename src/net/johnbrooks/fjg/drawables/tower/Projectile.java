@@ -37,8 +37,8 @@ public class Projectile
 
     private void calculateDirection()
     {
-        float xDistance = Math.abs(target.getX() - x);
-        float yDistance = Math.abs(target.getY() - y);
+        float xDistance = Math.abs(target.getX() + (target.getTexture().getTextureWidth() * 0.5f) - x + (texture.getTextureWidth() * 0.5f));
+        float yDistance = Math.abs(target.getY() + (target.getTexture().getTextureHeight() * 0.5f) - y + (texture.getTextureHeight() * 0.5f));
         float totalDistance = xDistance + yDistance;
 
         xVelocity = xDistance / totalDistance;

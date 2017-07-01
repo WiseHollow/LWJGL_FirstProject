@@ -9,6 +9,7 @@ import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.util.Log;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -72,24 +73,24 @@ public abstract class Tower
 
     protected Enemy calculateEnemyTarget()
     {
-        List<Enemy> withinView = new ArrayList<>();
+        HashMap<Float, Enemy> distanceMap = new HashMap<>();
+        float closest = distanceView + 1;
 
         for (Enemy enemy : enemyList)
         {
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
             if (distance <= distanceView)
             {
-                withinView.add(enemy);
-                break;
+                distanceMap.put(distance, enemy);
+                if (distance < closest)
+                    closest = distance;
             }
         }
 
-        //TODO: Get the one furthest along.
-
-        if (withinView.isEmpty())
+        if (!distanceMap.isEmpty())
+            return distanceMap.get(closest);
+        else
             return null;
-
-        return withinView.get(0);
     }
 
     protected abstract void shoot();

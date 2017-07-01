@@ -66,7 +66,7 @@ public class TowerCannon extends Tower
         if (target != null)
         {
             timeSinceLastShot = 0;
-            Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 150f, damage, target);
+            Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 250f, damage, target);
             projectileList.add(projectile);
         }
     }

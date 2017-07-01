@@ -76,6 +76,7 @@ public class Enemy
     public int getY() { return (int) y; }
     public int getTileX() { return (int) Math.floor( (x) * 0.015625f );}
     public int getTileY() { return (int) Math.floor( (y) * 0.015625f );}
+    public Texture getTexture() { return texture; }
 
     public void setTileX(int x)
     {
