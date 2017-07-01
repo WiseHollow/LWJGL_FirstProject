@@ -32,9 +32,6 @@ public class TowerCannon extends Tower
         super.draw();
         if (topTexture != null)
             Draw.drawTextureRotation(topTexture, x, y, rotation);
-
-        for (Projectile projectile : projectileList)
-            projectile.draw();
     }
 
     @Override
@@ -46,18 +43,6 @@ public class TowerCannon extends Tower
             rotation += Clock.delta() * 30;
         else
             rotation = calculateAngleToTarget();
-
-        for (int i = 0; i < projectileList.size(); i++)
-        {
-            Projectile projectile = projectileList.get(i);
-            if (projectile.isAlive())
-                projectile.update();
-            else
-            {
-                projectileList.remove(projectile);
-                i--;
-            }
-        }
     }
 
     @Override
@@ -66,8 +51,7 @@ public class TowerCannon extends Tower
         if (target != null)
         {
             timeSinceLastShot = 0;
-            Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 250f, damage, target);
-            projectileList.add(projectile);
+            projectileList.add(new Projectile(GameTexture.BULLET.getTexture(), tile, 250f, damage, target));
         }
     }
 }

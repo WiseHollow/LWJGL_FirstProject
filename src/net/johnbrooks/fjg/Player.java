@@ -90,10 +90,14 @@ public class Player
                 int x = (int) (Mouse.getX() / 64f);
                 int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
 
-                if (getTower(x, y) == null)
+                Tile tile = tileGrid.getTile(x, y);
+                if (tile != null && tile.getTileType().isBuildable())
                 {
-                    TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
-                    towerList.add(cannon);
+                    if (getTower(x, y) == null)
+                    {
+                        TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
+                        towerList.add(cannon);
+                    }
                 }
             }
         }

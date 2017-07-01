@@ -8,7 +8,7 @@ import org.newdawn.slick.opengl.Texture;
  */
 public enum TileType
 {
-    GRASS(TileTexture.GRASS.getTexture(), true, 0), DIRT(TileTexture.DIRT.getTexture(), true, 1), WATER(TileTexture.WATER.getTexture(), false, 2);
+    GRASS(TileTexture.GRASS.getTexture(), true, 0), DIRT(TileTexture.DIRT.getTexture(), false, 1), WATER(TileTexture.WATER.getTexture(), false, 2);
 
     public static TileType getTileType(final int id) throws Exception
     {

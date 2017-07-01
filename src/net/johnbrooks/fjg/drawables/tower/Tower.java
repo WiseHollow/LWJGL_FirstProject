@@ -58,11 +58,28 @@ public abstract class Tower
         timeSinceLastShot += Clock.delta();
         if (timeSinceLastShot > warmUpTime)
             shoot();
+
+        for (int i = 0; i < projectileList.size(); i++)
+        {
+            Projectile projectile = projectileList.get(i);
+            if (!projectile.isAlive())
+            {
+                projectileList.remove(projectile);
+                i--;
+            }
+            else
+            {
+                projectile.update();
+            }
+        }
     }
 
     public void draw()
     {
         Draw.drawTexture(baseTexture, x, y, width, height);
+
+        for (Projectile projectile : projectileList)
+            projectile.draw();
     }
 
     protected float calculateAngleToTarget()
