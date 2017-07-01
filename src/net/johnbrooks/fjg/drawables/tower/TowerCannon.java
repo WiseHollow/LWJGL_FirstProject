@@ -7,6 +7,7 @@ import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
+import org.newdawn.slick.util.Log;
 
 import java.util.List;
 
@@ -46,8 +47,17 @@ public class TowerCannon extends Tower
         else
             rotation = calculateAngleToTarget();
 
-        for (Projectile projectile : projectileList)
-            projectile.update();
+        for (int i = 0; i < projectileList.size(); i++)
+        {
+            Projectile projectile = projectileList.get(i);
+            if (projectile.isAlive())
+                projectile.update();
+            else
+            {
+                projectileList.remove(projectile);
+                Log.info("Removed projectile.");
+            }
+        }
     }
 
     @Override

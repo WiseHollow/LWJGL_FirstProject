@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
@@ -17,6 +18,7 @@ public class Projectile
     private int damage;
     private float x, y, speed, xVelocity, yVelocity;
     private Enemy target;
+    private boolean alive;
 
     public Projectile(Texture texture, Tile tile, float speed, int damage, Enemy target)
     {
@@ -27,6 +29,7 @@ public class Projectile
         this.target = target;
         this.xVelocity = 0f;
         this.yVelocity = 0f;
+        this.alive = true;
         this.x = tile.getX() + 16;
         this.y = tile.getY() + 16;
         this.calculateDirection();
@@ -56,5 +59,14 @@ public class Projectile
     {
         x += xVelocity * speed * Clock.delta();
         y += yVelocity * speed * Clock.delta();
+
+        if (x < -texture.getTextureWidth() || x > DisplayManager.getScreenWidth() + texture.getTextureWidth() ||
+                y < -texture.getTextureHeight() || y > DisplayManager.getScreenHeight() + texture.getTextureHeight())
+            alive = false;
+    }
+
+    public boolean isAlive()
+    {
+        return alive;
     }
 }
