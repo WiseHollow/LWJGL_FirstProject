@@ -29,7 +29,7 @@ public class Player
     {
         this.level = level;
         this.tileGrid = level.getTileGrid();
-        this.gameMode = GameMode.CREATIVE;
+        this.gameMode = GameMode.NORMAL;
         this.brush = TileType.GRASS;
         this.towerList = new ArrayList<>();
         this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
@@ -66,7 +66,18 @@ public class Player
             }
         }
 
-        if (gameMode == GameMode.CREATIVE)
+        if (gameMode == GameMode.NORMAL)
+        {
+            if (Mouse.isButtonDown(0))
+            {
+                int x = (int) (Mouse.getX() / 64f);
+                int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
+
+                TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 128, level.getWaveManager().getEnemyList());
+                towerList.add(cannon);
+            }
+        }
+        else if (gameMode == GameMode.CREATIVE)
         {
             if (Mouse.isButtonDown(0))
                 setTile(brush);
