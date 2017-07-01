@@ -37,7 +37,7 @@ public class TowerCannon extends Tower
     {
         super.update();
 
-        rotation += Clock.delta() * 3;
+        rotation += Clock.delta() * 30;
 
         for (Projectile projectile : projectileList)
             projectile.update();
@@ -47,7 +47,7 @@ public class TowerCannon extends Tower
     protected void shoot()
     {
         timeSinceLastShot = 0;
-        Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 20f, damage);
+        Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 50f, damage);
         projectileList.add(projectile);
     }
 }

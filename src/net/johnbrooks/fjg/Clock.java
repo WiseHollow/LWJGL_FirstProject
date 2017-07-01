@@ -25,9 +25,9 @@ public class Clock
         lastFrame = getTime();
 
         // Limit the delta returned
-        float d = delta * 0.01f;
-        if (d > 0.5f)
-            d = 0.5f;
+        float d = delta * 0.001f;
+        if (d > 0.05f)
+            d = 0.05f;
         return d;
     }
 

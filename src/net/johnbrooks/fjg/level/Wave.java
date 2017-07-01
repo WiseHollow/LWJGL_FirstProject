@@ -25,7 +25,7 @@ public class Wave
         this.enemyList = new ArrayList<>();
         this.enemyTemplate = enemyTemplate;
         this.timeUntilSpawn = timeUntilSpawn;
-        this.timeSinceLastSpawn = 0;
+        this.timeSinceLastSpawn = timeUntilSpawn;
         this.amountToSpawn = amountToSpawn;
         this.amountSpawned = 0;
         this.active = false;

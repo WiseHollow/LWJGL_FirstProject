@@ -48,15 +48,15 @@ public class Level1Easy extends Level
         super.init();
 
         // Let's create our template to make our first wave.
-        EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 15);
+        EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 150);
         // Create a wave based on the template.
-        Wave wave = new Wave(this, 10, enemyTemplate, 10);
+        Wave wave = new Wave(this, 2, enemyTemplate, 10);
         // Add and start the wave in the WaveManager.
         waveManager.addWave(wave);
         waveManager.startWave();
 
         // Setup a test cannon.
-        testCannon = new TowerCannon(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 12);
+        testCannon = new TowerCannon(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3);
     }
 
     @Override
