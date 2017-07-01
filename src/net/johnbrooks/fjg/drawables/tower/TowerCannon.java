@@ -41,7 +41,10 @@ public class TowerCannon extends Tower
     {
         super.update();
 
-        rotation += Clock.delta() * 30;
+        if (target == null)
+            rotation += Clock.delta() * 30;
+        else
+            rotation = calculateAngleToTarget();
 
         for (Projectile projectile : projectileList)
             projectile.update();
@@ -50,7 +53,6 @@ public class TowerCannon extends Tower
     @Override
     protected void shoot()
     {
-        Enemy target = calculateEnemyTarget();
         if (target != null)
         {
             timeSinceLastShot = 0;

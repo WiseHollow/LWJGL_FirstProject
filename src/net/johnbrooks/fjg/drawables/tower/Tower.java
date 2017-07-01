@@ -23,6 +23,7 @@ public abstract class Tower
     protected float timeSinceLastShot, warmUpTime, distanceView;
     protected int x, y, width, height, damage;
     protected Texture baseTexture;
+    protected Enemy target;
 
     protected List<Projectile> projectileList;
     protected List<Enemy> enemyList;
@@ -42,6 +43,7 @@ public abstract class Tower
         this.timeSinceLastShot = 0;
         this.projectileList = new ArrayList<>();
         this.enemyList = enemyList;
+        this.target = null;
     }
 
     public int getX() { return x; }
@@ -51,6 +53,7 @@ public abstract class Tower
 
     public void update()
     {
+        target = calculateEnemyTarget();
         timeSinceLastShot += Clock.delta();
         if (timeSinceLastShot > warmUpTime)
             shoot();
@@ -59,6 +62,12 @@ public abstract class Tower
     public void draw()
     {
         Draw.drawTexture(baseTexture, x, y, width, height);
+    }
+
+    protected float calculateAngleToTarget()
+    {
+        double tempAngle = Math.atan2(target.getY() - y, target.getX() - x);
+        return (float) Math.toDegrees(tempAngle) + 90f;
     }
 
     protected Enemy calculateEnemyTarget()
@@ -71,7 +80,7 @@ public abstract class Tower
             if (distance <= distanceView)
             {
                 withinView.add(enemy);
-                return enemy;
+                break;
             }
         }
 
@@ -79,8 +88,8 @@ public abstract class Tower
 
         if (withinView.isEmpty())
             return null;
-        else
-            return withinView.get(0);
+
+        return withinView.get(0);
     }
 
     protected abstract void shoot();
