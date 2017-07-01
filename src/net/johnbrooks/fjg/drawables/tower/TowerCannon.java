@@ -8,6 +8,8 @@ import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
 
+import java.util.List;
+
 /**
  * Created by ieatl on 6/30/2017.
  */
@@ -48,11 +50,10 @@ public class TowerCannon extends Tower
     @Override
     protected void shoot()
     {
-        timeSinceLastShot = 0;
-
         Enemy target = calculateEnemyTarget();
         if (target != null)
         {
+            timeSinceLastShot = 0;
             Projectile projectile = new Projectile(GameTexture.BULLET.getTexture(), tile, 50f, damage);
             projectileList.add(projectile);
         }
