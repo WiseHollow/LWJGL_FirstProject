@@ -2,8 +2,6 @@ package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
-import org.lwjgl.input.Keyboard;
-import org.newdawn.slick.util.Log;
 
 import java.util.ArrayList;
 import java.util.List;

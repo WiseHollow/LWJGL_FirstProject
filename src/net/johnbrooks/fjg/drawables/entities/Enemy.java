@@ -14,7 +14,6 @@ import static net.johnbrooks.fjg.Clock.delta;
 public class Enemy
 {
     private Level level;
-    private Wave wave;
     private TileGrid tileGrid;
     private Texture texture;
     private int width, height, health;
