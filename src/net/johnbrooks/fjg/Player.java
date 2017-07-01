@@ -1,26 +1,38 @@
 package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
+import net.johnbrooks.fjg.drawables.tower.Tower;
+import net.johnbrooks.fjg.drawables.tower.TowerCannon;
+import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.util.Log;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ieatl on 6/30/2017.
  */
 public class Player
 {
+    private Level level;
     private TileGrid tileGrid;
     private GameMode gameMode;
     private TileType brush;
+    private List<Tower> towerList;
 
-    public Player(TileGrid tileGrid)
+    public Player(Level level)
     {
-        this.tileGrid = tileGrid;
+        this.level = level;
+        this.tileGrid = level.getTileGrid();
         this.gameMode = GameMode.CREATIVE;
         this.brush = TileType.GRASS;
+        this.towerList = new ArrayList<>();
+        this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
     public void setTile(TileType type)
@@ -31,6 +43,9 @@ public class Player
 
     public void update()
     {
+        for (Tower tower : towerList)
+            tower.update();
+
         while (Keyboard.next())
         {
             if (Keyboard.getEventKeyState())
@@ -76,7 +91,8 @@ public class Player
 
     public void draw()
     {
-
+        for (Tower tower : towerList)
+            tower.draw();
     }
 
     public enum GameMode

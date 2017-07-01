@@ -29,13 +29,11 @@ public class Level1Easy extends Level
                     { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
             };
 
-    TowerCannon testCannon;
-
     public Level1Easy()
     {
         super();
         tileGrid = new TileGrid(map);
-        player = new Player(tileGrid);
+        player = new Player(this);
 
         // Create our initial checkpoint for spawning enemies. MUST BE DONE HERE. NOT IN INIT.
         Checkpoint spawnCheckPoint = new Checkpoint(this, tileGrid.getTile(0, 2), Direction.RIGHT);
@@ -56,22 +54,17 @@ public class Level1Easy extends Level
         waveManager.addWave(wave);
         waveManager.addWave(wave2);
         waveManager.startWave();
-
-        // Setup a test cannon.
-        testCannon = new TowerCannon(this, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, waveManager.getEnemyList());
     }
 
     @Override
     public void draw()
     {
         super.draw();
-        testCannon.draw();
     }
 
     @Override
     public void update()
     {
         super.update();
-        testCannon.update();
     }
 }
