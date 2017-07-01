@@ -55,7 +55,7 @@ public class TowerCannon extends Tower
             else
             {
                 projectileList.remove(projectile);
-                Log.info("Removed projectile.");
+                i--;
             }
         }
     }
