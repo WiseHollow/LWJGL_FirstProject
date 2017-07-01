@@ -44,6 +44,11 @@ public abstract class Tower
         this.enemyList = enemyList;
     }
 
+    public int getX() { return x; }
+    public int getY() { return y; }
+    public int getSlotX() { return tile.getXSlot(); }
+    public int getSlotY() { return tile.getYSlot(); }
+
     public void update()
     {
         timeSinceLastShot += Clock.delta();

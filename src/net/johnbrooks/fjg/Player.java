@@ -2,6 +2,7 @@ package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.GameTexture;
+import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
@@ -33,6 +34,14 @@ public class Player
         this.brush = TileType.GRASS;
         this.towerList = new ArrayList<>();
         this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
+    }
+
+    private Tower getTower(int slotX, int slotY)
+    {
+        for (Tower tower : towerList)
+            if (tower.getSlotX() == slotX && tower.getSlotY() == slotY)
+                return tower;
+        return null;
     }
 
     public void setTile(TileType type)
@@ -73,8 +82,11 @@ public class Player
                 int x = (int) (Mouse.getX() / 64f);
                 int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
 
-                TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 128, level.getWaveManager().getEnemyList());
-                towerList.add(cannon);
+                if (getTower(x, y) == null)
+                {
+                    TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 128, level.getWaveManager().getEnemyList());
+                    towerList.add(cannon);
+                }
             }
         }
         else if (gameMode == GameMode.CREATIVE)
