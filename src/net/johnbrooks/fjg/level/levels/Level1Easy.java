@@ -4,8 +4,6 @@ import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.*;
-import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.entities.Enemy;
 
 /**
  * Created by ieatl on 6/29/2017.

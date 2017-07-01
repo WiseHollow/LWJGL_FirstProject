@@ -11,7 +11,6 @@ import java.util.List;
 public abstract class Level
 {
     protected TileGrid tileGrid;
-    //protected CheckpointGrid checkpointGrid;
     protected Wave wave;
     protected Player player;
 
