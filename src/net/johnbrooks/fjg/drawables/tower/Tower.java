@@ -76,10 +76,9 @@ public abstract class Tower
 
     public void draw()
     {
-        Draw.drawTexture(baseTexture, x, y, width, height);
-
         for (Projectile projectile : projectileList)
             projectile.draw();
+        Draw.drawTexture(baseTexture, x, y, width, height);
     }
 
     protected float calculateAngleToTarget()

@@ -13,17 +13,21 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class Projectile
 {
+    private Tower shooter;
     private Texture texture;
     private Tile tile;
-    private int damage;
+    private int damage, width, height;
     private float x, y, speed, xVelocity, yVelocity;
     private Enemy target;
     private boolean alive;
 
-    public Projectile(Texture texture, Tile tile, float speed, int damage, Enemy target)
+    public Projectile(Tower shooter, Texture texture, Tile tile, float speed, int damage, Enemy target)
     {
+        this.shooter = shooter;
         this.texture = texture;
         this.tile = tile;
+        this.width = texture.getImageWidth();
+        this.height = texture.getImageHeight();
         this.speed = speed;
         this.damage = damage;
         this.target = target;
@@ -62,11 +66,43 @@ public class Projectile
 
         if (x < -texture.getTextureWidth() || x > DisplayManager.getScreenWidth() + texture.getTextureWidth() ||
                 y < -texture.getTextureHeight() || y > DisplayManager.getScreenHeight() + texture.getTextureHeight())
+        {
             alive = false;
+            return;
+        }
+
+        Enemy colliding = calculateColliding();
+        if (colliding != null)
+        {
+            colliding.hurt(damage);
+            alive = false;
+            return;
+        }
     }
 
     public boolean isAlive()
     {
         return alive;
+    }
+
+    private Enemy calculateColliding()
+    {
+        for (Enemy enemy : shooter.enemyList)
+        {
+            int enemyX = enemy.getX();
+            int enemyY = enemy.getY();
+            int enemyWidth = enemy.getWidth();
+            int enemyHeight = enemy.getHeight();
+
+            //if (x >= enemyX && x <= enemyX + enemyWidth &&
+            //        y >= enemyY && y <= enemyY + enemyHeight
+            //        )
+            //    return enemy;
+
+            if (x + width > enemyX && x < enemyX + enemyWidth && y + height > enemyY && y < enemyY + enemyHeight)
+                return enemy;
+        }
+
+        return null;
     }
 }
