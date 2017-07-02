@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Projectile.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Projectile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerCannon.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerCannon.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -30,6 +25,16 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-629">
+              <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -40,11 +45,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Level1Easy.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Level1Easy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
+            <state relative-caret-position="368">
+              <caret line="47" column="102" lean-forward="false" selection-start-line="47" selection-start-column="102" selection-end-line="47" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -80,11 +85,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TowerCannon.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TowerCannon.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerCannon.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+            <state relative-caret-position="748">
+              <caret line="53" column="103" lean-forward="false" selection-start-line="53" selection-start-column="97" selection-end-line="53" selection-end-column="103" />
               <folding />
             </state>
           </provider>
@@ -183,9 +188,9 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/LevelEditor.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Projectile.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerCannon.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
       </list>
     </option>
   </component>
@@ -1098,17 +1103,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
-          <folding>
-            <element signature="e#1696#1697#0" expanded="true" />
-            <element signature="e#1736#1737#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="561">
@@ -1121,14 +1115,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
           <caret line="102" column="29" lean-forward="false" selection-start-line="102" selection-start-column="29" selection-end-line="102" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="55" column="33" lean-forward="false" selection-start-line="55" selection-start-column="33" selection-end-line="55" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1159,8 +1145,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerCannon.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="31" column="21" lean-forward="false" selection-start-line="31" selection-start-column="21" selection-end-line="31" selection-end-column="21" />
+        <state relative-caret-position="748">
+          <caret line="53" column="103" lean-forward="false" selection-start-line="53" selection-start-column="97" selection-end-line="53" selection-end-column="103" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-629">
+          <caret line="35" column="10" lean-forward="false" selection-start-line="35" selection-start-column="10" selection-end-line="35" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="47" column="102" lean-forward="false" selection-start-line="47" selection-start-column="102" selection-end-line="47" selection-end-column="102" />
           <folding />
         </state>
       </provider>
