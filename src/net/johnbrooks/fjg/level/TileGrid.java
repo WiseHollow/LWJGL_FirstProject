@@ -47,7 +47,7 @@ public class TileGrid
     {
         if (x < 0 || x >= map.length || y < 0 || y >= map[0].length)
         {
-            Log.info("X: " + x + " and Y: " + y);
+            System.out.println("TileGrid out of index. X: " + x + " and Y: " + y);
             return null;
         }
         return map[x][y];
