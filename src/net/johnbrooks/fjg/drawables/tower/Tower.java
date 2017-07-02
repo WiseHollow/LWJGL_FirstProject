@@ -4,9 +4,9 @@ import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
+import net.johnbrooks.fjg.drawables.tower.projectiles.Projectile;
 import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.util.Log;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -51,6 +51,8 @@ public abstract class Tower
     public int getY() { return y; }
     public int getSlotX() { return tile.getXSlot(); }
     public int getSlotY() { return tile.getYSlot(); }
+
+    public List<Enemy> getEnemyList() { return enemyList; }
 
     public void update()
     {

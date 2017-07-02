@@ -31,7 +31,7 @@ public class Tile implements IDrawable
     @Override
     public void draw()
     {
-        Draw.drawTexture(texture, x, y);
+        Draw.drawTexture(texture, x, y, 0);
     }
 
     @Override

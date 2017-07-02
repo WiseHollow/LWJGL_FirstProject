@@ -5,6 +5,7 @@ import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
+import net.johnbrooks.fjg.drawables.tower.projectiles.IceProjectile;
 import net.johnbrooks.fjg.drawables.tower.projectiles.Projectile;
 import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
@@ -14,16 +15,17 @@ import java.util.List;
 /**
  * Created by ieatl on 6/30/2017.
  */
-public class TowerCannon extends Tower
+public class IceTowerCannon extends Tower
 {
     private Texture topTexture;
-    private float rotation;
+    private float rotation, slowMultiplier;
 
-    public TowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, float warmUpTime, float distanceView, List<Enemy> enemyList)
+    public IceTowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, float warmUpTime, float distanceView, List<Enemy> enemyList, float slowMultiplier)
     {
         super(level, baseTexture, tile, damage, warmUpTime, distanceView, enemyList);
         this.topTexture = topTexture;
         this.rotation = 0f;
+        this.slowMultiplier = slowMultiplier;
     }
 
     @Override
@@ -51,7 +53,7 @@ public class TowerCannon extends Tower
         if (target != null)
         {
             timeSinceLastShot = 0;
-            projectileList.add(new Projectile(this, GameTexture.BULLET.getTexture(), tile, 250f, damage, target));
+            projectileList.add(new IceProjectile(this, GameTexture.BULLET.getTexture(), tile, 250f, damage, target, slowMultiplier));
         }
     }
 }

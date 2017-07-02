@@ -4,7 +4,6 @@ import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.level.*;
 import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.util.Log;
 
 import static net.johnbrooks.fjg.Clock.delta;
 
@@ -17,7 +16,7 @@ public class Enemy
     private TileGrid tileGrid;
     private Texture texture;
     private int width, height, health;
-    private float x, y, speed;
+    private float x, y, speed, slowMultiplier;
 
     private Direction direction;
     private boolean first = true, alive = true;
@@ -38,6 +37,7 @@ public class Enemy
         this.targetCheckpoint = level.getCheckpointList().get(0);
         this.targetCheckpointIndex = 0;
         this.direction = level.getCheckpointList().get(0).getDirection();
+        this.slowMultiplier = 1f;
     }
 
     public Enemy(Enemy enemy)
@@ -54,6 +54,7 @@ public class Enemy
         this.targetCheckpoint = enemy.targetCheckpoint;
         this.targetCheckpointIndex = enemy.targetCheckpointIndex;
         this.direction = enemy.direction;
+        this.slowMultiplier = enemy.slowMultiplier;
     }
 
     public Enemy(EnemyTemplate enemyTemplate, Level level, int x, int y)
@@ -70,6 +71,7 @@ public class Enemy
         this.targetCheckpoint = level.getCheckpointList().get(0);
         this.targetCheckpointIndex = 0;
         this.direction = level.getCheckpointList().get(0).getDirection();
+        this.slowMultiplier = 1f;
     }
 
     public int getX() { return (int) x; }
@@ -84,10 +86,14 @@ public class Enemy
     {
         this.x = x * 64;
     }
-
     public void setTileY(int y)
     {
         this.y = y * 64;
+    }
+
+    public void setSlowMultiplier(float slowMultiplier)
+    {
+        this.slowMultiplier = slowMultiplier;
     }
 
     private boolean checkpointReached()
@@ -119,8 +125,8 @@ public class Enemy
         {
             if (!checkpointReached())
             {
-                x += delta() * direction.getX() * speed;
-                y += delta() * direction.getY() * speed;
+                x += delta() * direction.getX() * speed * slowMultiplier;
+                y += delta() * direction.getY() * speed * slowMultiplier;
 
                 if (x > DisplayManager.getScreenWidth() + width ||
                         x < -width ||
@@ -158,7 +164,10 @@ public class Enemy
 
     public void draw()
     {
-        Draw.drawTexture(texture, (int)x, (int)y, width, height);
+        if (slowMultiplier >= 1f)
+            Draw.drawTexture(texture, (int)x, (int)y, width, height);
+        else
+            Draw.drawTextureWithRGB(texture, (int)x, (int)y, 0f, 0.3f, 0.93f, 1f);
     }
 
     public boolean isAlive()

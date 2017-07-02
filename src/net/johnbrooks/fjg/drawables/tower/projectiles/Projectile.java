@@ -1,6 +1,7 @@
-package net.johnbrooks.fjg.drawables.tower;
+package net.johnbrooks.fjg.drawables.tower.projectiles;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.state.states.Game;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
@@ -18,8 +19,8 @@ public class Projectile
     private Tile tile;
     private int damage, width, height;
     private float x, y, speed, xVelocity, yVelocity;
-    private Enemy target;
     private boolean alive;
+    protected Enemy target, colliding;
 
     public Projectile(Tower shooter, Texture texture, Tile tile, float speed, int damage, Enemy target)
     {
@@ -56,7 +57,7 @@ public class Projectile
 
     public void draw()
     {
-        Draw.drawTexture(texture, (int) x, (int) y);
+        Draw.drawTexture(texture, (int) x, (int) y, 0);
     }
 
     public void update()
@@ -71,12 +72,11 @@ public class Projectile
             return;
         }
 
-        Enemy colliding = calculateColliding();
+        calculateColliding();
         if (colliding != null)
         {
             colliding.hurt(damage);
             alive = false;
-            return;
         }
     }
 
@@ -87,20 +87,18 @@ public class Projectile
 
     private Enemy calculateColliding()
     {
-        for (Enemy enemy : shooter.enemyList)
+        for (Enemy enemy : shooter.getEnemyList())
         {
             int enemyX = enemy.getX();
             int enemyY = enemy.getY();
             int enemyWidth = enemy.getWidth();
             int enemyHeight = enemy.getHeight();
 
-            //if (x >= enemyX && x <= enemyX + enemyWidth &&
-            //        y >= enemyY && y <= enemyY + enemyHeight
-            //        )
-            //    return enemy;
-
             if (x + width > enemyX && x < enemyX + enemyWidth && y + height > enemyY && y < enemyY + enemyHeight)
+            {
+                colliding = enemy;
                 return enemy;
+            }
         }
 
         return null;

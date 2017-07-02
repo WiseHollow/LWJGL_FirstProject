@@ -4,6 +4,7 @@ import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
+import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
@@ -100,7 +101,12 @@ public class Player
                 {
                     if (getTower(x, y) == null)
                     {
-                        TowerCannon cannon = new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
+                        //TowerCannon cannon = new TowerCannon
+                        //        (level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
+                        //                tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
+                        Tower cannon = new IceTowerCannon
+                                (level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
+                                        tileGrid.getTile(x, y), 3, 3, 256, level.getWaveManager().getEnemyList(), 0.1f);
                         towerList.add(cannon);
                     }
                 }

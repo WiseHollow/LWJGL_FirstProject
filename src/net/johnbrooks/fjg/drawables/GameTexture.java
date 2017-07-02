@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public enum GameTexture
 {
-    BULLET("res/towers/bullet.png"), CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ENEMY("res/entities/enemy.png");
+    BULLET("res/towers/bullet.png"), CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ICE_CANNON_BASE("res/towers/iceCannonBase.png"), ICE_CANNON_GUN("res/towers/iceCannonGun.png"), ENEMY("res/entities/enemy.png");
 
     private static HashMap<String, Texture> textureHashMap = new HashMap<>();
 
