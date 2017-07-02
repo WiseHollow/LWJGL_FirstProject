@@ -1,12 +1,14 @@
-package net.johnbrooks.fjg;
+package net.johnbrooks.fjg.state.states;
 
+import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.levels.Level1Easy;
+import net.johnbrooks.fjg.state.IGameState;
 
 /**
  * Created by ieatl on 6/28/2017.
  */
-public class Game
+public class Game implements IGameState
 {
     public static final int TILE_WIDTH = 64;
     public static final int TILE_HEIGHT = 64;
@@ -38,6 +40,7 @@ public class Game
     /**
      * Loop through all drawable objects in the game, and use the draw method.
      */
+    @Override
     public void draw()
     {
         level1Easy.draw();
@@ -46,6 +49,7 @@ public class Game
     /**
      * Loop through all drawable objects in the game, and use the update method.
      */
+    @Override
     public void update()
     {
         Clock.update();
@@ -55,6 +59,7 @@ public class Game
     /**
      * Cleanup all resources
      */
+    @Override
     public void exit()
     {
 

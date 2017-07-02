@@ -16,6 +16,21 @@ import static org.lwjgl.opengl.GL11.glLoadIdentity;
  */
 public class Draw
 {
+    public static Texture loadTexture(String path)
+    {
+        Texture texture = null;
+        InputStream inputStream = ResourceLoader.getResourceAsStream(path);
+        try
+        {
+            texture = TextureLoader.getTexture("PNG", inputStream);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        return texture;
+    }
+
     public static void drawTexture(Texture texture, int x, int y)
     {
         int width = texture.getImageWidth();

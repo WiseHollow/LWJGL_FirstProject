@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
+import net.johnbrooks.fjg.state.StateManager;
 import org.lwjgl.opengl.Display;
 
 /**
@@ -9,7 +10,8 @@ import org.lwjgl.opengl.Display;
 public class Main
 {
     private static DisplayManager displayManager;
-    private static Game game;
+    private static StateManager stateManager;
+
     public static void main(String[] args)
     {
         init();
@@ -20,7 +22,6 @@ public class Main
             draw();
         }
 
-        game.exit();
         displayManager.close();
     }
 
@@ -28,19 +29,18 @@ public class Main
     {
         displayManager = new DisplayManager(1280, 960);
         displayManager.init();
-        game = Game.getGame();
-        game.init();
+        stateManager = StateManager.getInstance();
     }
 
     private static void update()
     {
         displayManager.update();
-        game.update();
+        stateManager.update();
     }
 
     private static void draw()
     {
         displayManager.draw();
-        game.draw();
+        stateManager.draw();
     }
 }

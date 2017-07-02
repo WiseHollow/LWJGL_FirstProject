@@ -1,25 +1,21 @@
 package net.johnbrooks.fjg.drawables;
 
 import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.opengl.TextureLoader;
-import org.newdawn.slick.util.ResourceLoader;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.HashMap;
 
 /**
- * Created by ieatl on 6/30/2017.
+ * Created by ieatl on 7/2/2017.
  */
-public enum GameTexture
+public enum MenuTexture
 {
-    BULLET("res/towers/bullet.png"), CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ENEMY("res/entities/enemy.png");
+    MAINMENU_BACKGROUND("res/menu/mainmenu.png");
 
     private static HashMap<String, Texture> textureHashMap = new HashMap<>();
 
     private String path;
 
-    GameTexture(String path)
+    MenuTexture(String path)
     {
         this.path = path;
     }

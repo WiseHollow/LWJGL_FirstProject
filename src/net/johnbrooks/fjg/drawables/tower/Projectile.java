@@ -1,12 +1,11 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
-import net.johnbrooks.fjg.Game;
+import net.johnbrooks.fjg.state.states.Game;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
-import org.lwjgl.util.vector.Vector2f;
 import org.newdawn.slick.opengl.Texture;
 
 /**
