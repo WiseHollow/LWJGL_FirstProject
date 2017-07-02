@@ -13,19 +13,19 @@ public class Game implements IGameState
     public static final int TILE_WIDTH = 64;
     public static final int TILE_HEIGHT = 64;
 
-    private static Game game;
-    public static Game getGame()
+    private static Game instance;
+    public static Game getInstance()
     {
-        if (game == null)
-            game = new Game();
-        return game;
+        if (instance == null)
+            instance = new Game();
+        return instance;
     }
 
     private Level level1Easy;
 
     private Game()
     {
-
+        init();
     }
 
     /**

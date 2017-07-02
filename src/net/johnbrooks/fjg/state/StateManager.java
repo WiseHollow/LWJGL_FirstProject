@@ -26,8 +26,8 @@ public class StateManager
     private StateManager()
     {
         mainMenu = new MainMenu();
-        editor = new Editor();
-        game = Game.getGame();
+        editor = Editor.getInstance();
+        game = Game.getInstance();
         setGameState(GameState.MAIN_MENU);
     }
 
