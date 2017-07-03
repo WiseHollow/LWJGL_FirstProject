@@ -3,6 +3,7 @@ package net.johnbrooks.fjg.drawables.entities;
 import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.level.*;
 import org.newdawn.slick.opengl.Texture;
 
@@ -15,9 +16,9 @@ public class Enemy
 {
     private Level level;
     private TileGrid tileGrid;
-    private Texture texture;
-    private int width, height, health;
-    private float x, y, speed, slowMultiplier;
+    private Texture texture, healthBackground, healthForeground, healthBorder;
+    private int width, height;
+    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier;
 
     private Direction direction;
     private boolean first = true, alive = true;
@@ -29,29 +30,40 @@ public class Enemy
         this.level = level;
         this.tileGrid = tileGrid;
         this.texture = texture;
+        this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
+        this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
+        this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
         this.x = x;
         this.y = y;
         this.width = width;
         this.height = height;
         this.speed = speed;
         this.health = health;
+        this.maxHealth = health;
+        this.healthPercent = 1;
         this.targetCheckpoint = level.getCheckpointList().get(0);
         this.targetCheckpointIndex = 0;
         this.direction = level.getCheckpointList().get(0).getDirection();
         this.slowMultiplier = 1f;
     }
 
+    @Deprecated
     public Enemy(Enemy enemy)
     {
         this.level = enemy.level;
         this.tileGrid = enemy.tileGrid;
         this.texture = enemy.texture;
+        this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
+        this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
+        this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
         this.x = enemy.x;
         this.y = enemy.y;
         this.width = enemy.width;
         this.height = enemy.height;
         this.speed = enemy.speed;
         this.health = enemy.health;
+        this.maxHealth = health;
+        this.healthPercent = 1;
         this.targetCheckpoint = enemy.targetCheckpoint;
         this.targetCheckpointIndex = enemy.targetCheckpointIndex;
         this.direction = enemy.direction;
@@ -65,9 +77,14 @@ public class Enemy
         this.x = x;
         this.y = y;
         this.texture = enemyTemplate.getTexture();
+        this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
+        this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
+        this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
         this.width = enemyTemplate.getWidth();
         this.height = enemyTemplate.getHeight();
         this.health = enemyTemplate.getHealth();
+        this.maxHealth = health;
+        this.healthPercent = 1;
         this.speed = enemyTemplate.getSpeed();
         this.targetCheckpoint = level.getCheckpointList().get(0);
         this.targetCheckpointIndex = 0;
@@ -159,6 +176,7 @@ public class Enemy
     public void hurt(int damage)
     {
         health-=damage;
+        healthPercent = health / maxHealth;
         if (health < 0)
             alive = false;
     }
@@ -170,6 +188,13 @@ public class Enemy
 
     public void draw()
     {
+        if (health < maxHealth)
+        {
+            Draw.drawTexture(healthBackground, (int)x + (texture.getImageWidth() * 0.5f - (healthBackground.getImageWidth() * 0.5f)), (int)y + texture.getImageHeight(), 0);
+            Draw.drawTexture(healthForeground, (int)(x + (texture.getImageWidth() * 0.5f - (healthForeground.getImageWidth() * 0.5f))), (int)y + texture.getImageHeight(), (int) (healthForeground.getImageWidth() * healthPercent), healthForeground.getImageHeight());
+            Draw.drawTexture(healthBorder, (int)x + (texture.getImageWidth() * 0.5f - (healthBorder.getImageWidth() * 0.5f)), (int)y + texture.getImageHeight(), 0);
+        }
+
         if (slowMultiplier >= 1f)
             Draw.drawTexture(texture, (int)x, (int)y, width, height);
         else
