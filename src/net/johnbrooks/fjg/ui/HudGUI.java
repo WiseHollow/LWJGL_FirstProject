@@ -54,7 +54,7 @@ public class HudGUI extends UI
                 level.getPlayer().setTowerToPlace(tower);
             }
         });
-        final int iceTowerCost = 10;
+        final int iceTowerCost = 15;
         Texture[] iceTowerTextures = new Texture[] { GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture() };
         Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), iceTowerCost).setOnClickEvent(() ->
         {

@@ -36,7 +36,7 @@ public class ButtonPurchase extends Button
         else
         {
             for (Texture texture : textures)
-                Draw.drawTextureWithRGB(texture, x, y, 0, 0.4f, 0.4f, 0.4f);
+                Draw.drawTextureWithRGB(texture, x, y, 0, 0.3f, 0.3f, 0.3f);
         }
 
     }
