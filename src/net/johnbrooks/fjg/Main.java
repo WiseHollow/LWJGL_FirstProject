@@ -33,8 +33,6 @@ public class Main
         displayManager = new DisplayManager(1280, 960);
         displayManager.init();
         stateManager = StateManager.getInstance();
-
-        Scheduler.getInstance().doTaskLater(() -> Log.info("5 seconds"), 5f);
     }
 
     private static void update()
