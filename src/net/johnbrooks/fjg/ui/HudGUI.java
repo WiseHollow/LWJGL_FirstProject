@@ -46,7 +46,6 @@ public class HudGUI extends UI
                     );
             if (level.getPlayer().getCoins() > cost)
             {
-                level.getPlayer().modifyCoins(-cost);
                 level.getPlayer().setTowerToPlace(tower);
             }
         });
@@ -62,7 +61,6 @@ public class HudGUI extends UI
 
             if (level.getPlayer().getCoins() > cost)
             {
-                level.getPlayer().modifyCoins(-cost);
                 level.getPlayer().setTowerToPlace(tower);
             }
         });

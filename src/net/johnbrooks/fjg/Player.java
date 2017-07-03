@@ -68,6 +68,8 @@ public class Player
             if (towerCheck.getSlotX() == tower.getSlotX() && towerCheck.getSlotY() == tower.getSlotY())
                 return false;
 
+        modifyCoins(-tower.getCost());
+
         towerList.add(tower);
         return true;
     }

@@ -26,6 +26,11 @@ public class WaveManager
     {
         waveList.add(wave);
     }
+    public void addWaves(Wave... waves)
+    {
+        for (Wave w : waves)
+            addWave(w);
+    }
     public Wave getWave(int index) { return waveList.get(index); }
 
     public boolean startWave()
