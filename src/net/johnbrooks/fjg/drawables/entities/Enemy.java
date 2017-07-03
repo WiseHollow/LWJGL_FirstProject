@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.drawables.entities;
 
+import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.level.*;
@@ -94,6 +95,8 @@ public class Enemy
     public void setSlowMultiplier(float slowMultiplier)
     {
         this.slowMultiplier = slowMultiplier;
+        Scheduler.getInstance().doTaskLater(() ->
+                this.slowMultiplier = 1f, 5f);
     }
 
     private boolean checkpointReached()
