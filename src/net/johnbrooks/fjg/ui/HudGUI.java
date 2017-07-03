@@ -44,7 +44,7 @@ public class HudGUI extends UI
                             level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
                             level.getPlayer().getSelectedTile(), 3, cost, 3, 256, level.getWaveManager().getEnemyList()
                     );
-            if (level.getPlayer().getCoins() > cost)
+            if (level.getPlayer().getCoins() >= cost)
             {
                 level.getPlayer().setTowerToPlace(tower);
             }
