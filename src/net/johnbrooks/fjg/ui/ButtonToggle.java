@@ -2,7 +2,6 @@ package net.johnbrooks.fjg.ui;
 
 import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.drawables.Draw;
-import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
 
 /**

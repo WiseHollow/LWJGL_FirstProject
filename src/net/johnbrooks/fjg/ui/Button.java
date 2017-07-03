@@ -1,10 +1,8 @@
 package net.johnbrooks.fjg.ui;
 
-import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
-import org.lwjgl.Sys;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
 

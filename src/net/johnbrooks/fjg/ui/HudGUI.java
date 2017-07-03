@@ -7,8 +7,6 @@ import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
-import org.lwjgl.input.Mouse;
-import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 
 /**

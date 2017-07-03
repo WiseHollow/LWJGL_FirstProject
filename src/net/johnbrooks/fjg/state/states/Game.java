@@ -1,6 +1,5 @@
 package net.johnbrooks.fjg.state.states;
 
-import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.levels.Level1Easy;
 import net.johnbrooks.fjg.state.IGameState;
