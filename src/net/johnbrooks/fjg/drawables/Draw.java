@@ -82,7 +82,7 @@ public class Draw
         glEnd();
         glLoadIdentity();
     }
-    public static void drawTextureWithRGB(Texture texture, float x, float y, float rotation, float r, float g, float b)
+    public static void drawTextureWithRGB(Texture texture, float x, float y, float rotation, float red, float green, float blue)
     {
         int width = texture.getImageWidth();
         int height = texture.getImageHeight();
@@ -91,7 +91,7 @@ public class Draw
         glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);
         glRotatef(rotation, 0, 0, 1);
         glTranslatef(-texture.getTextureWidth() * 0.5f, -texture.getTextureHeight() *0.5f, 0);
-        GL11.glColor3f(r, g, b);
+        GL11.glColor3f(red, green, blue);
         glBegin(GL_QUADS);
 
         glTexCoord2f(0, 0);

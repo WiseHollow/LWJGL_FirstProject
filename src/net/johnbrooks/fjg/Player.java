@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
+import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
@@ -11,6 +12,7 @@ import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
+import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.util.Log;
 
 import java.util.ArrayList;
@@ -27,6 +29,8 @@ public class Player
     private TileType brush;
     private List<Tower> towerList;
     private int health, coins;
+    private Texture gridSelectionTexture;
+    private Tile selectedTile;
 
     public Player(Level level)
     {
@@ -37,6 +41,8 @@ public class Player
         this.towerList = new ArrayList<>();
         this.health = 10;
         this.coins = 50;
+        this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
+        this.selectedTile = null;
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
@@ -61,6 +67,9 @@ public class Player
 
     public void update()
     {
+        // Select which tile to highlight blue.
+        selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) Mouse.getY());
+
         for (Tower tower : towerList)
             tower.update();
 
@@ -142,6 +151,9 @@ public class Player
     {
         for (Tower tower : towerList)
             tower.draw();
+
+        if (selectedTile != null)
+            Draw.drawTexture(gridSelectionTexture, selectedTile.getX(), DisplayManager.getScreenHeight() - selectedTile.getY() - 64, 0);
     }
 
     public boolean modifyCoins(int coins)
