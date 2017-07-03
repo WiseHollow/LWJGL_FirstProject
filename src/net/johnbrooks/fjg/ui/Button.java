@@ -17,7 +17,6 @@ public class Button
     protected int x, y, width, height;
     protected Runnable clickEvent, hoverEvent;
     protected Texture[] textures;
-    protected float timePressed;
 
     public Button(String name, int x, int y, Texture texture)
     {
@@ -35,9 +34,9 @@ public class Button
         {
             hoverEvent.run();
         }
-        if (clickEvent != null && isClicked() && Sys.getTime() > timePressed + 500)
+        if (clickEvent != null && isClicked())
         {
-            timePressed = Sys.getTime();
+            GameInput.getInstance().setButtonDown(0, false);
             clickEvent.run();
         }
     }

@@ -26,6 +26,10 @@ public class GameInput
     {
         return mouseDown[mouseButton];
     }
+    public void setButtonDown(int buttonDown, boolean value)
+    {
+        mouseDown[buttonDown] = value;
+    }
     public void update()
     {
         while (Mouse.next())

@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.ui;
 
+import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.drawables.Draw;
 import org.lwjgl.Sys;
 import org.newdawn.slick.opengl.Texture;
@@ -26,12 +27,12 @@ public class ButtonToggle extends Button
         {
             hoverEvent.run();
         }
-        if (isClicked() && Sys.getTime() > timePressed + 500)
+        if (isClicked())
         {
             enabled = !enabled;
             if (clickEvent != null)
             {
-                timePressed = Sys.getTime();
+                GameInput.getInstance().setButtonDown(0, false);
                 clickEvent.run();
             }
         }
