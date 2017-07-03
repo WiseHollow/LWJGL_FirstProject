@@ -26,6 +26,7 @@ public class Player
     private GameMode gameMode;
     private TileType brush;
     private List<Tower> towerList;
+    private int health, coins;
 
     public Player(Level level)
     {
@@ -34,6 +35,8 @@ public class Player
         this.gameMode = GameMode.NORMAL;
         this.brush = TileType.GRASS;
         this.towerList = new ArrayList<>();
+        this.health = 10;
+        this.coins = 50;
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
@@ -139,6 +142,33 @@ public class Player
     {
         for (Tower tower : towerList)
             tower.draw();
+    }
+
+    public boolean modifyCoins(int coins)
+    {
+        if (this.coins + coins >= 0)
+        {
+            this.coins += coins;
+            System.out.println("Coins remaining: " + this.coins);
+            return true;
+        }
+        return false;
+    }
+
+    public int getCoins()
+    {
+        return coins;
+    }
+
+    public void modifyHealth(int health)
+    {
+        this.health += health;
+        System.out.println("Player health: " + this.health);
+    }
+
+    public int getHealth()
+    {
+        return health;
     }
 
     public enum GameMode

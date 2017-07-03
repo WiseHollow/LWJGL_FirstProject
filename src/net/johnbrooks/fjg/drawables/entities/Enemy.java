@@ -156,6 +156,7 @@ public class Enemy
                         y > DisplayManager.getScreenHeight() + height ||
                         y < -height)
                 {
+                    level.getPlayer().modifyHealth(-1);
                     remove();
                 }
             }
@@ -178,7 +179,10 @@ public class Enemy
         health-=damage;
         healthPercent = health / maxHealth;
         if (health < 0)
+        {
+            level.getPlayer().modifyCoins((int) maxHealth);
             alive = false;
+        }
     }
 
     public void remove()
