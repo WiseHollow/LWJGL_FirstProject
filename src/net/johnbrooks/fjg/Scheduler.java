@@ -1,9 +1,6 @@
 package net.johnbrooks.fjg;
 
-import org.newdawn.slick.util.Log;
-
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 
 /**
  * Created by ieatl on 7/2/2017.

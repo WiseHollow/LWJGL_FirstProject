@@ -95,8 +95,11 @@ public class Enemy
     public void setSlowMultiplier(float slowMultiplier)
     {
         this.slowMultiplier = slowMultiplier;
-        Scheduler.getInstance().doTaskLater(() ->
-                this.slowMultiplier = 1f, 5f);
+        if (this.slowMultiplier != 1)
+        {
+            Scheduler.getInstance().doTaskLater(() ->
+                    this.slowMultiplier = 1f, 5f);
+        }
     }
 
     private boolean checkpointReached()
