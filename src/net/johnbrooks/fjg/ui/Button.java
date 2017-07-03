@@ -1,8 +1,10 @@
 package net.johnbrooks.fjg.ui;
 
+import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
+import org.lwjgl.Sys;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
 
@@ -11,10 +13,11 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class Button
 {
-    private String name;
-    private int x, y, width, height;
-    private Runnable clickEvent, hoverEvent;
+    protected String name;
+    protected int x, y, width, height;
+    protected Runnable clickEvent, hoverEvent;
     protected Texture[] textures;
+    protected float timePressed;
 
     public Button(String name, int x, int y, Texture texture)
     {
@@ -32,8 +35,9 @@ public class Button
         {
             hoverEvent.run();
         }
-        if (clickEvent != null && isClicked())
+        if (clickEvent != null && isClicked() && Sys.getTime() > timePressed + 500)
         {
+            timePressed = Sys.getTime();
             clickEvent.run();
         }
     }
@@ -43,7 +47,7 @@ public class Button
         for (Texture texture : textures)
         {
             if (!isHovered())
-                Draw.drawTexture(texture, x, y, (int)width, (int)height);
+                Draw.drawTexture(texture, x, y, width, height);
             else
                 Draw.drawTextureWithRGB(texture, x, y, 0, 0.8f, 0.8f, 0.8f);
         }

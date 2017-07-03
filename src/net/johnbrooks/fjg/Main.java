@@ -41,6 +41,7 @@ public class Main
 
     private static void update()
     {
+        Clock.update();
         gameInput.update();
 
         scheduler.update();

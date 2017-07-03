@@ -52,7 +52,6 @@ public class Game implements IGameState
     @Override
     public void update()
     {
-        Clock.update();
         level1Easy.update();
     }
 

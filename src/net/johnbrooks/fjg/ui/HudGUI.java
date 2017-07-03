@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.ui;
 
+import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
@@ -66,7 +67,10 @@ public class HudGUI extends UI
             }
         });
 
-        addButtons(buildBasicTower, buildIceTower);
+        Button pauseAndPlayButton = new ButtonToggle("pausePlay", DisplayManager.getScreenWidth() - 100, DisplayManager.getScreenHeight() - 100, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))
+                .setOnClickEvent(() -> Clock.pause());
+
+        addButtons(buildBasicTower, buildIceTower, pauseAndPlayButton);
     }
 
     @Override
