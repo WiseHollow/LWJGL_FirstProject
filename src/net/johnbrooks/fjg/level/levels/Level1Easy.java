@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg.level.levels;
 
 import net.johnbrooks.fjg.Player;
+import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.level.*;
 
@@ -58,7 +59,9 @@ public class Level1Easy extends Level
         Wave wave7 = new Wave(this, 1, enemyTemplate3, 20);
         // Add and start the wave in the WaveManager.
         waveManager.addWaves(wave, wave2, wave3, wave4, wave5, wave6, wave7);
-        waveManager.startWave();
+
+        //TODO: Display for how long until wave starts
+        Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
     }
 
     @Override
