@@ -20,6 +20,7 @@ public class Editor implements IGameState
 
     private Editor()
     {
+
         init();
     }
 

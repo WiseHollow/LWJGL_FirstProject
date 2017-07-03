@@ -2,6 +2,8 @@ package net.johnbrooks.fjg.level.levels;
 
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.Scheduler;
+import net.johnbrooks.fjg.audio.AudioManager;
+import net.johnbrooks.fjg.audio.Music;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.level.*;
 
@@ -31,13 +33,9 @@ public class Level1Easy extends Level
 
     public Level1Easy()
     {
-        super();
-        tileGrid = new TileGrid(map);
+        super("level01");
+        //tileGrid = new TileGrid(map);
         player = new Player(this);
-
-        // Create our initial checkpoint for spawning enemies. MUST BE DONE HERE. NOT IN INIT.
-        Checkpoint spawnCheckPoint = new Checkpoint(this, tileGrid.getTile(0, 2), Direction.RIGHT);
-        checkpointList.add(spawnCheckPoint);
     }
 
     @Override
@@ -62,6 +60,10 @@ public class Level1Easy extends Level
 
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
+
+        AudioManager.getInstance().play(Music.A_MINI_DISCOVERY, true);
+
+        save();
     }
 
     @Override

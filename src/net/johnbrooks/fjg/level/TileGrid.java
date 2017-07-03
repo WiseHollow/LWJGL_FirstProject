@@ -17,6 +17,11 @@ public class TileGrid
 
     private Tile[][] map;
 
+    public TileGrid()
+    {
+        map = new Tile[TILES_WIDE][TILES_HIGH];
+    }
+
     public TileGrid(TileType baseTileType)
     {
         map = new Tile[TILES_WIDE][TILES_HIGH];

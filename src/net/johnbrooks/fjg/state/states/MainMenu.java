@@ -1,5 +1,7 @@
 package net.johnbrooks.fjg.state.states;
 
+import net.johnbrooks.fjg.audio.AudioManager;
+import net.johnbrooks.fjg.audio.Music;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.MenuTexture;
@@ -37,10 +39,15 @@ public class MainMenu implements IGameState
         Button quitButton = new Button("Quit", (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureQuit.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.85f), buttonTextureQuit);
 
         playButton.setOnClickEvent(() ->
-                StateManager.getInstance().setGameState(GameState.GAME));
+        {
+            StateManager.getInstance().setGameState(GameState.GAME);
+            Game.getInstance().getCurrentLevel().init();
+        });
 
         editorButton.setOnClickEvent(() ->
-                StateManager.getInstance().setGameState(GameState.EDITOR));
+        {
+            StateManager.getInstance().setGameState(GameState.EDITOR);
+        });
 
         quitButton.setOnClickEvent(() ->
         {
@@ -51,6 +58,8 @@ public class MainMenu implements IGameState
         ui.addButtons(playButton);
         ui.addButtons(editorButton);
         ui.addButtons(quitButton);
+
+        AudioManager.getInstance().play(Music.COUNTRY_ADVENTURE, true);
     }
 
     @Override

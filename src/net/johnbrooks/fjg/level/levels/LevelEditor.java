@@ -32,8 +32,8 @@ public class LevelEditor extends Level
 
     public LevelEditor()
     {
-        super();
-        init();
+        super("editor");
+        //init();
     }
 
     @Override
@@ -43,7 +43,6 @@ public class LevelEditor extends Level
         tileGrid = new TileGrid(map);
         player = new Player(this);
         player.setGameMode(Player.GameMode.CREATIVE);
-        //load("test.dat");
     }
 
     @Override

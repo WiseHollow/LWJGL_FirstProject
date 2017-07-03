@@ -12,16 +12,20 @@ import java.util.List;
  */
 public abstract class Level
 {
+    protected String name;
     protected TileGrid tileGrid;
     protected WaveManager waveManager;
     protected Player player;
 
     protected List<Checkpoint> checkpointList;
 
-    public Level()
+    public Level(String name)
     {
+        this.name = name;
         waveManager = new WaveManager();
         checkpointList = new ArrayList<>();
+        if (!name.equals("editor"))
+            load(name);
     }
 
     public Player getPlayer() { return player; }
@@ -33,6 +37,7 @@ public abstract class Level
         // Only let us search for paths, if we haven't already before.
         if (checkpointList.size() == 1)
         {
+            System.out.println("Calculating checkpoints...");
             // Keep track of if we have found the end of the path.
             boolean foundEnd = false;
             Checkpoint startingCheckpoint = checkpointList.get(0);
@@ -48,8 +53,8 @@ public abstract class Level
                 // Record if found, exit loop if hit end.
             }
         }
-
-        //save();
+        else
+            System.out.println("Not able to calculate checkpoints... " + checkpointList.size());
     }
 
     public TileGrid getTileGrid()
@@ -93,9 +98,16 @@ public abstract class Level
 
     public boolean load(String levelName)
     {
-        File file = new File(levelName);
+        File file = new File("levels/" + levelName + ".dat");
         if (!file.exists())
+        {
+            System.out.println("Could not locate file: " + levelName + ".dat");
             return false;
+        }
+        else
+            System.out.println("Loading level: " + levelName);
+
+        tileGrid = new TileGrid();
 
         int spawnX = -1;
         int spawnY = -1;
@@ -151,10 +163,10 @@ public abstract class Level
             e.printStackTrace();
         }
 
-        getCheckpointList().clear();
+        checkpointList.clear();
         if (spawnX != -1 && spawnY != -1 && direction != null)
         {
-            getCheckpointList().add(new Checkpoint(this, getTileGrid().getTile(spawnX, spawnY), direction));
+            checkpointList.add(new Checkpoint(this, tileGrid.getTile(spawnX, spawnY), direction));
             System.out.println("Loaded spawn point at: " + spawnX + "," + spawnY + " facing: " + direction.name());
         }
 
@@ -163,7 +175,7 @@ public abstract class Level
 
     public boolean save()
     {
-        File file = new File("test.dat");
+        File file = new File("levels/" + name + ".dat");
         try
         {
             BufferedWriter writer = new BufferedWriter(new FileWriter(file));
@@ -175,5 +187,15 @@ public abstract class Level
             e.printStackTrace();
         }
         return false;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public void setName(String name)
+    {
+        this.name = name;
     }
 }

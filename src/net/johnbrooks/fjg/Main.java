@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg;
 
+import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.state.StateManager;
 import org.lwjgl.opengl.Display;
@@ -9,6 +10,7 @@ import org.lwjgl.opengl.Display;
  */
 public class Main
 {
+    private static AudioManager audioManager;
     private static DisplayManager displayManager;
     private static StateManager stateManager;
     private static Scheduler scheduler;
@@ -24,6 +26,7 @@ public class Main
             draw();
         }
 
+        audioManager.cleanUp();
         displayManager.close();
     }
 
@@ -34,7 +37,7 @@ public class Main
         gameInput = GameInput.getInstance();
         scheduler = Scheduler.getInstance();
         stateManager = StateManager.getInstance();
-
+        audioManager = AudioManager.getInstance();
     }
 
     private static void update()

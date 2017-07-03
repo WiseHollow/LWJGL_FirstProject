@@ -20,11 +20,16 @@ public class Game implements IGameState
         return instance;
     }
 
-    private Level level1Easy;
+    private Level currentLevel;
 
     private Game()
     {
         init();
+    }
+
+    public Level getCurrentLevel()
+    {
+        return currentLevel;
     }
 
     /**
@@ -32,8 +37,8 @@ public class Game implements IGameState
      */
     public void init()
     {
-        level1Easy = new Level1Easy();
-        level1Easy.init();
+        currentLevel = new Level1Easy();
+        //currentLevel.init();
     }
 
     /**
@@ -42,7 +47,7 @@ public class Game implements IGameState
     @Override
     public void draw()
     {
-        level1Easy.draw();
+        currentLevel.draw();
     }
 
     /**
@@ -51,7 +56,7 @@ public class Game implements IGameState
     @Override
     public void update()
     {
-        level1Easy.update();
+        currentLevel.update();
     }
 
     /**
