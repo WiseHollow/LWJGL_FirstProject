@@ -179,7 +179,7 @@ public class Enemy
         health-=damage;
         if (health < 0)
         {
-            level.getPlayer().modifyCoins((int) maxHealth);
+            level.getPlayer().modifyCoins((int) (maxHealth * 0.1f));
             alive = false;
         }
         healthPercent = health / maxHealth;
