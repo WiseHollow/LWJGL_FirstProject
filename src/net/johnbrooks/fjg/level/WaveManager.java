@@ -59,7 +59,6 @@ public class WaveManager
             {
                 enemyList.remove(enemy);
                 i--;
-                Log.info("Enemy removed. Wave contains " + enemyList.size() + " remaining enemies.");
                 if (enemyList.isEmpty())
                     startWave();
             }

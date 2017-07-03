@@ -60,7 +60,6 @@ public class Wave
         //enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
         //enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
         level.getWaveManager().getEnemyList().add(enemy);
-        Log.info("Enemy spawned!");
     }
 
     public void setActive(boolean active)
