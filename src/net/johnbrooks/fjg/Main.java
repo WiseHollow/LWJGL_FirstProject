@@ -3,6 +3,7 @@ package net.johnbrooks.fjg;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.state.StateManager;
 import org.lwjgl.opengl.Display;
+import org.newdawn.slick.util.Log;
 
 /**
  * Created by ieatl on 6/26/2017.
@@ -12,6 +13,7 @@ public class Main
     private static DisplayManager displayManager;
     private static StateManager stateManager;
     private static Scheduler scheduler;
+    private static GameInput gameInput;
 
     public static void main(String[] args)
     {
@@ -28,6 +30,7 @@ public class Main
 
     private static void init()
     {
+        gameInput = GameInput.getInstance();
         scheduler = Scheduler.getInstance();
         displayManager = new DisplayManager(1280, 960);
         displayManager.init();
@@ -36,6 +39,8 @@ public class Main
 
     private static void update()
     {
+        gameInput.update();
+
         scheduler.update();
         displayManager.update();
         stateManager.update();

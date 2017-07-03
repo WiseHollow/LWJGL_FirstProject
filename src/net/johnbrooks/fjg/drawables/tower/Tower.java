@@ -22,14 +22,14 @@ public abstract class Tower
     protected Level level;
     protected Tile tile;
     protected float timeSinceLastShot, warmUpTime, distanceView;
-    protected int x, y, width, height, damage;
+    protected int x, y, width, height, damage, cost;
     protected Texture baseTexture;
     protected Enemy target;
 
     protected List<Projectile> projectileList;
     protected List<Enemy> enemyList;
 
-    public Tower(Level level, Texture baseTexture, Tile tile, int damage, float warmUpTime, float distanceView, List<Enemy> enemyList)
+    public Tower(Level level, Texture baseTexture, Tile tile, int damage, int cost, float warmUpTime, float distanceView, List<Enemy> enemyList)
     {
         this.level = level;
         this.baseTexture = baseTexture;
@@ -39,6 +39,7 @@ public abstract class Tower
         this.x = tile.getX();
         this.y = tile.getY();
         this.damage = damage;
+        this.cost = cost;
         this.distanceView = distanceView;
         this.warmUpTime = warmUpTime;
         this.timeSinceLastShot = 0;
@@ -52,8 +53,16 @@ public abstract class Tower
     public int getSlotX() { return tile.getXSlot(); }
     public int getSlotY() { return tile.getYSlot(); }
     public Tile getTile() { return tile; }
+    public int getCost() { return cost; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
+
+    public void setTile(Tile tile)
+    {
+        this.x = tile.getX();
+        this.y = tile.getY();
+        this.tile = tile;
+    }
 
     public void update()
     {

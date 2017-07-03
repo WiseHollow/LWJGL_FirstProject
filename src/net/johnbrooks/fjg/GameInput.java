@@ -15,13 +15,17 @@ public class GameInput
         return instance;
     }
 
-    private boolean[] isMouseDown;
+    private boolean[] mouseDown;
 
     private GameInput()
     {
-        isMouseDown = new boolean[] { false, false };
+        mouseDown = new boolean[] { false, false };
     }
 
+    public boolean isButtonDown(int mouseButton)
+    {
+        return mouseDown[mouseButton];
+    }
     public void update()
     {
         while (Mouse.next())
@@ -30,26 +34,26 @@ public class GameInput
             {
                 if (Mouse.getEventButton() == 0)
                 {
-                    System.out.println("Left button pressed");
-                    isMouseDown[0] = true;
+                    // Left pressed
+                    mouseDown[0] = true;
                 }
                 else if (Mouse.getEventButton() == 1)
                 {
-                    System.out.println("Right button pressed");
-                    isMouseDown[0] = false;
+                    // Right pressed
+                    mouseDown[0] = true;
                 }
             }
             else
             {
                 if (Mouse.getEventButton() == 0)
                 {
-                    System.out.println("Left button released");
-                    isMouseDown[1] = true;
+                    // Left released
+                    mouseDown[0] = false;
                 }
                 else if (Mouse.getEventButton() == 1)
                 {
-                    System.out.println("Right button released");
-                    isMouseDown[1] = false;
+                    // Right released
+                    mouseDown[1] = false;
                 }
             }
         }

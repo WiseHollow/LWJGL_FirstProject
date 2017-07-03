@@ -1,10 +1,10 @@
 package net.johnbrooks.fjg.ui;
 
+import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
-import org.newdawn.slick.util.Log;
 
 /**
  * Created by ieatl on 7/2/2017.
@@ -14,7 +14,7 @@ public class Button
     private String name;
     private Texture[] textures;
     private int x, y, width, height;
-    private Runnable clickEvent;
+    private Runnable clickEvent, hoverEvent;
 
     public Button(String name, int x, int y, int width, int height, Texture... textures)
     {
@@ -38,17 +38,25 @@ public class Button
 
     public void update()
     {
-        if (isClicked())
+        if (hoverEvent != null && isHovered())
         {
-            if (clickEvent != null)
-                clickEvent.run();
+            hoverEvent.run();
+        }
+        if (clickEvent != null && isClicked())
+        {
+            clickEvent.run();
         }
     }
 
     public void draw()
     {
         for (Texture texture : textures)
-            Draw.drawTexture(texture, x, y, texture.getImageWidth(), texture.getImageHeight());
+        {
+            if (!isHovered())
+                Draw.drawTexture(texture, x, y, (int)width, (int)height);
+            else
+                Draw.drawTextureWithRGB(texture, x, y, 0, 0.8f, 0.8f, 0.8f);
+        }
     }
 
     public Button setOnClickEvent(Runnable runnable)
@@ -57,9 +65,15 @@ public class Button
         return this;
     }
 
+    public Button setOnHoverEvent(Runnable runnable)
+    {
+        this.hoverEvent = runnable;
+        return this;
+    }
+
     public boolean isClicked()
     {
-        if (Mouse.isButtonDown(0))
+        if (GameInput.getInstance().isButtonDown(0))
         {
             int clickX = Mouse.getX();
             int clickY = Mouse.getY();
@@ -68,6 +82,18 @@ public class Button
                     DisplayManager.getScreenHeight() - clickY >= y && DisplayManager.getScreenHeight() - clickY <= y + height)
                 return true;
         }
+
+        return false;
+    }
+
+    public boolean isHovered()
+    {
+        int clickX = Mouse.getX();
+        int clickY = Mouse.getY();
+
+        if (clickX >= x && clickX <= x + width &&
+                DisplayManager.getScreenHeight() - clickY >= y && DisplayManager.getScreenHeight() - clickY <= y + height)
+            return true;
 
         return false;
     }
@@ -102,12 +128,12 @@ public class Button
         this.y = y;
     }
 
-    public int getWidth()
+    public float getWidth()
     {
         return width;
     }
 
-    public int getHeight()
+    public float getHeight()
     {
         return height;
     }

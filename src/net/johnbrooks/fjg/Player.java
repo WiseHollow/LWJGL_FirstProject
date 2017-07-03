@@ -2,17 +2,12 @@ package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
-import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.Tower;
-import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
-import net.johnbrooks.fjg.ui.BuildUI;
-import net.johnbrooks.fjg.ui.Button;
-import net.johnbrooks.fjg.ui.UI;
+import net.johnbrooks.fjg.ui.HudGUI;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
@@ -35,7 +30,9 @@ public class Player
     private Texture gridSelectionTexture;
     private Tile selectedTile;
 
-    private BuildUI buildUI;
+    //private BuildUI buildUI;
+    private HudGUI hudGUI;
+    private Tower towerToPlace;
 
     public Player(Level level)
     {
@@ -48,7 +45,9 @@ public class Player
         this.coins = 50;
         this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
         this.selectedTile = null;
-        this.buildUI = new BuildUI(level, 0, 0);
+        this.towerToPlace = null;
+        //this.buildUI = new BuildUI(level, 0, 0);
+        this.hudGUI = new HudGUI(level);
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
@@ -69,13 +68,19 @@ public class Player
             if (towerCheck.getSlotX() == tower.getSlotX() && towerCheck.getSlotY() == tower.getSlotY())
                 return false;
 
-        return towerList.add(tower);
+        towerList.add(tower);
+        return true;
     }
 
     public void setTile(TileType type)
     {
         tileGrid.setTile((int) (Mouse.getX() / 64f),
                 (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f), type);
+    }
+
+    public void setTowerToPlace(Tower tower)
+    {
+        this.towerToPlace = tower;
     }
 
     public void setGameMode(GameMode gameMode)
@@ -85,16 +90,41 @@ public class Player
 
     public void update()
     {
+        // Remove towerToPlace if right click.
+        if (Mouse.isButtonDown(1) && towerToPlace != null)
+            towerToPlace = null;
+        else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
+        {
+            // Place a tower if we have one to place.
+            int x = (int) (Mouse.getX() / 64f);
+            int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
+
+            if (!hudGUI.isWithinGUI(y))
+            {
+                if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
+                {
+                    setTower(towerToPlace);
+                }
+                towerToPlace = null;
+            }
+        }
+
+
         // Select which tile to highlight blue.
-        if (!buildUI.isVisible())
-            selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) (DisplayManager.getScreenHeight() - Mouse.getY()));
+        //if (!buildUI.isVisible())
+        selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) (DisplayManager.getScreenHeight() - Mouse.getY()));
+        if (towerToPlace != null)
+        {
+            towerToPlace.setTile(selectedTile);
+        }
 
         // Update each tower
         for (Tower tower : towerList)
             tower.update();
 
         // Update the small window that lets you build new towers.
-        buildUI.update();
+        //buildUI.update();
+        hudGUI.update();
 
         // Check for keyboard input
         while (Keyboard.next())
@@ -179,13 +209,14 @@ public class Player
         for (Tower tower : towerList)
             tower.draw();
 
-        buildUI.draw();
-
         if (selectedTile != null)
         {
             Draw.drawTexture(gridSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
-            buildUI.draw();
+            if (towerToPlace != null)
+                towerToPlace.draw();
         }
+
+        hudGUI.draw();
     }
 
     public boolean modifyCoins(int coins)

@@ -177,12 +177,12 @@ public class Enemy
     public void hurt(int damage)
     {
         health-=damage;
-        healthPercent = health / maxHealth;
         if (health < 0)
         {
             level.getPlayer().modifyCoins((int) maxHealth);
             alive = false;
         }
+        healthPercent = health / maxHealth;
     }
 
     public void remove()
