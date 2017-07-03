@@ -36,7 +36,7 @@ public class HudGUI extends UI
 
     private void init()
     {
-        Button buildBasicTower = new Button("basic", 448, DisplayManager.getScreenHeight() - 64, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture()).setOnClickEvent(() ->
+        Button buildBasicTower = new ButtonLayered("basic", 448, DisplayManager.getScreenHeight() - 64, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture()).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
             int cost = 10;
@@ -50,7 +50,7 @@ public class HudGUI extends UI
                 level.getPlayer().setTowerToPlace(tower);
             }
         });
-        Button buildIceTower = new Button("ice", 512, DisplayManager.getScreenHeight() - 64, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture()).setOnClickEvent(() ->
+        Button buildIceTower = new ButtonLayered("ice", 512, DisplayManager.getScreenHeight() - 64, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture()).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
             int cost = 15;

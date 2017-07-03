@@ -12,28 +12,18 @@ import org.newdawn.slick.opengl.Texture;
 public class Button
 {
     private String name;
-    private Texture[] textures;
     private int x, y, width, height;
     private Runnable clickEvent, hoverEvent;
+    protected Texture[] textures;
 
-    public Button(String name, int x, int y, int width, int height, Texture... textures)
+    public Button(String name, int x, int y, Texture texture)
     {
         this.name = name;
-        this.textures = textures;
+        this.textures = new Texture[] { texture };
         this.x = x;
         this.y = y;
-        this.width = width;
-        this.height = height;
-    }
-
-    public Button(String name, int x, int y, Texture... textures)
-    {
-        this.name = name;
-        this.textures = textures;
-        this.x = x;
-        this.y = y;
-        this.width = textures[0].getImageWidth();
-        this.height = textures[0].getImageHeight();
+        this.width = texture.getImageWidth();
+        this.height = texture.getImageHeight();
     }
 
     public void update()
