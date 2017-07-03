@@ -53,7 +53,7 @@ public class IceTowerCannon extends Tower
         if (target != null)
         {
             timeSinceLastShot = 0;
-            projectileList.add(new IceProjectile(this, GameTexture.BULLET.getTexture(), tile, 250f, damage, target, slowMultiplier));
+            projectileList.add(new IceProjectile(this, GameTexture.BULLET.getTexture(), tile, 400f, damage, target, slowMultiplier));
         }
     }
 }

@@ -3,7 +3,6 @@ package net.johnbrooks.fjg.ui;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
-import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
@@ -20,7 +19,7 @@ public class BuildUI extends UI
     private int x, y, width, height;
     private boolean visible;
 
-    private boolean isMouse0Down;
+    private boolean isMouse1Down;
 
     public BuildUI(Level level, int x, int y)
     {
@@ -32,28 +31,40 @@ public class BuildUI extends UI
         this.width = backgroundTexture.getImageWidth();
         this.height = backgroundTexture.getImageHeight();
         this.visible = false;
-        this.isMouse0Down = false;
+        this.isMouse1Down = false;
 
-        Button buildBasicTower = new Button("basic", GameTexture.CANNON_BASE.getTexture(), 0, 0).setOnClickEvent(() ->
+        Button buildBasicTower = new Button("basic", 0, 0, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture()).setOnClickEvent(() ->
         {
-            System.out.println("Clicked basic cannon");
             //TODO: Dynamic cannon stats
             final TowerCannon tower = new TowerCannon
-                    (level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
-                            level.getPlayer().getSelectedTile(), 10, 3, 256, level.getWaveManager().getEnemyList());
-
-            if (level.getPlayer().setTower(tower) && level.getPlayer().modifyCoins(-20))
+                    (
+                            level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
+                            level.getPlayer().getSelectedTile(), 3, 3, 256, level.getWaveManager().getEnemyList()
+                    );
+            int cost = 10;
+            if (level.getPlayer().getCoins() > cost && level.getPlayer().setTower(tower))
+            {
+                level.getPlayer().modifyCoins(-cost);
                 visible = false;
+                isMouse1Down = true;
+            }
         });
-        Button buildIceTower = new Button("ice", GameTexture.ICE_CANNON_BASE.getTexture(), 0, 0).setOnClickEvent(() ->
+        Button buildIceTower = new Button("ice", 0, 0, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture()).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
             final IceTowerCannon tower = new IceTowerCannon
-                    (level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
-                            level.getPlayer().getSelectedTile(), 3, 3, 256, level.getWaveManager().getEnemyList(), 0.1f);
+                    (
+                        level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
+                        level.getPlayer().getSelectedTile(), 1, 5, 256, level.getWaveManager().getEnemyList(), 0.1f
+                    );
 
-            if (level.getPlayer().setTower(tower) && level.getPlayer().modifyCoins(-30))
+            int cost = 15;
+            if (level.getPlayer().getCoins() > cost && level.getPlayer().setTower(tower))
+            {
+                level.getPlayer().modifyCoins(-cost);
                 visible = false;
+                isMouse1Down = true;
+            }
         });
 
 
@@ -75,8 +86,23 @@ public class BuildUI extends UI
     @Override
     public void update()
     {
+        // Check if we should exit the BuildUI
+        if (Mouse.isButtonDown(0) && !isMouse1Down)
+        {
+            // Get image and position info
+            int padding = 32;
+            int clickX = Mouse.getX();
+            int clickY = DisplayManager.getScreenHeight() - Mouse.getY();
+
+            if (visible)
+            {
+                if (clickX <= x + padding || clickX >= x + width - padding || clickY <= y + padding || clickY >= y + height - padding)
+                    visible = false;
+            }
+        }
+
         // Check whether we need to display BuildUI and move all the elements accordingly.
-        if (Mouse.isButtonDown(0) && !isMouse0Down)
+        if (Mouse.isButtonDown(1) && !isMouse1Down)
         {
             // Get image and position info
             int padding = 32;
@@ -87,9 +113,8 @@ public class BuildUI extends UI
             if (!visible)
             {
                 // Not visible. Update position and show as visible.
-                Tile tile = level.getTileGrid().getTile((float) clickX, (float) clickY);
-                x = tile.getX() + 64;
-                y = tile.getY();
+                x = clickX - padding + 3;
+                y = clickY - padding + 3;
 
                 for (int i = 0; i < buttonList.size(); i++)
                 {
@@ -104,13 +129,13 @@ public class BuildUI extends UI
             {
                 // Visible. Check if within UI border, if not, mark as invisible.
 
-                if (clickX < x || clickX > x + width || clickY < y || clickY > y + height)
+                if (clickX <= x + padding || clickX >= x + width - padding || clickY <= y + padding || clickY >= y + height - padding)
                     visible = false;
             }
         }
 
         // Check for click updates
-        isMouse0Down = Mouse.isButtonDown(0);
+        isMouse1Down = Mouse.isButtonDown(1);
 
         if (visible)
         {

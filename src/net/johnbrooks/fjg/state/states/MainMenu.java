@@ -32,9 +32,9 @@ public class MainMenu implements IGameState
         Texture buttonTextureEditor = Draw.loadTexture("res/buttons/editor.png");
         Texture buttonTextureQuit = Draw.loadTexture("res/buttons/quit.png");
 
-        Button playButton = new Button("New", buttonTextureGame, (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureGame.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.65f));
-        Button editorButton = new Button("Editor", buttonTextureEditor, (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureEditor.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.75f));
-        Button quitButton = new Button("Quit", buttonTextureQuit, (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureQuit.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.85f));
+        Button playButton = new Button("New", (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureGame.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.65f), buttonTextureGame);
+        Button editorButton = new Button("Editor", (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureEditor.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.75f), buttonTextureEditor);
+        Button quitButton = new Button("Quit", (int) (DisplayManager.getScreenWidth() * 0.5f - (buttonTextureQuit.getImageWidth() * 0.5f)), (int) (DisplayManager.getScreenHeight() * 0.85f), buttonTextureQuit);
 
         playButton.setOnClickEvent(() ->
                 StateManager.getInstance().setGameState(GameState.GAME));
