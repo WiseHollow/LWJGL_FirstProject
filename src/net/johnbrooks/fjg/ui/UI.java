@@ -8,17 +8,14 @@ import java.util.List;
  */
 public class UI
 {
-    private List<Button> buttonList;
+    protected List<Button> buttonList;
 
     public UI()
     {
         buttonList = new ArrayList<>();
     }
 
-    public void addButton(Button button)
-    {
-        buttonList.add(button);
-    }
+    public void addButtons(Button... buttons) { for (Button b : buttons) buttonList.add(b); }
 
     public void update()
     {

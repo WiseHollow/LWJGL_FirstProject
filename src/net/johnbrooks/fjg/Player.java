@@ -10,6 +10,9 @@ import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
+import net.johnbrooks.fjg.ui.BuildUI;
+import net.johnbrooks.fjg.ui.Button;
+import net.johnbrooks.fjg.ui.UI;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
@@ -32,6 +35,8 @@ public class Player
     private Texture gridSelectionTexture;
     private Tile selectedTile;
 
+    private BuildUI buildUI;
+
     public Player(Level level)
     {
         this.level = level;
@@ -43,6 +48,7 @@ public class Player
         this.coins = 50;
         this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
         this.selectedTile = null;
+        this.buildUI = new BuildUI(level, 0, 0);
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
@@ -52,6 +58,18 @@ public class Player
             if (tower.getSlotX() == slotX && tower.getSlotY() == slotY)
                 return tower;
         return null;
+    }
+
+    public boolean setTower(Tower tower)
+    {
+        if (!tower.getTile().getTileType().isBuildable())
+            return false;
+
+        for (Tower towerCheck : towerList)
+            if (towerCheck.getSlotX() == tower.getSlotX() && towerCheck.getSlotY() == tower.getSlotY())
+                return false;
+
+        return towerList.add(tower);
     }
 
     public void setTile(TileType type)
@@ -68,11 +86,17 @@ public class Player
     public void update()
     {
         // Select which tile to highlight blue.
-        selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) Mouse.getY());
+        if (!buildUI.isVisible())
+            selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) (DisplayManager.getScreenHeight() - Mouse.getY()));
 
+        // Update each tower
         for (Tower tower : towerList)
             tower.update();
 
+        // Update the small window that lets you build new towers.
+        buildUI.update();
+
+        // Check for keyboard input
         while (Keyboard.next())
         {
             if (Keyboard.getEventKeyState())
@@ -116,10 +140,13 @@ public class Player
                         //TowerCannon cannon = new TowerCannon
                         //        (level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
                         //                tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
-                        Tower cannon = new IceTowerCannon
-                                (level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
-                                        tileGrid.getTile(x, y), 3, 3, 256, level.getWaveManager().getEnemyList(), 0.1f);
-                        towerList.add(cannon);
+
+                        //Tower cannon = new IceTowerCannon
+                        //        (level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
+                        //                tileGrid.getTile(x, y), 3, 3, 256, level.getWaveManager().getEnemyList(), 0.1f);
+                        //towerList.add(cannon);
+
+
                     }
                 }
             }
@@ -152,8 +179,13 @@ public class Player
         for (Tower tower : towerList)
             tower.draw();
 
+        buildUI.draw();
+
         if (selectedTile != null)
-            Draw.drawTexture(gridSelectionTexture, selectedTile.getX(), DisplayManager.getScreenHeight() - selectedTile.getY() - 64, 0);
+        {
+            Draw.drawTexture(gridSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
+            buildUI.draw();
+        }
     }
 
     public boolean modifyCoins(int coins)
@@ -181,6 +213,11 @@ public class Player
     public int getHealth()
     {
         return health;
+    }
+
+    public Tile getSelectedTile()
+    {
+        return selectedTile;
     }
 
     public enum GameMode

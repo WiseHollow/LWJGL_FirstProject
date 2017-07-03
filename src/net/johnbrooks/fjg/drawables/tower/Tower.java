@@ -51,6 +51,7 @@ public abstract class Tower
     public int getY() { return y; }
     public int getSlotX() { return tile.getXSlot(); }
     public int getSlotY() { return tile.getYSlot(); }
+    public Tile getTile() { return tile; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
 
