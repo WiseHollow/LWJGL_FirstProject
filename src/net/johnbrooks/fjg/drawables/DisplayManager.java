@@ -50,6 +50,9 @@ public class DisplayManager
         glEnable(GL_BLEND);
         // Allow for alpha channel
         glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+
+        // Load fonts
+        Draw.initFonts();
     }
 
     public void draw()

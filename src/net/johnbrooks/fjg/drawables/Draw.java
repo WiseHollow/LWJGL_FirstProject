@@ -1,13 +1,14 @@
 package net.johnbrooks.fjg.drawables;
 
 import org.lwjgl.opengl.GL11;
+import org.newdawn.slick.TrueTypeFont;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
+import java.awt.*;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.HashMap;
 
 import static org.lwjgl.opengl.GL11.*;
 import static org.lwjgl.opengl.GL11.glLoadIdentity;
@@ -17,6 +18,28 @@ import static org.lwjgl.opengl.GL11.glLoadIdentity;
  */
 public class Draw
 {
+    private static TrueTypeFont font;
+    public static TrueTypeFont getFont()
+    {
+        return font;
+    }
+
+    public static void initFonts()
+    {
+        try
+        {
+            InputStream inputStream = ResourceLoader.getResourceAsStream("res/fonts/AveriaSansLibre-Regular.ttf");
+
+            Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
+            awtFont  = awtFont.deriveFont(48f); // set font size
+            font = new TrueTypeFont(awtFont, true);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+    }
+
     public static Texture loadTexture(String path)
     {
         Texture texture = null;

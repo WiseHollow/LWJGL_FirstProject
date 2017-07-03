@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
+import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.state.StateManager;
 import org.lwjgl.opengl.Display;
 import org.newdawn.slick.util.Log;
@@ -30,11 +31,12 @@ public class Main
 
     private static void init()
     {
-        gameInput = GameInput.getInstance();
-        scheduler = Scheduler.getInstance();
         displayManager = new DisplayManager(1280, 960);
         displayManager.init();
+        gameInput = GameInput.getInstance();
+        scheduler = Scheduler.getInstance();
         stateManager = StateManager.getInstance();
+
     }
 
     private static void update()

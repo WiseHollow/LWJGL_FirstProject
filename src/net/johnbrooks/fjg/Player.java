@@ -99,14 +99,11 @@ public class Player
             int x = (int) (Mouse.getX() / 64f);
             int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
 
-            if (!hudGUI.isWithinGUI(y))
+            if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
             {
-                if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
-                {
-                    setTower(towerToPlace);
-                }
-                towerToPlace = null;
+                setTower(towerToPlace);
             }
+            towerToPlace = null;
         }
 
 

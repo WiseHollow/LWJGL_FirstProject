@@ -7,6 +7,7 @@ import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
 import org.lwjgl.input.Mouse;
+import org.lwjgl.opengl.GL11;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -30,6 +31,11 @@ public class HudGUI extends UI
         this.height = backgroundTexture.getImageHeight();
         this.visible = true;
 
+        init();
+    }
+
+    private void init()
+    {
         Button buildBasicTower = new Button("basic", 448, DisplayManager.getScreenHeight() - 64, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture()).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
@@ -50,8 +56,8 @@ public class HudGUI extends UI
             int cost = 15;
             final IceTowerCannon tower = new IceTowerCannon
                     (
-                        level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
-                        level.getPlayer().getSelectedTile(), 1, cost, 5, 256, level.getWaveManager().getEnemyList(), 0.1f
+                            level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
+                            level.getPlayer().getSelectedTile(), 1, cost, 5, 256, level.getWaveManager().getEnemyList(), 0.1f
                     );
 
             if (level.getPlayer().getCoins() > cost)
@@ -68,8 +74,12 @@ public class HudGUI extends UI
     {
         if (visible)
         {
-            if (backgroundTexture != null)
-                Draw.drawTexture(backgroundTexture, x, y, backgroundTexture.getImageWidth(), backgroundTexture.getImageHeight());
+            Draw.drawTexture(backgroundTexture, x, y, backgroundTexture.getImageWidth(), backgroundTexture.getImageHeight());
+            String health = String.valueOf(level.getPlayer().getHealth());
+            String coins = String.valueOf(level.getPlayer().getCoins());
+            Draw.getFont().drawString(78, 893, health);
+            Draw.getFont().drawString(215, 893, coins);
+
             super.draw();
         }
     }
@@ -93,11 +103,6 @@ public class HudGUI extends UI
     public int getHeight()
     {
         return height;
-    }
-    public boolean isWithinGUI(int y)
-    {
-        // GUI inhabits the bottom of the screen. Only y is needed to determine.
-        return y > DisplayManager.getScreenHeight() - 64;
     }
     public boolean isVisible()
     {
