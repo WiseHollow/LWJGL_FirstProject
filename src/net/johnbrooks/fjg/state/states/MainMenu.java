@@ -8,7 +8,7 @@ import net.johnbrooks.fjg.drawables.MenuTexture;
 import net.johnbrooks.fjg.state.GameState;
 import net.johnbrooks.fjg.state.IGameState;
 import net.johnbrooks.fjg.state.StateManager;
-import net.johnbrooks.fjg.ui.Button;
+import net.johnbrooks.fjg.ui.buttons.Button;
 import net.johnbrooks.fjg.ui.UI;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.util.Log;

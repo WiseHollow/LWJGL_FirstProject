@@ -35,7 +35,6 @@ public class Level1Easy extends Level
     {
         super("level01");
         //tileGrid = new TileGrid(map);
-        player = new Player(this);
     }
 
     @Override

@@ -1,5 +1,7 @@
 package net.johnbrooks.fjg.ui;
 
+import net.johnbrooks.fjg.ui.buttons.Button;
+
 import java.util.ArrayList;
 import java.util.List;
 

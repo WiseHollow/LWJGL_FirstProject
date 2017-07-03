@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.ui;
+package net.johnbrooks.fjg.ui.buttons;
 
 import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.drawables.Draw;

@@ -30,8 +30,6 @@ public class Player
     private Texture gridSelectionTexture;
     private Tile selectedTile;
 
-    //private BuildUI buildUI;
-    private HudGUI hudGUI;
     private Tower towerToPlace;
 
     public Player(Level level)
@@ -47,7 +45,6 @@ public class Player
         this.selectedTile = null;
         this.towerToPlace = null;
         //this.buildUI = new BuildUI(level, 0, 0);
-        this.hudGUI = new HudGUI(level);
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
@@ -120,10 +117,6 @@ public class Player
         // Update each tower
         for (Tower tower : towerList)
             tower.update();
-
-        // Update the small window that lets you build new towers.
-        //buildUI.update();
-        hudGUI.update();
 
         // Check for keyboard input
         while (Keyboard.next())
@@ -214,8 +207,6 @@ public class Player
             if (towerToPlace != null)
                 towerToPlace.draw();
         }
-
-        hudGUI.draw();
     }
 
     public boolean modifyCoins(int coins)

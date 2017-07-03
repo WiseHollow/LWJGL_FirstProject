@@ -7,6 +7,10 @@ import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.ui.buttons.Button;
+import net.johnbrooks.fjg.ui.buttons.ButtonLayered;
+import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
+import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -35,31 +39,33 @@ public class HudGUI extends UI
 
     private void init()
     {
-        Button buildBasicTower = new ButtonLayered("basic", 448, DisplayManager.getScreenHeight() - 64, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture()).setOnClickEvent(() ->
+        final int basicTowerCost = 10;
+        Texture[] basicTowerTextures = new Texture[] { GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture() };
+        Button buildBasicTower = new ButtonPurchase("basic", 448, DisplayManager.getScreenHeight() - 64, basicTowerTextures, level.getPlayer(), basicTowerCost).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
-            int cost = 10;
             final TowerCannon tower = new TowerCannon
                     (
                             level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
-                            level.getPlayer().getSelectedTile(), 3, cost, 3, 256, level.getWaveManager().getEnemyList()
+                            level.getPlayer().getSelectedTile(), 3, basicTowerCost, 3, 256, level.getWaveManager().getEnemyList()
                     );
-            if (level.getPlayer().getCoins() >= cost)
+            if (level.getPlayer().getCoins() >= basicTowerCost)
             {
                 level.getPlayer().setTowerToPlace(tower);
             }
         });
-        Button buildIceTower = new ButtonLayered("ice", 512, DisplayManager.getScreenHeight() - 64, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture()).setOnClickEvent(() ->
+        final int iceTowerCost = 10;
+        Texture[] iceTowerTextures = new Texture[] { GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture() };
+        Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), iceTowerCost).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
-            int cost = 15;
             final IceTowerCannon tower = new IceTowerCannon
                     (
                             level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
-                            level.getPlayer().getSelectedTile(), 1, cost, 5, 256, level.getWaveManager().getEnemyList(), 0.1f
+                            level.getPlayer().getSelectedTile(), 1, iceTowerCost, 5, 256, level.getWaveManager().getEnemyList(), 0.1f
                     );
 
-            if (level.getPlayer().getCoins() > cost)
+            if (level.getPlayer().getCoins() > iceTowerCost)
             {
                 level.getPlayer().setTowerToPlace(tower);
             }

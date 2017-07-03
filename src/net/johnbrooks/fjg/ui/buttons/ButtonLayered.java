@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.ui;
+package net.johnbrooks.fjg.ui.buttons;
 
 import org.newdawn.slick.opengl.Texture;
 

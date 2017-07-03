@@ -2,6 +2,7 @@ package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
+import net.johnbrooks.fjg.ui.HudGUI;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ public abstract class Level
     protected TileGrid tileGrid;
     protected WaveManager waveManager;
     protected Player player;
+    protected HudGUI hudGUI;
 
     protected List<Checkpoint> checkpointList;
 
@@ -26,6 +28,8 @@ public abstract class Level
         checkpointList = new ArrayList<>();
         if (!name.equals("editor"))
             load(name);
+        player = new Player(this);
+        this.hudGUI = new HudGUI(this);
     }
 
     public Player getPlayer() { return player; }
@@ -67,6 +71,7 @@ public abstract class Level
         tileGrid.update();
         waveManager.update();
         player.update();
+        hudGUI.update();
     }
 
     public void draw()
@@ -74,6 +79,7 @@ public abstract class Level
         tileGrid.draw();
         waveManager.draw();
         player.draw();
+        hudGUI.draw();
     }
 
     @Override
