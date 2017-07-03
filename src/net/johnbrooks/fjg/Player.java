@@ -101,9 +101,9 @@ public class Player
 
             if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
             {
-                setTower(towerToPlace);
+                if (setTower(towerToPlace))
+                    towerToPlace = null;
             }
-            towerToPlace = null;
         }
 
 
