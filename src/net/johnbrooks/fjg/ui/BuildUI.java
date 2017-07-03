@@ -67,7 +67,7 @@ public class BuildUI extends UI
         if (visible)
         {
             if (backgroundTexture != null)
-                Draw.drawTexture(backgroundTexture, x, y, 200, 200);
+                Draw.drawTexture(backgroundTexture, x, y, backgroundTexture.getImageWidth(), backgroundTexture.getImageHeight());
             super.draw();
         }
     }
@@ -79,7 +79,7 @@ public class BuildUI extends UI
         if (Mouse.isButtonDown(0) && !isMouse0Down)
         {
             // Get image and position info
-            int padding = 4;
+            int padding = 32;
             int clickX = Mouse.getX();
             int clickY = DisplayManager.getScreenHeight() - Mouse.getY();
 
