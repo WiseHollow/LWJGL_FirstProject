@@ -132,9 +132,9 @@ public class Player
                     gameMode = GameMode.values()[ordinal];
                     Log.info("Set GameMode to: " + gameMode.name());
                 }
-                else if (Keyboard.getEventKey() == Keyboard.KEY_P)
+                else if (Keyboard.getEventKey() == Keyboard.KEY_C)
                 {
-                    Clock.pause();
+                    modifyCoins(100);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
                 {
