@@ -54,31 +54,6 @@ public class Draw
 
         return texture;
     }
-
-    /*public static void drawTexture(Texture texture, int x, int y)
-    {
-        int width = texture.getImageWidth();
-        int height = texture.getImageHeight();
-
-        texture.bind();
-        glTranslatef(x, y, 0);
-        glBegin(GL_QUADS);
-
-        glTexCoord2f(0, 0);
-        glVertex2f(0, 0);
-
-        glTexCoord2f(1, 0);
-        glVertex2f(width, 0);
-
-        glTexCoord2f(1, 1);
-        glVertex2f(width, height);
-
-        glTexCoord2f(0, 1);
-        glVertex2f(0, height);
-
-        glEnd();
-        glLoadIdentity();
-    }*/
     public static void drawTexture(Texture texture, float x, float y, float rotation)
     {
         int width = texture.getTextureWidth();

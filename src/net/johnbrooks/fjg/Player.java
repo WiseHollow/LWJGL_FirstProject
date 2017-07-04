@@ -89,34 +89,11 @@ public class Player
 
     public void update()
     {
-        // Remove towerToPlace if right click.
-        if (Mouse.isButtonDown(1) && towerToPlace != null)
-            towerToPlace = null;
-        else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
-        {
-            // Place a tower if we have one to place.
-            int x = (int) (Mouse.getX() / 64f);
-            int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
-
-            if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
-            {
-                if (setTower(towerToPlace))
-                    towerToPlace = null;
-            }
-        }
-
-
-        // Select which tile to highlight blue.
-        //if (!buildUI.isVisible())
-        selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) (DisplayManager.getScreenHeight() - Mouse.getY()));
-        if (towerToPlace != null)
-        {
-            towerToPlace.setTile(selectedTile);
-        }
-
         // Update each tower
         for (Tower tower : towerList)
             tower.update();
+        // Select which tile to highlight blue.
+        selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) (DisplayManager.getScreenHeight() - Mouse.getY()));
 
         // Check for keyboard input
         while (Keyboard.next())
@@ -149,28 +126,25 @@ public class Player
 
         if (gameMode == GameMode.NORMAL)
         {
-            if (Mouse.isButtonDown(0))
+            // Remove towerToPlace if right click.
+            if (Mouse.isButtonDown(1) && towerToPlace != null)
+                towerToPlace = null;
+            else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
             {
+                // Place a tower if we have one to place.
                 int x = (int) (Mouse.getX() / 64f);
                 int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
 
-                Tile tile = tileGrid.getTile(x, y);
-                if (tile != null && tile.getTileType().isBuildable())
+                if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
                 {
-                    if (getTower(x, y) == null)
-                    {
-                        //TowerCannon cannon = new TowerCannon
-                        //        (level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
-                        //                tileGrid.getTile(x, y), 10, 3, 256, level.getWaveManager().getEnemyList());
-
-                        //Tower cannon = new IceTowerCannon
-                        //        (level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
-                        //                tileGrid.getTile(x, y), 3, 3, 256, level.getWaveManager().getEnemyList(), 0.1f);
-                        //towerList.add(cannon);
-
-
-                    }
+                    if (setTower(towerToPlace))
+                        towerToPlace = null;
                 }
+            }
+
+            if (towerToPlace != null)
+            {
+                towerToPlace.setTile(selectedTile);
             }
         }
         else if (gameMode == GameMode.CREATIVE)
