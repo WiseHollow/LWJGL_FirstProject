@@ -8,7 +8,6 @@ import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.ui.buttons.Button;
-import net.johnbrooks.fjg.ui.buttons.ButtonLayered;
 import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
 import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
 import org.newdawn.slick.opengl.Texture;
@@ -23,6 +22,8 @@ public class HudGUI extends UI
     private int x, y, width, height;
     private boolean visible;
 
+    private SettingsGUI settingsGUI;
+
     public HudGUI(Level level)
     {
         super();
@@ -33,6 +34,8 @@ public class HudGUI extends UI
         this.width = backgroundTexture.getImageWidth();
         this.height = backgroundTexture.getImageHeight();
         this.visible = true;
+
+        this.settingsGUI = new SettingsGUI(level);
 
         init();
     }
@@ -71,10 +74,16 @@ public class HudGUI extends UI
             }
         });
 
-        Button pauseAndPlayButton = new ButtonToggle("pausePlay", DisplayManager.getScreenWidth() - 100, DisplayManager.getScreenHeight() - 100, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))
+        Button pauseAndPlayButton = new ButtonToggle("pausePlay", DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))
                 .setOnClickEvent(() -> Clock.pause());
 
-        addButtons(buildBasicTower, buildIceTower, pauseAndPlayButton);
+        Button settingsButton = new Button("settings", DisplayManager.getScreenWidth() - 77, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_settings.png"))
+                .setOnClickEvent(() ->
+                {
+                    settingsGUI.setVisible(!settingsGUI.isVisible());
+                });
+
+        addButtons(buildBasicTower, buildIceTower, pauseAndPlayButton, settingsButton);
     }
 
     @Override
@@ -82,6 +91,8 @@ public class HudGUI extends UI
     {
         if (visible)
         {
+            settingsGUI.draw();
+
             Draw.drawTexture(backgroundTexture, x, y, backgroundTexture.getImageWidth(), backgroundTexture.getImageHeight());
             String health = String.valueOf(level.getPlayer().getHealth());
             String coins = String.valueOf(level.getPlayer().getCoins());
@@ -97,6 +108,11 @@ public class HudGUI extends UI
     {
         if (visible)
         {
+            if (settingsGUI.visible)
+            {
+                settingsGUI.update();
+            }
+
             super.update();
         }
 
@@ -111,9 +127,5 @@ public class HudGUI extends UI
     public int getHeight()
     {
         return height;
-    }
-    public boolean isVisible()
-    {
-        return visible;
     }
 }

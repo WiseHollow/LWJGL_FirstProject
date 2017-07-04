@@ -11,23 +11,38 @@ import java.util.List;
 public class UI
 {
     protected List<Button> buttonList;
+    protected boolean visible;
 
     public UI()
     {
         buttonList = new ArrayList<>();
+        visible = true;
     }
 
     public void addButtons(Button... buttons) { for (Button b : buttons) buttonList.add(b); }
 
+    public boolean isVisible() { return visible; }
+
     public void update()
     {
-        for (Button button : buttonList)
-            button.update();
+        if (visible)
+        {
+            for (Button button : buttonList)
+                button.update();
+        }
     }
 
     public void draw()
     {
-        for (Button button : buttonList)
-            button.draw();
+        if (visible)
+        {
+            for (Button button : buttonList)
+                button.draw();
+        }
+    }
+
+    public void setVisible(boolean visible)
+    {
+        this.visible = visible;
     }
 }

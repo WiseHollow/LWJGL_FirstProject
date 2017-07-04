@@ -5,6 +5,7 @@ import org.lwjgl.opengl.Display;
 import org.lwjgl.opengl.DisplayMode;
 
 import static org.lwjgl.opengl.GL11.*;
+import static org.lwjgl.opengl.GL14.GL_GENERATE_MIPMAP;
 
 /**
  * Created by ieatl on 6/26/2017.
@@ -45,6 +46,9 @@ public class DisplayManager
         glOrtho(0, WIDTH, HEIGHT, 0, 1, -1);
         glMatrixMode(GL_MODELVIEW);
         glEnable(GL_TEXTURE_2D);
+
+        //glEnable(GL_GENERATE_MIPMAP);
+        glTexParameteri(GL_TEXTURE_2D, GL_GENERATE_MIPMAP, GL_TRUE);
 
         // Enable blending
         glEnable(GL_BLEND);

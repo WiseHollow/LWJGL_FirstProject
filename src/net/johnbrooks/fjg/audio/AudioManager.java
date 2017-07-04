@@ -5,6 +5,7 @@ import org.lwjgl.openal.AL;
 import org.lwjgl.openal.AL10;
 import org.newdawn.slick.openal.WaveData;
 import java.util.HashMap;
+import java.util.Random;
 
 /**
  * Created by ieatl on 7/3/2017.
@@ -21,6 +22,12 @@ public class AudioManager
 
     private HashMap<Music, Integer> musicMap;
     private int sourceId;
+    private boolean playing;
+
+    public boolean isPlaying()
+    {
+        return playing;
+    }
 
     private AudioManager()
     {
@@ -62,9 +69,20 @@ public class AudioManager
         return buffer;
     }
 
+    public void playRandom(boolean repeat)
+    {
+        Random random = new Random();
+        int index = random.nextInt(Music.values().length);
+        play(Music.values()[index], repeat);
+    }
+
     public void play(Music music, boolean repeat)
     {
+        //if (true)
+        //    return;
+
         stopAll();
+        playing = true;
 
         int buffer = musicMap.get(music);
         AL10.alSourcei(sourceId, AL10.AL_BUFFER, buffer);
@@ -77,6 +95,7 @@ public class AudioManager
 
     public void stopAll()
     {
+        playing = false;
         AL10.alSourceUnqueueBuffers(sourceId);
         AL10.alSourceStop(sourceId);
         init();

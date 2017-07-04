@@ -10,13 +10,13 @@ import org.newdawn.slick.opengl.Texture;
 public class ButtonToggle extends Button
 {
     private Texture disabledTexture;
-    private boolean enabled;
+    private boolean pressed;
 
     public ButtonToggle(String name, int x, int y, Texture enabledTexture, Texture disabledTexture)
     {
         super(name, x, y, enabledTexture);
         this.disabledTexture = disabledTexture;
-        this.enabled = true;
+        this.pressed = false;
     }
 
     @Override
@@ -28,7 +28,7 @@ public class ButtonToggle extends Button
         }
         if (isClicked())
         {
-            enabled = !enabled;
+            pressed = !pressed;
             if (clickEvent != null)
             {
                 GameInput.getInstance().setButtonDown(0, false);
@@ -41,8 +41,8 @@ public class ButtonToggle extends Button
     public void draw()
     {
         if (!isHovered())
-            Draw.drawTexture(enabled ? textures[0] : disabledTexture, x, y, width, height);
+            Draw.drawTexture(!pressed ? textures[0] : disabledTexture, x, y, width, height);
         else
-            Draw.drawTextureWithRGB(enabled ? textures[0] : disabledTexture, x, y, 0, 0.8f, 0.8f, 0.8f);
+            Draw.drawTextureWithRGB(!pressed ? textures[0] : disabledTexture, x, y, 0, 0.8f, 0.8f, 0.8f);
     }
 }

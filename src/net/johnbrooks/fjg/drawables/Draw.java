@@ -81,8 +81,8 @@ public class Draw
     }*/
     public static void drawTexture(Texture texture, float x, float y, float rotation)
     {
-        int width = texture.getImageWidth();
-        int height = texture.getImageHeight();
+        int width = texture.getTextureWidth();
+        int height = texture.getTextureHeight();
 
         texture.bind();
         glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);
@@ -107,8 +107,8 @@ public class Draw
     }
     public static void drawTextureWithRGB(Texture texture, float x, float y, float rotation, float red, float green, float blue)
     {
-        int width = texture.getImageWidth();
-        int height = texture.getImageHeight();
+        int width = texture.getTextureWidth();
+        int height = texture.getTextureHeight();
 
         texture.bind();
         glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);

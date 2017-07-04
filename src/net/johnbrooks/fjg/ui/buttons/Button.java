@@ -22,8 +22,8 @@ public class Button
         this.textures = new Texture[] { texture };
         this.x = x;
         this.y = y;
-        this.width = texture.getImageWidth();
-        this.height = texture.getImageHeight();
+        this.width = texture.getTextureWidth();
+        this.height = texture.getTextureHeight();
     }
 
     public void update()
@@ -69,8 +69,8 @@ public class Button
             int clickX = Mouse.getX();
             int clickY = Mouse.getY();
 
-            if (clickX >= x && clickX <= x + width &&
-                    DisplayManager.getScreenHeight() - clickY >= y && DisplayManager.getScreenHeight() - clickY <= y + height)
+            if (clickX >= x && clickX <= x + textures[0].getImageWidth() &&
+                    DisplayManager.getScreenHeight() - clickY >= y && DisplayManager.getScreenHeight() - clickY <= y + textures[0].getImageHeight())
                 return true;
         }
 
@@ -82,8 +82,8 @@ public class Button
         int clickX = Mouse.getX();
         int clickY = Mouse.getY();
 
-        if (clickX >= x && clickX <= x + width &&
-                DisplayManager.getScreenHeight() - clickY >= y && DisplayManager.getScreenHeight() - clickY <= y + height)
+        if (clickX >= x && clickX <= x + textures[0].getImageWidth() &&
+                DisplayManager.getScreenHeight() - clickY >= y && DisplayManager.getScreenHeight() - clickY <= y + textures[0].getImageHeight())
             return true;
 
         return false;
