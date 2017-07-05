@@ -60,6 +60,8 @@ public class Projectile
 
     public void update()
     {
+        if (shooter.getTowerType().getProjectileStats().hasTracking())
+            calculateDirection();
         x += xVelocity * speed * Clock.delta();
         y += yVelocity * speed * Clock.delta();
 

@@ -10,13 +10,15 @@ public class ProjectileStats
     private Texture projectileTexture;
     private int damage;
     private float speed, hitSlowMultiplier;
+    private boolean tracking;
 
-    public ProjectileStats(Texture projectileTexture, int damage, float speed, float hitSlowMultiplier)
+    public ProjectileStats(Texture projectileTexture, int damage, float speed, float hitSlowMultiplier, boolean tracking)
     {
         this.projectileTexture = projectileTexture;
         this.damage = damage;
         this.speed = speed;
         this.hitSlowMultiplier = hitSlowMultiplier;
+        this.tracking = tracking;
     }
 
     public Texture getProjectileTexture()
@@ -37,5 +39,10 @@ public class ProjectileStats
     public float getHitSlowMultiplier()
     {
         return hitSlowMultiplier;
+    }
+
+    public boolean hasTracking()
+    {
+        return tracking;
     }
 }
