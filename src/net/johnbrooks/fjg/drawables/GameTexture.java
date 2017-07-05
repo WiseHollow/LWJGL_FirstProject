@@ -13,10 +13,23 @@ import java.util.HashMap;
  */
 public enum GameTexture
 {
-    BULLET_BURN("res/projectiles/bulletBurn.png"), BULLET_ICE("res/projectiles/bulletBurn.png"), BULLET_LITE("res/projectiles/bulletBurn.png"),
-    BULLET_STANDARD("res/projectiles/bulletBurn.png"), BULLET_TRACKING("res/projectiles/bulletBurn.png"),
-    //BULLET("res/towers/bullet.png"),
-    CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ICE_CANNON_BASE("res/towers/iceCannonBase.png"), ICE_CANNON_GUN("res/towers/iceCannonGun.png"),
+    TOWER_BASE_A("res/towers/towerBaseA.png"),
+    TOWER_BASE_B("res/towers/towerBaseB.png"),
+    TOWER_BASE_C("res/towers/towerBaseC.png"),
+    TOWER_BASE_D("res/towers/towerBaseD.png"),
+
+    TOWER_CANNON_STANDARD("res/towers/towerCannonStandard.png"),
+    TOWER_CANNON_ICE("res/towers/towerCannonIce.png"),
+    TOWER_CANNON_BURN("res/towers/towerCannonBurn.png"),
+    TOWER_CANNON_FAST("res/towers/towerCannonFast.png"),
+    TOWER_CANNON_TRACKING("res/towers/towerCannonTracking.png"),
+
+    BULLET_BURN("res/projectiles/bulletBurn.png"),
+    BULLET_ICE("res/projectiles/bulletBurn.png"),
+    BULLET_LITE("res/projectiles/bulletBurn.png"),
+    BULLET_STANDARD("res/projectiles/bulletBurn.png"),
+    BULLET_TRACKING("res/projectiles/bulletBurn.png"),
+
     HEALTH_BACKGROUND("res/general/healthBackground.png"), HEALTH_FOREGROUND("res/general/healthForeground.png"), HEATH_BORDER("res/general/healthBorder.png"),
     X2_DAMAGE("res/textImages/x2Damage.png");
 
