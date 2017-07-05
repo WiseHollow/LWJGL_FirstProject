@@ -14,9 +14,9 @@ import java.util.List;
 /**
  * Created by ieatl on 6/30/2017.
  */
-public class TowerCannon extends Tower
+public class TowerCannon// extends Tower
 {
-    private Texture topTexture;
+    /*private Texture topTexture;
     private float rotation;
 
     public TowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, int cost, float warmUpTime, float distanceView, List<Enemy> enemyList)
@@ -53,5 +53,5 @@ public class TowerCannon extends Tower
             timeSinceLastShot = 0;
             projectileList.add(new Projectile(this, GameTexture.BULLET.getTexture(), tile, 350f, damage, target));
         }
-    }
+    }*/
 }

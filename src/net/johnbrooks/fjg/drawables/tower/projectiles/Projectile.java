@@ -76,6 +76,7 @@ public class Projectile
         if (colliding != null)
         {
             colliding.hurt(damage);
+            colliding.setSlowMultiplier(shooter.getTowerType().getProjectileHitSlowMultiplier());
             alive = false;
         }
     }

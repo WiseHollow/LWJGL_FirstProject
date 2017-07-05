@@ -2,6 +2,7 @@ package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tower.projectiles.Projectile;
@@ -15,37 +16,34 @@ import java.util.List;
 /**
  * Created by ieatl on 6/30/2017.
  */
-public abstract class Tower
+public class Tower
 {
     private static final short WIDTH = 64, HEIGHT = 64;
 
     protected Level level;
     protected Tile tile;
-    protected float timeSinceLastShot, warmUpTime, distanceView;
-    protected int x, y, width, height, damage, cost;
-    protected Texture baseTexture;
-    protected Enemy target;
-
-    protected List<Projectile> projectileList;
     protected List<Enemy> enemyList;
+    protected TowerType towerType;
 
-    public Tower(Level level, Texture baseTexture, Tile tile, int damage, int cost, float warmUpTime, float distanceView, List<Enemy> enemyList)
+    protected float timeSinceLastShot, topTextureRotation;
+    protected int x, y;
+    protected Enemy target;
+    protected List<Projectile> projectileList;
+
+    public Tower(TowerType towerType, Level level, Tile tile, List<Enemy> enemyList)
     {
         this.level = level;
-        this.baseTexture = baseTexture;
         this.tile = tile;
-        this.width = WIDTH;
-        this.height = HEIGHT;
+        this.enemyList = enemyList;
+        this.towerType = towerType;
+
         this.x = tile.getX();
         this.y = tile.getY();
-        this.damage = damage;
-        this.cost = cost;
-        this.distanceView = distanceView;
-        this.warmUpTime = warmUpTime;
-        this.timeSinceLastShot = 0;
-        this.projectileList = new ArrayList<>();
-        this.enemyList = enemyList;
+
+        this.topTextureRotation = 0;
+        this.timeSinceLastShot = towerType.getWarmUp();
         this.target = null;
+        this.projectileList = new ArrayList<>();
     }
 
     public int getX() { return x; }
@@ -53,7 +51,8 @@ public abstract class Tower
     public int getSlotX() { return tile.getXSlot(); }
     public int getSlotY() { return tile.getYSlot(); }
     public Tile getTile() { return tile; }
-    public int getCost() { return cost; }
+    public int getCost() { return towerType.getCost(); }
+    public TowerType getTowerType() { return towerType; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
 
@@ -68,7 +67,7 @@ public abstract class Tower
     {
         target = calculateEnemyTarget();
         timeSinceLastShot += Clock.delta();
-        if (timeSinceLastShot > warmUpTime)
+        if (timeSinceLastShot > towerType.getWarmUp())
             shoot();
 
         for (int i = 0; i < projectileList.size(); i++)
@@ -84,13 +83,25 @@ public abstract class Tower
                 projectile.update();
             }
         }
+
+        if (towerType.getTopTexture() != null)
+        {
+            if (target == null)
+                topTextureRotation += Clock.delta() * 30;
+            else
+                topTextureRotation = calculateAngleToTarget();
+        }
     }
 
     public void draw()
     {
+        if (towerType.getBaseTexture() != null)
+            Draw.drawTexture(towerType.getBaseTexture(), x, y, WIDTH, HEIGHT);
+        if (towerType.getTopTexture() != null)
+            Draw.drawTexture(towerType.getTopTexture(), x, y, topTextureRotation);
+
         for (Projectile projectile : projectileList)
             projectile.draw();
-        Draw.drawTexture(baseTexture, x, y, width, height);
     }
 
     protected float calculateAngleToTarget()
@@ -102,12 +113,12 @@ public abstract class Tower
     protected Enemy calculateEnemyTarget()
     {
         HashMap<Float, Enemy> distanceMap = new HashMap<>();
-        float closest = distanceView + 1;
+        float closest = towerType.getViewDistance() + 1;
 
         for (Enemy enemy : enemyList)
         {
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
-            if (distance <= distanceView)
+            if (distance <= towerType.getViewDistance())
             {
                 distanceMap.put(distance, enemy);
                 if (distance < closest)
@@ -121,5 +132,12 @@ public abstract class Tower
             return null;
     }
 
-    protected abstract void shoot();
+    protected void shoot()
+    {
+        if (target != null)
+        {
+            timeSinceLastShot = 0;
+            projectileList.add(new Projectile(this, towerType.getProjectileTexture(), tile, towerType.getProjectileSpeed(), towerType.getDamage(), target));
+        }
+    }
 }

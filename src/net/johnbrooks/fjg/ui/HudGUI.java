@@ -5,6 +5,7 @@ import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
+import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
@@ -48,14 +49,16 @@ public class HudGUI extends UI
         Button buildBasicTower = new ButtonPurchase("basic", 448, DisplayManager.getScreenHeight() - 64, basicTowerTextures, level.getPlayer(), basicTowerCost).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
-            level.getPlayer().setTowerToPlace(TowerType.BASIC_TOWER.createTower(level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList()));
+            Tower tower = new Tower(TowerType.BASIC_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
+            level.getPlayer().setTowerToPlace(tower);
         });
         final int iceTowerCost = 15;
         Texture[] iceTowerTextures = new Texture[] { GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture() };
         Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), iceTowerCost).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
-            level.getPlayer().setTowerToPlace(TowerType.ICE_TOWER.createTower(level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList()));
+            Tower tower = new Tower(TowerType.ICE_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
+            level.getPlayer().setTowerToPlace(tower);
         });
 
         Button pauseAndPlayButton = new ButtonToggle("pausePlay", DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))

@@ -1,53 +1,68 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.drawables.GameTexture;
-import net.johnbrooks.fjg.drawables.entities.Enemy;
-import net.johnbrooks.fjg.drawables.tiles.Tile;
-import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
-
-import java.util.List;
 
 /**
  * Created by ieatl on 7/4/2017.
  */
 public enum TowerType
 {
-    BASIC_TOWER(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), 3, 10, 3, 256),
-    ICE_TOWER(GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(), 1, 10, 5, 256);
+    BASIC_TOWER(GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), GameTexture.BULLET.getTexture(), 3, 10, 3, 256, 350, 1f),
+    ICE_TOWER(GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(), GameTexture.BULLET.getTexture(), 1, 10, 5, 256, 400, 0.1f);
 
-    private Texture baseTexture, topTexture;
+    private Texture baseTexture, topTexture, projectileTexture;
     private int damage, cost, warmUp, viewDistance;
+    private float projectileSpeed, projectileHitSlowMultiplier;
 
-    TowerType(Texture baseTexture, Texture topTexture, int damage, int cost, int warmUp, int viewDistance)
+    TowerType(Texture baseTexture, Texture topTexture, Texture projectileTexture, int damage, int cost, int warmUp, int viewDistance, float projectileSpeed, float projectileHitSlowMultiplier)
     {
         this.baseTexture = baseTexture;
         this.topTexture = topTexture;
+        this.projectileTexture = projectileTexture;
         this.damage = damage;
         this.cost = cost;
         this.warmUp = warmUp;
         this.viewDistance = viewDistance;
+        this.projectileSpeed = projectileSpeed;
+        this.projectileHitSlowMultiplier = projectileHitSlowMultiplier;
     }
-
+    public Texture getBaseTexture()
+    {
+        return baseTexture;
+    }
+    public Texture getTopTexture()
+    {
+        return topTexture;
+    }
+    public int getDamage()
+    {
+        return damage;
+    }
+    public int getWarmUp()
+    {
+        return warmUp;
+    }
+    public int getViewDistance()
+    {
+        return viewDistance;
+    }
     public int getCost()
     {
         return cost;
     }
-
-    public Tower createTower(Level level, Tile tile, List<Enemy> enemyList)
+    public float getProjectileSpeed()
     {
-        Tower tower = null;
+        return projectileSpeed;
+    }
 
-        switch (this)
-        {
-            case BASIC_TOWER:
-                tower = new TowerCannon(level, baseTexture, topTexture, tile, damage, cost, warmUp, viewDistance, enemyList);
-                break;
-            case ICE_TOWER:
-                tower = new IceTowerCannon(level, baseTexture, topTexture, tile, damage, cost, warmUp, viewDistance, enemyList);
-                break;
-        }
+    public Texture getProjectileTexture()
+    {
+        return projectileTexture;
+    }
 
-        return tower;
+    public float getProjectileHitSlowMultiplier()
+    {
+        return projectileHitSlowMultiplier;
     }
 }

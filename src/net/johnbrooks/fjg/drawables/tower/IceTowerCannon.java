@@ -15,9 +15,9 @@ import java.util.List;
 /**
  * Created by ieatl on 6/30/2017.
  */
-public class IceTowerCannon extends Tower
+public class IceTowerCannon// extends Tower
 {
-    private Texture topTexture;
+    /*private Texture topTexture;
     private float rotation, slowMultiplier;
 
     public IceTowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, int cost, float warmUpTime, float distanceView, List<Enemy> enemyList)
@@ -55,5 +55,5 @@ public class IceTowerCannon extends Tower
             timeSinceLastShot = 0;
             projectileList.add(new IceProjectile(this, GameTexture.BULLET.getTexture(), tile, 400f, damage, target, slowMultiplier));
         }
-    }
+    }*/
 }
