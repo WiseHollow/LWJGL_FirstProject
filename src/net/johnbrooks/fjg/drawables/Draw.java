@@ -58,6 +58,56 @@ public class Draw
 
         return texture;
     }
+
+    public static void drawTexture(Texture texture, int x, int y, int width, int height)
+    {
+        texture.bind();
+        glTranslatef(x, y, 0);
+        glBegin(GL_QUADS);
+
+        glTexCoord2f(0, 0);
+        glVertex2f(0, 0);
+
+        glTexCoord2f(1, 0);
+        glVertex2f(width, 0);
+
+        glTexCoord2f(1, 1);
+        glVertex2f(width, height);
+
+        glTexCoord2f(0, 1);
+        glVertex2f(0, height);
+
+        glEnd();
+        glLoadIdentity();
+    }
+
+    public static void drawTexture(Texture texture, float x, float y, float rotation, boolean flippedHorizontally)
+    {
+        int width = texture.getTextureWidth();
+        int height = texture.getTextureHeight();
+
+        texture.bind();
+        glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);
+        glRotatef(rotation, 0, 0, 1);
+        glTranslatef(-texture.getTextureWidth() * 0.5f, -texture.getTextureHeight() *0.5f, 0);
+        glBegin(GL_QUADS);
+
+        glTexCoord2f(0, 0);
+        glVertex2f(0, 0);
+
+        glTexCoord2f(!flippedHorizontally ? 1 : -1, 0);
+        glVertex2f(width, 0);
+
+        glTexCoord2f(!flippedHorizontally ? 1 : -1, 1);
+        glVertex2f(width, height);
+
+        glTexCoord2f(0, 1);
+        glVertex2f(0, height);
+
+        glEnd();
+        glLoadIdentity();
+    }
+
     public static void drawTexture(Texture texture, float x, float y, float rotation)
     {
         int width = texture.getTextureWidth();
@@ -84,11 +134,37 @@ public class Draw
         glEnd();
         glLoadIdentity();
     }
-    public static void drawTextureWithRGB(Texture texture, float x, float y, float width, float height, float rotation, float red, float green, float blue)
-    {
-        //int width = texture.getTextureWidth();
-        //int height = texture.getTextureHeight();
 
+    public static void drawTexture(Texture texture, float x, float y, float rotation, boolean flippedHorizontally, float red, float green, float blue)
+    {
+        int width = texture.getTextureWidth();
+        int height = texture.getTextureHeight();
+
+        texture.bind();
+        glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);
+        glRotatef(rotation, 0, 0, 1);
+        glTranslatef(-texture.getTextureWidth() * 0.5f, -texture.getTextureHeight() *0.5f, 0);
+        GL11.glColor3f(red, green, blue);
+        glBegin(GL_QUADS);
+
+        glTexCoord2f(0, 0);
+        glVertex2f(0, 0);
+
+        glTexCoord2f(!flippedHorizontally ? 1 : -1, 0);
+        glVertex2f(width, 0);
+
+        glTexCoord2f(!flippedHorizontally ? 1 : -1, 1);
+        glVertex2f(width, height);
+
+        glTexCoord2f(0, 1);
+        glVertex2f(0, height);
+
+        glEnd();
+        glLoadIdentity();
+    }
+
+    public static void drawTexture(Texture texture, float x, float y, float width, float height, float rotation, float red, float green, float blue)
+    {
         texture.bind();
         glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);
         glRotatef(rotation, 0, 0, 1);
@@ -110,28 +186,6 @@ public class Draw
 
         glEnd();
         GL11.glColor3f(1f, 1f, 1f);
-        glLoadIdentity();
-    }
-
-    public static void drawTexture(Texture texture, int x, int y, int width, int height)
-    {
-        texture.bind();
-        glTranslatef(x, y, 0);
-        glBegin(GL_QUADS);
-
-        glTexCoord2f(0, 0);
-        glVertex2f(0, 0);
-
-        glTexCoord2f(1, 0);
-        glVertex2f(width, 0);
-
-        glTexCoord2f(1, 1);
-        glVertex2f(width, height);
-
-        glTexCoord2f(0, 1);
-        glVertex2f(0, height);
-
-        glEnd();
         glLoadIdentity();
     }
 }

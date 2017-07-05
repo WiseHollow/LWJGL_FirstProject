@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.drawables.entities;
 
+import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
@@ -14,74 +15,32 @@ import static net.johnbrooks.fjg.Clock.delta;
  */
 public class Enemy
 {
+    private static final float textureIncrementDelay = 0.5f;
+
     private Level level;
-    private TileGrid tileGrid;
-    private Texture texture, healthBackground, healthForeground, healthBorder;
-    private int width, height;
-    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier;
+    private Texture[] textures;
+    private Texture healthBackground, healthForeground, healthBorder;
+    private int textureIndex;
+    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement;
 
     private Direction direction;
     private boolean first = true, alive = true;
     private Checkpoint targetCheckpoint;
     private int targetCheckpointIndex;
 
-    public Enemy(Level level, TileGrid tileGrid, Texture texture, int x, int y, int width, int height, int health, float speed)
-    {
-        this.level = level;
-        this.tileGrid = tileGrid;
-        this.texture = texture;
-        this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
-        this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
-        this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
-        this.x = x;
-        this.y = y;
-        this.width = width;
-        this.height = height;
-        this.speed = speed;
-        this.health = health;
-        this.maxHealth = health;
-        this.healthPercent = 1;
-        this.targetCheckpoint = level.getCheckpointList().get(0);
-        this.targetCheckpointIndex = 0;
-        this.direction = level.getCheckpointList().get(0).getDirection();
-        this.slowMultiplier = 1f;
-    }
-
-    @Deprecated
-    public Enemy(Enemy enemy)
-    {
-        this.level = enemy.level;
-        this.tileGrid = enemy.tileGrid;
-        this.texture = enemy.texture;
-        this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
-        this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
-        this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
-        this.x = enemy.x;
-        this.y = enemy.y;
-        this.width = enemy.width;
-        this.height = enemy.height;
-        this.speed = enemy.speed;
-        this.health = enemy.health;
-        this.maxHealth = health;
-        this.healthPercent = 1;
-        this.targetCheckpoint = enemy.targetCheckpoint;
-        this.targetCheckpointIndex = enemy.targetCheckpointIndex;
-        this.direction = enemy.direction;
-        this.slowMultiplier = enemy.slowMultiplier;
-    }
-
     public Enemy(EnemyTemplate enemyTemplate, Level level, int x, int y)
     {
+        this.textureIndex = 0;
         this.level = level;
-        this.tileGrid = level.getTileGrid();
         this.x = x;
         this.y = y;
-        this.texture = enemyTemplate.getTexture();
+        if (enemyTemplate.getAltTexture() == null)
+            textures = new Texture[] { enemyTemplate.getTexture() };
+        else
+            textures = new Texture[] { enemyTemplate.getTexture(), enemyTemplate.getAltTexture() };
         this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
         this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
         this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
-        this.width = enemyTemplate.getWidth();
-        this.height = enemyTemplate.getHeight();
         this.health = enemyTemplate.getHealth();
         this.maxHealth = health;
         this.healthPercent = 1;
@@ -90,15 +49,15 @@ public class Enemy
         this.targetCheckpointIndex = 0;
         this.direction = level.getCheckpointList().get(0).getDirection();
         this.slowMultiplier = 1f;
+        this.sinceLastTextureIncrement = textureIncrementDelay;
     }
 
     public int getX() { return (int) x; }
     public int getY() { return (int) y; }
     public int getTileX() { return (int) Math.floor( (x) * 0.015625f );}
     public int getTileY() { return (int) Math.floor( (y) * 0.015625f );}
-    public int getWidth() { return width; }
-    public int getHeight() { return height; }
-    public Texture getTexture() { return texture; }
+    public Texture[] getTextures() { return textures; }
+    public Texture getTexture() { return textures[textureIndex]; }
 
     public void setTileX(int x)
     {
@@ -144,6 +103,15 @@ public class Enemy
 
     public void update()
     {
+        if (textures.length > 0 && sinceLastTextureIncrement >= textureIncrementDelay)
+        {
+            textureIndex++;
+            if (textureIndex >= textures.length)
+                textureIndex = 0;
+            sinceLastTextureIncrement = 0;
+        }
+        sinceLastTextureIncrement += Clock.delta();
+
         if (!first)
         {
             if (!checkpointReached())
@@ -151,10 +119,10 @@ public class Enemy
                 x += delta() * direction.getX() * speed * slowMultiplier;
                 y += delta() * direction.getY() * speed * slowMultiplier;
 
-                if (x > DisplayManager.getScreenWidth() + width ||
-                        x < -width ||
-                        y > DisplayManager.getScreenHeight() + height ||
-                        y < -height)
+                if (x > DisplayManager.getScreenWidth() + 64 ||
+                        x < -64 ||
+                        y > DisplayManager.getScreenHeight() + 64 ||
+                        y < -64)
                 {
                     level.getPlayer().modifyHealth(-1);
                     remove();
@@ -194,15 +162,20 @@ public class Enemy
     {
         if (health < maxHealth)
         {
-            Draw.drawTexture(healthBackground, (int)x + (texture.getImageWidth() * 0.5f - (healthBackground.getImageWidth() * 0.5f)), (int)y + texture.getImageHeight(), 0);
-            Draw.drawTexture(healthForeground, (int)(x + (texture.getImageWidth() * 0.5f - (healthForeground.getImageWidth() * 0.5f))), (int)y + texture.getImageHeight(), (int) (healthForeground.getImageWidth() * healthPercent), healthForeground.getImageHeight());
-            Draw.drawTexture(healthBorder, (int)x + (texture.getImageWidth() * 0.5f - (healthBorder.getImageWidth() * 0.5f)), (int)y + texture.getImageHeight(), 0);
+            Draw.drawTexture(healthBackground, (int)x + (textures[textureIndex].getImageWidth() * 0.5f - (healthBackground.getImageWidth() * 0.5f)), (int)y + textures[textureIndex].getImageHeight(), 0, false);
+            Draw.drawTexture(healthForeground, (int)(x + (textures[textureIndex].getImageWidth() * 0.5f - (healthForeground.getImageWidth() * 0.5f))), (int)y + textures[textureIndex].getImageHeight(), 0, false);
+            Draw.drawTexture(healthBorder, (int)x + (textures[textureIndex].getImageWidth() * 0.5f - (healthBorder.getImageWidth() * 0.5f)), (int)y + textures[textureIndex].getImageHeight(), 0, false);
         }
 
         if (slowMultiplier >= 1f)
-            Draw.drawTexture(texture, (int)x, (int)y, width, height);
+        {
+            if (direction.getX() < 0 || direction.getY() < 0)
+                Draw.drawTexture(textures[textureIndex], (int)x, (int)y, 0, true);
+            else
+                Draw.drawTexture(textures[textureIndex], (int)x, (int)y, 0, false);
+        }
         else
-            Draw.drawTextureWithRGB(texture, (int)x, (int)y, width, height, 0f, 0.3f, 0.93f, 1f);
+            Draw.drawTexture(textures[textureIndex], (int)x, (int)y, 0f, false, 0.3f, 0.93f, 1f);
     }
 
     public boolean isAlive()

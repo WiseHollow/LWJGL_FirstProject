@@ -43,6 +43,6 @@ public class ButtonToggle extends Button
         if (!isHovered())
             Draw.drawTexture(!pressed ? textures[0] : disabledTexture, x, y, width, height);
         else
-            Draw.drawTextureWithRGB(!pressed ? textures[0] : disabledTexture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
+            Draw.drawTexture(!pressed ? textures[0] : disabledTexture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
     }
 }

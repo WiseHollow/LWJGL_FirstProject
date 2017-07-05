@@ -4,6 +4,7 @@ import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Music;
 import net.johnbrooks.fjg.drawables.GameTexture;
+import net.johnbrooks.fjg.drawables.entities.EnemyTexture;
 import net.johnbrooks.fjg.level.EnemyTemplate;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.Wave;
@@ -44,9 +45,9 @@ public class Level2Easy extends Level
         super.init();
 
         // Let's create our template to make our first wave.
-        EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 10, 50);
-        EnemyTemplate enemyTemplate2 = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 55);
-        EnemyTemplate enemyTemplate3 = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 30, 100);
+        EnemyTemplate enemyTemplate = new EnemyTemplate(EnemyTexture.MOUSE, 10, 50);
+        EnemyTemplate enemyTemplate2 = new EnemyTemplate(EnemyTexture.MOUSE, 20, 55);
+        EnemyTemplate enemyTemplate3 = new EnemyTemplate(EnemyTexture.MOUSE, 30, 100);
         // Create a wave based on the template.
         Wave wave = new Wave(this, 3, enemyTemplate, 4);
         Wave wave2 = new Wave(this, 2, enemyTemplate, 6);

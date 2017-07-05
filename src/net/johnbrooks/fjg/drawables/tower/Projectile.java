@@ -90,8 +90,8 @@ public class Projectile
         {
             int enemyX = enemy.getX();
             int enemyY = enemy.getY();
-            int enemyWidth = enemy.getWidth();
-            int enemyHeight = enemy.getHeight();
+            int enemyWidth = enemy.getTexture().getImageWidth();
+            int enemyHeight = enemy.getTexture().getImageHeight();
 
             if (x + width > enemyX && x < enemyX + enemyWidth && y + height > enemyY && y < enemyY + enemyHeight)
             {

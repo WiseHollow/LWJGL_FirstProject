@@ -71,7 +71,7 @@ public class MainMenu implements IGameState
     @Override
     public void draw()
     {
-        Draw.drawTexture(background, 0, 0, 2048, 1024);
+        Draw.drawTexture(background, 0, 0, 0);
         ui.draw();
     }
 

@@ -46,7 +46,7 @@ public class Button
             if (!isHovered())
                 Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent));
             else
-                Draw.drawTextureWithRGB(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
+                Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
         }
     }
 

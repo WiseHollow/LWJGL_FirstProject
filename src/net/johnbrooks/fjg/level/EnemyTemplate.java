@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.level;
 
+import net.johnbrooks.fjg.drawables.entities.EnemyTexture;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -7,15 +8,14 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class EnemyTemplate
 {
-    private Texture texture;
-    private int width, height, health;
+    private Texture texture, altTexture;
+    private int health;
     private float speed;
 
-    public EnemyTemplate(Texture texture, int width, int height, int health, float speed)
+    public EnemyTemplate(EnemyTexture enemyTexture, int health, float speed)
     {
-        this.texture = texture;
-        this.width = width;
-        this.height = height;
+        this.texture = enemyTexture.getTexture();
+        this.altTexture = enemyTexture.getTextureAlt();
         this.health = health;
         this.speed = speed;
     }
@@ -23,16 +23,6 @@ public class EnemyTemplate
     public Texture getTexture()
     {
         return texture;
-    }
-
-    public int getWidth()
-    {
-        return width;
-    }
-
-    public int getHeight()
-    {
-        return height;
     }
 
     public int getHealth()
@@ -43,5 +33,10 @@ public class EnemyTemplate
     public float getSpeed()
     {
         return speed;
+    }
+
+    public Texture getAltTexture()
+    {
+        return altTexture;
     }
 }

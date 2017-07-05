@@ -30,13 +30,13 @@ public class ButtonPurchase extends Button
                 if (!isHovered())
                     Draw.drawTexture(texture, x, y, width, height);
                 else
-                    Draw.drawTextureWithRGB(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
+                    Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
             }
         }
         else
         {
             for (Texture texture : textures)
-                Draw.drawTextureWithRGB(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.3f, 0.3f, 0.3f);
+                Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.3f, 0.3f, 0.3f);
         }
 
     }
