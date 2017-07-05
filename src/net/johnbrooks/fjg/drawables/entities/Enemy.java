@@ -119,7 +119,7 @@ public class Enemy
 
         if (!first)
         {
-            if (!checkpointReached())
+            if (!checkpointReached() && isAlive())
             {
                 x += delta() * direction.getX() * speed * slowMultiplier;
                 y += delta() * direction.getY() * speed * slowMultiplier;
