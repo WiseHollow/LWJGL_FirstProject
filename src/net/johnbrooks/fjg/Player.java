@@ -70,10 +70,10 @@ public class Player
         return true;
     }
 
-    public void setTile(TileType type)
+    public void paint()
     {
         tileGrid.setTile((int) (Mouse.getX() / 64f),
-                (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f), type);
+                (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f), brush);
     }
 
     public void setTowerToPlace(Tower tower)
@@ -150,7 +150,7 @@ public class Player
         else if (gameMode == GameMode.EDIT)
         {
             if (Mouse.isButtonDown(0))
-                setTile(brush);
+                paint();
             int dWheel = Mouse.getDWheel();
             if (dWheel != 0)
             {
@@ -181,6 +181,11 @@ public class Player
             if (towerToPlace != null)
                 towerToPlace.draw();
         }
+    }
+
+    public void setBrush(TileType tileType)
+    {
+        this.brush = tileType;
     }
 
     public boolean modifyCoins(int coins)

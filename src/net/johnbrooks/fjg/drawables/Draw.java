@@ -80,10 +80,10 @@ public class Draw
         glEnd();
         glLoadIdentity();
     }
-    public static void drawTextureWithRGB(Texture texture, float x, float y, float rotation, float red, float green, float blue)
+    public static void drawTextureWithRGB(Texture texture, float x, float y, float width, float height, float rotation, float red, float green, float blue)
     {
-        int width = texture.getTextureWidth();
-        int height = texture.getTextureHeight();
+        //int width = texture.getTextureWidth();
+        //int height = texture.getTextureHeight();
 
         texture.bind();
         glTranslatef(x + (texture.getTextureWidth() * 0.5f), y + (texture.getTextureHeight() * 0.5f), 0);

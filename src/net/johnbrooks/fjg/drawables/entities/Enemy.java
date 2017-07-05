@@ -202,7 +202,7 @@ public class Enemy
         if (slowMultiplier >= 1f)
             Draw.drawTexture(texture, (int)x, (int)y, width, height);
         else
-            Draw.drawTextureWithRGB(texture, (int)x, (int)y, 0f, 0.3f, 0.93f, 1f);
+            Draw.drawTextureWithRGB(texture, (int)x, (int)y, width, height, 0f, 0.3f, 0.93f, 1f);
     }
 
     public boolean isAlive()

@@ -4,6 +4,7 @@ import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
@@ -85,7 +86,18 @@ public class HudGUI extends UI
 
     public void initEdit()
     {
+        int buttonX = 465;
+        for (int i = 0; i < TileType.values().length; i++)
+        {
+            final int index = i;
+            Button button = new Button(buttonX, DisplayManager.getScreenHeight() - 58, TileType.values()[i].getTexture());
+            button.setSizePercent(0.85f);
+            button.setOnClickEvent(() ->
+                    level.getPlayer().setBrush(TileType.values()[index]));
 
+            addButtons(button);
+            buttonX+=58;
+        }
     }
 
     @Override

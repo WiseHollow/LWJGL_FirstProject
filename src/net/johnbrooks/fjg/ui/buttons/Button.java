@@ -12,6 +12,7 @@ import org.newdawn.slick.opengl.Texture;
 public class Button
 {
     protected int x, y, width, height;
+    protected float sizePercent;
     protected Runnable clickEvent, hoverEvent;
     protected Texture[] textures;
 
@@ -22,6 +23,7 @@ public class Button
         this.y = y;
         this.width = texture.getTextureWidth();
         this.height = texture.getTextureHeight();
+        this.sizePercent = 1f;
     }
 
     public void update()
@@ -42,9 +44,9 @@ public class Button
         for (Texture texture : textures)
         {
             if (!isHovered())
-                Draw.drawTexture(texture, x, y, width, height);
+                Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent));
             else
-                Draw.drawTextureWithRGB(texture, x, y, 0, 0.8f, 0.8f, 0.8f);
+                Draw.drawTextureWithRGB(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
         }
     }
 
@@ -58,6 +60,11 @@ public class Button
     {
         this.hoverEvent = runnable;
         return this;
+    }
+
+    public void setSizePercent(float sizePercent)
+    {
+        this.sizePercent = sizePercent;
     }
 
     public boolean isClicked()
