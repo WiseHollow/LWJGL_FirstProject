@@ -8,8 +8,9 @@ import org.lwjgl.Sys;
 public class Clock
 {
     private static boolean paused;
+    private static int fps;
     private static long lastFrame, totalTime;
-    public static float delta = 0, multiplier = 1;
+    public static float delta = 0, multiplier = 1, lastFPSCalculation = 1;
 
     public static boolean isPaused() { return paused; }
 
@@ -29,6 +30,17 @@ public class Clock
         if (d > 0.05f)
             d = 0.05f;
         return d;
+    }
+
+    private static void calculateFPS()
+    {
+        if (lastFPSCalculation >= 1)
+        {
+            fps = (int) (1 / Clock.delta);
+            lastFPSCalculation = 0;
+        }
+        else
+            lastFPSCalculation+=delta();
     }
 
     public static float delta()
@@ -53,6 +65,7 @@ public class Clock
     {
         delta = getDelta();
         totalTime += delta;
+        calculateFPS();
     }
 
     public static void changeMultiplier(float change)
@@ -70,5 +83,10 @@ public class Clock
     public static void pause()
     {
         paused = !paused;
+    }
+
+    public static int getFps()
+    {
+        return fps;
     }
 }

@@ -18,11 +18,13 @@ import static org.lwjgl.opengl.GL11.glLoadIdentity;
  */
 public class Draw
 {
-    private static TrueTypeFont font;
-    public static TrueTypeFont getFont()
+    private static TrueTypeFont largeFont;
+    private static TrueTypeFont smallFont;
+    public static TrueTypeFont getLargeFont()
     {
-        return font;
+        return largeFont;
     }
+    public static TrueTypeFont getSmallFont() { return smallFont; }
 
     public static void initFonts()
     {
@@ -31,8 +33,10 @@ public class Draw
             InputStream inputStream = ResourceLoader.getResourceAsStream("res/fonts/AveriaSansLibre-Regular.ttf");
 
             Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-            awtFont  = awtFont.deriveFont(48f); // set font size
-            font = new TrueTypeFont(awtFont, true);
+            awtFont  = awtFont.deriveFont(48f); // set largeFont size
+            largeFont = new TrueTypeFont(awtFont, true);
+            awtFont  = awtFont.deriveFont(22f); // set largeFont size
+            smallFont = new TrueTypeFont(awtFont, true);
         }
         catch (Exception e)
         {

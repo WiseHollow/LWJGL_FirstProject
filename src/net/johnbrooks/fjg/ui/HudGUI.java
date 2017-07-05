@@ -110,8 +110,10 @@ public class HudGUI extends UI
             Draw.drawTexture(backgroundTexture, x, y, backgroundTexture.getImageWidth(), backgroundTexture.getImageHeight());
             String health = String.valueOf(level.getPlayer().getHealth());
             String coins = String.valueOf(level.getPlayer().getCoins());
-            Draw.getFont().drawString(78, 893, health);
-            Draw.getFont().drawString(215, 893, coins);
+            Draw.getLargeFont().drawString(78, 893, health);
+            Draw.getLargeFont().drawString(215, 893, coins);
+
+            Draw.getSmallFont().drawString(0, 0, "FPS: " + Clock.getFps());
 
             super.draw();
         }
