@@ -6,6 +6,7 @@ import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tower.IceTowerCannon;
 import net.johnbrooks.fjg.drawables.tower.TowerCannon;
+import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.ui.buttons.Button;
 import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
@@ -47,31 +48,14 @@ public class HudGUI extends UI
         Button buildBasicTower = new ButtonPurchase("basic", 448, DisplayManager.getScreenHeight() - 64, basicTowerTextures, level.getPlayer(), basicTowerCost).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
-            final TowerCannon tower = new TowerCannon
-                    (
-                            level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(),
-                            level.getPlayer().getSelectedTile(), 3, basicTowerCost, 3, 256, level.getWaveManager().getEnemyList()
-                    );
-            if (level.getPlayer().getCoins() >= basicTowerCost)
-            {
-                level.getPlayer().setTowerToPlace(tower);
-            }
+            level.getPlayer().setTowerToPlace(TowerType.BASIC_TOWER.createTower(level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList()));
         });
         final int iceTowerCost = 15;
         Texture[] iceTowerTextures = new Texture[] { GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture() };
         Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), iceTowerCost).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
-            final IceTowerCannon tower = new IceTowerCannon
-                    (
-                            level, GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture(),
-                            level.getPlayer().getSelectedTile(), 1, iceTowerCost, 5, 256, level.getWaveManager().getEnemyList(), 0.1f
-                    );
-
-            if (level.getPlayer().getCoins() > iceTowerCost)
-            {
-                level.getPlayer().setTowerToPlace(tower);
-            }
+            level.getPlayer().setTowerToPlace(TowerType.ICE_TOWER.createTower(level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList()));
         });
 
         Button pauseAndPlayButton = new ButtonToggle("pausePlay", DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))

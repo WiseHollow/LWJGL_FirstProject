@@ -20,12 +20,12 @@ public class IceTowerCannon extends Tower
     private Texture topTexture;
     private float rotation, slowMultiplier;
 
-    public IceTowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, int cost, float warmUpTime, float distanceView, List<Enemy> enemyList, float slowMultiplier)
+    public IceTowerCannon(Level level, Texture baseTexture, Texture topTexture, Tile tile, int damage, int cost, float warmUpTime, float distanceView, List<Enemy> enemyList)
     {
         super(level, baseTexture, tile, damage, cost, warmUpTime, distanceView, enemyList);
         this.topTexture = topTexture;
         this.rotation = 0f;
-        this.slowMultiplier = slowMultiplier;
+        this.slowMultiplier = 0.1f;
     }
 
     @Override
