@@ -19,12 +19,13 @@ public class Enemy
 
     private Level level;
     private Texture[] textures;
+    private Texture deathTexture;
     private Texture healthBackground, healthForeground, healthBorder;
     private int textureIndex;
     private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement;
 
     private Direction direction;
-    private boolean first = true, alive = true;
+    private boolean first = true, alive = true, active = true;
     private Checkpoint targetCheckpoint;
     private int targetCheckpointIndex;
 
@@ -38,6 +39,7 @@ public class Enemy
             textures = new Texture[] { enemyTemplate.getTexture() };
         else
             textures = new Texture[] { enemyTemplate.getTexture(), enemyTemplate.getAltTexture() };
+        this.deathTexture = enemyTemplate.getDeadTexture();
         this.healthBackground = GameTexture.HEALTH_BACKGROUND.getTexture();
         this.healthForeground = GameTexture.HEALTH_FOREGROUND.getTexture();
         this.healthBorder = GameTexture.HEATH_BORDER.getTexture();
@@ -103,6 +105,9 @@ public class Enemy
 
     public void update()
     {
+        if (!active)
+            return;
+
         if (textures.length > 0 && sinceLastTextureIncrement >= textureIncrementDelay)
         {
             textureIndex++;
@@ -145,10 +150,18 @@ public class Enemy
     public void hurt(int damage)
     {
         health-=damage;
-        if (health < 0)
+        if (health <= 0)
         {
+            health = 0;
             level.getPlayer().modifyCoins((int) (maxHealth * 0.1f));
-            alive = false;
+            if (deathTexture != null)
+            {
+                active = false;
+                Scheduler.getInstance().doTaskLater(() ->
+                        alive = false, 3);
+            }
+            else
+                alive = false;
         }
         healthPercent = health / maxHealth;
     }
@@ -160,7 +173,7 @@ public class Enemy
 
     public void draw()
     {
-        if (health < maxHealth)
+        if (health < maxHealth && health > 0)
         {
             Draw.drawTexture(healthBackground, (int)x + (textures[textureIndex].getImageWidth() * 0.5f - (healthBackground.getImageWidth() * 0.5f)), (int)y + textures[textureIndex].getImageHeight(), 0, false);
             Draw.drawTexture(healthForeground, (int)(x + (textures[textureIndex].getImageWidth() * 0.5f - (healthForeground.getImageWidth() * 0.5f))), (int)y + textures[textureIndex].getImageHeight(), (int) (healthForeground.getImageWidth() * healthPercent), healthForeground.getImageHeight());
@@ -170,16 +183,17 @@ public class Enemy
         if (slowMultiplier >= 1f)
         {
             if (direction.getX() < 0 || direction.getY() < 0)
-                Draw.drawTexture(textures[textureIndex], (int)x, (int)y, 0, true);
+                Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, true);
             else
-                Draw.drawTexture(textures[textureIndex], (int)x, (int)y, 0, false);
+                Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, false);
         }
         else
-            Draw.drawTexture(textures[textureIndex], (int)x, (int)y, 0f, false, 0.3f, 0.93f, 1f);
+            Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0f, false, 0.3f, 0.93f, 1f);
     }
 
     public boolean isAlive()
     {
         return alive;
     }
+    public boolean isActive() { return active; }
 }

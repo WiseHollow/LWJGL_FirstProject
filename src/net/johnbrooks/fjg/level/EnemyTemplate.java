@@ -8,7 +8,7 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class EnemyTemplate
 {
-    private Texture texture, altTexture;
+    private Texture texture, altTexture, deadTexture;
     private int health;
     private float speed;
 
@@ -16,6 +16,7 @@ public class EnemyTemplate
     {
         this.texture = enemyTexture.getTexture();
         this.altTexture = enemyTexture.getTextureAlt();
+        this.deadTexture = enemyTexture.getTextureDead();
         this.health = health;
         this.speed = speed;
     }
@@ -39,4 +40,6 @@ public class EnemyTemplate
     {
         return altTexture;
     }
+
+    public Texture getDeadTexture() { return deadTexture; }
 }

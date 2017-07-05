@@ -71,7 +71,7 @@ public class Projectile
         }
 
         calculateColliding();
-        if (colliding != null)
+        if (colliding != null && colliding.isActive() && colliding.isAlive())
         {
             colliding.hurt(damage);
             colliding.setSlowMultiplier(shooter.getTowerType().getProjectileStats().getHitSlowMultiplier());

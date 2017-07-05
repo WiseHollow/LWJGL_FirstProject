@@ -114,6 +114,8 @@ public class Tower
 
         for (Enemy enemy : enemyList)
         {
+            if (!enemy.isActive())
+                continue;
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
             if (distance <= towerType.getTowerStats().getViewDistance())
             {
