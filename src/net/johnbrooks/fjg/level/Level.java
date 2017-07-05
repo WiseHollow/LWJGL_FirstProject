@@ -42,7 +42,7 @@ public abstract class Level
         // Only let us search for paths, if we haven't already before.
         if (checkpointList.size() == 1)
         {
-            System.out.println("Calculating checkpoints...");
+            System.out.println("[" + name + "] Calculating checkpoints...");
             // Keep track of if we have found the end of the path.
             boolean foundEnd = false;
             Checkpoint startingCheckpoint = checkpointList.get(0);
@@ -59,7 +59,7 @@ public abstract class Level
             }
         }
         else
-            System.out.println("Not able to calculate checkpoints... " + checkpointList.size());
+            System.out.println("[" + name + "] Not able to calculate checkpoints... " + checkpointList.size());
     }
 
     public TileGrid getTileGrid()

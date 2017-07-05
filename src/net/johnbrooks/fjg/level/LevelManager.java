@@ -36,10 +36,10 @@ public class LevelManager
 
     public boolean nextLevel()
     {
-        if (levelIndex >= levelList.size())
+        if (levelIndex+1 >= levelList.size())
             return false;
         else
-            currentLevel = levelList.get(levelIndex++);
+            currentLevel = levelList.get(++levelIndex);
         return true;
     }
 }
