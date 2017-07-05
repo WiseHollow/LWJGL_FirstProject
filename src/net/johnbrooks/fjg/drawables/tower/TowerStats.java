@@ -8,9 +8,10 @@ import org.newdawn.slick.opengl.Texture;
 public class TowerStats
 {
     private Texture baseTexture, topTexture;
-    private int cost, warmUp, viewDistance;
+    private int cost, viewDistance;
+    private float warmUp;
 
-    public TowerStats(Texture baseTexture, Texture topTexture, int cost, int warmUp, int viewDistance)
+    public TowerStats(Texture baseTexture, Texture topTexture, int cost, float warmUp, int viewDistance)
     {
         this.baseTexture = baseTexture;
         this.topTexture = topTexture;
@@ -34,7 +35,7 @@ public class TowerStats
         return cost;
     }
 
-    public int getWarmUp()
+    public float getWarmUp()
     {
         return warmUp;
     }

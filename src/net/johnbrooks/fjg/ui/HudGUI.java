@@ -42,20 +42,25 @@ public class HudGUI extends UI
 
     private void init()
     {
-        final int basicTowerCost = 10;
         Texture[] basicTowerTextures = new Texture[] { GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture() };
-        Button buildBasicTower = new ButtonPurchase("basic", 448, DisplayManager.getScreenHeight() - 64, basicTowerTextures, level.getPlayer(), basicTowerCost).setOnClickEvent(() ->
+        Button buildBasicTower = new ButtonPurchase("basic", 448, DisplayManager.getScreenHeight() - 64, basicTowerTextures, level.getPlayer(), TowerType.BASIC_TOWER.getTowerStats().getCost()).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
             Tower tower = new Tower(TowerType.BASIC_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
             level.getPlayer().setTowerToPlace(tower);
         });
-        final int iceTowerCost = 15;
         Texture[] iceTowerTextures = new Texture[] { GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture() };
-        Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), iceTowerCost).setOnClickEvent(() ->
+        Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), TowerType.ICE_TOWER.getTowerStats().getCost()).setOnClickEvent(() ->
         {
             //TODO: Dynamic cannon stats
             Tower tower = new Tower(TowerType.ICE_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
+            level.getPlayer().setTowerToPlace(tower);
+        });
+        Texture[] speedTowerTextures = new Texture[] { GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture() };
+        Button speedBasicTower = new ButtonPurchase("speed", 576, DisplayManager.getScreenHeight() - 64, speedTowerTextures, level.getPlayer(), TowerType.FAST_TOWER.getTowerStats().getCost()).setOnClickEvent(() ->
+        {
+            //TODO: Dynamic cannon stats
+            Tower tower = new Tower(TowerType.FAST_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
             level.getPlayer().setTowerToPlace(tower);
         });
 
@@ -68,7 +73,7 @@ public class HudGUI extends UI
                     settingsGUI.setVisible(!settingsGUI.isVisible());
                 });
 
-        addButtons(buildBasicTower, buildIceTower, pauseAndPlayButton, settingsButton);
+        addButtons(buildBasicTower, buildIceTower, speedBasicTower, pauseAndPlayButton, settingsButton);
     }
 
     @Override
