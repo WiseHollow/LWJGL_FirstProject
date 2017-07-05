@@ -163,7 +163,7 @@ public class Enemy
         if (health < maxHealth)
         {
             Draw.drawTexture(healthBackground, (int)x + (textures[textureIndex].getImageWidth() * 0.5f - (healthBackground.getImageWidth() * 0.5f)), (int)y + textures[textureIndex].getImageHeight(), 0, false);
-            Draw.drawTexture(healthForeground, (int)(x + (textures[textureIndex].getImageWidth() * 0.5f - (healthForeground.getImageWidth() * 0.5f))), (int)y + textures[textureIndex].getImageHeight(), 0, false);
+            Draw.drawTexture(healthForeground, (int)(x + (textures[textureIndex].getImageWidth() * 0.5f - (healthForeground.getImageWidth() * 0.5f))), (int)y + textures[textureIndex].getImageHeight(), (int) (healthForeground.getImageWidth() * healthPercent), healthForeground.getImageHeight());
             Draw.drawTexture(healthBorder, (int)x + (textures[textureIndex].getImageWidth() * 0.5f - (healthBorder.getImageWidth() * 0.5f)), (int)y + textures[textureIndex].getImageHeight(), 0, false);
         }
 

@@ -8,7 +8,8 @@ import org.newdawn.slick.opengl.Texture;
  */
 public enum EnemyTexture
 {
-    MOUSE("res/entities/mouse.png", "res/entities/mouse_walk.png"), SLIME("res/entities/slimeGreen.png", "res/entities/slimeGreen_walk.png");
+    MOUSE("res/entities/mouse.png", "res/entities/mouse_walk.png"), SPINNER("res/entities/spinner.png", "res/entities/spinner_spin.png"),
+    SLIME("res/entities/slimeGreen.png", "res/entities/slimeGreen_walk.png"), SLIME_PINK("res/entities/slimePink.png", "res/entities/slimePink_walk.png"), SLIME_BLUE("res/entities/slimeBlue.png", "res/entities/slimeBlue_walk.png");
 
     Texture texture;
     Texture textureAlt;
