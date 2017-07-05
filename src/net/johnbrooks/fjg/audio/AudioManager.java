@@ -78,8 +78,8 @@ public class AudioManager
 
     public void play(Music music, boolean repeat)
     {
-        //if (true)
-        //    return;
+        if (true)
+            return;
 
         stopAll();
         playing = true;
