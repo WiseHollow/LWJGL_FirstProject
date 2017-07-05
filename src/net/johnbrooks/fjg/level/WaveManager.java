@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.level;
 
+import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import org.newdawn.slick.util.Log;
 
@@ -11,13 +12,15 @@ import java.util.List;
  */
 public class WaveManager
 {
-    private int waveIndex;
+    private int nextWaveIndex;
     private List<Wave> waveList;
     private List<Enemy> enemyList;
+    private boolean started;
 
     public WaveManager()
     {
-        this.waveIndex = 0;
+        this.started = false;
+        this.nextWaveIndex = 0;
         this.waveList = new ArrayList<>();
         this.enemyList = new ArrayList<>();
     }
@@ -35,16 +38,16 @@ public class WaveManager
 
     public boolean startWave()
     {
-        if (waveIndex >= waveList.size())
+        started = true;
+        if (nextWaveIndex >= waveList.size())
         {
             return false;
         }
         else
         {
-            Log.info("Start a new wave!");
-            Wave wave = waveList.get(waveIndex);
+            System.out.println("Starting a new wave!");
+            Wave wave = waveList.get(nextWaveIndex);
             wave.setActive(true);
-            waveIndex++;
             return true;
         }
     }
@@ -56,18 +59,38 @@ public class WaveManager
         for (Enemy enemy : enemyList)
             enemy.update();
 
-        for (int i = 0; i < enemyList.size(); i++)
+        if (started)
         {
-            Enemy enemy = enemyList.get(i);
-            enemy.update();
-            if (!enemy.isAlive())
+            for (int i = 0; i < enemyList.size(); i++)
             {
-                enemyList.remove(enemy);
-                i--;
-                if (enemyList.isEmpty())
-                    startWave();
+                Enemy enemy = enemyList.get(i);
+                enemy.update();
+                if (!enemy.isAlive())
+                {
+                    enemyList.remove(enemy);
+                    i--;
+                }
+            }
+
+            if (enemyList.isEmpty() && waveList.get(nextWaveIndex).isFinished())
+            {
+                if (nextWaveIndex + 1 >= waveList.size())
+                {
+                    completeLevel();
+                    return;
+                }
+
+                nextWaveIndex++;
+                Scheduler.getInstance().doTaskLater(() -> startWave(), 5);
+                System.out.println("Starting next wave in 5 seconds!");
             }
         }
+    }
+
+    private void completeLevel()
+    {
+        started = false;
+        System.out.println("You've completed the level!");
     }
 
     public void draw()
