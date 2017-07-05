@@ -1,6 +1,8 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.audio.AudioManager;
+import net.johnbrooks.fjg.audio.Sound;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
@@ -135,6 +137,7 @@ public class Tower
     {
         if (target != null)
         {
+            AudioManager.getInstance().play(Sound.CANNON_FIRE);
             timeSinceLastShot = 0;
             projectileList.add(new Projectile(this, towerType.getProjectileStats().getProjectileTexture(), tile, towerType.getProjectileStats().getSpeed(), towerType.getProjectileStats().getDamage(), target));
         }

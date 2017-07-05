@@ -21,6 +21,7 @@ public class AudioManager
     }
 
     private HashMap<Music, Integer> musicMap;
+    private HashMap<Sound, Integer> soundMap;
     private int sourceId;
     private boolean playing;
 
@@ -39,6 +40,7 @@ public class AudioManager
             e.printStackTrace();
         }
         musicMap = new HashMap<>();
+        soundMap = new HashMap<>();
         init();
         loadBuffers();
     }
@@ -58,6 +60,8 @@ public class AudioManager
     {
         for (Music m : Music.values())
             musicMap.put(m, loadSound(m.path));
+        for (Sound s : Sound.values())
+            soundMap.put(s, loadSound(s.path));
     }
 
     public int loadSound(String file)
@@ -87,6 +91,19 @@ public class AudioManager
         int buffer = musicMap.get(music);
         AL10.alSourcei(sourceId, AL10.AL_BUFFER, buffer);
         AL10.alSourcei(sourceId, AL10.AL_LOOPING, !repeat ? 0 : 1);
+
+        AL10.alSourceQueueBuffers(sourceId, buffer);
+
+        AL10.alSourcePlay(sourceId);
+    }
+
+    public void play(Sound sound)
+    {
+        stopAll();
+        playing = true;
+
+        int buffer = soundMap.get(sound);
+        AL10.alSourcei(sourceId, AL10.AL_BUFFER, buffer);
 
         AL10.alSourceQueueBuffers(sourceId, buffer);
 

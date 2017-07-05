@@ -1,6 +1,8 @@
 package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.Scheduler;
+import net.johnbrooks.fjg.audio.AudioManager;
+import net.johnbrooks.fjg.audio.Sound;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.state.states.Game;
 import org.newdawn.slick.util.Log;
@@ -85,6 +87,7 @@ public class WaveManager
 
                 // Reward players for the amount of health they have remaining.
                 level.getPlayer().modifyCoins(level.getPlayer().getHealth());
+                AudioManager.getInstance().play(Sound.COIN_REWARD);
 
                 nextWaveIndex++;
                 Scheduler.getInstance().doTaskLater(() -> startWave(), 5);
