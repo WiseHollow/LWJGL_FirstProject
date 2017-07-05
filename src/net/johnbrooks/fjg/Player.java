@@ -7,6 +7,7 @@ import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
+import net.johnbrooks.fjg.ui.elements.ImageBox;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
@@ -30,6 +31,7 @@ public class Player
     private Tile selectedTile;
 
     private Tower towerToPlace;
+    private List<ImageBox> imageBoxList;
 
     public Player(Level level)
     {
@@ -43,6 +45,7 @@ public class Player
         this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
         this.selectedTile = null;
         this.towerToPlace = null;
+        this.imageBoxList = new ArrayList<>();
         //this.buildUI = new BuildUI(level, 0, 0);
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
@@ -89,6 +92,18 @@ public class Player
 
     public void update()
     {
+        // Update temporary image boxes
+        for (int i = 0; i <imageBoxList.size(); i++)
+        {
+            ImageBox imageBox = imageBoxList.get(i);
+            if (!imageBox.isAlive())
+            {
+                imageBoxList.remove(imageBox);
+                i--;
+            }
+            else
+                imageBox.update();
+        }
         // Update each tower
         for (Tower tower : towerList)
             tower.update();
@@ -181,6 +196,9 @@ public class Player
             if (towerToPlace != null)
                 towerToPlace.draw();
         }
+
+        for (ImageBox imageBox : imageBoxList)
+            imageBox.draw();
     }
 
     public void setBrush(TileType tileType)
@@ -221,6 +239,11 @@ public class Player
     }
 
     public GameMode getGameMode() { return gameMode; }
+
+    public void addImageBoxDisplay(ImageBox imageBox)
+    {
+        imageBoxList.add(imageBox);
+    }
 
     public enum GameMode
     {

@@ -17,26 +17,18 @@ public enum GameTexture
     BULLET_STANDARD("res/projectiles/bulletBurn.png"), BULLET_TRACKING("res/projectiles/bulletBurn.png"),
     //BULLET("res/towers/bullet.png"),
     CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ICE_CANNON_BASE("res/towers/iceCannonBase.png"), ICE_CANNON_GUN("res/towers/iceCannonGun.png"),
-    HEALTH_BACKGROUND("res/general/healthBackground.png"), HEALTH_FOREGROUND("res/general/healthForeground.png"), HEATH_BORDER("res/general/healthBorder.png");
+    HEALTH_BACKGROUND("res/general/healthBackground.png"), HEALTH_FOREGROUND("res/general/healthForeground.png"), HEATH_BORDER("res/general/healthBorder.png"),
+    X2_DAMAGE("res/textImages/x2Damage.png");
 
-    private static HashMap<String, Texture> textureHashMap = new HashMap<>();
-
-    private String path;
+    private Texture texture;
 
     GameTexture(String path)
     {
-        this.path = path;
+        this.texture = Draw.loadTexture(path);
     }
 
     public Texture getTexture()
     {
-        if (textureHashMap.containsKey(name()))
-            return textureHashMap.get(name());
-
-        Texture texture = Draw.loadTexture(path);
-        if (texture != null)
-            textureHashMap.put(name(), texture);
-
         return texture;
     }
 }

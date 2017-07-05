@@ -60,6 +60,10 @@ public class Enemy
     public int getTileY() { return (int) Math.floor( (y) * 0.015625f );}
     public Texture[] getTextures() { return textures; }
     public Texture getTexture() { return textures[textureIndex]; }
+    public float getSlowMultiplier()
+    {
+        return slowMultiplier;
+    }
 
     public void setTileX(int x)
     {
@@ -180,15 +184,17 @@ public class Enemy
             Draw.drawTexture(healthBorder, (int)x + (textures[textureIndex].getImageWidth() * 0.5f - (healthBorder.getImageWidth() * 0.5f)), (int)y + textures[textureIndex].getImageHeight(), 0, false);
         }
 
-        if (slowMultiplier >= 1f)
+        if (slowMultiplier == 1f)
         {
             if (direction.getX() < 0 || direction.getY() < 0)
                 Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, true);
             else
                 Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, false);
         }
-        else
+        else if (slowMultiplier < 1f)
             Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0f, false, 0.3f, 0.93f, 1f);
+        else if (slowMultiplier > 1f)
+            Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0f, false, 0.61f, 0.164f, 0f);
     }
 
     public boolean isAlive()

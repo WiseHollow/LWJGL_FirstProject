@@ -33,9 +33,9 @@ public class Draw
             InputStream inputStream = ResourceLoader.getResourceAsStream("res/fonts/AveriaSansLibre-Regular.ttf");
 
             Font awtFont = Font.createFont(Font.TRUETYPE_FONT, inputStream);
-            awtFont  = awtFont.deriveFont(48f); // set largeFont size
+            awtFont  = awtFont.deriveFont(48f);
             largeFont = new TrueTypeFont(awtFont, true);
-            awtFont  = awtFont.deriveFont(22f); // set largeFont size
+            awtFont  = awtFont.deriveFont(22f);
             smallFont = new TrueTypeFont(awtFont, true);
         }
         catch (Exception e)

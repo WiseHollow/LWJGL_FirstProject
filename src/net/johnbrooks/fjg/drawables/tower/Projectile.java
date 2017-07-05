@@ -1,12 +1,13 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
-import net.johnbrooks.fjg.drawables.tower.Tower;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.state.states.Game;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
+import net.johnbrooks.fjg.ui.elements.ImageBox;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -75,8 +76,20 @@ public class Projectile
         calculateColliding();
         if (colliding != null && colliding.isActive() && colliding.isAlive())
         {
-            colliding.hurt(damage);
-            colliding.setSlowMultiplier(shooter.getTowerType().getProjectileStats().getHitSlowMultiplier());
+            // If the enemy is frozen and you are shooting heat-sync bullets, do double damage
+            if (colliding.getSlowMultiplier() < 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() > 1f)
+            {
+                shooter.level.getPlayer().addImageBoxDisplay(new ImageBox(GameTexture.X2_DAMAGE.getTexture(), 1, (int)x, (int)y));
+                colliding.hurt(damage * 2);
+            }
+            else
+                colliding.hurt(damage);
+
+            if ((colliding.getSlowMultiplier() < 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() > 1f) || (colliding.getSlowMultiplier() > 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() < 1f))
+                colliding.setSlowMultiplier(1f);
+            else
+                colliding.setSlowMultiplier(shooter.getTowerType().getProjectileStats().getHitSlowMultiplier());
+
             alive = false;
         }
     }

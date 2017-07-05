@@ -11,7 +11,11 @@ import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.ui.buttons.Button;
 import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
 import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
+import net.johnbrooks.fjg.ui.elements.TextBox;
 import org.newdawn.slick.opengl.Texture;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ieatl on 7/3/2017.
@@ -25,6 +29,8 @@ public class HudGUI extends UI
 
     private SettingsGUI settingsGUI;
 
+    //private List<TextBox> textBoxList;
+
     public HudGUI(Level level)
     {
         super();
@@ -37,6 +43,7 @@ public class HudGUI extends UI
         this.visible = true;
 
         this.settingsGUI = new SettingsGUI(level);
+        //this.textBoxList = new ArrayList<>();
 
         init();
     }
@@ -108,6 +115,9 @@ public class HudGUI extends UI
     @Override
     public void draw()
     {
+        //for (TextBox textBox : textBoxList)
+        //    textBox.draw();
+
         if (visible)
         {
             settingsGUI.draw();
@@ -127,6 +137,17 @@ public class HudGUI extends UI
     @Override
     public void update()
     {
+        /*for (int i = 0; i < textBoxList.size(); i++)
+        {
+            TextBox textBox = textBoxList.get(i);
+            textBox.update();
+            if (!textBox.isAlive())
+            {
+                textBoxList.remove(textBox);
+                i--;
+            }
+        }*/
+
         if (visible)
         {
             if (settingsGUI.visible)
@@ -149,4 +170,9 @@ public class HudGUI extends UI
     {
         return height;
     }
+
+    /*public List<TextBox> getTextBoxList()
+    {
+        return textBoxList;
+    }*/
 }
