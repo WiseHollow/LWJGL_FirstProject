@@ -13,8 +13,10 @@ import java.util.HashMap;
  */
 public enum GameTexture
 {
-    BULLET("res/towers/bullet.png"), CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ICE_CANNON_BASE("res/towers/iceCannonBase.png"), ICE_CANNON_GUN("res/towers/iceCannonGun.png"),
-    ENEMY("res/entities/enemy.png"),
+    BULLET_BURN("res/projectiles/bulletBurn.png"), BULLET_ICE("res/projectiles/bulletBurn.png"), BULLET_LITE("res/projectiles/bulletBurn.png"),
+    BULLET_STANDARD("res/projectiles/bulletBurn.png"), BULLET_TRACKING("res/projectiles/bulletBurn.png"),
+    //BULLET("res/towers/bullet.png"),
+    CANNON_BASE("res/towers/cannonBase.png"), CANNON_GUN("res/towers/cannonGun.png"), ICE_CANNON_BASE("res/towers/iceCannonBase.png"), ICE_CANNON_GUN("res/towers/iceCannonGun.png"),
     HEALTH_BACKGROUND("res/general/healthBackground.png"), HEALTH_FOREGROUND("res/general/healthForeground.png"), HEATH_BORDER("res/general/healthBorder.png");
 
     private static HashMap<String, Texture> textureHashMap = new HashMap<>();
