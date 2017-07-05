@@ -160,6 +160,7 @@ public class Draw
         glVertex2f(0, height);
 
         glEnd();
+        GL11.glColor3f(1f, 1f, 1f);
         glLoadIdentity();
     }
 
