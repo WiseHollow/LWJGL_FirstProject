@@ -13,7 +13,7 @@ import java.util.HashMap;
  */
 public enum TileTexture
 {
-    GRASS("res/tiles/grass.png"), DIRT("res/tiles/dirt.png"), WATER("res/tiles/water.png"), SAND("res/tiles/sand.png");
+    GRASS("res/tiles/grass.png"), DIRT("res/tiles/dirt.png"), WATER("res/tiles/water.png"), SAND("res/tiles/sand.png"), STONE("res/tiles/stone.png");
 
     private static HashMap<String, Texture> textureHashMap = new HashMap<>();
 

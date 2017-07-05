@@ -57,7 +57,7 @@ public class Player
 
     public boolean setTower(Tower tower)
     {
-        if (!tower.getTile().getTileType().isBuildable())
+        if (!tower.getTile().getTileType().isBuildable() || level.getPathType() == tower.getTile().getTileType())
             return false;
 
         for (Tower towerCheck : towerList)

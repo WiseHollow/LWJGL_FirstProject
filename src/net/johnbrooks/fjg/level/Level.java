@@ -18,6 +18,7 @@ public abstract class Level
     protected WaveManager waveManager;
     protected Player player;
     protected HudGUI hudGUI;
+    protected TileType pathType;
 
     protected List<Checkpoint> checkpointList;
 
@@ -30,12 +31,15 @@ public abstract class Level
             load(name);
         player = new Player(this);
         this.hudGUI = new HudGUI(this);
+        this.pathType = TileType.DIRT;
     }
 
     public Player getPlayer() { return player; }
     public WaveManager getWaveManager() { return waveManager; }
     public List<Checkpoint> getCheckpointList() { return checkpointList; }
     public HudGUI getHudGUI() { return hudGUI; }
+    public TileType getPathType() { return pathType; }
+    public void setPathType(TileType pathType) { this.pathType = pathType; }
 
     public void init()
     {
@@ -90,6 +94,7 @@ public abstract class Level
 
         data+="Spawn Tile=" + (getCheckpointList().isEmpty() ? "" : getCheckpointList().get(0).getTile().getXSlot() + "," + getCheckpointList().get(0).getTile().getYSlot()) + '\n';
         data+="Spawn Direction=" + (getCheckpointList().isEmpty() ? "" : getCheckpointList().get(0).getDirection().name()) + '\n';
+        data+="Path Type=" + pathType.name() + '\n';
 
         for (int y = 0; y < TileGrid.TILES_HIGH; y++)
         {
@@ -119,6 +124,7 @@ public abstract class Level
         int spawnX = -1;
         int spawnY = -1;
         Direction direction = null;
+        TileType pathType = null;
 
         try
         {
@@ -136,13 +142,18 @@ public abstract class Level
 
                     spawnX = Integer.parseInt(spawnPoint[0]);
                     spawnY = Integer.parseInt(spawnPoint[1]);
-
                     continue;
                 }
                 else if (line.startsWith("Spawn Direction="))
                 {
                     line = line.replace("Spawn Direction=", "");
                     direction = Direction.valueOf(line);
+                    continue;
+                }
+                else if (line.startsWith("Path Type="))
+                {
+                    line = line.replace("Path Type=", "");
+                    pathType = TileType.valueOf(line);
                     continue;
                 }
 
@@ -169,6 +180,9 @@ public abstract class Level
         {
             e.printStackTrace();
         }
+
+        if (pathType != null)
+            this.pathType = pathType;
 
         checkpointList.clear();
         if (spawnX != -1 && spawnY != -1 && direction != null)
