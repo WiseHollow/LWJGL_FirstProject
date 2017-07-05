@@ -2,6 +2,7 @@ package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
+import net.johnbrooks.fjg.state.states.Game;
 import org.newdawn.slick.util.Log;
 
 import java.util.ArrayList;
@@ -91,6 +92,12 @@ public class WaveManager
     {
         started = false;
         System.out.println("You've completed the level!");
+
+        boolean isNextLevel = Game.getInstance().getLevelManager().nextLevel();
+        if (isNextLevel)
+            Game.getInstance().getLevelManager().getCurrentLevel().init();
+        else
+            System.out.println("You win the game!");
     }
 
     public void draw()

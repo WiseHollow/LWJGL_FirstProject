@@ -44,8 +44,8 @@ public class Level1Easy extends Level
 
         // Let's create our template to make our first wave.
         EnemyTemplate enemyTemplate = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 10, 45);
-        EnemyTemplate enemyTemplate2 = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 50);
-        EnemyTemplate enemyTemplate3 = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 30, 100);
+        EnemyTemplate enemyTemplate2 = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 15, 50);
+        EnemyTemplate enemyTemplate3 = new EnemyTemplate(GameTexture.ENEMY.getTexture(), 64, 64, 20, 75);
         // Create a wave based on the template.
         Wave wave = new Wave(this, 3, enemyTemplate, 4);
         Wave wave2 = new Wave(this, 2, enemyTemplate, 6);
@@ -61,8 +61,6 @@ public class Level1Easy extends Level
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
 
         AudioManager.getInstance().play(Music.A_MINI_DISCOVERY, true);
-
-        save();
     }
 
     @Override

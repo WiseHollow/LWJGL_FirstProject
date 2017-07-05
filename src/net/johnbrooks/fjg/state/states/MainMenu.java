@@ -41,7 +41,7 @@ public class MainMenu implements IGameState
         playButton.setOnClickEvent(() ->
         {
             StateManager.getInstance().setGameState(GameState.GAME);
-            Game.getInstance().getCurrentLevel().init();
+            Game.getInstance().getLevelManager().getCurrentLevel().init();
         });
 
         editorButton.setOnClickEvent(() ->

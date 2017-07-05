@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg.state.states;
 
 import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.level.LevelManager;
 import net.johnbrooks.fjg.level.levels.Level1Easy;
 import net.johnbrooks.fjg.state.IGameState;
 
@@ -20,26 +21,17 @@ public class Game implements IGameState
         return instance;
     }
 
-    private Level currentLevel;
-
-    private Game()
-    {
-        init();
-    }
-
-    public Level getCurrentLevel()
-    {
-        return currentLevel;
-    }
+    private LevelManager levelManager;
 
     /**
-     * Setup variables and needed GUI for game-play. This should only be called once.
+     * Setup variables and needed GUI for game-play.
      */
-    public void init()
+    private Game()
     {
-        currentLevel = new Level1Easy();
-        //currentLevel.init();
+        levelManager = new LevelManager();
     }
+
+    public LevelManager getLevelManager() { return levelManager; }
 
     /**
      * Loop through all drawable objects in the game, and use the draw method.
@@ -47,7 +39,7 @@ public class Game implements IGameState
     @Override
     public void draw()
     {
-        currentLevel.draw();
+        levelManager.getCurrentLevel().draw();
     }
 
     /**
@@ -56,7 +48,7 @@ public class Game implements IGameState
     @Override
     public void update()
     {
-        currentLevel.update();
+        levelManager.getCurrentLevel().update();
     }
 
     /**
