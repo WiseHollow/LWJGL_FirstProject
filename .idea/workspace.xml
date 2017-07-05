@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -25,7 +25,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Draw.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Draw.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="402">
@@ -33,6 +33,16 @@
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Enemy.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="160" column="40" lean-forward="false" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -152,11 +162,11 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/EnemyTemplate.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Projectile.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level2Easy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/Draw.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
       </list>
     </option>
   </component>
@@ -296,6 +306,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="drawables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fjg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="drawables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="entities" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1000,17 +1036,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="121" column="49" lean-forward="false" selection-start-line="121" selection-start-column="49" selection-end-line="121" selection-end-column="49" />
-          <folding>
-            <element signature="e#5517#5518#0" expanded="true" />
-            <element signature="e#5546#5547#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -1058,6 +1083,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="160" column="40" lean-forward="false" selection-start-line="160" selection-start-column="40" selection-end-line="160" selection-end-column="40" />
+          <folding />
         </state>
       </provider>
     </entry>

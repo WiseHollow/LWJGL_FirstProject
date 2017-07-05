@@ -158,7 +158,7 @@ public class Enemy
             {
                 active = false;
                 Scheduler.getInstance().doTaskLater(() ->
-                        alive = false, 3);
+                        alive = false, 2);
             }
             else
                 alive = false;
