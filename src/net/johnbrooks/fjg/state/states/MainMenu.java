@@ -59,7 +59,7 @@ public class MainMenu implements IGameState
         ui.addButtons(editorButton);
         ui.addButtons(quitButton);
 
-        AudioManager.getInstance().play(Music.COUNTRY_ADVENTURE, true);
+        AudioManager.getInstance().play(Music.RAIL_JET, true);
     }
 
     @Override

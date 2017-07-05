@@ -62,7 +62,7 @@ public class Level2Easy extends Level
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
 
-        AudioManager.getInstance().play(Music.A_MINI_DISCOVERY, true);
+        AudioManager.getInstance().play(Music.ERH_BLUE_BEAT, true);
     }
 
     @Override

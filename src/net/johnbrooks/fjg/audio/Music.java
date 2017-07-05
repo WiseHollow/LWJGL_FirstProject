@@ -5,7 +5,13 @@ package net.johnbrooks.fjg.audio;
  */
 public enum Music
 {
-    A_MINI_DISCOVERY("res/music/aMiniDiscovery.wav"), COUNTRY_ADVENTURE("res/music/countryAdventure.wav"), COUNTRY_JOY("res/music/countryJoy.wav");
+    //Accredit http://www.nosoapradio.us for railJet.wav
+    //OpenGameArt.org for towerDefenseTheme.wav
+    //
+
+    TOWER_DEFENSE_THEME("res/music/towerDefenseTheme.wav"),
+    RAIL_JET("res/music/railJet.wav"),
+    ERH_BLUE_BEAT("res/music/erh_blueBeat.wav");
 
     String path;
 
