@@ -25,7 +25,7 @@ public abstract class Level
     public Level(String name)
     {
         this.name = name;
-        waveManager = new WaveManager();
+        waveManager = new WaveManager(this);
         checkpointList = new ArrayList<>();
         if (!name.equals("editor"))
             load(name);

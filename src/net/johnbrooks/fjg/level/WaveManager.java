@@ -13,13 +13,15 @@ import java.util.List;
  */
 public class WaveManager
 {
+    private Level level;
     private int nextWaveIndex;
     private List<Wave> waveList;
     private List<Enemy> enemyList;
     private boolean started;
 
-    public WaveManager()
+    public WaveManager(Level level)
     {
+        this.level = level;
         this.started = false;
         this.nextWaveIndex = 0;
         this.waveList = new ArrayList<>();
@@ -80,6 +82,9 @@ public class WaveManager
                     completeLevel();
                     return;
                 }
+
+                // Reward players for the amount of health they have remaining.
+                level.getPlayer().modifyCoins(level.getPlayer().getHealth());
 
                 nextWaveIndex++;
                 Scheduler.getInstance().doTaskLater(() -> startWave(), 5);
