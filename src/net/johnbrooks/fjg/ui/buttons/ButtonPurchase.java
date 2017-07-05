@@ -12,9 +12,9 @@ public class ButtonPurchase extends Button
     private int cost;
     private Player player;
 
-    public ButtonPurchase(String name, int x, int y, Texture[] textures, Player player, int cost)
+    public ButtonPurchase(int x, int y, Texture[] textures, Player player, int cost)
     {
-        super(name, x, y, textures[0]);
+        super(x, y, textures[0]);
         this.textures = textures;
         this.player = player;
         this.cost = cost;

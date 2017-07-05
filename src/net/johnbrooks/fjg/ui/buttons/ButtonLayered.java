@@ -7,9 +7,9 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class ButtonLayered extends Button
 {
-    public ButtonLayered(String name, int x, int y, Texture... textures)
+    public ButtonLayered(int x, int y, Texture... textures)
     {
-        super(name, x, y, textures[0]);
+        super(x, y, textures[0]);
         this.textures = textures;
     }
 }

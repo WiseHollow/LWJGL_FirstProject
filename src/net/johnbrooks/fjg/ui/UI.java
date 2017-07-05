@@ -20,6 +20,10 @@ public class UI
     }
 
     public void addButtons(Button... buttons) { for (Button b : buttons) buttonList.add(b); }
+    public void clearButtons()
+    {
+        buttonList.clear();
+    }
 
     public boolean isVisible() { return visible; }
 

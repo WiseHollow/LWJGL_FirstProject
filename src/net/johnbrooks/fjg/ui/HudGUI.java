@@ -1,9 +1,9 @@
 package net.johnbrooks.fjg.ui;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
@@ -40,40 +40,52 @@ public class HudGUI extends UI
         init();
     }
 
-    private void init()
+    public void init()
     {
-        Texture[] basicTowerTextures = new Texture[] { GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture() };
-        Button buildBasicTower = new ButtonPurchase("basic", 448, DisplayManager.getScreenHeight() - 64, basicTowerTextures, level.getPlayer(), TowerType.BASIC_TOWER.getTowerStats().getCost()).setOnClickEvent(() ->
-        {
-            //TODO: Dynamic cannon stats
-            Tower tower = new Tower(TowerType.BASIC_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
-            level.getPlayer().setTowerToPlace(tower);
-        });
-        Texture[] iceTowerTextures = new Texture[] { GameTexture.ICE_CANNON_BASE.getTexture(), GameTexture.ICE_CANNON_GUN.getTexture() };
-        Button buildIceTower = new ButtonPurchase("ice", 512, DisplayManager.getScreenHeight() - 64, iceTowerTextures, level.getPlayer(), TowerType.ICE_TOWER.getTowerStats().getCost()).setOnClickEvent(() ->
-        {
-            //TODO: Dynamic cannon stats
-            Tower tower = new Tower(TowerType.ICE_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
-            level.getPlayer().setTowerToPlace(tower);
-        });
-        Texture[] speedTowerTextures = new Texture[] { GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture() };
-        Button speedBasicTower = new ButtonPurchase("speed", 576, DisplayManager.getScreenHeight() - 64, speedTowerTextures, level.getPlayer(), TowerType.FAST_TOWER.getTowerStats().getCost()).setOnClickEvent(() ->
-        {
-            //TODO: Dynamic cannon stats
-            Tower tower = new Tower(TowerType.FAST_TOWER, level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
-            level.getPlayer().setTowerToPlace(tower);
-        });
+        clearButtons();
 
-        Button pauseAndPlayButton = new ButtonToggle("pausePlay", DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))
-                .setOnClickEvent(() -> Clock.pause());
-
-        Button settingsButton = new Button("settings", DisplayManager.getScreenWidth() - 77, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_settings.png"))
+        Button settingsButton = new Button(DisplayManager.getScreenWidth() - 77, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_settings.png"))
                 .setOnClickEvent(() ->
                 {
                     settingsGUI.setVisible(!settingsGUI.isVisible());
                 });
 
-        addButtons(buildBasicTower, buildIceTower, speedBasicTower, pauseAndPlayButton, settingsButton);
+        addButtons(settingsButton);
+
+        if (level.getPlayer().getGameMode() == Player.GameMode.NORMAL)
+        {
+            initNormal();
+        }
+        else if (level.getPlayer().getGameMode() == Player.GameMode.EDIT)
+        {
+            initEdit();
+        }
+    }
+
+    private void initNormal()
+    {
+        int buttonX = 448;
+        for (int i = 0; i < TowerType.values().length; i++)
+        {
+            final int index = i;
+            Button button = new ButtonPurchase(buttonX, DisplayManager.getScreenHeight() - 64, TowerType.values()[i].getTowerStats().getTextures(), level.getPlayer(), TowerType.values()[i].getTowerStats().getCost());
+            button.setOnClickEvent(() ->
+            {
+                Tower tower = new Tower(TowerType.values()[index], level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
+                level.getPlayer().setTowerToPlace(tower);
+            });
+            addButtons(button);
+            buttonX+=64;
+        }
+        Button pauseAndPlayButton = new ButtonToggle(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))
+                .setOnClickEvent(() -> Clock.pause());
+
+        addButtons(pauseAndPlayButton);
+    }
+
+    public void initEdit()
+    {
+
     }
 
     @Override

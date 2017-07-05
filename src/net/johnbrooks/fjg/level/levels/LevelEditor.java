@@ -4,8 +4,6 @@ import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
 
-import java.io.File;
-
 /**
  * Created by ieatl on 7/2/2017.
  */
@@ -42,7 +40,7 @@ public class LevelEditor extends Level
         //super.init();
         tileGrid = new TileGrid(map);
         player = new Player(this);
-        player.setGameMode(Player.GameMode.CREATIVE);
+        player.setGameMode(Player.GameMode.EDIT);
     }
 
     @Override

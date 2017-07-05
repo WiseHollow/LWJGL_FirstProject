@@ -35,6 +35,7 @@ public abstract class Level
     public Player getPlayer() { return player; }
     public WaveManager getWaveManager() { return waveManager; }
     public List<Checkpoint> getCheckpointList() { return checkpointList; }
+    public HudGUI getHudGUI() { return hudGUI; }
 
     public void init()
     {

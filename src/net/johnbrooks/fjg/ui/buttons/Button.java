@@ -11,14 +11,12 @@ import org.newdawn.slick.opengl.Texture;
  */
 public class Button
 {
-    protected String name;
     protected int x, y, width, height;
     protected Runnable clickEvent, hoverEvent;
     protected Texture[] textures;
 
-    public Button(String name, int x, int y, Texture texture)
+    public Button(int x, int y, Texture texture)
     {
-        this.name = name;
         this.textures = new Texture[] { texture };
         this.x = x;
         this.y = y;
@@ -87,11 +85,6 @@ public class Button
             return true;
 
         return false;
-    }
-
-    public String getName()
-    {
-        return name;
     }
 
     public Texture[] getTextures()

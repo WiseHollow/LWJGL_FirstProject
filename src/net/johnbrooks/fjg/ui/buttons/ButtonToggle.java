@@ -12,9 +12,9 @@ public class ButtonToggle extends Button
     private Texture disabledTexture;
     private boolean pressed;
 
-    public ButtonToggle(String name, int x, int y, Texture enabledTexture, Texture disabledTexture)
+    public ButtonToggle(int x, int y, Texture enabledTexture, Texture disabledTexture)
     {
-        super(name, x, y, enabledTexture);
+        super(x, y, enabledTexture);
         this.disabledTexture = disabledTexture;
         this.pressed = false;
     }

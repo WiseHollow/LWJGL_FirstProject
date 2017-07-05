@@ -30,6 +30,8 @@ public class TowerStats
         return topTexture;
     }
 
+    public Texture[] getTextures() { return new Texture[] { baseTexture, topTexture }; }
+
     public int getCost()
     {
         return cost;

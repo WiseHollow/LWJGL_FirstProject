@@ -33,7 +33,7 @@ public class SettingsGUI extends UI
 
     private void init()
     {
-        Button music = new ButtonToggle("music", DisplayManager.getScreenWidth() - 74, DisplayManager.getScreenHeight() - 268,
+        Button music = new ButtonToggle(DisplayManager.getScreenWidth() - 74, DisplayManager.getScreenHeight() - 268,
                 Draw.loadTexture("res/hud/settingsNav_music.png"), Draw.loadTexture("res/hud/settingsNav_musicOff.png"))
                 .setOnClickEvent(() ->
                 {
@@ -42,7 +42,7 @@ public class SettingsGUI extends UI
                     else
                         AudioManager.getInstance().playRandom(true);
                 });
-        Button sound = new ButtonToggle("sound", DisplayManager.getScreenWidth() - 74, DisplayManager.getScreenHeight() - 203,
+        Button sound = new ButtonToggle(DisplayManager.getScreenWidth() - 74, DisplayManager.getScreenHeight() - 203,
                 Draw.loadTexture("res/hud/settingsNav_sound.png"), Draw.loadTexture("res/hud/settingsNav_soundOff.png"))
                 .setOnClickEvent(() ->
                 {

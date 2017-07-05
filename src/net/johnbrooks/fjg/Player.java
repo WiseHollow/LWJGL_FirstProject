@@ -7,7 +7,6 @@ import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.TileGrid;
-import net.johnbrooks.fjg.ui.HudGUI;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
 import org.newdawn.slick.opengl.Texture;
@@ -85,6 +84,7 @@ public class Player
     public void setGameMode(GameMode gameMode)
     {
         this.gameMode = gameMode;
+        this.level.getHudGUI().init();
     }
 
     public void update()
@@ -106,7 +106,7 @@ public class Player
                     ordinal++;
                     if (ordinal >= GameMode.values().length)
                         ordinal = 0;
-                    gameMode = GameMode.values()[ordinal];
+                    setGameMode(GameMode.values()[ordinal]);
                     Log.info("Set GameMode to: " + gameMode.name());
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_C)
@@ -147,7 +147,7 @@ public class Player
                 towerToPlace.setTile(selectedTile);
             }
         }
-        else if (gameMode == GameMode.CREATIVE)
+        else if (gameMode == GameMode.EDIT)
         {
             if (Mouse.isButtonDown(0))
                 setTile(brush);
@@ -215,8 +215,10 @@ public class Player
         return selectedTile;
     }
 
+    public GameMode getGameMode() { return gameMode; }
+
     public enum GameMode
     {
-        NORMAL, CREATIVE
+        NORMAL, EDIT
     }
 }
