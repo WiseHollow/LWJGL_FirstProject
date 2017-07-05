@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.drawables.tower.projectiles;
+package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.tower.Tower;
@@ -16,7 +16,6 @@ public class Projectile
 {
     private Tower shooter;
     private Texture texture;
-    private Tile tile;
     private int damage, width, height;
     private float x, y, speed, xVelocity, yVelocity;
     private boolean alive;
@@ -26,7 +25,6 @@ public class Projectile
     {
         this.shooter = shooter;
         this.texture = texture;
-        this.tile = tile;
         this.width = texture.getImageWidth();
         this.height = texture.getImageHeight();
         this.speed = speed;
@@ -76,7 +74,7 @@ public class Projectile
         if (colliding != null)
         {
             colliding.hurt(damage);
-            colliding.setSlowMultiplier(shooter.getTowerType().getProjectileHitSlowMultiplier());
+            colliding.setSlowMultiplier(shooter.getTowerType().getProjectileStats().getHitSlowMultiplier());
             alive = false;
         }
     }

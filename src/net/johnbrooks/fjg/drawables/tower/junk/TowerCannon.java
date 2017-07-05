@@ -1,15 +1,4 @@
-package net.johnbrooks.fjg.drawables.tower;
-
-import net.johnbrooks.fjg.Clock;
-import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.GameTexture;
-import net.johnbrooks.fjg.drawables.entities.Enemy;
-import net.johnbrooks.fjg.drawables.tiles.Tile;
-import net.johnbrooks.fjg.drawables.tower.projectiles.Projectile;
-import net.johnbrooks.fjg.level.Level;
-import org.newdawn.slick.opengl.Texture;
-
-import java.util.List;
+package net.johnbrooks.fjg.drawables.tower.junk;
 
 /**
  * Created by ieatl on 6/30/2017.

@@ -2,12 +2,9 @@ package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
-import net.johnbrooks.fjg.drawables.tower.projectiles.Projectile;
 import net.johnbrooks.fjg.level.Level;
-import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -41,7 +38,7 @@ public class Tower
         this.y = tile.getY();
 
         this.topTextureRotation = 0;
-        this.timeSinceLastShot = towerType.getWarmUp();
+        this.timeSinceLastShot = towerType.getTowerStats().getWarmUp();
         this.target = null;
         this.projectileList = new ArrayList<>();
     }
@@ -51,7 +48,7 @@ public class Tower
     public int getSlotX() { return tile.getXSlot(); }
     public int getSlotY() { return tile.getYSlot(); }
     public Tile getTile() { return tile; }
-    public int getCost() { return towerType.getCost(); }
+    public int getCost() { return towerType.getTowerStats().getCost(); }
     public TowerType getTowerType() { return towerType; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
@@ -67,7 +64,7 @@ public class Tower
     {
         target = calculateEnemyTarget();
         timeSinceLastShot += Clock.delta();
-        if (timeSinceLastShot > towerType.getWarmUp())
+        if (timeSinceLastShot > towerType.getTowerStats().getWarmUp())
             shoot();
 
         for (int i = 0; i < projectileList.size(); i++)
@@ -84,7 +81,7 @@ public class Tower
             }
         }
 
-        if (towerType.getTopTexture() != null)
+        if (towerType.getTowerStats().getTopTexture() != null)
         {
             if (target == null)
                 topTextureRotation += Clock.delta() * 30;
@@ -95,10 +92,10 @@ public class Tower
 
     public void draw()
     {
-        if (towerType.getBaseTexture() != null)
-            Draw.drawTexture(towerType.getBaseTexture(), x, y, WIDTH, HEIGHT);
-        if (towerType.getTopTexture() != null)
-            Draw.drawTexture(towerType.getTopTexture(), x, y, topTextureRotation);
+        if (towerType.getTowerStats().getBaseTexture() != null)
+            Draw.drawTexture(towerType.getTowerStats().getBaseTexture(), x, y, WIDTH, HEIGHT);
+        if (towerType.getTowerStats().getTopTexture() != null)
+            Draw.drawTexture(towerType.getTowerStats().getTopTexture(), x, y, topTextureRotation);
 
         for (Projectile projectile : projectileList)
             projectile.draw();
@@ -113,12 +110,12 @@ public class Tower
     protected Enemy calculateEnemyTarget()
     {
         HashMap<Float, Enemy> distanceMap = new HashMap<>();
-        float closest = towerType.getViewDistance() + 1;
+        float closest = towerType.getTowerStats().getViewDistance() + 1;
 
         for (Enemy enemy : enemyList)
         {
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
-            if (distance <= towerType.getViewDistance())
+            if (distance <= towerType.getTowerStats().getViewDistance())
             {
                 distanceMap.put(distance, enemy);
                 if (distance < closest)
@@ -137,7 +134,7 @@ public class Tower
         if (target != null)
         {
             timeSinceLastShot = 0;
-            projectileList.add(new Projectile(this, towerType.getProjectileTexture(), tile, towerType.getProjectileSpeed(), towerType.getDamage(), target));
+            projectileList.add(new Projectile(this, towerType.getProjectileStats().getProjectileTexture(), tile, towerType.getProjectileStats().getSpeed(), towerType.getProjectileStats().getDamage(), target));
         }
     }
 }

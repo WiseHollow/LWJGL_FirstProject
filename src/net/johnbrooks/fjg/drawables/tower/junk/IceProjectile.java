@@ -1,8 +1,9 @@
-package net.johnbrooks.fjg.drawables.tower.projectiles;
+package net.johnbrooks.fjg.drawables.tower.junk;
 
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tower.Tower;
+import net.johnbrooks.fjg.drawables.tower.Projectile;
 import org.newdawn.slick.opengl.Texture;
 
 /**
