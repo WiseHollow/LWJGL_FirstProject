@@ -98,6 +98,11 @@ public class HudGUI extends UI
             addButtons(button);
             buttonX+=58;
         }
+
+        Button saveButton = new Button(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_save.png"))
+                .setOnClickEvent(() -> System.out.println(level.save() ? "Level saved successfully!" : "Failed to save level."));
+
+        addButtons(saveButton);
     }
 
     @Override
