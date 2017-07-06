@@ -30,8 +30,7 @@ public abstract class Level
         this.name = name;
         waveManager = new WaveManager(this);
         checkpointList = new ArrayList<>();
-        if (!name.equals("editor"))
-            load(name);
+        load(name);
         player = new Player(this);
         this.hudGUI = new HudGUI(this);
         this.pathType = TileType.DIRT;
@@ -141,6 +140,8 @@ public abstract class Level
 
                 if (line.startsWith("Spawn Tile="))
                 {
+                    if (line.equals("Spawn Tile="))
+                        continue;;
                     String[] spawnPoint = line.replace("Spawn Tile=", "").split(",");
 
                     spawnX = Integer.parseInt(spawnPoint[0]);
@@ -149,12 +150,16 @@ public abstract class Level
                 }
                 else if (line.startsWith("Spawn Direction="))
                 {
+                    if (line.equals("Spawn Direction="))
+                        continue;
                     line = line.replace("Spawn Direction=", "");
                     direction = Direction.valueOf(line);
                     continue;
                 }
                 else if (line.startsWith("Path Type="))
                 {
+                    if (line.equals("Path Type="))
+                        continue;
                     line = line.replace("Path Type=", "");
                     pathType = TileType.valueOf(line);
                     continue;

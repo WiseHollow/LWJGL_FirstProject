@@ -38,7 +38,7 @@ public class LevelEditor extends Level
     public void init()
     {
         //super.init();
-        tileGrid = new TileGrid(map);
+        //tileGrid = new TileGrid(map);
         player = new Player(this);
         player.setGameMode(Player.GameMode.EDIT);
     }
