@@ -22,7 +22,8 @@ public class AudioManager
 
     private HashMap<Music, Integer> musicMap;
     private HashMap<Sound, Integer> soundMap;
-    private int sourceId;
+    private int musicSourceId;
+    private int soundSourceId;
     private boolean playing;
 
     public boolean isPlaying()
@@ -47,10 +48,11 @@ public class AudioManager
 
     private void init()
     {
-        sourceId = AL10.alGenSources();
-        AL10.alSourcef(sourceId, AL10.AL_GAIN, 1);
-        AL10.alSourcef(sourceId, AL10.AL_PITCH, 1);
-        AL10.alSource3f(sourceId, AL10.AL_POSITION, 0, 0, 0);
+        musicSourceId = AL10.alGenSources();
+        soundSourceId = AL10.alGenSources();
+        AL10.alSourcef(musicSourceId, AL10.AL_GAIN, 1);
+        AL10.alSourcef(musicSourceId, AL10.AL_PITCH, 1);
+        AL10.alSource3f(musicSourceId, AL10.AL_POSITION, 0, 0, 0);
         AL10.alListener3f(AL10.AL_POSITION, 0, 0, 0);
         AL10.alListener3f(AL10.AL_VELOCITY, 0, 0, 0);
 
@@ -86,35 +88,32 @@ public class AudioManager
         //    return;
 
         stopAll();
-        playing = true;
 
         int buffer = musicMap.get(music);
-        AL10.alSourcei(sourceId, AL10.AL_BUFFER, buffer);
-        AL10.alSourcei(sourceId, AL10.AL_LOOPING, !repeat ? 0 : 1);
+        AL10.alSourcei(musicSourceId, AL10.AL_BUFFER, buffer);
+        AL10.alSourcei(musicSourceId, AL10.AL_LOOPING, !repeat ? 0 : 1);
 
-        AL10.alSourceQueueBuffers(sourceId, buffer);
+        AL10.alSourceQueueBuffers(musicSourceId, buffer);
 
-        AL10.alSourcePlay(sourceId);
+        AL10.alSourcePlay(musicSourceId);
+        playing = true;
     }
 
     public void play(Sound sound)
     {
-        stopAll();
-        playing = true;
-
         int buffer = soundMap.get(sound);
-        AL10.alSourcei(sourceId, AL10.AL_BUFFER, buffer);
+        AL10.alSourcei(soundSourceId, AL10.AL_BUFFER, buffer);
 
-        AL10.alSourceQueueBuffers(sourceId, buffer);
+        AL10.alSourceQueueBuffers(soundSourceId, buffer);
 
-        AL10.alSourcePlay(sourceId);
+        AL10.alSourcePlay(soundSourceId);
     }
 
     public void stopAll()
     {
         playing = false;
-        AL10.alSourceUnqueueBuffers(sourceId);
-        AL10.alSourceStop(sourceId);
+        AL10.alSourceUnqueueBuffers(musicSourceId);
+        AL10.alSourceStop(musicSourceId);
         init();
     }
 
@@ -122,7 +121,7 @@ public class AudioManager
     {
         for (int buffer : musicMap.values())
             AL10.alDeleteBuffers(buffer);
-        AL10.alDeleteSources(sourceId);
+        AL10.alDeleteSources(musicSourceId);
         AL.destroy();
     }
 }
