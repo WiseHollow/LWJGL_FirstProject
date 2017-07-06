@@ -39,5 +39,10 @@ public class ButtonPurchase extends Button
                 Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.3f, 0.3f, 0.3f);
         }
 
+        if (isHovered())
+        {
+            // Display the price above.
+            Draw.getSmallFont().drawString(x, y - 32, cost + " coins");
+        }
     }
 }
