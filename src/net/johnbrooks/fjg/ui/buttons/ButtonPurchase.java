@@ -53,7 +53,7 @@ public class ButtonPurchase extends Button
                 Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.3f, 0.3f, 0.3f);
         }
 
-        if (isHovered())
+        if (isHovered() && purchaseType != null)
         {
             float sx = x - (GameTexture.DESC_WINDOW.getTexture().getImageWidth() * 0.5f) + 32;
             float sy = y - 172;
