@@ -66,7 +66,7 @@ public class Player
 
     public boolean setTower(Tower tower)
     {
-        if (!tower.getTile().getTileType().isBuildable() || level.getPathType() == tower.getTile().getTileType())
+        if (!tower.getTile().getTileType().isBuildable())
             return false;
 
         for (Tower towerCheck : towerList)
@@ -234,13 +234,13 @@ public class Player
         else if (selectedTile != null)
         {
             if (towerToPlace == null)
-                Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable() && level.getPathType() != selectedTile.getTileType())
+                Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable())
                         ? gridSelectionTexture : gridIllegalSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
             else
             {
                 int size = towerToPlace.getTowerType().getTowerStats().getViewDistance() * 2;
 
-                Draw.drawTexture((towerToPlace.getTile().getTileType().isBuildable() && level.getPathType() != towerToPlace.getTile().getTileType()) ? viewDistanceTexture : viewDistanceIllegalPlacement, towerToPlace.getX() - towerToPlace.getTowerType().getTowerStats().getViewDistance() + 32, towerToPlace.getY() - towerToPlace.getTowerType().getTowerStats().getViewDistance() + 32,
+                Draw.drawTexture(towerToPlace.getTile().getTileType().isBuildable() ? viewDistanceTexture : viewDistanceIllegalPlacement, towerToPlace.getX() - towerToPlace.getTowerType().getTowerStats().getViewDistance() + 32, towerToPlace.getY() - towerToPlace.getTowerType().getTowerStats().getViewDistance() + 32,
                         size, size);
 
                 towerToPlace.draw();
