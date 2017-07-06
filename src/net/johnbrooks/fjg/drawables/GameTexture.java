@@ -25,10 +25,10 @@ public enum GameTexture
     TOWER_CANNON_TRACKING("res/towers/towerCannonTracking.png"),
 
     BULLET_BURN("res/projectiles/bulletBurn.png"),
-    BULLET_ICE("res/projectiles/bulletBurn.png"),
-    BULLET_LITE("res/projectiles/bulletBurn.png"),
-    BULLET_STANDARD("res/projectiles/bulletBurn.png"),
-    BULLET_TRACKING("res/projectiles/bulletBurn.png"),
+    BULLET_ICE("res/projectiles/bulletIce.png"),
+    BULLET_LITE("res/projectiles/bulletLite.png"),
+    BULLET_STANDARD("res/projectiles/bulletStandard.png"),
+    BULLET_TRACKING("res/projectiles/bulletTracking.png"),
 
     HEALTH_BACKGROUND("res/general/healthBackground.png"), HEALTH_FOREGROUND("res/general/healthForeground.png"), HEATH_BORDER("res/general/healthBorder.png"),
     X2_DAMAGE("res/textImages/x2Damage.png"),
