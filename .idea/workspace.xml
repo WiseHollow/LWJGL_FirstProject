@@ -17,10 +17,45 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassTopRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassTopRight.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/grass.png" afterPath="$PROJECT_DIR$/src/res/tiles/grass.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassBottom.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassBottom.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassBottomLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassBottomLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassBottomRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassBottomRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerA.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerB.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerB.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerC.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerC.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerD.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassCornerD.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassTop.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassTop.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassTopLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassTopLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_grassTopRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_grassTopRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterBottom.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterBottom.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterBottomLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterBottomLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterBottomRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterBottomRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerA.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerB.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerB.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerC.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerC.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerD.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterCornerD.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterTop.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterTop.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterTopLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterTopLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/sand_waterTopRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/sand_waterTopRight.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassBottom.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassBottom.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassBottomLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassBottomLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassBottomRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassBottomRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerA.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerB.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerB.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerC.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerC.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerD.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassCornerD.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassTop.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassTop.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassTopLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassTopLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/stone_grassTopRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/stone_grassTopRight.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/water.png" afterPath="$PROJECT_DIR$/src/res/tiles/water.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileTexture.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileTexture.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +71,8 @@
       <file leaf-file-name="TileType.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state relative-caret-position="211">
+              <caret line="39" column="83" lean-forward="false" selection-start-line="39" selection-start-column="83" selection-end-line="39" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -46,8 +81,8 @@
       <file leaf-file-name="TileTexture.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileTexture.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+            <state relative-caret-position="256">
+              <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
               <folding>
                 <marker date="1499370996273" expanded="false" signature="3413:3428" ph=" { " />
                 <marker date="1499370996273" expanded="false" signature="3445:3451" ph=" }" />
@@ -92,8 +127,8 @@
       <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="176" column="9" lean-forward="false" selection-start-line="176" selection-start-column="9" selection-end-line="176" selection-end-column="9" />
+            <state relative-caret-position="194">
+              <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -139,16 +174,16 @@
       <find>isB</find>
       <find>isBuild</find>
       <find>is</find>
-      <find>dirt</find>
       <find>DIRT</find>
       <find>false</find>
+      <find>dirt</find>
     </findStrings>
     <replaceStrings>
       <replace>0</replace>
       <replace>SAND</replace>
-      <replace>stone</replace>
       <replace>STONE</replace>
       <replace>true</replace>
+      <replace>stone</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -1315,14 +1350,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="176" column="9" lean-forward="false" selection-start-line="176" selection-start-column="9" selection-end-line="176" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="547">
@@ -1350,10 +1377,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="194">
+          <caret line="160" column="0" lean-forward="false" selection-start-line="160" selection-start-column="0" selection-end-line="160" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileTexture.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+        <state relative-caret-position="256">
+          <caret line="69" column="0" lean-forward="false" selection-start-line="69" selection-start-column="0" selection-end-line="69" selection-end-column="0" />
           <folding>
             <marker date="1499370996273" expanded="false" signature="3413:3428" ph=" { " />
             <marker date="1499370996273" expanded="false" signature="3445:3451" ph=" }" />
@@ -1363,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state relative-caret-position="211">
+          <caret line="39" column="83" lean-forward="false" selection-start-line="39" selection-start-column="83" selection-end-line="39" selection-end-column="83" />
           <folding />
         </state>
       </provider>
