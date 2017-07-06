@@ -51,8 +51,8 @@ public class Level01 extends Level
                 new Wave(this, 2.0f, EnemyTemplate.SPIDER, 4),
                 new Wave(this, 2.0f, EnemyTemplate.PINK_SLIME, 8),
                 new Wave(this, 2.0f, EnemyTemplate.BLUE_SLIME, 8),
-                new Wave(this, 1.0f, EnemyTemplate.BLUE_SLIME, 14),
-                new Wave(this, 1.0f, EnemyTemplate.SPIDER, 12),
+                new Wave(this, 2.0f, EnemyTemplate.BLUE_SLIME, 14),
+                new Wave(this, 1.0f, EnemyTemplate.SPIDER, 8),
                 new Wave(this, 3.0f, EnemyTemplate.SPINNER, 3));
 
         //TODO: Display for how long until wave starts
