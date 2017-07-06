@@ -85,10 +85,14 @@ public class Projectile
             else
                 colliding.hurt(damage);
 
-            if ((colliding.getSlowMultiplier() < 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() > 1f) || (colliding.getSlowMultiplier() > 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() < 1f))
-                colliding.setSlowMultiplier(1f);
-            else
-                colliding.setSlowMultiplier(shooter.getTowerType().getProjectileStats().getHitSlowMultiplier());
+            if (shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() != 1f)
+            {
+                if ((colliding.getSlowMultiplier() < 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() > 1f) || (colliding.getSlowMultiplier() > 1f && shooter.getTowerType().getProjectileStats().getHitSlowMultiplier() < 1f))
+                    colliding.setSlowMultiplier(1f);
+                else
+                    colliding.setSlowMultiplier(shooter.getTowerType().getProjectileStats().getHitSlowMultiplier());
+            }
+
 
             alive = false;
         }

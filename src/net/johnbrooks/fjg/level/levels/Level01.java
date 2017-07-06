@@ -42,10 +42,18 @@ public class Level01 extends Level
     {
         super.init();
 
-        // Create a wave based on the template.
-        Wave wave = new Wave(this, 3, EnemyTemplate.SPIDER, 4);
         // Add and start the wave in the WaveManager.
-        waveManager.addWaves(wave);
+        waveManager.addWaves(new Wave(this, 3.0f, EnemyTemplate.MOUSE, 6),
+                new Wave(this, 2.5f, EnemyTemplate.GREEN_SLIME, 4),
+                new Wave(this, 3.0f, EnemyTemplate.PINK_SLIME, 3),
+                new Wave(this, 1.0f, EnemyTemplate.MOUSE, 12),
+                new Wave(this, 3.0f, EnemyTemplate.MOUSE_FAST, 6),
+                new Wave(this, 2.0f, EnemyTemplate.SPIDER, 4),
+                new Wave(this, 2.0f, EnemyTemplate.PINK_SLIME, 8),
+                new Wave(this, 2.0f, EnemyTemplate.BLUE_SLIME, 8),
+                new Wave(this, 1.0f, EnemyTemplate.BLUE_SLIME, 14),
+                new Wave(this, 1.0f, EnemyTemplate.SPIDER, 12),
+                new Wave(this, 3.0f, EnemyTemplate.SPINNER, 3));
 
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
