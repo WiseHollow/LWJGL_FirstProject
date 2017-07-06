@@ -31,7 +31,7 @@ public class Player
     private Texture gridSelectionTexture, gridIllegalSelectionTexture, viewDistanceTexture, viewDistanceIllegalPlacement;
     private Tile selectedTile;
 
-    private Tower towerToPlace;
+    private Tower towerToPlace, selectedTower;
     private List<ImageBox> imageBoxList;
 
     public Player(Level level)
@@ -49,6 +49,7 @@ public class Player
         this.viewDistanceIllegalPlacement = GameTexture.VIEW_DISTANCE_ILLEGAL.getTexture();
         this.selectedTile = null;
         this.towerToPlace = null;
+        this.selectedTower = null;
         this.imageBoxList = new ArrayList<>();
         //this.buildUI = new BuildUI(level, 0, 0);
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
@@ -148,6 +149,27 @@ public class Player
             // Remove towerToPlace if right click.
             if (Mouse.isButtonDown(1))
                 towerToPlace = null;
+            else if (GameInput.getInstance().isButtonDown(0) && towerToPlace == null)
+            {
+                // We are clicking without wanting to place a tower.
+
+                // Check if we are clicking on a tower...
+
+                boolean found = false;
+                for (Tower tower : towerList)
+                {
+                    if (tower.getTile() == selectedTile)
+                    {
+                        // Found a tower we are clicking on...
+                        selectedTower = tower;
+                        found = true;
+                        break;
+                    }
+                }
+                // if we aren't clicking on a tower, deselect.
+                if (found == false)
+                    selectedTower = null;
+            }
             else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
             {
                 // Place a tower if we have one to place.
@@ -194,7 +216,15 @@ public class Player
         for (Tower tower : towerList)
             tower.draw();
 
-        if (selectedTile != null)
+
+        if (selectedTower != null)
+        {
+            int size = selectedTower.getTowerType().getTowerStats().getViewDistance() * 2;
+
+            Draw.drawTexture(viewDistanceTexture, selectedTower.getX() - selectedTower.getTowerType().getTowerStats().getViewDistance() + 32, selectedTower.getY() - selectedTower.getTowerType().getTowerStats().getViewDistance() + 32,
+                    size, size);
+        }
+        else if (selectedTile != null)
         {
             if (towerToPlace == null)
                 Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable() && level.getPathType() != selectedTile.getTileType())
