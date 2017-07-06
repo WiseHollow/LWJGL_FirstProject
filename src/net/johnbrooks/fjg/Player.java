@@ -27,7 +27,7 @@ public class Player
     private TileType brush;
     private List<Tower> towerList;
     private int health, coins;
-    private Texture gridSelectionTexture;
+    private Texture gridSelectionTexture, gridIllegalSelectionTexture;
     private Tile selectedTile;
 
     private Tower towerToPlace;
@@ -43,6 +43,7 @@ public class Player
         this.health = 10;
         this.coins = 50;
         this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
+        this.gridIllegalSelectionTexture = Draw.loadTexture("res/general/gridIllegalSelection.png");
         this.selectedTile = null;
         this.towerToPlace = null;
         this.imageBoxList = new ArrayList<>();
@@ -142,7 +143,7 @@ public class Player
         if (gameMode == GameMode.NORMAL)
         {
             // Remove towerToPlace if right click.
-            if (Mouse.isButtonDown(1) && towerToPlace != null)
+            if (Mouse.isButtonDown(1))
                 towerToPlace = null;
             else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
             {
@@ -150,7 +151,7 @@ public class Player
                 int x = (int) (Mouse.getX() / 64f);
                 int y = (int) ((DisplayManager.getScreenHeight() - Mouse.getY() - 1f) / 64f);
 
-                if (coins >= towerToPlace.getCost() && getTower(x, y) == null)
+                if (coins >= towerToPlace.getCost() && getTower(x, y) == null && y < TileGrid.TILES_HIGH - 1)
                 {
                     if (setTower(towerToPlace))
                         towerToPlace = null;
@@ -192,7 +193,8 @@ public class Player
 
         if (selectedTile != null)
         {
-            Draw.drawTexture(gridSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
+            Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable() && level.getPathType() != selectedTile.getTileType())
+                    ? gridSelectionTexture : gridIllegalSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
             if (towerToPlace != null)
                 towerToPlace.draw();
         }
