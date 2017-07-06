@@ -20,11 +20,13 @@ public class Draw
 {
     private static TrueTypeFont largeFont;
     private static TrueTypeFont smallFont;
+    private static TrueTypeFont tinyFont;
     public static TrueTypeFont getLargeFont()
     {
         return largeFont;
     }
     public static TrueTypeFont getSmallFont() { return smallFont; }
+    public static TrueTypeFont getTinyFont() { return tinyFont; }
 
     public static void initFonts()
     {
@@ -37,6 +39,8 @@ public class Draw
             largeFont = new TrueTypeFont(awtFont, true);
             awtFont  = awtFont.deriveFont(22f);
             smallFont = new TrueTypeFont(awtFont, true);
+            awtFont  = awtFont.deriveFont(18f);
+            tinyFont = new TrueTypeFont(awtFont, true);
         }
         catch (Exception e)
         {

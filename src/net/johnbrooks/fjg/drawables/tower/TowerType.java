@@ -14,13 +14,20 @@ public enum TowerType
     FIRE_TOWER(GameTexture.TOWER_BASE_C.getTexture(), GameTexture.TOWER_CANNON_BURN.getTexture(), GameTexture.BULLET_BURN.getTexture(), 6, 30, 3, 256, 350, 1.2f, false),
     TRACKING_TOWER(GameTexture.TOWER_BASE_D.getTexture(), GameTexture.TOWER_CANNON_TRACKING.getTexture(), GameTexture.BULLET_TRACKING.getTexture(), 8, 100, 5f, 512, 240, 1f, true);
 
+    private String towerName;
     private TowerStats towerStats;
     private ProjectileStats projectileStats;
 
     TowerType(Texture baseTexture, Texture topTexture, Texture projectileTexture, int damage, int cost, float warmUp, int viewDistance, float projectileSpeed, float projectileHitSlowMultiplier, boolean tracking)
     {
+        this.towerName = name().replace("_", " ");
         this.towerStats = new TowerStats(baseTexture, topTexture, cost, warmUp, viewDistance);
         this.projectileStats = new ProjectileStats(projectileTexture, damage, projectileSpeed, projectileHitSlowMultiplier, tracking);
+    }
+
+    public String getTowerName()
+    {
+        return towerName;
     }
 
     public TowerStats getTowerStats()

@@ -10,7 +10,7 @@ import static org.lwjgl.opengl.GL11.*;
 public class Rectangle implements IDrawable
 {
     private float x, y, width, height;
-    private float r, g, b;
+    private float r, g, b, a;
 
     public Rectangle(float x, float y, float width, float height)
     {
@@ -18,6 +18,10 @@ public class Rectangle implements IDrawable
         this.y = y;
         this.width = width;
         this.height = height;
+        this.r = 1;
+        this.g = 1;
+        this.b = 1;
+        this.a = 1;
     }
 
     public void setColor(float r, float g, float b)
@@ -25,6 +29,21 @@ public class Rectangle implements IDrawable
         this.r = r;
         this.g = g;
         this.b = b;
+    }
+
+    public void setAlpha(float a)
+    {
+        this.a = a;
+    }
+
+    public void setX(float x)
+    {
+        this.x = x;
+    }
+
+    public void setY(float y)
+    {
+        this.y = y;
     }
 
     public float getX()
@@ -50,13 +69,14 @@ public class Rectangle implements IDrawable
     @Override
     public void draw()
     {
-        glColor3f(r, g, b);
+        glColor4f(r, g, b, a);
         glBegin(GL_QUADS);
         glVertex2f(x, y);
         glVertex2f(x + width, y);
         glVertex2f(x + width, y + height);
         glVertex2f(x, y + height);
         glEnd();
+        glColor3f(1, 1, 1);
     }
 
     @Override

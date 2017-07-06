@@ -11,11 +11,7 @@ import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.ui.buttons.Button;
 import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
 import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
-import net.johnbrooks.fjg.ui.elements.TextBox;
 import org.newdawn.slick.opengl.Texture;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by ieatl on 7/3/2017.
@@ -77,6 +73,7 @@ public class HudGUI extends UI
         {
             final int index = i;
             Button button = new ButtonPurchase(buttonX, DisplayManager.getScreenHeight() - 64, TowerType.values()[i].getTowerStats().getTextures(), level.getPlayer(), TowerType.values()[i].getTowerStats().getCost());
+            ((ButtonPurchase)button).setPurchaseType(TowerType.values()[i]);
             button.setOnClickEvent(() ->
             {
                 Tower tower = new Tower(TowerType.values()[index], level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
@@ -117,7 +114,6 @@ public class HudGUI extends UI
     {
         //for (TextBox textBox : textBoxList)
         //    textBox.draw();
-
         if (visible)
         {
             settingsGUI.draw();

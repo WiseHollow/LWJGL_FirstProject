@@ -34,7 +34,9 @@ public enum GameTexture
     X2_DAMAGE("res/textImages/x2Damage.png"),
 
     VIEW_DISTANCE("res/towers/viewDistance.png"),
-    VIEW_DISTANCE_ILLEGAL("res/towers/viewDistanceIllegalPlacement.png");
+    VIEW_DISTANCE_ILLEGAL("res/towers/viewDistanceIllegalPlacement.png"),
+
+    DESC_WINDOW("res/hud/descWindow.png");
 
     private Texture texture;
 
