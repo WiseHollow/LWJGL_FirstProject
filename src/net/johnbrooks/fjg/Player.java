@@ -8,6 +8,7 @@ import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
+import net.johnbrooks.fjg.level.levels.LevelEditor;
 import net.johnbrooks.fjg.ui.elements.ImageBox;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;
@@ -132,6 +133,10 @@ public class Player
                 else if (Keyboard.getEventKey() == Keyboard.KEY_C)
                 {
                     modifyCoins(100);
+                }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_S && level instanceof LevelEditor)
+                {
+                    level.save();
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
                 {

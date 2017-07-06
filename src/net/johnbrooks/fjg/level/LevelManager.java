@@ -1,7 +1,7 @@
 package net.johnbrooks.fjg.level;
 
-import net.johnbrooks.fjg.level.levels.Level1Easy;
-import net.johnbrooks.fjg.level.levels.Level2Easy;
+import net.johnbrooks.fjg.level.levels.Level01;
+import net.johnbrooks.fjg.level.levels.Level02;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,8 +26,8 @@ public class LevelManager
     public LevelManager()
     {
         this.levelList = new ArrayList<>();
-        this.levelList.add(new Level1Easy());
-        this.levelList.add(new Level2Easy());
+        this.levelList.add(new Level01());
+        this.levelList.add(new Level02());
         this.currentLevel = levelList.get(0);
         this.levelIndex = 0;
     }

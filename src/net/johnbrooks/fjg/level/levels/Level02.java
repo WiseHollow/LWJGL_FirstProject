@@ -11,7 +11,7 @@ import net.johnbrooks.fjg.level.Wave;
 /**
  * Created by ieatl on 6/29/2017.
  */
-public class Level2Easy extends Level
+public class Level02 extends Level
 {
     private static int[][] map =
             {
@@ -32,7 +32,7 @@ public class Level2Easy extends Level
                     { 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 3, 3, 3, 3, 2, 2, 2, 2  }
             };
 
-    public Level2Easy()
+    public Level02()
     {
         super("level02");
         //tileGrid = new TileGrid(map);
@@ -43,20 +43,10 @@ public class Level2Easy extends Level
     {
         super.init();
 
-        // Let's create our template to make our first wave.
-        EnemyTemplate enemyTemplate = new EnemyTemplate(EnemyTexture.SLIME_BLUE, 20, 80);
-        EnemyTemplate enemyTemplate2 = new EnemyTemplate(EnemyTexture.MOUSE, 30, 90);
-        EnemyTemplate enemyTemplate3 = new EnemyTemplate(EnemyTexture.SPINNER, 120, 65);
         // Create a wave based on the template.
-        Wave wave = new Wave(this, 1, enemyTemplate, 8);
-        Wave wave2 = new Wave(this, 0.6f, enemyTemplate, 12);
-        Wave wave3 = new Wave(this, 0.5f, enemyTemplate, 16);
-        Wave wave4 = new Wave(this, 0.75f, enemyTemplate2, 14);
-        Wave wave5 = new Wave(this, 0.75f, enemyTemplate2, 18);
-        Wave wave6 = new Wave(this, 0.5f, enemyTemplate2, 16);
-        Wave wave7 = new Wave(this, 1, enemyTemplate3, 3);
+        Wave wave = new Wave(this, 1, EnemyTemplate.GREEN_SLIME, 8);
         // Add and start the wave in the WaveManager.
-        waveManager.addWaves(wave, wave2, wave3, wave4, wave5, wave6, wave7);
+        waveManager.addWaves(wave);
 
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
