@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -28,11 +28,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Player.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
               <caret line="196" column="20" lean-forward="false" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="WaveManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="362">
+              <caret line="88" column="121" lean-forward="false" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
               <folding />
             </state>
           </provider>
@@ -153,7 +163,6 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerType.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/Sound.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/Music.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
@@ -161,6 +170,7 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level1Easy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java" />
       </list>
     </option>
   </component>
@@ -995,14 +1005,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
-          <caret line="88" column="77" lean-forward="true" selection-start-line="88" selection-start-column="77" selection-end-line="89" selection-end-column="67" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1106,6 +1108,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
           <caret line="196" column="20" lean-forward="false" selection-start-line="196" selection-start-column="20" selection-end-line="196" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="362">
+          <caret line="88" column="121" lean-forward="false" selection-start-line="88" selection-start-column="121" selection-end-line="88" selection-end-column="121" />
           <folding />
         </state>
       </provider>

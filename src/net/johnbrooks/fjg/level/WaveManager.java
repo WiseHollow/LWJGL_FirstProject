@@ -86,7 +86,7 @@ public class WaveManager
                 }
 
                 // Reward players for the amount of health they have remaining.
-                level.getPlayer().modifyCoins(level.getPlayer().getHealth());
+                level.getPlayer().modifyCoins(level.getPlayer().getHealth() + ((int) (level.getPlayer().getCoins() * 0.1f)));
                 AudioManager.getInstance().play(Sound.COIN_REWARD);
 
                 nextWaveIndex++;
