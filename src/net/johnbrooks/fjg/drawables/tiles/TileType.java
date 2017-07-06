@@ -16,7 +16,31 @@ public enum TileType
     DIRT_GRASS_SIDE_BOTTOM_LEFT(TileTexture.DIRT_GRASS_BOTTOM_LEFT.getTexture(), false, 54), DIRT_GRASS_SIDE_BOTTOM_RIGHT(TileTexture.DIRT_GRASS_BOTTOM_RIGHT.getTexture(), false, 55),
     DIRT_GRASS_SIDE_TOP_LEFT(TileTexture.DIRT_GRASS_TOP_LEFT.getTexture(), false, 56), DIRT_GRASS_SIDE_TOP_RIGHT(TileTexture.DIRT_GRASS_TOP_RIGHT.getTexture(), false, 57),
     DIRT_GRASS_CORNER_A(TileTexture.DIRT_GRASS_CORNER_A.getTexture(), false, 58), DIRT_GRASS_CORNER_B(TileTexture.DIRT_GRASS_CORNER_B.getTexture(), false, 59),
-    DIRT_GRASS_CORNER_C(TileTexture.DIRT_GRASS_CORNER_C.getTexture(), false, 60), DIRT_GRASS_CORNER_D(TileTexture.DIRT_GRASS_CORNER_D.getTexture(), false, 61);
+    DIRT_GRASS_CORNER_C(TileTexture.DIRT_GRASS_CORNER_C.getTexture(), false, 60), DIRT_GRASS_CORNER_D(TileTexture.DIRT_GRASS_CORNER_D.getTexture(), false, 61),
+
+    SAND_GRASS_SIDE_LEFT(TileTexture.SAND_GRASS_LEFT.getTexture(), false, 62), SAND_GRASS_SIDE_RIGHT(TileTexture.SAND_GRASS_RIGHT.getTexture(), false, 63),
+    SAND_GRASS_SIDE_BOTTOM(TileTexture.SAND_GRASS_BOTTOM.getTexture(), false, 64), SAND_GRASS_SIDE_TOP(TileTexture.SAND_GRASS_TOP.getTexture(), false, 65),
+    SAND_GRASS_SIDE_BOTTOM_LEFT(TileTexture.SAND_GRASS_BOTTOM_LEFT.getTexture(), false, 66), SAND_GRASS_SIDE_BOTTOM_RIGHT(TileTexture.SAND_GRASS_BOTTOM_RIGHT.getTexture(), false, 67),
+    SAND_GRASS_SIDE_TOP_LEFT(TileTexture.SAND_GRASS_TOP_LEFT.getTexture(), false, 68), SAND_GRASS_SIDE_TOP_RIGHT(TileTexture.SAND_GRASS_TOP_RIGHT.getTexture(), false, 69),
+    SAND_GRASS_CORNER_A(TileTexture.SAND_GRASS_CORNER_A.getTexture(), false, 70), SAND_GRASS_CORNER_B(TileTexture.SAND_GRASS_CORNER_B.getTexture(), false, 71),
+    SAND_GRASS_CORNER_C(TileTexture.SAND_GRASS_CORNER_C.getTexture(), false, 72), SAND_GRASS_CORNER_D(TileTexture.SAND_GRASS_CORNER_D.getTexture(), false, 73),
+
+    SAND_WATER_SIDE_LEFT(TileTexture.SAND_WATER_LEFT.getTexture(), false, 74), SAND_WATER_SIDE_RIGHT(TileTexture.SAND_WATER_RIGHT.getTexture(), false, 75),
+    SAND_WATER_SIDE_BOTTOM(TileTexture.SAND_WATER_BOTTOM.getTexture(), false, 76), SAND_WATER_SIDE_TOP(TileTexture.SAND_WATER_TOP.getTexture(), false, 77),
+    SAND_WATER_SIDE_BOTTOM_LEFT(TileTexture.SAND_WATER_BOTTOM_LEFT.getTexture(), false, 78), SAND_WATER_SIDE_BOTTOM_RIGHT(TileTexture.SAND_WATER_BOTTOM_RIGHT.getTexture(), false, 79),
+    SAND_WATER_SIDE_TOP_LEFT(TileTexture.SAND_WATER_TOP_LEFT.getTexture(), false, 80), SAND_WATER_SIDE_TOP_RIGHT(TileTexture.SAND_WATER_TOP_RIGHT.getTexture(), false, 80),
+    SAND_WATER_CORNER_A(TileTexture.SAND_WATER_CORNER_A.getTexture(), false, 81), SAND_WATER_CORNER_B(TileTexture.SAND_WATER_CORNER_B.getTexture(), false, 82),
+    SAND_WATER_CORNER_C(TileTexture.SAND_WATER_CORNER_C.getTexture(), false, 83), SAND_WATER_CORNER_D(TileTexture.SAND_WATER_CORNER_D.getTexture(), false, 84),
+
+    STONE_GRASS_SIDE_LEFT(TileTexture.STONE_GRASS_LEFT.getTexture(), true, 85), STONE_GRASS_SIDE_RIGHT(TileTexture.STONE_GRASS_RIGHT.getTexture(), true, 86),
+    STONE_GRASS_SIDE_BOTTOM(TileTexture.STONE_GRASS_BOTTOM.getTexture(), true, 87), STONE_GRASS_SIDE_TOP(TileTexture.STONE_GRASS_TOP.getTexture(), true, 88),
+    STONE_GRASS_SIDE_BOTTOM_LEFT(TileTexture.STONE_GRASS_BOTTOM_LEFT.getTexture(), true, 89), STONE_GRASS_SIDE_BOTTOM_RIGHT(TileTexture.STONE_GRASS_BOTTOM_RIGHT.getTexture(), true, 90),
+    STONE_GRASS_SIDE_TOP_LEFT(TileTexture.STONE_GRASS_TOP_LEFT.getTexture(), true, 91), STONE_GRASS_SIDE_TOP_RIGHT(TileTexture.STONE_GRASS_TOP_RIGHT.getTexture(), true, 92),
+    STONE_GRASS_CORNER_A(TileTexture.STONE_GRASS_CORNER_A.getTexture(), true, 93), STONE_GRASS_CORNER_B(TileTexture.STONE_GRASS_CORNER_B.getTexture(), true, 94),
+    STONE_GRASS_CORNER_C(TileTexture.STONE_GRASS_CORNER_C.getTexture(), true, 95), STONE_GRASS_CORNER_D(TileTexture.STONE_GRASS_CORNER_D.getTexture(), true, 96),
+
+
+    ;
 
     public static TileType getTileType(final int id) throws Exception
     {
