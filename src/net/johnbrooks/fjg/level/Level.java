@@ -102,7 +102,7 @@ public abstract class Level
         {
             for (int x = 0; x < TileGrid.TILES_WIDE; x++)
             {
-                data += tileGrid.getTile(x, y).getTileType().ordinal() + " ";
+                data += tileGrid.getTile(x, y).getTileType().getId() + " ";
             }
             data += '\n';
         }

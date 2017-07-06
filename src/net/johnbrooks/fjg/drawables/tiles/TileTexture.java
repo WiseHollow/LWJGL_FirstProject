@@ -17,6 +17,8 @@ public enum TileTexture
     DIRT("res/tiles/dirt.png"), DIRT_GRASS_BOTTOM("res/tiles/dirt_grassBottom.png"), DIRT_GRASS_BOTTOM_LEFT("res/tiles/dirt_grassBottomLeft.png"), DIRT_GRASS_BOTTOM_RIGHT("res/tiles/dirt_grassBottomRight.png"),
     DIRT_GRASS_LEFT("res/tiles/dirt_grassLeft.png"), DIRT_GRASS_RIGHT("res/tiles/dirt_grassRight.png"), DIRT_GRASS_TOP("res/tiles/dirt_grassTop.png"),
     DIRT_GRASS_TOP_LEFT("res/tiles/dirt_grassTopLeft.png"), DIRT_GRASS_TOP_RIGHT("res/tiles/dirt_grassTopRight.png"),
+    DIRT_GRASS_CORNER_A("res/tiles/dirt_grassCornerA.png"), DIRT_GRASS_CORNER_B("res/tiles/dirt_grassCornerB.png"),
+    DIRT_GRASS_CORNER_C("res/tiles/dirt_grassCornerC.png"), DIRT_GRASS_CORNER_D("res/tiles/dirt_grassCornerD.png"),
     WATER("res/tiles/water.png"),
     SAND("res/tiles/sand.png"),
     STONE("res/tiles/stone.png");

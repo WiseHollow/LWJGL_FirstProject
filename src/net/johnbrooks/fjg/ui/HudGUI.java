@@ -13,6 +13,9 @@ import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
 import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
 import org.newdawn.slick.opengl.Texture;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * Created by ieatl on 7/3/2017.
  */
@@ -23,9 +26,13 @@ public class HudGUI extends UI
     private int x, y, width, height;
     private boolean visible;
 
+    private int editorTilePage = 0;
+
     private SettingsGUI settingsGUI;
 
     //private List<TextBox> textBoxList;
+    private List<List<Button>> editorPages;
+    private List<Button> editorPage;
 
     public HudGUI(Level level)
     {
@@ -39,6 +46,8 @@ public class HudGUI extends UI
         this.visible = true;
 
         this.settingsGUI = new SettingsGUI(level);
+        this.editorPages = new ArrayList<>();
+        this.editorPage = new ArrayList<>();
         //this.textBoxList = new ArrayList<>();
 
         init();
@@ -47,6 +56,7 @@ public class HudGUI extends UI
     public void init()
     {
         clearButtons();
+        editorPages.clear();
 
         Button settingsButton = new Button(DisplayManager.getScreenWidth() - 77, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_settings.png"))
                 .setOnClickEvent(() ->
@@ -88,25 +98,67 @@ public class HudGUI extends UI
         addButtons(pauseAndPlayButton);
     }
 
-    public void initEdit()
+    private void initEdit()
     {
-        int buttonX = 465;
+        int previousX = 450;
+        int nextX = 929;
+
+        Button previous = new Button(previousX, DisplayManager.getScreenHeight() - 58, Draw.loadTexture("res/buttons/previous.png"));
+        previous.setOnClickEvent(() ->
+        {
+            editorTilePage--;
+            if (editorTilePage < 0)
+                editorTilePage = 0;
+            refreshEditorToolbar();
+        });
+        Button next = new Button(nextX, DisplayManager.getScreenHeight() - 58, Draw.loadTexture("res/buttons/next.png"));
+        next.setOnClickEvent(() ->
+        {
+            editorTilePage++;
+            if (editorTilePage >= editorPages.size())
+                editorTilePage = editorPages.size() - 1;
+            refreshEditorToolbar();
+        });
+
+
+        int buttonX = 520;
+
+        //int pageIndex = 0;
+        List<Button> page = new ArrayList<>();
         for (int i = 0; i < TileType.values().length; i++)
         {
             final int index = i;
             Button button = new Button(buttonX, DisplayManager.getScreenHeight() - 58, TileType.values()[i].getTexture());
             button.setSizePercent(0.85f);
             button.setOnClickEvent(() ->
-                    level.getPlayer().setBrush(TileType.values()[index]));
+            {
+                level.getPlayer().setBrush(TileType.values()[index]);
+            });
 
-            addButtons(button);
-            buttonX+=58;
+            page.add(button);
+            if (page.size() == 7 || page.size() + (editorPages.size() * 7) == TileType.values().length)
+            {
+                List<Button> buttons = new ArrayList<>();
+                buttons.addAll(page);
+                editorPages.add(buttons);
+                page = new ArrayList<>();
+                buttonX = 520;
+            }
+            else
+                buttonX+=58;
         }
+
+        refreshEditorToolbar();
 
         Button saveButton = new Button(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_save.png"))
                 .setOnClickEvent(() -> System.out.println(level.save() ? "Level saved successfully!" : "Failed to save level."));
 
-        addButtons(saveButton);
+        addButtons(saveButton, previous, next);
+    }
+
+    private void refreshEditorToolbar()
+    {
+        editorPage = editorPages.get(editorTilePage);
     }
 
     @Override
@@ -128,6 +180,9 @@ public class HudGUI extends UI
 
             super.draw();
         }
+
+        for (Button button : editorPage)
+            button.draw();
     }
 
     @Override
@@ -150,6 +205,8 @@ public class HudGUI extends UI
             {
                 settingsGUI.update();
             }
+            for (Button button : editorPage)
+                button.update();
 
             super.update();
         }
