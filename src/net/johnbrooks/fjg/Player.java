@@ -197,6 +197,8 @@ public class Player
         {
             if (Mouse.isButtonDown(0))
                 paint();
+            else if (GameInput.getInstance().isButtonDown(1))
+                brush = selectedTile.getTileType();
             int dWheel = Mouse.getDWheel();
             if (dWheel != 0)
             {

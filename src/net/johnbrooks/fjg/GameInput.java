@@ -44,7 +44,7 @@ public class GameInput
                 else if (Mouse.getEventButton() == 1)
                 {
                     // Right pressed
-                    mouseDown[0] = true;
+                    mouseDown[1] = true;
                 }
             }
             else
