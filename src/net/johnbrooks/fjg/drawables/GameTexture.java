@@ -31,7 +31,10 @@ public enum GameTexture
     BULLET_TRACKING("res/projectiles/bulletBurn.png"),
 
     HEALTH_BACKGROUND("res/general/healthBackground.png"), HEALTH_FOREGROUND("res/general/healthForeground.png"), HEATH_BORDER("res/general/healthBorder.png"),
-    X2_DAMAGE("res/textImages/x2Damage.png");
+    X2_DAMAGE("res/textImages/x2Damage.png"),
+
+    VIEW_DISTANCE("res/towers/viewDistance.png"),
+    VIEW_DISTANCE_ILLEGAL("res/towers/viewDistanceIllegalPlacement.png");
 
     private Texture texture;
 

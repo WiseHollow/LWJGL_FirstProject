@@ -2,6 +2,7 @@ package net.johnbrooks.fjg;
 
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
@@ -27,7 +28,7 @@ public class Player
     private TileType brush;
     private List<Tower> towerList;
     private int health, coins;
-    private Texture gridSelectionTexture, gridIllegalSelectionTexture;
+    private Texture gridSelectionTexture, gridIllegalSelectionTexture, viewDistanceTexture, viewDistanceIllegalPlacement;
     private Tile selectedTile;
 
     private Tower towerToPlace;
@@ -44,6 +45,8 @@ public class Player
         this.coins = 50;
         this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
         this.gridIllegalSelectionTexture = Draw.loadTexture("res/general/gridIllegalSelection.png");
+        this.viewDistanceTexture = GameTexture.VIEW_DISTANCE.getTexture();
+        this.viewDistanceIllegalPlacement = GameTexture.VIEW_DISTANCE_ILLEGAL.getTexture();
         this.selectedTile = null;
         this.towerToPlace = null;
         this.imageBoxList = new ArrayList<>();
@@ -193,10 +196,18 @@ public class Player
 
         if (selectedTile != null)
         {
-            Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable() && level.getPathType() != selectedTile.getTileType())
-                    ? gridSelectionTexture : gridIllegalSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
-            if (towerToPlace != null)
+            if (towerToPlace == null)
+                Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable() && level.getPathType() != selectedTile.getTileType())
+                        ? gridSelectionTexture : gridIllegalSelectionTexture, selectedTile.getX(), selectedTile.getY(), 0);
+            else
+            {
+                int size = towerToPlace.getTowerType().getTowerStats().getViewDistance() * 2;
+
+                Draw.drawTexture((towerToPlace.getTile().getTileType().isBuildable() && level.getPathType() != towerToPlace.getTile().getTileType()) ? viewDistanceTexture : viewDistanceIllegalPlacement, towerToPlace.getX() - towerToPlace.getTowerType().getTowerStats().getViewDistance() + 32, towerToPlace.getY() - towerToPlace.getTowerType().getTowerStats().getViewDistance() + 32,
+                        size, size);
+
                 towerToPlace.draw();
+            }
         }
 
         for (ImageBox imageBox : imageBoxList)
