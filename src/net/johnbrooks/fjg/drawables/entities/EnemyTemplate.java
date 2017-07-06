@@ -11,7 +11,7 @@ public enum EnemyTemplate
     GREEN_SLIME(EnemyTexture.SLIME, 25, 30), PINK_SLIME(EnemyTexture.SLIME_PINK, 40, 45), BLUE_SLIME(EnemyTexture.SLIME_BLUE, 80, 60),
     MOUSE(EnemyTexture.MOUSE, 10, 45), MOUSE_FAST(EnemyTexture.MOUSE, 10, 80),
     SPIDER(EnemyTexture.SPIDER, 40, 40),
-    SPINNER(EnemyTexture.SPINNER, 200, 60);
+    SPINNER(EnemyTexture.SPINNER, 400, 60);
 
     private Texture texture, altTexture, deadTexture;
     private int health;
