@@ -2,8 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/GameInput.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/GameInput.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassBottom.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassBottom.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassBottomLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassBottomLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassBottomRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassBottomRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerA.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerA.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerB.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerB.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerC.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerC.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerD.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassCornerD.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassRight.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassTop.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassTop.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassTopLeft.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassTopLeft.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/tiles/dirt_grassTopRight.png" afterPath="$PROJECT_DIR$/src/res/tiles/dirt_grassTopRight.png" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -938,7 +948,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33802816" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33261105" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33261105" sideWeight="0.48958334" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33802816" sideWeight="0.4978678" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
