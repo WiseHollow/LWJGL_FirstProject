@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.level;
+package net.johnbrooks.fjg.drawables.tiles;
 
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;

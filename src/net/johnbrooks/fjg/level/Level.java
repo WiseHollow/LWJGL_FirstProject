@@ -1,6 +1,9 @@
 package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.Player;
+import net.johnbrooks.fjg.drawables.entities.Checkpoint;
+import net.johnbrooks.fjg.drawables.entities.Direction;
+import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.ui.HudGUI;
 

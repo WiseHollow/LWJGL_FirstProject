@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.level;
+package net.johnbrooks.fjg.drawables.entities;
 
 /**
  * Created by ieatl on 6/30/2017.

@@ -1,6 +1,7 @@
-package net.johnbrooks.fjg.level;
+package net.johnbrooks.fjg.drawables.entities;
 
 import net.johnbrooks.fjg.drawables.tiles.Tile;
+import net.johnbrooks.fjg.level.Level;
 
 /**
  * Created by ieatl on 6/30/2017.
@@ -40,14 +41,14 @@ public class Checkpoint
             int _x = nextTile.getXSlot() + currentDirection.getX();
             int _y = nextTile.getYSlot() + currentDirection.getY();
             // Make our nextTile equal to the ahead tile.
-            nextTile = level.tileGrid.getTile(_x, _y);
+            nextTile = level.getTileGrid().getTile(_x, _y);
             // Check for a non-existent tile.
             if (nextTile == null)
             {
                 // This must be an edge detection. Let's push it through.
                 edge = true;
                 // Get the tile before this edge, so we have a valid tile.
-                nextTile = level.tileGrid.getTile(_x - currentDirection.getX(), _y - currentDirection.getY());
+                nextTile = level.getTileGrid().getTile(_x - currentDirection.getX(), _y - currentDirection.getY());
                 break;
             }
         }
@@ -55,13 +56,13 @@ public class Checkpoint
         // Set the valid end tile.
         Tile endTile = nextTile;
         if (!edge)
-            endTile = level.tileGrid.getTile(nextTile.getXSlot() - currentDirection.getX(), nextTile.getYSlot() - currentDirection.getY());
+            endTile = level.getTileGrid().getTile(nextTile.getXSlot() - currentDirection.getX(), nextTile.getYSlot() - currentDirection.getY());
 
         // Calculate direction.
         if (currentDirection == Direction.LEFT || currentDirection == Direction.RIGHT)
         {
-            Tile up = level.tileGrid.getTile(endTile.getXSlot(), endTile.getYSlot() - 1);
-            Tile down = level.tileGrid.getTile(endTile.getXSlot(), endTile.getYSlot() + 1);
+            Tile up = level.getTileGrid().getTile(endTile.getXSlot(), endTile.getYSlot() - 1);
+            Tile down = level.getTileGrid().getTile(endTile.getXSlot(), endTile.getYSlot() + 1);
 
             if (up != null && up.getTileType() == tile.getTileType())
             {
@@ -78,8 +79,8 @@ public class Checkpoint
         }
         else
         {
-            Tile left = level.tileGrid.getTile(endTile.getXSlot() - 1, endTile.getYSlot());
-            Tile right = level.tileGrid.getTile(endTile.getXSlot() + 1, endTile.getYSlot());
+            Tile left = level.getTileGrid().getTile(endTile.getXSlot() - 1, endTile.getYSlot());
+            Tile right = level.getTileGrid().getTile(endTile.getXSlot() + 1, endTile.getYSlot());
 
             if (left != null && left.getTileType() == tile.getTileType())
             {

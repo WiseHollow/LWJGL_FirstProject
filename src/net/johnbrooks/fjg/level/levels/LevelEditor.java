@@ -2,7 +2,7 @@ package net.johnbrooks.fjg.level.levels;
 
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.level.Level;
-import net.johnbrooks.fjg.level.TileGrid;
+import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 
 /**
  * Created by ieatl on 7/2/2017.

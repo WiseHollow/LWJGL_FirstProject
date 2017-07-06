@@ -6,7 +6,7 @@ import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.level.Level;
-import net.johnbrooks.fjg.level.TileGrid;
+import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 import net.johnbrooks.fjg.ui.elements.ImageBox;
 import org.lwjgl.input.Keyboard;
 import org.lwjgl.input.Mouse;

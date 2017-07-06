@@ -1,10 +1,9 @@
 package net.johnbrooks.fjg.level.levels;
 
-import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Music;
-import net.johnbrooks.fjg.drawables.GameTexture;
+import net.johnbrooks.fjg.drawables.entities.EnemyTemplate;
 import net.johnbrooks.fjg.drawables.entities.EnemyTexture;
 import net.johnbrooks.fjg.level.*;
 

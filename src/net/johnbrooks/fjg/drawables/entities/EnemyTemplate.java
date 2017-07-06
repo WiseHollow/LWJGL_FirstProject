@@ -1,4 +1,4 @@
-package net.johnbrooks.fjg.level;
+package net.johnbrooks.fjg.drawables.entities;
 
 import net.johnbrooks.fjg.drawables.entities.EnemyTexture;
 import org.newdawn.slick.opengl.Texture;
