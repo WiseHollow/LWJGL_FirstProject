@@ -4,7 +4,6 @@ import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Music;
 import net.johnbrooks.fjg.drawables.entities.EnemyTemplate;
-import net.johnbrooks.fjg.drawables.entities.EnemyTexture;
 import net.johnbrooks.fjg.level.*;
 
 /**
@@ -61,8 +60,6 @@ public class Level01 extends Level
 
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
-
-        AudioManager.getInstance().play(Music.TOWER_DEFENSE_THEME, true);
     }
 
     @Override

@@ -31,9 +31,14 @@ public abstract class Level
     public Level(String name)
     {
         this.name = name;
-        waveManager = new WaveManager(this);
         checkpointList = new ArrayList<>();
         load(name);
+        init();
+    }
+
+    public void init()
+    {
+        waveManager = new WaveManager(this);
         player = new Player(this);
         this.hudGUI = new HudGUI(this);
         this.complete = false;
@@ -52,7 +57,7 @@ public abstract class Level
             levelClearedGUI = null;
     }
 
-    public void init()
+    public void calculateWaypoints()
     {
         // Only let us search for paths, if we haven't already before.
         if (checkpointList.size() == 1)
@@ -75,6 +80,12 @@ public abstract class Level
         }
         else
             System.out.println("[" + name + "] Not able to calculate checkpoints... " + checkpointList.size());
+    }
+
+    public void reset()
+    {
+        System.out.println("Resetting level!");
+        init();
     }
 
     public TileGrid getTileGrid()

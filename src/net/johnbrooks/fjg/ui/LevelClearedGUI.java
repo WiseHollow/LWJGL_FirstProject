@@ -4,6 +4,8 @@ import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.state.GameState;
+import net.johnbrooks.fjg.state.StateManager;
 import net.johnbrooks.fjg.state.states.Game;
 import net.johnbrooks.fjg.ui.buttons.Button;
 import org.newdawn.slick.opengl.Texture;
@@ -34,9 +36,20 @@ public class LevelClearedGUI extends UI
         nextLevelButton.setOnClickEvent(() ->
         {
             Game.getInstance().getLevelManager().nextLevel();
-            Game.getInstance().getLevelManager().getCurrentLevel().init();
+            Game.getInstance().getLevelManager().getCurrentLevel().calculateWaypoints();
         });
-        addButtons(nextLevelButton);
+        Button reloadLevelButton = new Button(x + 155, y + 405, Draw.loadTexture("res/buttons/reload.png"));
+        reloadLevelButton.setOnClickEvent(() ->
+        {
+            // Reset current level
+            level.reset();
+        });
+        Button menuButton = new Button(x + 255, y + 405, Draw.loadTexture("res/buttons/menu.png"));
+        menuButton.setOnClickEvent(() ->
+        {
+            StateManager.getInstance().setGameState(GameState.MAIN_MENU);
+        });
+        addButtons(nextLevelButton, reloadLevelButton);
     }
 
     @Override

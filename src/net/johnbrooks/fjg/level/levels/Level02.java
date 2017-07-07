@@ -3,7 +3,6 @@ package net.johnbrooks.fjg.level.levels;
 import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Music;
-import net.johnbrooks.fjg.drawables.entities.EnemyTexture;
 import net.johnbrooks.fjg.drawables.entities.EnemyTemplate;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.Wave;
@@ -61,8 +60,6 @@ public class Level02 extends Level
 
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
-
-        AudioManager.getInstance().play(Music.ERH_BLUE_BEAT, true);
     }
 
     @Override

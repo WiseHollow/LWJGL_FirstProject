@@ -31,13 +31,13 @@ public class LevelEditor extends Level
     public LevelEditor()
     {
         super("editor");
-        //init();
+        //calculateWaypoints();
     }
 
     @Override
-    public void init()
+    public void calculateWaypoints()
     {
-        //super.init();
+        //super.calculateWaypoints();
         //tileGrid = new TileGrid(map);
         player = new Player(this);
         player.setGameMode(Player.GameMode.EDIT);
