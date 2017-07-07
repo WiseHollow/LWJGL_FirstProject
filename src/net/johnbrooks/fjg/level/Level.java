@@ -2,6 +2,7 @@ package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Player;
+import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.drawables.entities.Checkpoint;
 import net.johnbrooks.fjg.drawables.entities.Direction;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
@@ -45,6 +46,8 @@ public abstract class Level
         player = new Player(this);
         this.hudGUI = new HudGUI(this);
         this.complete = false;
+
+        AudioManager.getInstance().playRandom(true);
     }
 
     public Player getPlayer() { return player; }
