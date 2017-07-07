@@ -11,9 +11,8 @@ import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.ui.buttons.Button;
-import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
+import net.johnbrooks.fjg.ui.buttons.ButtonSell;
 import net.johnbrooks.fjg.ui.buttons.ButtonUpgrade;
-import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -35,8 +34,9 @@ public class Tower
     protected int x, y, power;
     protected Enemy target;
     protected List<Projectile> projectileList;
+    protected boolean toRemove;
 
-    protected Button upgradeButton;
+    protected Button upgradeButton, sellButton;
 
     public Tower(TowerType towerType, Level level, Tile tile, List<Enemy> enemyList)
     {
@@ -56,6 +56,14 @@ public class Tower
                     if (upgradeTower())
                         AudioManager.getInstance().play(Sound.COIN_REWARD);
                 });
+        this.sellButton = new ButtonSell(x + 64, y + 32, GameTexture.SELL_BUTTON.getTexture(), level, this)
+                .setOnClickEvent(() ->
+                {
+                    level.getPlayer().setSelectedTower(this);
+                    GameInput.getInstance().setButtonDown(0, false);
+                    level.getPlayer().modifyCoins(getTotalSellPrice());
+                    toRemove = true;
+                });
 
         this.topTextureRotation = 0;
         this.timeSinceLastShot = towerType.getTowerStats().getWarmUp();
@@ -71,6 +79,7 @@ public class Tower
     public Tile getTile() { return tile; }
     public int getCost() { return towerType.getTowerStats().getCost(); }
     public int getPower() { return power; }
+    public boolean isToRemove() { return toRemove; }
     public TowerType getTowerType() { return towerType; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
@@ -85,13 +94,20 @@ public class Tower
         return towerType.getProjectileStats().getDamage() * power;
     }
 
+    public int getTotalSellPrice()
+    {
+        return (int) (towerType.getTowerStats().getCost() * power * 0.5f);
+    }
+
     public void setTile(Tile tile)
     {
         this.x = tile.getX();
         this.y = tile.getY();
         this.tile = tile;
-        this.upgradeButton.setX(tile.getX() + 64);
+        this.upgradeButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -128));
         this.upgradeButton.setY(tile.getY() - 32);
+        this.sellButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -128));
+        this.sellButton.setY(tile.getY() + 32);
     }
 
     public boolean upgradeTower()
@@ -139,6 +155,7 @@ public class Tower
         }
 
         upgradeButton.update();
+        sellButton.update();
     }
 
     public void draw()
@@ -152,6 +169,7 @@ public class Tower
             projectile.draw();
 
         upgradeButton.draw();
+        sellButton.draw();
     }
 
     protected float calculateAngleToTarget()

@@ -179,8 +179,19 @@ public class Player
         if (gameMode == GameMode.NORMAL)
         {
             // Update each tower
-            for (Tower tower : towerList)
-                tower.update();
+            for (int i = 0; i < towerList.size(); i++)
+            {
+                Tower tower = towerList.get(i);
+                if (tower.isToRemove())
+                {
+                    if (selectedTower == tower)
+                        selectedTower = null;
+                    towerList.remove(tower);
+                    i--;
+                }
+                else
+                    tower.update();
+            }
             // Remove towerToPlace if right click.
             if (Mouse.isButtonDown(1))
                 towerToPlace = null;
