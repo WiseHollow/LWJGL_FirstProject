@@ -104,9 +104,9 @@ public class Tower
         this.x = tile.getX();
         this.y = tile.getY();
         this.tile = tile;
-        this.upgradeButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -128));
+        this.upgradeButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -64));
         this.upgradeButton.setY(tile.getY() - 32);
-        this.sellButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -128));
+        this.sellButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -64));
         this.sellButton.setY(tile.getY() + 32);
     }
 
