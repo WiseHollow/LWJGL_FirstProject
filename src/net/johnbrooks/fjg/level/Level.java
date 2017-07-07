@@ -3,6 +3,7 @@ package net.johnbrooks.fjg.level;
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.audio.AudioManager;
+import net.johnbrooks.fjg.audio.Sound;
 import net.johnbrooks.fjg.drawables.entities.Checkpoint;
 import net.johnbrooks.fjg.drawables.entities.Direction;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
@@ -20,6 +21,18 @@ import java.util.List;
  */
 public abstract class Level
 {
+    private static int credits;
+    public static void depositCredits(int credits)
+    {
+        Level.credits+=credits;
+    }
+    public static int withdrawCredits()
+    {
+        int credits = Level.credits;
+        Level.credits = 0;
+        return credits;
+    }
+
     protected String name;
     protected TileGrid tileGrid;
     protected WaveManager waveManager;
@@ -46,6 +59,12 @@ public abstract class Level
         player = new Player(this);
         this.hudGUI = new HudGUI(this);
         this.complete = false;
+
+        if (Level.credits > 0)
+        {
+            AudioManager.getInstance().play(Sound.COIN_REWARD);
+            player.modifyCoins(Level.withdrawCredits());
+        }
 
         AudioManager.getInstance().playRandom(true);
     }

@@ -34,6 +34,8 @@ public class LevelClearedGUI extends UI
 
     private void init()
     {
+        Level.depositCredits(level.getPlayer().getHealth());
+
         Button nextLevelButton = new Button(x + 355, y + 405, Draw.loadTexture("res/buttons/nextLevel.png"));
         nextLevelButton.setOnClickEvent(() ->
         {
