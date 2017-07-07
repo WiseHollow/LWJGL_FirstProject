@@ -215,7 +215,7 @@ public class Player
                 boolean found = false;
                 for (Tower tower : towerList)
                 {
-                    if (tower.getTile() == selectedTile)
+                    if (tower.getTile() == selectedTile || level.getHudGUI().isPressingButton())
                     {
                         // Found a tower we are clicking on...
                         setSelectedTower(tower);
@@ -236,7 +236,10 @@ public class Player
                 if (coins >= towerToPlace.getCost() && getTower(x, y) == null && y < TileGrid.TILES_HIGH - 1)
                 {
                     if (setTower(towerToPlace))
+                    {
+                        setSelectedTower(towerToPlace);
                         towerToPlace = null;
+                    }
                 }
             }
 

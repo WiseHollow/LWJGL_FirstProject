@@ -255,6 +255,16 @@ public class HudGUI extends UI
         return height;
     }
 
+    public boolean isPressingButton()
+    {
+        if (sellButton != null && upgradeButton != null)
+        {
+            if (sellButton.isClicked() || upgradeButton.isClicked())
+                return true;
+        }
+        return false;
+    }
+
     /*public List<TextBox> getTextBoxList()
     {
         return textBoxList;
