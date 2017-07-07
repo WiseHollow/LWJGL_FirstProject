@@ -40,6 +40,7 @@ public class LevelClearedGUI extends UI
             Game.getInstance().getLevelManager().nextLevel();
             Game.getInstance().getLevelManager().getCurrentLevel().calculateWaypoints();
         });
+        nextLevelButton.setActive(!level.isLastLevel());
         Button reloadLevelButton = new Button(x + 225, y + 405, Draw.loadTexture("res/buttons/reload.png"));
         reloadLevelButton.setOnClickEvent(() ->
         {

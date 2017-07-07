@@ -6,6 +6,7 @@ import net.johnbrooks.fjg.drawables.entities.Checkpoint;
 import net.johnbrooks.fjg.drawables.entities.Direction;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
+import net.johnbrooks.fjg.state.states.Game;
 import net.johnbrooks.fjg.ui.HudGUI;
 import net.johnbrooks.fjg.ui.LevelClearedGUI;
 
@@ -57,6 +58,11 @@ public abstract class Level
             levelClearedGUI = new LevelClearedGUI(this);
         else
             levelClearedGUI = null;
+    }
+
+    public boolean isLastLevel()
+    {
+        return Game.getInstance().getLevelManager().getLevelIndex() + 1 >= Game.getInstance().getLevelManager().getLevels();
     }
 
     public void calculateWaypoints()

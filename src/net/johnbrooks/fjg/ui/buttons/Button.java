@@ -15,6 +15,7 @@ public class Button
     protected float sizePercent;
     protected Runnable clickEvent, hoverEvent;
     protected Texture[] textures;
+    protected boolean active;
 
     public Button(int x, int y, Texture texture)
     {
@@ -24,18 +25,27 @@ public class Button
         this.width = texture.getTextureWidth();
         this.height = texture.getTextureHeight();
         this.sizePercent = 1f;
+        this.active = true;
+    }
+
+    public void setActive(boolean active)
+    {
+        this.active = active;
     }
 
     public void update()
     {
-        if (hoverEvent != null && isHovered())
+        if (active)
         {
-            hoverEvent.run();
-        }
-        if (clickEvent != null && isClicked())
-        {
-            GameInput.getInstance().setButtonDown(0, false);
-            clickEvent.run();
+            if (hoverEvent != null && isHovered())
+            {
+                hoverEvent.run();
+            }
+            if (clickEvent != null && isClicked())
+            {
+                GameInput.getInstance().setButtonDown(0, false);
+                clickEvent.run();
+            }
         }
     }
 
@@ -43,7 +53,9 @@ public class Button
     {
         for (Texture texture : textures)
         {
-            if (!isHovered())
+            if (!active)
+                Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.3f, 0.3f, 0.3f);
+            else if (!isHovered())
                 Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent));
             else
                 Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
