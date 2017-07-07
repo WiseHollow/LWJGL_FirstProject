@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level01.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level01.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level02.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level02.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/LevelEditor.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/LevelEditor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Editor.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Editor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -21,15 +16,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LevelClearedGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LevelClearedGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
+            <state relative-caret-position="192">
+              <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#2095#2096#0" expanded="true" />
-                <element signature="e#2125#2126#0" expanded="true" />
+                <element signature="e#2158#2159#0" expanded="true" />
+                <element signature="e#2188#2189#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="558">
+              <caret line="73" column="44" lean-forward="false" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Game.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="258">
+              <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
+              <folding>
+                <element signature="e#615#616#0" expanded="true" />
+                <element signature="e#664#665#0" expanded="true" />
+                <element signature="e#1142#1143#0" expanded="true" />
+                <element signature="e#1197#1198#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -38,7 +58,7 @@
       <file leaf-file-name="LevelManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="388">
+            <state relative-caret-position="490">
               <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
               <folding />
             </state>
@@ -55,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Level.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Level.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="172">
@@ -165,7 +185,6 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/TowerStats.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/UI.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Clock.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonToggle.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/EnemyTemplate.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java" />
@@ -207,8 +226,9 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level01.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level02.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java" />
       </list>
     </option>
   </component>
@@ -349,6 +369,54 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="fjg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fjg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="state" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fjg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="state" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="states" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -975,16 +1043,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding>
-            <element signature="e#1122#1123#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/StateManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="188">
@@ -1057,14 +1115,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="838">
-          <caret line="73" column="44" lean-forward="false" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
@@ -1133,14 +1183,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/LevelEditor.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="228">
@@ -1173,23 +1215,52 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="44" column="26" lean-forward="false" selection-start-line="44" selection-start-column="26" selection-end-line="44" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2095#2096#0" expanded="true" />
-            <element signature="e#2125#2126#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="172">
           <caret line="34" column="19" lean-forward="false" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="490">
+          <caret line="38" column="24" lean-forward="false" selection-start-line="38" selection-start-column="24" selection-end-line="38" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="73" column="44" lean-forward="false" selection-start-line="73" selection-start-column="44" selection-end-line="73" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/Game.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="258">
+          <caret line="32" column="73" lean-forward="false" selection-start-line="32" selection-start-column="73" selection-end-line="32" selection-end-column="73" />
+          <folding>
+            <element signature="e#615#616#0" expanded="true" />
+            <element signature="e#664#665#0" expanded="true" />
+            <element signature="e#1142#1143#0" expanded="true" />
+            <element signature="e#1197#1198#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelClearedGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="40" column="53" lean-forward="false" selection-start-line="40" selection-start-column="53" selection-end-line="40" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2158#2159#0" expanded="true" />
+            <element signature="e#2188#2189#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

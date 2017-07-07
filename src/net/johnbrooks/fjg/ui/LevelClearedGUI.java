@@ -38,18 +38,19 @@ public class LevelClearedGUI extends UI
             Game.getInstance().getLevelManager().nextLevel();
             Game.getInstance().getLevelManager().getCurrentLevel().calculateWaypoints();
         });
-        Button reloadLevelButton = new Button(x + 155, y + 405, Draw.loadTexture("res/buttons/reload.png"));
+        Button reloadLevelButton = new Button(x + 225, y + 405, Draw.loadTexture("res/buttons/reload.png"));
         reloadLevelButton.setOnClickEvent(() ->
         {
             // Reset current level
             level.reset();
         });
-        Button menuButton = new Button(x + 255, y + 405, Draw.loadTexture("res/buttons/menu.png"));
+        Button menuButton = new Button(x + 95, y + 405, Draw.loadTexture("res/buttons/menu.png"));
         menuButton.setOnClickEvent(() ->
         {
             StateManager.getInstance().setGameState(GameState.MAIN_MENU);
+            Game.getInstance().resetLevelManager();
         });
-        addButtons(nextLevelButton, reloadLevelButton);
+        addButtons(nextLevelButton, reloadLevelButton, menuButton);
     }
 
     @Override

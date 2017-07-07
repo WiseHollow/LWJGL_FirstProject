@@ -30,6 +30,7 @@ public class Game implements IGameState
     }
 
     public LevelManager getLevelManager() { return levelManager; }
+    public void resetLevelManager() { levelManager = new LevelManager(); }
 
     /**
      * Loop through all drawable objects in the game, and use the draw method.
