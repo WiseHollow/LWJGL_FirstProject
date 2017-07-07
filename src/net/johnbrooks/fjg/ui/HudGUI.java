@@ -33,6 +33,8 @@ public class HudGUI extends UI
     private List<List<Button>> editorPages;
     private List<Button> editorPage;
 
+    private Button upgradeButton, sellButton;
+
     public HudGUI(Level level)
     {
         super();
@@ -48,6 +50,9 @@ public class HudGUI extends UI
         this.editorPages = new ArrayList<>();
         this.editorPage = new ArrayList<>();
         //this.textBoxList = new ArrayList<>();
+
+        this.upgradeButton = null;
+        this.sellButton = null;
 
         init();
     }
@@ -158,6 +163,20 @@ public class HudGUI extends UI
         addButtons(saveButton, previous, next);
     }
 
+    public void setTowerButtons(Tower tower)
+    {
+        if (tower == null)
+        {
+            sellButton = null;
+            upgradeButton = null;
+        }
+        else
+        {
+            sellButton = tower.getSellButton();
+            upgradeButton = tower.getUpgradeButton();
+        }
+    }
+
     private void refreshEditorToolbar()
     {
         editorPage = editorPages.get(editorTilePage);
@@ -181,10 +200,15 @@ public class HudGUI extends UI
             Draw.getSmallFont().drawString(0, 0, "FPS: " + Clock.getFps());
 
             super.draw();
-        }
 
-        for (Button button : editorPage)
-            button.draw();
+            for (Button button : editorPage)
+                button.draw();
+
+            if (upgradeButton != null)
+                upgradeButton.draw();
+            if (sellButton != null)
+                sellButton.draw();
+        }
     }
 
     @Override
@@ -211,6 +235,11 @@ public class HudGUI extends UI
                 button.update();
 
             super.update();
+
+            if (upgradeButton != null)
+                upgradeButton.update();
+            if (sellButton != null)
+                sellButton.update();
         }
 
     }

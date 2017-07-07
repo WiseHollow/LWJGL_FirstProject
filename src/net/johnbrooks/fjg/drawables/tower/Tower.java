@@ -82,6 +82,9 @@ public class Tower
     public boolean isToRemove() { return toRemove; }
     public TowerType getTowerType() { return towerType; }
 
+    public Button getUpgradeButton() { return upgradeButton; }
+    public Button getSellButton() { return sellButton; }
+
     public List<Enemy> getEnemyList() { return enemyList; }
 
     public int getTotalViewDistance()
@@ -154,8 +157,8 @@ public class Tower
                 topTextureRotation = calculateAngleToTarget();
         }
 
-        upgradeButton.update();
-        sellButton.update();
+        //upgradeButton.update();
+        //sellButton.update();
     }
 
     public void draw()
@@ -168,8 +171,8 @@ public class Tower
         for (Projectile projectile : projectileList)
             projectile.draw();
 
-        upgradeButton.draw();
-        sellButton.draw();
+        //upgradeButton.draw();
+        //sellButton.draw();
     }
 
     protected float calculateAngleToTarget()

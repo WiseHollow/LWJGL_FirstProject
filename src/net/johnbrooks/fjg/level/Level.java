@@ -128,9 +128,9 @@ public abstract class Level
         tileGrid.update();
         if (!complete)
         {
+            hudGUI.update();
             waveManager.update();
             player.update();
-            hudGUI.update();
         }
         else if (levelClearedGUI != null)
             levelClearedGUI.update();

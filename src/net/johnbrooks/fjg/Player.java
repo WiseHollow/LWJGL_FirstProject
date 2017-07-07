@@ -118,7 +118,11 @@ public class Player
         this.towerToPlace = tower;
     }
     public Tower getSelectedTower() { return selectedTower; }
-    public void setSelectedTower(Tower tower) { this.selectedTower = tower; }
+    public void setSelectedTower(Tower tower)
+    {
+        this.selectedTower = tower;
+        this.level.getHudGUI().setTowerButtons(tower);
+    }
 
     public void setGameMode(GameMode gameMode)
     {
@@ -163,11 +167,14 @@ public class Player
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_C)
                 {
-                    modifyCoins(100);
+                    modifyCoins(10);
                 }
-                else if (Keyboard.getEventKey() == Keyboard.KEY_S && level instanceof LevelEditor)
+                else if (Keyboard.getEventKey() == Keyboard.KEY_S)
                 {
-                    level.save();
+                    if (level instanceof LevelEditor)
+                        level.save();
+                    else
+                        level.setComplete(true);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
                 {
@@ -189,7 +196,7 @@ public class Player
                 if (tower.isToRemove())
                 {
                     if (selectedTower == tower)
-                        selectedTower = null;
+                        setSelectedTower(null);
                     towerList.remove(tower);
                     i--;
                 }
@@ -211,14 +218,14 @@ public class Player
                     if (tower.getTile() == selectedTile)
                     {
                         // Found a tower we are clicking on...
-                        selectedTower = tower;
+                        setSelectedTower(tower);
                         found = true;
                         break;
                     }
                 }
                 // if we aren't clicking on a tower, deselect.
                 if (found == false)
-                    selectedTower = null;
+                    setSelectedTower(null);
             }
             else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
             {
