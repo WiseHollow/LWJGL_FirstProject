@@ -39,7 +39,10 @@ public class LevelManager
         if (levelIndex+1 >= levelList.size())
             return false;
         else
+        {
             currentLevel = levelList.get(++levelIndex);
+            currentLevel.init();
+        }
         return true;
     }
 }

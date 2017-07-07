@@ -92,7 +92,10 @@ public class HudGUI extends UI
             addButtons(button);
             buttonX+=64;
         }
-        Button pauseAndPlayButton = new ButtonToggle(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, Draw.loadTexture("res/hud/nav_pause.png"), Draw.loadTexture("res/hud/nav_play.png"))
+        Texture pause = Draw.loadTexture("res/hud/nav_pause.png");
+        Texture play = Draw.loadTexture("res/hud/nav_play.png");
+        boolean paused = Clock.isPaused();
+        Button pauseAndPlayButton = new ButtonToggle(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, !paused ? pause : play, !paused ? play : pause)
                 .setOnClickEvent(() -> Clock.pause());
 
         addButtons(pauseAndPlayButton);

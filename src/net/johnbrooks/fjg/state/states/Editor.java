@@ -27,7 +27,7 @@ public class Editor implements IGameState
     private void init()
     {
         levelEditor = new LevelEditor();
-        levelEditor.calculateWaypoints();
+        //levelEditor.calculateWaypoints();
     }
 
     @Override

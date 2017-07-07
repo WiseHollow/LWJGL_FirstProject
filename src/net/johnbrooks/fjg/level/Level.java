@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.level;
 
+import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.drawables.entities.Checkpoint;
 import net.johnbrooks.fjg.drawables.entities.Direction;
@@ -33,11 +34,12 @@ public abstract class Level
         this.name = name;
         checkpointList = new ArrayList<>();
         load(name);
-        init();
+        //init();
     }
 
     public void init()
     {
+        Clock.setPaused(true);
         waveManager = new WaveManager(this);
         player = new Player(this);
         this.hudGUI = new HudGUI(this);

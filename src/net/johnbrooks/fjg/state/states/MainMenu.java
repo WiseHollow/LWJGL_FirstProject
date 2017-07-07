@@ -41,6 +41,7 @@ public class MainMenu implements IGameState
         playButton.setOnClickEvent(() ->
         {
             StateManager.getInstance().setGameState(GameState.GAME);
+            Game.getInstance().getLevelManager().getCurrentLevel().init();
             Game.getInstance().getLevelManager().getCurrentLevel().calculateWaypoints();
         });
 

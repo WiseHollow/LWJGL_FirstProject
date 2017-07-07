@@ -14,6 +14,11 @@ public class Clock
 
     public static boolean isPaused() { return paused; }
 
+    public static void setPaused(boolean paused)
+    {
+        Clock.paused = paused;
+    }
+
     public static long getTime()
     {
         return Sys.getTime() * 1000 / Sys.getTimerResolution();
