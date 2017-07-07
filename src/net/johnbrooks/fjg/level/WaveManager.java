@@ -100,12 +100,13 @@ public class WaveManager
     {
         started = false;
         System.out.println("You've completed the level!");
+        level.setComplete(true);
 
-        boolean isNextLevel = Game.getInstance().getLevelManager().nextLevel();
-        if (isNextLevel)
-            Game.getInstance().getLevelManager().getCurrentLevel().init();
-        else
-            System.out.println("You win the game!");
+        //boolean isNextLevel = Game.getInstance().getLevelManager().nextLevel();
+        //if (!isNextLevel)
+        //    System.out.println("You win the game!");
+        //else
+        //    level.setComplete(true);
     }
 
     public void draw()

@@ -6,6 +6,7 @@ import net.johnbrooks.fjg.drawables.entities.Direction;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.ui.HudGUI;
+import net.johnbrooks.fjg.ui.LevelClearedGUI;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -20,9 +21,12 @@ public abstract class Level
     protected TileGrid tileGrid;
     protected WaveManager waveManager;
     protected Player player;
-    protected HudGUI hudGUI;
+    protected boolean complete;
 
     protected List<Checkpoint> checkpointList;
+
+    protected HudGUI hudGUI;
+    protected LevelClearedGUI levelClearedGUI;
 
     public Level(String name)
     {
@@ -32,12 +36,21 @@ public abstract class Level
         load(name);
         player = new Player(this);
         this.hudGUI = new HudGUI(this);
+        this.complete = false;
     }
 
     public Player getPlayer() { return player; }
     public WaveManager getWaveManager() { return waveManager; }
     public List<Checkpoint> getCheckpointList() { return checkpointList; }
     public HudGUI getHudGUI() { return hudGUI; }
+    public void setComplete(boolean complete)
+    {
+        this.complete = complete;
+        if (complete)
+            levelClearedGUI = new LevelClearedGUI(this);
+        else
+            levelClearedGUI = null;
+    }
 
     public void init()
     {
@@ -72,9 +85,14 @@ public abstract class Level
     public void update()
     {
         tileGrid.update();
-        waveManager.update();
-        player.update();
-        hudGUI.update();
+        if (!complete)
+        {
+            waveManager.update();
+            player.update();
+            hudGUI.update();
+        }
+        else if (levelClearedGUI != null)
+            levelClearedGUI.update();
     }
 
     public void draw()
@@ -83,6 +101,9 @@ public abstract class Level
         waveManager.draw();
         player.draw();
         hudGUI.draw();
+
+        if (complete && levelClearedGUI != null)
+            levelClearedGUI.draw();
     }
 
     @Override
