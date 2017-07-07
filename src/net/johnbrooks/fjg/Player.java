@@ -90,6 +90,7 @@ public class Player
 
         modifyCoins(-tower.getCost());
         towerList.add(tower);
+        tower.setTile(selectedTile);
 
         // Keep a record of all towers built.
         if (!towerBuildHistory.contains(tower.getTowerType()))
@@ -116,6 +117,8 @@ public class Player
     {
         this.towerToPlace = tower;
     }
+    public Tower getSelectedTower() { return selectedTower; }
+    public void setSelectedTower(Tower tower) { this.selectedTower = tower; }
 
     public void setGameMode(GameMode gameMode)
     {
@@ -137,9 +140,6 @@ public class Player
             else
                 imageBox.update();
         }
-        // Update each tower
-        for (Tower tower : towerList)
-            tower.update();
         // Select which tile to highlight blue.
         selectedTile = tileGrid.getTile((float) Mouse.getX(), (float) (DisplayManager.getScreenHeight() - Mouse.getY()));
 
@@ -178,6 +178,9 @@ public class Player
 
         if (gameMode == GameMode.NORMAL)
         {
+            // Update each tower
+            for (Tower tower : towerList)
+                tower.update();
             // Remove towerToPlace if right click.
             if (Mouse.isButtonDown(1))
                 towerToPlace = null;
@@ -253,9 +256,9 @@ public class Player
 
         if (selectedTower != null)
         {
-            int size = selectedTower.getTowerType().getTowerStats().getViewDistance() * 2;
+            int size = selectedTower.getTotalViewDistance() * 2;
 
-            Draw.drawTexture(viewDistanceTexture, selectedTower.getX() - selectedTower.getTowerType().getTowerStats().getViewDistance() + 32, selectedTower.getY() - selectedTower.getTowerType().getTowerStats().getViewDistance() + 32,
+            Draw.drawTexture(viewDistanceTexture, (int) (selectedTower.getX() - (size * 0.5f) + 32), (int) (selectedTower.getY() - (size * 0.5f) + 32),
                     size, size);
         }
         else if (selectedTile != null)

@@ -1,12 +1,19 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Sound;
+import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.ui.buttons.Button;
+import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
+import net.johnbrooks.fjg.ui.buttons.ButtonUpgrade;
+import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,9 +32,11 @@ public class Tower
     protected TowerType towerType;
 
     protected float timeSinceLastShot, topTextureRotation;
-    protected int x, y;
+    protected int x, y, power;
     protected Enemy target;
     protected List<Projectile> projectileList;
+
+    protected Button upgradeButton;
 
     public Tower(TowerType towerType, Level level, Tile tile, List<Enemy> enemyList)
     {
@@ -39,10 +48,20 @@ public class Tower
         this.x = tile.getX();
         this.y = tile.getY();
 
+        this.upgradeButton = new ButtonUpgrade(x + 64, y - 32, GameTexture.UPGRADE_BUTTON.getTexture(), level, this)
+                .setOnClickEvent(() ->
+                {
+                    level.getPlayer().setSelectedTower(this);
+                    GameInput.getInstance().setButtonDown(0, false);
+                    if (upgradeTower())
+                        AudioManager.getInstance().play(Sound.COIN_REWARD);
+                });
+
         this.topTextureRotation = 0;
         this.timeSinceLastShot = towerType.getTowerStats().getWarmUp();
         this.target = null;
         this.projectileList = new ArrayList<>();
+        this.power = 1;
     }
 
     public int getX() { return x; }
@@ -51,22 +70,50 @@ public class Tower
     public int getSlotY() { return tile.getYSlot(); }
     public Tile getTile() { return tile; }
     public int getCost() { return towerType.getTowerStats().getCost(); }
+    public int getPower() { return power; }
     public TowerType getTowerType() { return towerType; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
+
+    public int getTotalViewDistance()
+    {
+        return towerType.getTowerStats().getViewDistance() + ((power - 1) * 10);
+    }
+
+    public int getTotalDamage()
+    {
+        return towerType.getProjectileStats().getDamage() * power;
+    }
 
     public void setTile(Tile tile)
     {
         this.x = tile.getX();
         this.y = tile.getY();
         this.tile = tile;
+        this.upgradeButton.setX(tile.getX() + 64);
+        this.upgradeButton.setY(tile.getY() - 32);
+    }
+
+    public boolean upgradeTower()
+    {
+        if (power < 4 && level.getPlayer().getCoins() >= towerType.getTowerStats().getCost())
+        {
+            level.getPlayer().modifyCoins(-towerType.getTowerStats().getCost());
+            power++;
+            return true;
+        }
+
+        return false;
     }
 
     public void update()
     {
         target = calculateEnemyTarget();
         timeSinceLastShot += Clock.delta();
-        if (timeSinceLastShot > towerType.getTowerStats().getWarmUp())
+        float warmUpTime = towerType.getTowerStats().getWarmUp() - (power * 0.2f);
+        if (warmUpTime < 0.1f)
+            warmUpTime = 0.1f;
+        if (timeSinceLastShot > warmUpTime && !Clock.isPaused())
             shoot();
 
         for (int i = 0; i < projectileList.size(); i++)
@@ -90,6 +137,8 @@ public class Tower
             else
                 topTextureRotation = calculateAngleToTarget();
         }
+
+        upgradeButton.update();
     }
 
     public void draw()
@@ -101,6 +150,8 @@ public class Tower
 
         for (Projectile projectile : projectileList)
             projectile.draw();
+
+        upgradeButton.draw();
     }
 
     protected float calculateAngleToTarget()
@@ -112,14 +163,14 @@ public class Tower
     protected Enemy calculateEnemyTarget()
     {
         HashMap<Float, Enemy> distanceMap = new HashMap<>();
-        float closest = towerType.getTowerStats().getViewDistance() + 1;
+        float closest = getTotalViewDistance() + 1;
 
         for (Enemy enemy : enemyList)
         {
             if (!enemy.isActive())
                 continue;
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
-            if (distance <= towerType.getTowerStats().getViewDistance())
+            if (distance <= getTotalViewDistance())
             {
                 distanceMap.put(distance, enemy);
                 if (distance < closest)
@@ -139,7 +190,7 @@ public class Tower
         {
             AudioManager.getInstance().play(Sound.CANNON_FIRE);
             timeSinceLastShot = 0;
-            projectileList.add(new Projectile(this, towerType.getProjectileStats().getProjectileTexture(), tile, towerType.getProjectileStats().getSpeed(), towerType.getProjectileStats().getDamage(), target));
+            projectileList.add(new Projectile(this, towerType.getProjectileStats().getProjectileTexture(), tile, towerType.getProjectileStats().getSpeed(), getTotalDamage(), target));
         }
     }
 }

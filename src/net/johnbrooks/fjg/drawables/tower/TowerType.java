@@ -11,7 +11,7 @@ public enum TowerType
     BASIC_TOWER(GameTexture.TOWER_BASE_A.getTexture(), GameTexture.TOWER_CANNON_STANDARD.getTexture(), GameTexture.BULLET_STANDARD.getTexture(), 5, 10, 3, 256, 350, 1f, false),
     ICE_TOWER(GameTexture.TOWER_BASE_A.getTexture(), GameTexture.TOWER_CANNON_ICE.getTexture(), GameTexture.BULLET_ICE.getTexture(), 2, 15, 5, 192, 400, 0.4f, false),
     FIRE_TOWER(GameTexture.TOWER_BASE_C.getTexture(), GameTexture.TOWER_CANNON_BURN.getTexture(), GameTexture.BULLET_BURN.getTexture(), 8, 30, 3, 256, 350, 1.2f, false),
-    FAST_TOWER(GameTexture.TOWER_BASE_B.getTexture(), GameTexture.TOWER_CANNON_FAST.getTexture(), GameTexture.BULLET_LITE.getTexture(), 1, 60, 0.1f, 320, 900, 1f, false),
+    FAST_TOWER(GameTexture.TOWER_BASE_B.getTexture(), GameTexture.TOWER_CANNON_FAST.getTexture(), GameTexture.BULLET_LITE.getTexture(), 1, 60, 0.3f, 320, 900, 1f, false),
     TRACKING_TOWER(GameTexture.TOWER_BASE_D.getTexture(), GameTexture.TOWER_CANNON_TRACKING.getTexture(), GameTexture.BULLET_TRACKING.getTexture(), 35, 120, 5f, 512, 240, 1f, true);
 
     private String towerName;
