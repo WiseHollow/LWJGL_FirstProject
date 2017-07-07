@@ -205,6 +205,16 @@ public class Tower
             return null;
     }
 
+    public boolean isPressingTowerButton()
+    {
+        if (sellButton != null && upgradeButton != null)
+        {
+            if (sellButton.isClicked() || upgradeButton.isClicked())
+                return true;
+        }
+        return false;
+    }
+
     protected void shoot()
     {
         if (target != null)

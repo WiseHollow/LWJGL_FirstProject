@@ -255,7 +255,19 @@ public class HudGUI extends UI
         return height;
     }
 
-    public boolean isPressingButton()
+    public boolean isPressingHudButton()
+    {
+        if (level.getPlayer().getGameMode() == Player.GameMode.EDIT)
+            for (Button button : editorPage)
+                if (button.isClicked())
+                    return true;
+        for (Button button : buttonList)
+            if (button.isClicked())
+                return true;
+        return false;
+    }
+
+    public boolean isPressingTowerButton()
     {
         if (sellButton != null && upgradeButton != null)
         {

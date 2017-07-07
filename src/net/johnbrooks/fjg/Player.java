@@ -92,6 +92,8 @@ public class Player
         towerList.add(tower);
         tower.setTile(selectedTile);
 
+        level.getHudGUI().setTowerButtons(tower);
+
         // Keep a record of all towers built.
         if (!towerBuildHistory.contains(tower.getTowerType()))
             towerBuildHistory.add(tower.getTowerType());
@@ -215,7 +217,7 @@ public class Player
                 boolean found = false;
                 for (Tower tower : towerList)
                 {
-                    if (tower.getTile() == selectedTile || level.getHudGUI().isPressingButton())
+                    if (tower.getTile() == selectedTile || tower.isPressingTowerButton())
                     {
                         // Found a tower we are clicking on...
                         setSelectedTower(tower);

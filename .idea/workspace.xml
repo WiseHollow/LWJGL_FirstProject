@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelSelectGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/GameInput.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/GameInput.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -23,8 +21,18 @@
       <file leaf-file-name="Player.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="240" column="44" lean-forward="false" selection-start-line="240" selection-start-column="44" selection-end-line="240" selection-end-column="44" />
+            <state relative-caret-position="117">
+              <caret line="214" column="57" lean-forward="true" selection-start-line="214" selection-start-column="57" selection-end-line="214" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Tower.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="470">
+              <caret line="214" column="21" lean-forward="false" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -33,8 +41,8 @@
       <file leaf-file-name="HudGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="165" column="31" lean-forward="false" selection-start-line="165" selection-start-column="16" selection-end-line="165" selection-end-column="31" />
+            <state relative-caret-position="388">
+              <caret line="271" column="8" lean-forward="false" selection-start-line="271" selection-start-column="8" selection-end-line="276" selection-end-column="21" />
               <folding />
             </state>
           </provider>
@@ -73,7 +81,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>new Level1</find>
       <find>new Level1E</find>
       <find>new Level1Ea</find>
       <find>Not able to calculate checkpoints</find>
@@ -103,6 +110,7 @@
       <find>towerToPlace</find>
       <find>GameInput.</find>
       <find>setSelectedTower</find>
+      <find>isPressingButton</find>
     </findStrings>
     <replaceStrings>
       <replace>0</replace>
@@ -170,11 +178,11 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tiles/TileType.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level03.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/LevelSelectGUI.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/Level.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/GameInput.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
       </list>
     </option>
@@ -1079,15 +1087,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="173" column="10" lean-forward="false" selection-start-line="173" selection-start-column="10" selection-end-line="173" selection-end-column="10" />
-          <caret line="174" column="10" lean-forward="false" selection-start-line="174" selection-start-column="10" selection-end-line="174" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/level/LevelManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="175">
@@ -1132,16 +1131,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="165" column="31" lean-forward="false" selection-start-line="165" selection-start-column="16" selection-end-line="165" selection-end-column="31" />
+        <state relative-caret-position="388">
+          <caret line="271" column="8" lean-forward="false" selection-start-line="271" selection-start-column="8" selection-end-line="276" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="214" column="21" lean-forward="false" selection-start-line="214" selection-start-column="21" selection-end-line="214" selection-end-column="21" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="372">
-          <caret line="240" column="44" lean-forward="false" selection-start-line="240" selection-start-column="44" selection-end-line="240" selection-end-column="44" />
+        <state relative-caret-position="117">
+          <caret line="214" column="57" lean-forward="true" selection-start-line="214" selection-start-column="57" selection-end-line="214" selection-end-column="57" />
           <folding />
         </state>
       </provider>
