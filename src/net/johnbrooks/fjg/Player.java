@@ -157,6 +157,10 @@ public class Player
                     setGameMode(GameMode.values()[ordinal]);
                     Log.info("Set GameMode to: " + gameMode.name());
                 }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_F1)
+                {
+                    level.getHudGUI().setVisible(!level.getHudGUI().isVisible());
+                }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_C)
                 {
                     modifyCoins(100);
@@ -272,7 +276,7 @@ public class Player
             Draw.drawTexture(viewDistanceTexture, (int) (selectedTower.getX() - (size * 0.5f) + 32), (int) (selectedTower.getY() - (size * 0.5f) + 32),
                     size, size);
         }
-        else if (selectedTile != null)
+        else if (selectedTile != null && level.getHudGUI().isVisible())
         {
             if (towerToPlace == null)
                 Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable())

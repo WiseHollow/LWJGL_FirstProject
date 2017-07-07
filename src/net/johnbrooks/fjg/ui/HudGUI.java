@@ -24,7 +24,6 @@ public class HudGUI extends UI
     private Level level;
     private Texture backgroundTexture;
     private int x, y, width, height;
-    private boolean visible;
 
     private int editorTilePage = 0;
 
