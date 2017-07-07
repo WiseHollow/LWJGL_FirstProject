@@ -8,6 +8,7 @@ import net.johnbrooks.fjg.state.GameState;
 import net.johnbrooks.fjg.state.StateManager;
 import net.johnbrooks.fjg.state.states.Game;
 import net.johnbrooks.fjg.ui.buttons.Button;
+import org.newdawn.slick.Color;
 import org.newdawn.slick.opengl.Texture;
 
 /**
@@ -27,6 +28,7 @@ public class LevelClearedGUI extends UI
         this.y = (int) ((DisplayManager.getScreenHeight() * 0.5f) - (background.getImageHeight() * 0.5f));
         this.level = level;
         this.player = level.getPlayer();
+
         init();
     }
 

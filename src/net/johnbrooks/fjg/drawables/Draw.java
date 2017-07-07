@@ -1,12 +1,12 @@
 package net.johnbrooks.fjg.drawables;
 
 import org.lwjgl.opengl.GL11;
-import org.newdawn.slick.TrueTypeFont;
+import org.newdawn.slick.*;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.opengl.TextureLoader;
 import org.newdawn.slick.util.ResourceLoader;
 
-import java.awt.*;
+import java.awt.Font;
 import java.io.IOException;
 import java.io.InputStream;
 
