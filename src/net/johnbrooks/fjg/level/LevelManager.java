@@ -27,7 +27,7 @@ public class LevelManager
     {
         this.levelList = new ArrayList<>();
         this.levelList.add(new Level01());
-        //this.levelList.add(new Level02());
+        this.levelList.add(new Level02());
         this.currentLevel = levelList.get(0);
         this.levelIndex = 0;
     }
