@@ -24,6 +24,8 @@ public class Enemy
     private int textureIndex;
     private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement;
 
+
+
     private Direction direction;
     private boolean first = true, alive = true, active = true;
     private Checkpoint targetCheckpoint;

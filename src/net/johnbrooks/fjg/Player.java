@@ -1,11 +1,14 @@
 package net.johnbrooks.fjg;
 
+import net.johnbrooks.fjg.achievements.Achievement;
+import net.johnbrooks.fjg.achievements.AchievementManager;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
+import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 import net.johnbrooks.fjg.level.levels.LevelEditor;
@@ -23,6 +26,8 @@ import java.util.List;
  */
 public class Player
 {
+    private AchievementManager achievementManager;
+
     private Level level;
     private TileGrid tileGrid;
     private GameMode gameMode;
@@ -35,8 +40,12 @@ public class Player
     private Tower towerToPlace, selectedTower;
     private List<ImageBox> imageBoxList;
 
+    private List<TowerType> towerBuildHistory;
+
     public Player(Level level)
     {
+        this.achievementManager = new AchievementManager(this);
+
         this.level = level;
         this.tileGrid = level.getTileGrid();
         this.gameMode = GameMode.NORMAL;
@@ -52,8 +61,14 @@ public class Player
         this.towerToPlace = null;
         this.selectedTower = null;
         this.imageBoxList = new ArrayList<>();
+        this.towerBuildHistory = new ArrayList<>();
         //this.buildUI = new BuildUI(level, 0, 0);
         //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
+    }
+
+    public AchievementManager getAchievementManager()
+    {
+        return achievementManager;
     }
 
     private Tower getTower(int slotX, int slotY)
@@ -74,8 +89,20 @@ public class Player
                 return false;
 
         modifyCoins(-tower.getCost());
-
         towerList.add(tower);
+
+        // Keep a record of all towers built.
+        if (!towerBuildHistory.contains(tower.getTowerType()))
+            towerBuildHistory.add(tower.getTowerType());
+
+        // Check for achievement of building a tracking tower.
+        if (tower.getTowerType() == TowerType.TRACKING_TOWER && achievementManager.giveAchievement(Achievement.BLASTER))
+            addImageBoxDisplay(new ImageBox(Draw.loadTexture("res/achievements/blaster.png"), 2, tower.getX(), tower.getY()));
+
+        // Check for achievement of building all the kinds of towers.
+        if (towerBuildHistory.size() == TowerType.values().length && achievementManager.giveAchievement(Achievement.TOWER_O_PLENTY))
+            addImageBoxDisplay(new ImageBox(Draw.loadTexture("res/achievements/towersOPlenty.png"), 2, tower.getX(), tower.getY()));
+
         return true;
     }
 
@@ -292,7 +319,7 @@ public class Player
 
     public void addImageBoxDisplay(ImageBox imageBox)
     {
-        imageBoxList.add(imageBox);
+        Scheduler.getInstance().doTaskLater(() -> imageBoxList.add(imageBox), 0.01f);
     }
 
     public enum GameMode
