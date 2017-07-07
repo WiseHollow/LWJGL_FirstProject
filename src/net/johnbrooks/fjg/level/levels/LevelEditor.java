@@ -3,6 +3,7 @@ package net.johnbrooks.fjg.level.levels;
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
+import net.johnbrooks.fjg.ui.HudGUI;
 
 /**
  * Created by ieatl on 7/2/2017.
@@ -31,14 +32,14 @@ public class LevelEditor extends Level
     public LevelEditor()
     {
         super("editor");
-        //calculateWaypoints();
+        player = new Player(this);
+        hudGUI = new HudGUI(this);
+        player.setGameMode(Player.GameMode.EDIT);
     }
 
     @Override
     public void calculateWaypoints()
     {
-        //super.calculateWaypoints();
-        //tileGrid = new TileGrid(map);
         player = new Player(this);
         player.setGameMode(Player.GameMode.EDIT);
     }
@@ -46,12 +47,16 @@ public class LevelEditor extends Level
     @Override
     public void draw()
     {
-        super.draw();
+        tileGrid.draw();
+        player.draw();
+        hudGUI.draw();
     }
 
     @Override
     public void update()
     {
-        super.update();
+        tileGrid.update();
+        player.update();
+        hudGUI.update();
     }
 }

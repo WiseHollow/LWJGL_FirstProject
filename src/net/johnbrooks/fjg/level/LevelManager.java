@@ -2,6 +2,7 @@ package net.johnbrooks.fjg.level;
 
 import net.johnbrooks.fjg.level.levels.Level01;
 import net.johnbrooks.fjg.level.levels.Level02;
+import net.johnbrooks.fjg.level.levels.Level03;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,7 @@ public class LevelManager
         this.levelList = new ArrayList<>();
         this.levelList.add(new Level01());
         this.levelList.add(new Level02());
+        this.levelList.add(new Level03());
         this.currentLevel = levelList.get(0);
         this.levelIndex = 0;
     }

@@ -44,6 +44,12 @@ public enum TileTexture
     STONE_GRASS_CORNER_A("res/tiles/stone_grassCornerA.png"), STONE_GRASS_CORNER_B("res/tiles/stone_grassCornerB.png"),
     STONE_GRASS_CORNER_C("res/tiles/stone_grassCornerC.png"), STONE_GRASS_CORNER_D("res/tiles/stone_grassCornerD.png"),
 
+    GRASS_WATER_BOTTOM("res/tiles/grass_waterBottom.png"), GRASS_WATER_BOTTOM_LEFT("res/tiles/grass_waterBottomLeft.png"), GRASS_WATER_BOTTOM_RIGHT("res/tiles/grass_waterBottomRight.png"),
+    GRASS_WATER_LEFT("res/tiles/grass_waterLeft.png"), GRASS_WATER_RIGHT("res/tiles/grass_waterRight.png"), GRASS_WATER_TOP("res/tiles/grass_waterTop.png"),
+    GRASS_WATER_TOP_LEFT("res/tiles/grass_waterTopLeft.png"), GRASS_WATER_TOP_RIGHT("res/tiles/grass_waterTopRight.png"),
+    GRASS_WATER_CORNER_A("res/tiles/grass_waterCornerA.png"), GRASS_WATER_CORNER_B("res/tiles/grass_waterCornerB.png"),
+    GRASS_WATER_CORNER_C("res/tiles/grass_waterCornerC.png"), GRASS_WATER_CORNER_D("res/tiles/grass_waterCornerD.png"),
+
 
 
     ;
