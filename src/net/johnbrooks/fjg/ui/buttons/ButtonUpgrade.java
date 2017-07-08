@@ -10,26 +10,22 @@ import org.newdawn.slick.opengl.Texture;
 public class ButtonUpgrade extends Button
 {
     private Level level;
-    private Tower tower;
 
-    public ButtonUpgrade(int x, int y, Texture texture, Level level, Tower tower)
+    public ButtonUpgrade(int x, int y, Texture texture, Level level)
     {
         super(x, y, texture);
         this.level = level;
-        this.tower = tower;
     }
 
     @Override
     public void update()
     {
-        if (level.getPlayer().getSelectedTower() == tower && tower.getPower() < 4)
-            super.update();
+        super.update();
     }
 
     @Override
     public void draw()
     {
-        if (level.getPlayer().getSelectedTower() == tower && tower.getPower() < 4)
-            super.draw();
+        super.draw();
     }
 }

@@ -92,8 +92,6 @@ public class Player
         towerList.add(tower);
         tower.setTile(selectedTile);
 
-        level.getHudGUI().setTowerButtons(tower);
-
         // Keep a record of all towers built.
         if (!towerBuildHistory.contains(tower.getTowerType()))
             towerBuildHistory.add(tower.getTowerType());
@@ -123,7 +121,6 @@ public class Player
     public void setSelectedTower(Tower tower)
     {
         this.selectedTower = tower;
-        this.level.getHudGUI().setTowerButtons(tower);
     }
 
     public void setGameMode(GameMode gameMode)
@@ -217,7 +214,7 @@ public class Player
                 boolean found = false;
                 for (Tower tower : towerList)
                 {
-                    if (tower.getTile() == selectedTile || tower.isPressingTowerButton())
+                    if (tower.getTile() == selectedTile)
                     {
                         // Found a tower we are clicking on...
                         setSelectedTower(tower);
@@ -226,7 +223,7 @@ public class Player
                     }
                 }
                 // if we aren't clicking on a tower, deselect.
-                if (found == false)
+                if (found == false && !level.getHudGUI().isHoveringHudButton())
                     setSelectedTower(null);
             }
             else if (GameInput.getInstance().isButtonDown(0) && towerToPlace != null)
@@ -288,7 +285,7 @@ public class Player
             Draw.drawTexture(viewDistanceTexture, (int) (selectedTower.getX() - (size * 0.5f) + 32), (int) (selectedTower.getY() - (size * 0.5f) + 32),
                     size, size);
         }
-        else if (selectedTile != null && level.getHudGUI().isVisible())
+        if (selectedTile != null && level.getHudGUI().isVisible())
         {
             if (towerToPlace == null)
                 Draw.drawTexture((selectedTile.getYSlot() < TileGrid.TILES_HIGH - 1 && selectedTile.getTileType().isBuildable())

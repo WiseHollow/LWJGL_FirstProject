@@ -36,8 +36,6 @@ public class Tower
     protected List<Projectile> projectileList;
     protected boolean toRemove;
 
-    protected Button upgradeButton, sellButton;
-
     public Tower(TowerType towerType, Level level, Tile tile, List<Enemy> enemyList)
     {
         this.level = level;
@@ -47,23 +45,6 @@ public class Tower
 
         this.x = tile.getX();
         this.y = tile.getY();
-
-        this.upgradeButton = new ButtonUpgrade(x + 64, y - 32, GameTexture.UPGRADE_BUTTON.getTexture(), level, this)
-                .setOnClickEvent(() ->
-                {
-                    level.getPlayer().setSelectedTower(this);
-                    GameInput.getInstance().setButtonDown(0, false);
-                    if (upgradeTower())
-                        AudioManager.getInstance().play(Sound.COIN_REWARD);
-                });
-        this.sellButton = new ButtonSell(x + 64, y + 32, GameTexture.SELL_BUTTON.getTexture(), level, this)
-                .setOnClickEvent(() ->
-                {
-                    level.getPlayer().setSelectedTower(this);
-                    GameInput.getInstance().setButtonDown(0, false);
-                    level.getPlayer().modifyCoins(getTotalSellPrice());
-                    toRemove = true;
-                });
 
         this.topTextureRotation = 0;
         this.timeSinceLastShot = towerType.getTowerStats().getWarmUp();
@@ -81,9 +62,6 @@ public class Tower
     public int getPower() { return power; }
     public boolean isToRemove() { return toRemove; }
     public TowerType getTowerType() { return towerType; }
-
-    public Button getUpgradeButton() { return upgradeButton; }
-    public Button getSellButton() { return sellButton; }
 
     public List<Enemy> getEnemyList() { return enemyList; }
 
@@ -107,10 +85,6 @@ public class Tower
         this.x = tile.getX();
         this.y = tile.getY();
         this.tile = tile;
-        this.upgradeButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -64));
-        this.upgradeButton.setY(tile.getY() - 32);
-        this.sellButton.setX(tile.getX() + (x < DisplayManager.getScreenWidth() - 128 ? 64 : -64));
-        this.sellButton.setY(tile.getY() + 32);
     }
 
     public boolean upgradeTower()
@@ -118,11 +92,19 @@ public class Tower
         if (power < 4 && level.getPlayer().getCoins() >= towerType.getTowerStats().getCost())
         {
             level.getPlayer().modifyCoins(-towerType.getTowerStats().getCost());
+            AudioManager.getInstance().play(Sound.COIN_REWARD);
             power++;
             return true;
         }
 
         return false;
+    }
+
+    public void sellTower()
+    {
+        level.getPlayer().modifyCoins(getTotalSellPrice());
+        toRemove = true;
+        AudioManager.getInstance().play(Sound.COIN_REWARD);
     }
 
     public void update()
@@ -203,16 +185,6 @@ public class Tower
             return distanceMap.get(closest);
         else
             return null;
-    }
-
-    public boolean isPressingTowerButton()
-    {
-        if (sellButton != null && upgradeButton != null)
-        {
-            if (sellButton.isClicked() || upgradeButton.isClicked())
-                return true;
-        }
-        return false;
     }
 
     protected void shoot()

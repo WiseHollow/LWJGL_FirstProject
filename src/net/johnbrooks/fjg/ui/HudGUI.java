@@ -2,8 +2,11 @@ package net.johnbrooks.fjg.ui;
 
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Player;
+import net.johnbrooks.fjg.audio.AudioManager;
+import net.johnbrooks.fjg.audio.Sound;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
+import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
@@ -11,6 +14,7 @@ import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.ui.buttons.Button;
 import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
 import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
+import net.johnbrooks.fjg.ui.buttons.ButtonUpgrade;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
@@ -90,6 +94,7 @@ public class HudGUI extends UI
             ((ButtonPurchase)button).setPurchaseType(TowerType.values()[i]);
             button.setOnClickEvent(() ->
             {
+                level.getPlayer().setSelectedTower(null);
                 Tower tower = new Tower(TowerType.values()[index], level, level.getPlayer().getSelectedTile(), level.getWaveManager().getEnemyList());
                 level.getPlayer().setTowerToPlace(tower);
             });
@@ -101,6 +106,21 @@ public class HudGUI extends UI
         boolean paused = Clock.isPaused();
         Button pauseAndPlayButton = new ButtonToggle(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, !paused ? pause : play, !paused ? play : pause)
                 .setOnClickEvent(() -> Clock.pause());
+
+        upgradeButton = new ButtonUpgrade(864, DisplayManager.getScreenHeight() - 64, GameTexture.UPGRADE_BUTTON.getTexture(), level);
+        upgradeButton.setOnClickEvent(() ->
+        {
+            if (level.getPlayer().getSelectedTower() != null)
+                level.getPlayer().getSelectedTower().upgradeTower();
+        });
+        sellButton = new ButtonUpgrade(928, DisplayManager.getScreenHeight() - 64, GameTexture.SELL_BUTTON.getTexture(), level);
+        sellButton.setOnClickEvent(() ->
+        {
+            if (level.getPlayer().getSelectedTower() != null)
+            {
+                level.getPlayer().getSelectedTower().sellTower();
+            }
+        });
 
         addButtons(pauseAndPlayButton);
     }
@@ -163,20 +183,6 @@ public class HudGUI extends UI
         addButtons(saveButton, previous, next);
     }
 
-    public void setTowerButtons(Tower tower)
-    {
-        if (tower == null)
-        {
-            sellButton = null;
-            upgradeButton = null;
-        }
-        else
-        {
-            sellButton = tower.getSellButton();
-            upgradeButton = tower.getUpgradeButton();
-        }
-    }
-
     private void refreshEditorToolbar()
     {
         editorPage = editorPages.get(editorTilePage);
@@ -204,10 +210,8 @@ public class HudGUI extends UI
             for (Button button : editorPage)
                 button.draw();
 
-            if (upgradeButton != null)
-                upgradeButton.draw();
-            if (sellButton != null)
-                sellButton.draw();
+            upgradeButton.draw();
+            sellButton.draw();
         }
     }
 
@@ -236,10 +240,8 @@ public class HudGUI extends UI
 
             super.update();
 
-            if (upgradeButton != null)
-                upgradeButton.update();
-            if (sellButton != null)
-                sellButton.update();
+            upgradeButton.update();
+            sellButton.update();
         }
 
     }
@@ -258,12 +260,42 @@ public class HudGUI extends UI
     public boolean isPressingHudButton()
     {
         if (level.getPlayer().getGameMode() == Player.GameMode.EDIT)
+        {
             for (Button button : editorPage)
                 if (button.isClicked())
                     return true;
-        for (Button button : buttonList)
-            if (button.isClicked())
-                return true;
+        }
+        else
+        {
+            for (Button button : buttonList)
+                if (button.isClicked())
+                    return true;
+        }
+        if (sellButton.isClicked())
+            return true;
+        else if (upgradeButton.isClicked())
+            return true;
+        return false;
+    }
+
+    public boolean isHoveringHudButton()
+    {
+        if (level.getPlayer().getGameMode() == Player.GameMode.EDIT)
+        {
+            for (Button button : editorPage)
+                if (button.isHovered())
+                    return true;
+        }
+        else
+        {
+            for (Button button : buttonList)
+                if (button.isHovered())
+                    return true;
+        }
+        if (sellButton.isHovered())
+            return true;
+        else if (upgradeButton.isHovered())
+            return true;
         return false;
     }
 
