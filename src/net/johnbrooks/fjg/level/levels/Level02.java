@@ -45,18 +45,21 @@ public class Level02 extends Level
         // Add and start the wave in the WaveManager.
         waveManager.addWaves
                 (
-                        new Wave(this, 3.0f, EnemyTemplate.GREEN_SLIME, 3),
+                        new Wave(this, 2.0f, EnemyTemplate.FLY, 8),
                         new Wave(this, 2.0f, EnemyTemplate.MOUSE, 6),
-                        new Wave(this, 2.5f, EnemyTemplate.MOUSE_FAST, 4),
-                        new Wave(this, 1.5f, EnemyTemplate.GREEN_SLIME, 8),
+                        new Wave(this, 2.0f, EnemyTemplate.BEE, 7),
+                        new Wave(this, 1.5f, EnemyTemplate.GREEN_SLIME, 6),
                         new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 8),
                         new Wave(this, 1.2f, EnemyTemplate.PINK_SLIME, 4),
                         new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 12),
-                        new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 6),
-                        new Wave(this, 2.0f, EnemyTemplate.SPIDER, 5),
-                        new Wave(this, 1.0f, EnemyTemplate.PINK_SLIME, 8),
-                        new Wave(this, 1.5f, EnemyTemplate.BLUE_SLIME, 6),
+                        new Wave(this, 1.0f, EnemyTemplate.BEE, 16),
+                        new Wave(this, 2.0f, EnemyTemplate.BARNACLE, 8),
+                        new Wave(this, 2.0f, EnemyTemplate.SPIDER, 10),
+                        new Wave(this, 1.0f, EnemyTemplate.PINK_SLIME, 14),
                         new Wave(this, 1.0f, EnemyTemplate.SPIDER, 12),
+                        new Wave(this, 0.5f, EnemyTemplate.LADY_BUG, 16),
+                        new Wave(this, 0.5f, EnemyTemplate.BEE, 18),
+                        new Wave(this, 0.5f, EnemyTemplate.MOUSE_FAST, 20),
                         new Wave(this, 3.0f, EnemyTemplate.SPINNER, 2)
         );
 

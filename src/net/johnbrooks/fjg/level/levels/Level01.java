@@ -43,18 +43,21 @@ public class Level01 extends Level
 
         // Add and start the wave in the WaveManager.
         waveManager.addWaves(
-                new Wave(this, 3.0f, EnemyTemplate.MOUSE, 6),
-                new Wave(this, 2.0f, EnemyTemplate.MOUSE, 6),
-                new Wave(this, 2.5f, EnemyTemplate.GREEN_SLIME, 4),
-                new Wave(this, 1.75f, EnemyTemplate.GREEN_SLIME, 4),
-                new Wave(this, 3.0f, EnemyTemplate.PINK_SLIME, 3),
-                new Wave(this, 1.5f, EnemyTemplate.PINK_SLIME, 3),
-                new Wave(this, 1.0f, EnemyTemplate.MOUSE, 12),
-                new Wave(this, 3.0f, EnemyTemplate.MOUSE_FAST, 6),
-                new Wave(this, 2.0f, EnemyTemplate.SPIDER, 4),
+                new Wave(this, 3.0f, EnemyTemplate.FLY, 6),
+                new Wave(this, 2.0f, EnemyTemplate.MOUSE, 8),
+                new Wave(this, 2.0f, EnemyTemplate.FROG, 10),
+                new Wave(this, 2.0f, EnemyTemplate.GREEN_SLIME, 3),
+                new Wave(this, 3.0f, EnemyTemplate.MOUSE_FAST, 10),
+                new Wave(this, 1.0f, EnemyTemplate.LADY_BUG, 12),
+                new Wave(this, 2.0f, EnemyTemplate.BARNACLE, 4),
                 new Wave(this, 2.0f, EnemyTemplate.PINK_SLIME, 8),
-                new Wave(this, 2.0f, EnemyTemplate.BLUE_SLIME, 6),
                 new Wave(this, 1.0f, EnemyTemplate.SPIDER, 10),
+                new Wave(this, 0.5f, EnemyTemplate.FLY, 14),
+                new Wave(this, 1.0f, EnemyTemplate.FROG, 16),
+                new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 20),
+                new Wave(this, 1.0f, EnemyTemplate.BARNACLE, 8),
+                new Wave(this, 0.5f, EnemyTemplate.PINK_SLIME, 10),
+                new Wave(this, 1.0f, EnemyTemplate.LADY_BUG, 22),
                 new Wave(this, 3.0f, EnemyTemplate.SPINNER, 1));
 
         //TODO: Display for how long until wave starts

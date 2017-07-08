@@ -8,9 +8,16 @@ import org.newdawn.slick.opengl.Texture;
  */
 public enum EnemyTemplate
 {
-    GREEN_SLIME(EnemyTexture.SLIME, 25, 30), PINK_SLIME(EnemyTexture.SLIME_PINK, 40, 45), BLUE_SLIME(EnemyTexture.SLIME_BLUE, 80, 60),
+    FLY(EnemyTexture.FLY, 5, 55),
     MOUSE(EnemyTexture.MOUSE, 10, 45), MOUSE_FAST(EnemyTexture.MOUSE, 10, 80),
-    SPIDER(EnemyTexture.SPIDER, 40, 40),
+    FROG(EnemyTexture.FROG, 20, 50),
+    LADY_BUG(EnemyTexture.LADY_BUG, 20, 75),
+    BEE(EnemyTexture.BEE, 25, 80),
+    SNAIL(EnemyTexture.SNAIL, 100, 20),
+    GREEN_SLIME(EnemyTexture.SLIME, 40, 30), PINK_SLIME(EnemyTexture.SLIME_PINK, 60, 45), BLUE_SLIME(EnemyTexture.SLIME_BLUE, 100, 60),
+    BARNACLE(EnemyTexture.BARNACLE, 60, 30),
+    SPIDER(EnemyTexture.SPIDER, 80, 40),
+    GHOST(EnemyTexture.GHOST, 100, 35),
     SPINNER(EnemyTexture.SPINNER, 300, 60);
 
     private Texture texture, altTexture, deadTexture;
