@@ -45,18 +45,18 @@ public class Level03 extends Level
                 (
                         new Wave(this, 2.0f, EnemyTemplate.BARNACLE, 2),
                         new Wave(this, 1.5f, EnemyTemplate.GREEN_SLIME, 4),
-                        new Wave(this, 1.5f, EnemyTemplate.BEE, 6),
+                        new Wave(this, 1.5f, EnemyTemplate.BEE, 4),
                         new Wave(this, 1.5f, EnemyTemplate.GREEN_SLIME, 8),
-                        new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 8),
-                        new Wave(this, 1.5f, EnemyTemplate.PINK_SLIME, 8),
-                        new Wave(this, 1.0f, EnemyTemplate.PINK_SLIME, 8),
+                        new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 6),
+                        new Wave(this, 1.5f, EnemyTemplate.LADY_BUG, 8),
+                        new Wave(this, 1.0f, EnemyTemplate.SNAIL, 1),
                         new Wave(this, 2.0f, EnemyTemplate.SPIDER, 10),
                         new Wave(this, 1.0f, EnemyTemplate.PINK_SLIME, 14),
                         new Wave(this, 2.0f, EnemyTemplate.SPIDER, 16),
                         new Wave(this, 1.0f, EnemyTemplate.BLUE_SLIME, 10),
-                        new Wave(this, 1.0f, EnemyTemplate.BLUE_SLIME, 14),
+                        new Wave(this, 1.0f, EnemyTemplate.SNAIL, 4),
                         new Wave(this, 1.0f, EnemyTemplate.SPIDER, 20),
-                        new Wave(this, 1.0f, EnemyTemplate.SPIDER, 25),
+                        new Wave(this, 1.0f, EnemyTemplate.GHOST, 10),
                         new Wave(this, 3.0f, EnemyTemplate.SPINNER, 3)
         );
 
