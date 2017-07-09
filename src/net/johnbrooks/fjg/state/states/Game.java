@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.state.states;
 
+import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.LevelManager;
 import net.johnbrooks.fjg.state.IGameState;
 
@@ -31,6 +32,7 @@ public class Game implements IGameState
 
     public LevelManager getLevelManager() { return levelManager; }
     public void resetLevelManager() { levelManager = new LevelManager(); }
+    public void resetLevelManager(Level level) { levelManager = new LevelManager(level); }
 
     /**
      * Loop through all drawable objects in the game, and use the draw method.

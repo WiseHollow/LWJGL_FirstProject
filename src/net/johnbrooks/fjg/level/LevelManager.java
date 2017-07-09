@@ -12,6 +12,7 @@ import java.util.List;
  */
 public class LevelManager
 {
+
     private Level currentLevel;
     private List<Level> levelList;
     private int levelIndex;
