@@ -11,10 +11,7 @@ import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
-import net.johnbrooks.fjg.ui.buttons.Button;
-import net.johnbrooks.fjg.ui.buttons.ButtonPurchase;
-import net.johnbrooks.fjg.ui.buttons.ButtonToggle;
-import net.johnbrooks.fjg.ui.buttons.ButtonUpgrade;
+import net.johnbrooks.fjg.ui.buttons.*;
 import org.newdawn.slick.opengl.Texture;
 
 import java.util.ArrayList;
@@ -113,7 +110,7 @@ public class HudGUI extends UI
             if (level.getPlayer().getSelectedTower() != null)
                 level.getPlayer().getSelectedTower().upgradeTower();
         });
-        sellButton = new ButtonUpgrade(928, DisplayManager.getScreenHeight() - 64, GameTexture.SELL_BUTTON.getTexture(), level);
+        sellButton = new ButtonSell(928, DisplayManager.getScreenHeight() - 64, GameTexture.SELL_BUTTON.getTexture(), level);
         sellButton.setOnClickEvent(() ->
         {
             if (level.getPlayer().getSelectedTower() != null)

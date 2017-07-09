@@ -87,9 +87,14 @@ public class Tower
         this.tile = tile;
     }
 
+    public boolean canUpgrade()
+    {
+        return power < 4;
+    }
+
     public boolean upgradeTower()
     {
-        if (power < 4 && level.getPlayer().getCoins() >= towerType.getTowerStats().getCost())
+        if (canUpgrade() && level.getPlayer().getCoins() >= towerType.getTowerStats().getCost())
         {
             level.getPlayer().modifyCoins(-towerType.getTowerStats().getCost());
             AudioManager.getInstance().play(Sound.COIN_REWARD);

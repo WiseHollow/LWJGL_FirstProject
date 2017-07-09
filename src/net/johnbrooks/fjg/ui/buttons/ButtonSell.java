@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.ui.buttons;
 
+import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.level.Level;
 import org.newdawn.slick.opengl.Texture;
@@ -10,26 +11,37 @@ import org.newdawn.slick.opengl.Texture;
 public class ButtonSell extends Button
 {
     private Level level;
-    private Tower tower;
 
-    public ButtonSell(int x, int y, Texture texture, Level level, Tower tower)
+    public ButtonSell(int x, int y, Texture texture, Level level)
     {
         super(x, y, texture);
         this.level = level;
-        this.tower = tower;
     }
 
     @Override
     public void update()
     {
-        if (level.getPlayer().getSelectedTower() == tower)
-            super.update();
+        super.draw();
     }
 
     @Override
     public void draw()
     {
-        if (level.getPlayer().getSelectedTower() == tower)
-            super.draw();
+        if (level.getPlayer().getSelectedTower() != null)
+        {
+            for (Texture texture : textures)
+            {
+                if (!isHovered())
+                    Draw.drawTexture(texture, x, y, width, height);
+                else
+                    Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.8f, 0.8f, 0.8f);
+            }
+        }
+        else
+        {
+            for (Texture texture : textures)
+                Draw.drawTexture(texture, x, y, (int) (width * sizePercent), (int) (height * sizePercent), 0, 0.3f, 0.3f, 0.3f);
+        }
+
     }
 }
