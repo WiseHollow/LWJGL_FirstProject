@@ -104,13 +104,13 @@ public class HudGUI extends UI
         Button pauseAndPlayButton = new ButtonToggle(DisplayManager.getScreenWidth() - 155, DisplayManager.getScreenHeight() - 75, !paused ? pause : play, !paused ? play : pause)
                 .setOnClickEvent(() -> Clock.pause());
 
-        upgradeButton = new ButtonUpgrade(864, DisplayManager.getScreenHeight() - 64, GameTexture.UPGRADE_BUTTON.getTexture(), level);
+        upgradeButton = new ButtonUpgrade(915, DisplayManager.getScreenHeight() - 48, GameTexture.UPGRADE_BUTTON.getTexture(), level);
         upgradeButton.setOnClickEvent(() ->
         {
             if (level.getPlayer().getSelectedTower() != null)
                 level.getPlayer().getSelectedTower().upgradeTower();
         });
-        sellButton = new ButtonSell(928, DisplayManager.getScreenHeight() - 64, GameTexture.SELL_BUTTON.getTexture(), level);
+        sellButton = new ButtonSell(955, DisplayManager.getScreenHeight() - 48, GameTexture.SELL_BUTTON.getTexture(), level);
         sellButton.setOnClickEvent(() ->
         {
             if (level.getPlayer().getSelectedTower() != null)

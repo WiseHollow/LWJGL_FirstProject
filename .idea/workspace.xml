@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/buttons/sell.png" afterPath="$PROJECT_DIR$/src/res/buttons/sell.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/res/buttons/upgrade.png" afterPath="$PROJECT_DIR$/src/res/buttons/upgrade.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonSell.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonSell.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonUpgrade.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonUpgrade.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,11 +17,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HudGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="HudGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="323">
-              <caret line="112" column="123" lean-forward="false" selection-start-line="112" selection-start-column="123" selection-end-line="112" selection-end-column="123" />
+              <caret line="112" column="39" lean-forward="false" selection-start-line="112" selection-start-column="39" selection-end-line="112" selection-end-column="39" />
               <folding />
             </state>
           </provider>
@@ -62,7 +60,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ButtonUpgrade.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ButtonUpgrade.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonUpgrade.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="348">
@@ -185,9 +183,9 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/levels/Level03.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonPurchase.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/tower/Tower.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonSell.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonUpgrade.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java" />
       </list>
     </option>
   </component>
@@ -1123,14 +1121,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="112" column="123" lean-forward="false" selection-start-line="112" selection-start-column="123" selection-end-line="112" selection-end-column="123" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/buttons/ButtonPurchase.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
@@ -1143,6 +1133,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="348">
           <caret line="61" column="131" lean-forward="false" selection-start-line="61" selection-start-column="131" selection-end-line="61" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="112" column="39" lean-forward="false" selection-start-line="112" selection-start-column="39" selection-end-line="112" selection-end-column="39" />
           <folding />
         </state>
       </provider>
