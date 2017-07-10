@@ -113,6 +113,11 @@ public class MainMenu implements IGameState
     {
         Draw.drawTexture(background, 0, 0, 0);
         ui.draw();
+
+        Draw.getTinyFont().drawString(0, 0, "Programming, development, and design: John Brooks (johnbrooks.net)");
+        Draw.getTinyFont().drawString(0, 18, "Art: Kenney.nl, and others at opengameart.org.");
+        Draw.getTinyFont().drawString(0, 36, "Music: BlueBeat-ERH, RailJet-DST, ");
+        Draw.getTinyFont().drawString(57, 54, "TowerDefenseTheme-DST");
     }
 
     @Override

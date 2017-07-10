@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -32,8 +29,8 @@
       <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="89" column="86" lean-forward="false" selection-start-line="89" selection-start-column="86" selection-end-line="89" selection-end-column="86" />
+            <state relative-caret-position="459">
+              <caret line="119" column="43" lean-forward="false" selection-start-line="119" selection-start-column="43" selection-end-line="119" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -42,8 +39,8 @@
       <file leaf-file-name="Updater.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+            <state relative-caret-position="442">
+              <caret line="54" column="72" lean-forward="true" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -174,8 +171,8 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java" />
       </list>
     </option>
@@ -1213,14 +1210,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="89" column="86" lean-forward="false" selection-start-line="89" selection-start-column="86" selection-end-line="89" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -1237,10 +1226,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="459">
+          <caret line="119" column="43" lean-forward="false" selection-start-line="119" selection-start-column="43" selection-end-line="119" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="38" lean-forward="false" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+        <state relative-caret-position="442">
+          <caret line="54" column="72" lean-forward="true" selection-start-line="54" selection-start-column="72" selection-end-line="54" selection-end-column="72" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

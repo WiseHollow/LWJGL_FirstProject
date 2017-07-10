@@ -53,8 +53,8 @@ public class Updater
                     else
                     {
                         System.out.println("Everything is up-to-date!");
-                        file.delete();
                         reader.close();
+                        file.delete();
                         return false;
                     }
                 }
