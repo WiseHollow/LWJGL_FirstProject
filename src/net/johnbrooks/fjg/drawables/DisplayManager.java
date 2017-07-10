@@ -35,6 +35,7 @@ public class DisplayManager
         {
             Display.setDisplayMode(displayMode);
             Display.create();
+            Display.setTitle("Creature Tower Defense");
         } catch (LWJGLException e)
         {
             e.printStackTrace();
