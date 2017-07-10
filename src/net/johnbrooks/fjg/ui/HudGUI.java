@@ -13,6 +13,7 @@ import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
 import net.johnbrooks.fjg.level.WaveManager;
+import net.johnbrooks.fjg.level.levels.LevelEditor;
 import net.johnbrooks.fjg.ui.buttons.*;
 import org.newdawn.slick.opengl.Texture;
 
@@ -215,8 +216,11 @@ public class HudGUI extends UI
             for (Button button : editorPage)
                 button.draw();
 
-            upgradeButton.draw();
-            sellButton.draw();
+            if (!(level instanceof LevelEditor))
+            {
+                upgradeButton.draw();
+                sellButton.draw();
+            }
         }
     }
 
@@ -245,8 +249,11 @@ public class HudGUI extends UI
 
             super.update();
 
-            upgradeButton.update();
-            sellButton.update();
+            if (!(level instanceof LevelEditor))
+            {
+                upgradeButton.update();
+                sellButton.update();
+            }
         }
 
     }

@@ -85,7 +85,8 @@ public class MainMenu implements IGameState
             Log.info("Exiting application...");
         });
 
-        ui.addButtons(playButton, editorButton, quitButton, survivalButton, hintsButton);
+        ui.addButtons(playButton, quitButton, survivalButton, hintsButton);
+        //ui.addButtons(editorButton);
 
         if (Updater.isUpdateAvailable())
         {
