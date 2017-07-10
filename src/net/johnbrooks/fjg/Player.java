@@ -63,8 +63,6 @@ public class Player
         this.selectedTower = null;
         this.imageBoxList = new ArrayList<>();
         this.towerBuildHistory = new ArrayList<>();
-        //this.buildUI = new BuildUI(level, 0, 0);
-        //this.towerList.add(new TowerCannon(level, GameTexture.CANNON_BASE.getTexture(), GameTexture.CANNON_GUN.getTexture(), tileGrid.getTile(1, 1), 10, 3, 128, level.getWaveManager().getEnemyList()));
     }
 
     public AchievementManager getAchievementManager()
@@ -165,24 +163,28 @@ public class Player
                 {
                     level.getHudGUI().setVisible(!level.getHudGUI().isVisible());
                 }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_F2)
+                {
+                    Main.debug = !Main.debug;
+                }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_C)
                 {
-                    modifyCoins(10);
+                    //modifyCoins(10);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_S)
                 {
                     if (level instanceof LevelEditor)
                         level.save();
-                    else
-                        level.setComplete(true);
+                    //else
+                    //    level.setComplete(true);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
                 {
-                    Clock.changeMultiplier(-0.2f);
+                    //Clock.changeMultiplier(-0.2f);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_RIGHT)
                 {
-                    Clock.changeMultiplier(0.2f);
+                    //Clock.changeMultiplier(0.2f);
                 }
             }
         }

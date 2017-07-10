@@ -116,7 +116,7 @@ public class Tower
     {
         target = calculateEnemyTarget();
         timeSinceLastShot += Clock.delta();
-        float warmUpTime = towerType.getTowerStats().getWarmUp() - (power * 0.2f);
+        float warmUpTime = towerType.getTowerStats().getWarmUp() - (power * 0.15f);
         if (warmUpTime < 0.1f)
             warmUpTime = 0.1f;
         if (timeSinceLastShot > warmUpTime && !Clock.isPaused())

@@ -16,6 +16,8 @@ public class Main
     private static Scheduler scheduler;
     private static GameInput gameInput;
 
+    public static boolean debug = false;
+
     public static void main(String[] args)
     {
         init();

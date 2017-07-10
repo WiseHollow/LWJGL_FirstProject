@@ -1,6 +1,7 @@
 package net.johnbrooks.fjg.ui;
 
 import net.johnbrooks.fjg.Clock;
+import net.johnbrooks.fjg.Main;
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Sound;
@@ -11,6 +12,7 @@ import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
+import net.johnbrooks.fjg.level.WaveManager;
 import net.johnbrooks.fjg.ui.buttons.*;
 import org.newdawn.slick.opengl.Texture;
 
@@ -202,7 +204,11 @@ public class HudGUI extends UI
             Draw.getLargeFont().drawString(215, 893, coins);
             Draw.getLargeFont().drawString(352, 893, charge);
 
-            Draw.getSmallFont().drawString(0, 0, "FPS: " + Clock.getFps());
+            if (Main.debug)
+            {
+                Draw.getSmallFont().drawString(0, 0, "FPS: " + Clock.getFps());
+                Draw.getSmallFont().drawString(0, 22, "Enemies: " + level.getWaveManager().getEnemyList().size());
+            }
 
             super.draw();
 
