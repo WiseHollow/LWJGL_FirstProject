@@ -86,7 +86,7 @@ public class MainMenu implements IGameState
         });
 
         ui.addButtons(playButton, quitButton, survivalButton, hintsButton);
-        //ui.addButtons(editorButton);
+        ui.addButtons(editorButton);
 
         if (Updater.isUpdateAvailable())
         {
