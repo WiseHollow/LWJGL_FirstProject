@@ -33,7 +33,7 @@ public class Player
     private GameMode gameMode;
     private TileType brush;
     private List<Tower> towerList;
-    private int health, coins;
+    private int health, coins, charge;
     private Texture gridSelectionTexture, gridIllegalSelectionTexture, viewDistanceTexture, viewDistanceIllegalPlacement;
     private Tile selectedTile;
 
@@ -53,6 +53,7 @@ public class Player
         this.towerList = new ArrayList<>();
         this.health = 10;
         this.coins = 50;
+        this.charge = 0;
         this.gridSelectionTexture = Draw.loadTexture("res/general/gridSelection.png");
         this.gridIllegalSelectionTexture = Draw.loadTexture("res/general/gridIllegalSelection.png");
         this.viewDistanceTexture = GameTexture.VIEW_DISTANCE.getTexture();
@@ -203,8 +204,14 @@ public class Player
                     tower.update();
             }
             // Remove towerToPlace if right click.
-            if (Mouse.isButtonDown(1))
-                towerToPlace = null;
+            if (GameInput.getInstance().isButtonDown(1))
+            {
+                GameInput.getInstance().setButtonDown(1, false);
+                if (towerToPlace != null)
+                    towerToPlace = null;
+                else
+                    level.createExplosion(Mouse.getX(), DisplayManager.getScreenHeight() - Mouse.getY(), 128);
+            }
             else if (GameInput.getInstance().isButtonDown(0) && towerToPlace == null)
             {
                 // We are clicking without wanting to place a tower.
@@ -325,11 +332,18 @@ public class Player
     {
         return coins;
     }
+    public int getCharge() { return charge; }
 
     public void modifyHealth(int health)
     {
         this.health += health;
         System.out.println("Player health: " + this.health);
+    }
+
+    public void modifyCharge(int charge)
+    {
+        this.charge += charge;
+        System.out.println("Player charge: " + this.charge);
     }
 
     public int getHealth()

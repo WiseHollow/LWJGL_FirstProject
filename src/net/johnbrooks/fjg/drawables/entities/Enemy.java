@@ -5,8 +5,12 @@ import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
+import net.johnbrooks.fjg.drawables.drops.Drop;
+import net.johnbrooks.fjg.drawables.drops.DropType;
 import net.johnbrooks.fjg.level.*;
 import org.newdawn.slick.opengl.Texture;
+
+import java.util.Random;
 
 import static net.johnbrooks.fjg.Clock.delta;
 
@@ -15,6 +19,7 @@ import static net.johnbrooks.fjg.Clock.delta;
  */
 public class Enemy
 {
+    private static final Random random = new Random();
     private static final float textureIncrementDelay = 0.5f;
 
     private Level level;
@@ -22,7 +27,7 @@ public class Enemy
     private Texture deathTexture;
     private Texture healthBackground, healthForeground, healthBorder;
     private int textureIndex;
-    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement;
+    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement, sinceHurt;
 
 
 
@@ -54,6 +59,7 @@ public class Enemy
         this.direction = level.getCheckpointList().get(0).getDirection();
         this.slowMultiplier = 1f;
         this.sinceLastTextureIncrement = textureIncrementDelay;
+        this.sinceHurt = 1f;
     }
 
     public int getX() { return (int) x; }
@@ -114,6 +120,8 @@ public class Enemy
         if (!active)
             return;
 
+        sinceHurt += Clock.delta();
+
         if (textures.length > 0 && sinceLastTextureIncrement >= textureIncrementDelay)
         {
             textureIndex++;
@@ -155,21 +163,38 @@ public class Enemy
 
     public void hurt(int damage)
     {
+        sinceHurt = 0;
         health-=damage;
         if (health <= 0)
         {
+            // enemy is now dead
+
+            if (random.nextInt(100) < 15)
+            {
+                // Create reward drop
+                Drop drop = new Drop(level, DropType.getRandom(), (int)x, (int)y);
+                level.addDrop(drop);
+            }
+
             health = 0;
             level.getPlayer().modifyCoins((int) (maxHealth * 0.1f));
             if (deathTexture != null)
             {
                 active = false;
                 Scheduler.getInstance().doTaskLater(() ->
-                        alive = false, 2);
+                {
+                    alive = false;
+                }, 2);
             }
             else
                 alive = false;
         }
         healthPercent = health / maxHealth;
+    }
+
+    public float distance(float x, float y)
+    {
+        return (float) Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
     }
 
     public void remove()
@@ -189,9 +214,9 @@ public class Enemy
         if (slowMultiplier == 1f)
         {
             if (direction.getX() < 0 || direction.getY() < 0)
-                Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, true);
+                Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, true, 1, (!active || sinceHurt > 0.3f ? 1 : 0), (!active || sinceHurt > 0.3f ? 1 : 0));
             else
-                Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, false);
+                Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0, false, 1, (!active || sinceHurt > 0.3f ? 1 : 0), (!active || sinceHurt > 0.3f ? 1 : 0));
         }
         else if (slowMultiplier < 1f)
             Draw.drawTexture((active ? textures[textureIndex] : deathTexture), (int)x, (int)y, 0f, false, 0.3f, 0.93f, 1f);

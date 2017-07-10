@@ -5,7 +5,7 @@ package net.johnbrooks.fjg.audio;
  */
 public enum Sound
 {
-    CANNON_FIRE("res/sounds/cannon-fire.wav"), COIN_REWARD("res/sounds/coin-reward.wav");
+    CANNON_FIRE("res/sounds/cannon-fire.wav"), COIN_REWARD("res/sounds/coin-reward.wav"), EXPLOSION("res/sounds/explosion.wav"), PICKUP("res/sounds/itemPickup.wav");
 
     String path;
 

@@ -4,8 +4,12 @@ import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Player;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Sound;
+import net.johnbrooks.fjg.drawables.drops.Drop;
+import net.johnbrooks.fjg.drawables.effects.Effect;
+import net.johnbrooks.fjg.drawables.effects.EffectType;
 import net.johnbrooks.fjg.drawables.entities.Checkpoint;
 import net.johnbrooks.fjg.drawables.entities.Direction;
+import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.TileGrid;
 import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.state.states.Game;
@@ -40,6 +44,8 @@ public abstract class Level
     protected boolean complete;
 
     protected List<Checkpoint> checkpointList;
+    protected List<Drop> dropList;
+    protected List<Effect> effectList;
 
     protected HudGUI hudGUI;
     protected LevelClearedGUI levelClearedGUI;
@@ -47,9 +53,10 @@ public abstract class Level
     public Level(String name)
     {
         this.name = name;
-        checkpointList = new ArrayList<>();
-        load(name);
-        //init();
+        this.checkpointList = new ArrayList<>();
+        this.dropList = new ArrayList<>();
+        this.effectList = new ArrayList<>();
+        this.load(name);
     }
 
     public void init()
@@ -69,6 +76,11 @@ public abstract class Level
         AudioManager.getInstance().playRandom(true);
     }
 
+    public void softReset()
+    {
+        waveManager = new WaveManager(this);
+    }
+
     public Player getPlayer() { return player; }
     public WaveManager getWaveManager() { return waveManager; }
     public List<Checkpoint> getCheckpointList() { return checkpointList; }
@@ -85,6 +97,11 @@ public abstract class Level
     public boolean isLastLevel()
     {
         return Game.getInstance().getLevelManager().getLevelIndex() + 1 >= Game.getInstance().getLevelManager().getLevels();
+    }
+
+    public void addDrop(Drop drop)
+    {
+        dropList.add(drop);
     }
 
     public void calculateWaypoints()
@@ -118,6 +135,27 @@ public abstract class Level
         init();
     }
 
+    public void createExplosion(int x, int y, int radius)
+    {
+        if (!Clock.isPaused())
+        {
+            if (player.getCharge() > 0)
+            {
+                player.modifyCharge(-1);
+                AudioManager.getInstance().play(Sound.EXPLOSION);
+                Effect effect = new Effect(EffectType.EXPLOSION, x, y);
+                effectList.add(effect);
+                for (Enemy enemy : waveManager.getEnemyList())
+                {
+                    if (enemy.distance(x, y) <= radius)
+                    {
+                        enemy.hurt(20);
+                    }
+                }
+            }
+        }
+    }
+
     public TileGrid getTileGrid()
     {
         return tileGrid;
@@ -131,6 +169,30 @@ public abstract class Level
             waveManager.update();
             player.update();
             hudGUI.update();
+
+            for (int i = 0; i < dropList.size(); i++)
+            {
+                Drop drop = dropList.get(i);
+                if (!drop.isAlive())
+                {
+                    dropList.remove(drop);
+                    i--;
+                }
+                else
+                    drop.update();
+            }
+
+            for (int i = 0; i < effectList.size(); i++)
+            {
+                Effect effect = effectList.get(i);
+                if (!effect.isAlive())
+                {
+                    effectList.remove(effect);
+                    i--;
+                }
+                else
+                    effect.update();
+            }
         }
         else if (levelClearedGUI != null)
             levelClearedGUI.update();
@@ -142,6 +204,11 @@ public abstract class Level
         waveManager.draw();
         player.draw();
         hudGUI.draw();
+
+        for (Drop drop : dropList)
+            drop.draw();
+        for (Effect effect : effectList)
+            effect.draw();
 
         if (complete && levelClearedGUI != null)
             levelClearedGUI.draw();

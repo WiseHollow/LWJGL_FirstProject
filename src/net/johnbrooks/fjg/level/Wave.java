@@ -11,14 +11,14 @@ public class Wave
 {
     private Level level;
     private float timeSinceLastSpawn, timeUntilSpawn;
-    private EnemyTemplate enemyTemplate;
+    private EnemyTemplate[] enemyTemplates;
     private int amountToSpawn, amountSpawned;
     private boolean active, finished;
 
-    public Wave(Level level, float timeUntilSpawn, EnemyTemplate enemyTemplate, int amountToSpawn)
+    public Wave(Level level, float timeUntilSpawn, int amountToSpawn, EnemyTemplate... enemyTemplates)
     {
         this.level = level;
-        this.enemyTemplate = enemyTemplate;
+        this.enemyTemplates = enemyTemplates;
         this.timeUntilSpawn = timeUntilSpawn;
         this.timeSinceLastSpawn = timeUntilSpawn;
         this.amountToSpawn = amountToSpawn;
@@ -56,10 +56,13 @@ public class Wave
 
     private void spawn()
     {
-        Enemy enemy = new Enemy(enemyTemplate, level, level.getCheckpointList().get(0).getTile().getX(), level.getCheckpointList().get(0).getTile().getY());
-        //enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
-        //enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
-        level.getWaveManager().getEnemyList().add(enemy);
+        for (int i = 0; i < enemyTemplates.length; i++)
+        {
+            Enemy enemy = new Enemy(enemyTemplates[i], level, level.getCheckpointList().get(0).getTile().getX(), level.getCheckpointList().get(0).getTile().getY());
+            //enemy.setTileX(level.getCheckpointList().get(0).getTile().getXSlot());
+            //enemy.setTileY(level.getCheckpointList().get(0).getTile().getYSlot());
+            level.getWaveManager().getEnemyList().add(enemy);
+        }
     }
 
     public void setActive(boolean active)

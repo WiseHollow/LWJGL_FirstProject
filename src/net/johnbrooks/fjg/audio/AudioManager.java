@@ -101,6 +101,7 @@ public class AudioManager
 
     public void play(Sound sound)
     {
+        stopSound();
         int buffer = soundMap.get(sound);
         AL10.alSourcei(soundSourceId, AL10.AL_BUFFER, buffer);
 
@@ -114,7 +115,16 @@ public class AudioManager
         playing = false;
         AL10.alSourceUnqueueBuffers(musicSourceId);
         AL10.alSourceStop(musicSourceId);
-        init();
+        //init();{
+        musicSourceId = AL10.alGenSources();
+        soundSourceId = AL10.alGenSources();
+    }
+
+    public void stopSound()
+    {
+        AL10.alSourceUnqueueBuffers(soundSourceId);
+        AL10.alSourceStop(soundSourceId);
+        soundSourceId = AL10.alGenSources();
     }
 
     public void cleanUp()

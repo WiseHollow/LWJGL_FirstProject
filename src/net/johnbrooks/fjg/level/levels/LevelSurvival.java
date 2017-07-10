@@ -29,9 +29,12 @@ public class LevelSurvival extends Level
                     { 0, 0, 0, 0, 0, 0, 0, 0, 1, 2, 3, 0, 3, 3, 3, 3, 2, 2, 2, 2  }
             };
 
+    private int amount;
+
     public LevelSurvival()
     {
         super("level01");
+        amount = 1;
         name = "survival";
         //tileGrid = new TileGrid(map);
     }
@@ -42,25 +45,46 @@ public class LevelSurvival extends Level
         super.init();
 
         // Add and start the wave in the WaveManager.
-        waveManager.addWaves
-                (
-                        new Wave(this, 1.0f, EnemyTemplate.FLY, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.MOUSE, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.FROG, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.LADY_BUG, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.BEE, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.GREEN_SLIME, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.BARNACLE, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.PINK_SLIME, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.SPIDER, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.BLUE_SLIME, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.GHOST, 3),
-                        new Wave(this, 1.0f, EnemyTemplate.SPINNER, 3)
-                        );
+        setupWaves();
 
         //TODO: Display for how long until wave starts
         Scheduler.getInstance().doTaskLater(() -> waveManager.startWave(), 5);
+    }
+
+    private void setupWaves()
+    {
+        waveManager.addWaves
+                (
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER, EnemyTemplate.BLUE_SLIME),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER, EnemyTemplate.BLUE_SLIME, EnemyTemplate.GHOST),
+                        new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER, EnemyTemplate.BLUE_SLIME, EnemyTemplate.GHOST, EnemyTemplate.SPINNER)
+                );
+
+        amount += 1;
+    }
+
+    @Override
+    public void softReset()
+    {
+        super.softReset();
+        setupWaves();
+    }
+
+    @Override
+    public void setComplete(boolean complete)
+    {
+        if (complete)
+            softReset();
     }
 
     @Override

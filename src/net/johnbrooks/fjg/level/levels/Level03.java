@@ -43,21 +43,21 @@ public class Level03 extends Level
         // Add and start the wave in the WaveManager.
         waveManager.addWaves
                 (
-                        new Wave(this, 2.0f, EnemyTemplate.BARNACLE, 2),
-                        new Wave(this, 1.5f, EnemyTemplate.GREEN_SLIME, 4),
-                        new Wave(this, 1.5f, EnemyTemplate.BEE, 4),
-                        new Wave(this, 1.5f, EnemyTemplate.GREEN_SLIME, 8),
-                        new Wave(this, 1.0f, EnemyTemplate.MOUSE_FAST, 6),
-                        new Wave(this, 1.5f, EnemyTemplate.LADY_BUG, 8),
-                        new Wave(this, 1.0f, EnemyTemplate.SNAIL, 1),
-                        new Wave(this, 2.0f, EnemyTemplate.SPIDER, 10),
-                        new Wave(this, 1.0f, EnemyTemplate.PINK_SLIME, 14),
-                        new Wave(this, 2.0f, EnemyTemplate.SPIDER, 16),
-                        new Wave(this, 1.0f, EnemyTemplate.BLUE_SLIME, 10),
-                        new Wave(this, 1.0f, EnemyTemplate.SNAIL, 4),
-                        new Wave(this, 1.0f, EnemyTemplate.SPIDER, 20),
-                        new Wave(this, 1.0f, EnemyTemplate.GHOST, 10),
-                        new Wave(this, 3.0f, EnemyTemplate.SPINNER, 3)
+                        new Wave(this, 2.0f, 2, EnemyTemplate.BARNACLE),
+                        new Wave(this, 1.5f, 4, EnemyTemplate.GREEN_SLIME),
+                        new Wave(this, 1.5f, 4, EnemyTemplate.BEE),
+                        new Wave(this, 1.5f, 8, EnemyTemplate.GREEN_SLIME),
+                        new Wave(this, 1.0f, 6, EnemyTemplate.MOUSE_FAST),
+                        new Wave(this, 1.5f, 8, EnemyTemplate.LADY_BUG),
+                        new Wave(this, 1.0f, 1, EnemyTemplate.SNAIL),
+                        new Wave(this, 2.0f, 10, EnemyTemplate.SPIDER),
+                        new Wave(this, 1.0f, 14, EnemyTemplate.PINK_SLIME),
+                        new Wave(this, 2.0f, 16, EnemyTemplate.SPIDER),
+                        new Wave(this, 1.0f, 10, EnemyTemplate.BLUE_SLIME),
+                        new Wave(this, 1.0f, 4, EnemyTemplate.SNAIL),
+                        new Wave(this, 1.0f, 20, EnemyTemplate.SPIDER),
+                        new Wave(this, 1.0f, 10, EnemyTemplate.GHOST),
+                        new Wave(this, 3.0f, 3, EnemyTemplate.SPINNER)
         );
 
         //TODO: Display for how long until wave starts
