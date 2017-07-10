@@ -132,6 +132,7 @@ public class AudioManager
         for (int buffer : musicMap.values())
             AL10.alDeleteBuffers(buffer);
         AL10.alDeleteSources(musicSourceId);
+        AL10.alDeleteSources(soundSourceId);
         AL.destroy();
     }
 }

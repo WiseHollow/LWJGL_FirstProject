@@ -1,5 +1,6 @@
 package net.johnbrooks.fjg.state.states;
 
+import net.johnbrooks.fjg.Updater;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Music;
 import net.johnbrooks.fjg.drawables.DisplayManager;
@@ -13,6 +14,11 @@ import net.johnbrooks.fjg.ui.buttons.Button;
 import net.johnbrooks.fjg.ui.UI;
 import org.newdawn.slick.opengl.Texture;
 import org.newdawn.slick.util.Log;
+
+import java.awt.*;
+import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Created by ieatl on 7/2/2017.
@@ -68,6 +74,30 @@ public class MainMenu implements IGameState
         });
 
         ui.addButtons(playButton, editorButton, quitButton, survivalButton);
+
+        if (Updater.isUpdateAvailable())
+        {
+            Texture updateTexture = Draw.loadTexture("res/hud/updateAvailable.png");
+            Button updateButton = new Button(DisplayManager.getScreenWidth() - (updateTexture.getImageWidth()) - 20, DisplayManager.getScreenHeight() - updateTexture.getImageHeight() - 20 - buttonTextureEditor.getImageHeight(), updateTexture);
+            ui.addButtons(updateButton);
+
+            updateButton.setOnClickEvent(() ->
+            {
+                if(Desktop.isDesktopSupported())
+                {
+                    try
+                    {
+                        Desktop.getDesktop().browse(new URI("http://www.johnbrooks.net"));
+                    } catch (IOException e)
+                    {
+                        e.printStackTrace();
+                    } catch (URISyntaxException e)
+                    {
+                        e.printStackTrace();
+                    }
+                }
+            });
+        }
 
         AudioManager.getInstance().play(Music.RAIL_JET, true);
     }

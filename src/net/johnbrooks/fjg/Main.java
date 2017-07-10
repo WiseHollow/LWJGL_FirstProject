@@ -32,6 +32,7 @@ public class Main
 
     private static void init()
     {
+        Updater.checkForUpdates();
         displayManager = new DisplayManager(1280, 960);
         displayManager.init();
         gameInput = GameInput.getInstance();
