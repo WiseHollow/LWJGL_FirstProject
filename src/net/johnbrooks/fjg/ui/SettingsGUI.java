@@ -17,6 +17,8 @@ public class SettingsGUI extends UI
     private Texture backgroundTexture;
     private int x, y, width, height;
 
+    private QuitConfirmGUI quitConfirmGUI;
+
     public SettingsGUI(Level level)
     {
         super();
@@ -27,6 +29,8 @@ public class SettingsGUI extends UI
         this.width = backgroundTexture.getImageWidth();
         this.height = backgroundTexture.getImageHeight();
         this.visible = false;
+
+        this.quitConfirmGUI = new QuitConfirmGUI(this, level);
 
         init();
     }
@@ -48,8 +52,13 @@ public class SettingsGUI extends UI
                 {
                     AudioManager.getInstance().setMutedSound(!AudioManager.getInstance().isMutedSound());
                 });
+        Button exit = new Button(DisplayManager.getScreenWidth() - 74, DisplayManager.getScreenHeight() - 138, Draw.loadTexture("res/hud/settingsNav_menu.png"));
+        exit.setOnClickEvent(() ->
+        {
+            quitConfirmGUI.setEnabled(true);
+        });
 
-        addButtons(music, sound);
+        addButtons(music, sound, exit);
     }
 
     @Override
@@ -65,5 +74,15 @@ public class SettingsGUI extends UI
 
             super.draw();
         }
+
+        quitConfirmGUI.draw();
+    }
+
+    @Override
+    public void update()
+    {
+        super.update();
+
+        quitConfirmGUI.update();
     }
 }
