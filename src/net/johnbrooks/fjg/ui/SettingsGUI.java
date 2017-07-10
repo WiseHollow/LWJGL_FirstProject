@@ -46,7 +46,7 @@ public class SettingsGUI extends UI
                 Draw.loadTexture("res/hud/settingsNav_sound.png"), Draw.loadTexture("res/hud/settingsNav_soundOff.png"))
                 .setOnClickEvent(() ->
                 {
-
+                    AudioManager.getInstance().setMutedSound(!AudioManager.getInstance().isMutedSound());
                 });
 
         addButtons(music, sound);

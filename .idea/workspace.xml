@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bdaddf36-d343-4d97-b062-aa2fc0f6a6ce" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HintsGUI.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java" afterPath="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,26 +16,34 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MainMenu.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
+      <file leaf-file-name="HudGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="51" column="214" lean-forward="false" selection-start-line="51" selection-start-column="195" selection-end-line="51" selection-end-column="214" />
-              <folding>
-                <element signature="e#5730#5731#0" expanded="true" />
-                <element signature="e#5772#5773#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="2341">
+              <caret line="202" column="59" lean-forward="false" selection-start-line="202" selection-start-column="59" selection-end-line="202" selection-end-column="59" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="HintsGUI.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HintsGUI.java">
+      <file leaf-file-name="SettingsGUI.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="29" column="65" lean-forward="false" selection-start-line="29" selection-start-column="65" selection-end-line="29" selection-end-column="65" />
+            <state relative-caret-position="241">
+              <caret line="48" column="105" lean-forward="true" selection-start-line="48" selection-start-column="105" selection-end-line="48" selection-end-column="105" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AudioManager.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1224">
+              <caret line="117" column="45" lean-forward="false" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#875#876#0" expanded="true" />
+                <element signature="e#908#909#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,7 +118,6 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Checkpoint.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/shapes/Circle.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/shapes/Rectangle.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/achievements/Achievement.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/achievements/AchievementManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/level/WaveManager.java" />
@@ -153,11 +159,12 @@
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/entities/Enemy.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Player.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Main.java" />
-        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/Updater.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/drawables/DisplayManager.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HintsGUI.java" />
         <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java" />
+        <option value="$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java" />
       </list>
     </option>
   </component>
@@ -340,55 +347,29 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="state" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWJGL_FirstProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWJGL_FirstProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fjg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="state" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="states" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWJGL_FirstProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="LWJGL_FirstProject" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="fjg" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="drawables" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="LWJGL_FirstProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fjg" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="audio" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -750,13 +731,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="28" column="28" lean-forward="false" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/achievements/AchievementManager.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -913,6 +887,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="294">
           <caret line="29" column="56" lean-forward="false" selection-start-line="29" selection-start-column="56" selection-end-line="29" selection-end-column="56" />
+          <folding>
+            <element signature="e#500#501#0" expanded="false" />
+            <element signature="e#528#529#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -994,14 +972,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-133">
           <caret line="47" column="21" lean-forward="false" selection-start-line="47" selection-start-column="21" selection-end-line="47" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3128">
-          <caret line="202" column="59" lean-forward="false" selection-start-line="202" selection-start-column="59" selection-end-line="202" selection-end-column="59" />
           <folding />
         </state>
       </provider>
@@ -1133,11 +1103,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java">
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="437">
-          <caret line="134" column="42" lean-forward="false" selection-start-line="134" selection-start-column="42" selection-end-line="134" selection-end-column="42" />
-          <folding />
+        <state relative-caret-position="204">
+          <caret line="51" column="214" lean-forward="false" selection-start-line="51" selection-start-column="195" selection-end-line="51" selection-end-column="214" />
+          <folding>
+            <element signature="e#5730#5731#0" expanded="true" />
+            <element signature="e#5772#5773#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1151,13 +1124,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/state/states/MainMenu.java">
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/HudGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="51" column="214" lean-forward="false" selection-start-line="51" selection-start-column="195" selection-end-line="51" selection-end-column="214" />
+        <state relative-caret-position="2341">
+          <caret line="202" column="59" lean-forward="false" selection-start-line="202" selection-start-column="59" selection-end-line="202" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/ui/SettingsGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="48" column="105" lean-forward="true" selection-start-line="48" selection-start-column="105" selection-end-line="48" selection-end-column="105" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/net/johnbrooks/fjg/audio/AudioManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="117" column="45" lean-forward="false" selection-start-line="117" selection-start-column="45" selection-end-line="117" selection-end-column="45" />
           <folding>
-            <element signature="e#5730#5731#0" expanded="true" />
-            <element signature="e#5772#5773#0" expanded="true" />
+            <element signature="e#875#876#0" expanded="true" />
+            <element signature="e#908#909#0" expanded="true" />
           </folding>
         </state>
       </provider>

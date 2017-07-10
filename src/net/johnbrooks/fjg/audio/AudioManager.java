@@ -25,10 +25,16 @@ public class AudioManager
     private int musicSourceId;
     private int soundSourceId;
     private boolean playing;
+    private boolean mutedSound;
 
     public boolean isPlaying()
     {
         return playing;
+    }
+    public boolean isMutedSound() { return mutedSound; }
+    public void setMutedSound(boolean mute)
+    {
+        mutedSound = mute;
     }
 
     private AudioManager()
@@ -101,13 +107,16 @@ public class AudioManager
 
     public void play(Sound sound)
     {
-        stopSound();
-        int buffer = soundMap.get(sound);
-        AL10.alSourcei(soundSourceId, AL10.AL_BUFFER, buffer);
+        if (!mutedSound)
+        {
+            stopSound();
+            int buffer = soundMap.get(sound);
+            AL10.alSourcei(soundSourceId, AL10.AL_BUFFER, buffer);
 
-        AL10.alSourceQueueBuffers(soundSourceId, buffer);
+            AL10.alSourceQueueBuffers(soundSourceId, buffer);
 
-        AL10.alSourcePlay(soundSourceId);
+            AL10.alSourcePlay(soundSourceId);
+        }
     }
 
     public void stopAll()
