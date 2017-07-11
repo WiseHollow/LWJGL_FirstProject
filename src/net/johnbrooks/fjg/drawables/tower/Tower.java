@@ -143,9 +143,6 @@ public class Tower
             else
                 topTextureRotation = calculateAngleToTarget();
         }
-
-        //upgradeButton.update();
-        //sellButton.update();
     }
 
     public void draw()
@@ -157,9 +154,6 @@ public class Tower
 
         for (Projectile projectile : projectileList)
             projectile.draw();
-
-        //upgradeButton.draw();
-        //sellButton.draw();
     }
 
     protected float calculateAngleToTarget()

@@ -21,7 +21,7 @@ public class ButtonSell extends Button
     @Override
     public void update()
     {
-        super.draw();
+        super.update();
     }
 
     @Override

@@ -152,12 +152,12 @@ public class Player
             {
                 if (Keyboard.getEventKey() == Keyboard.KEY_M)
                 {
-                    int ordinal = gameMode.ordinal();
-                    ordinal++;
-                    if (ordinal >= GameMode.values().length)
-                        ordinal = 0;
-                    setGameMode(GameMode.values()[ordinal]);
-                    Log.info("Set GameMode to: " + gameMode.name());
+                    //int ordinal = gameMode.ordinal();
+                    //ordinal++;
+                    //if (ordinal >= GameMode.values().length)
+                    //    ordinal = 0;
+                    //setGameMode(GameMode.values()[ordinal]);
+                    //Log.info("Set GameMode to: " + gameMode.name());
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_F1)
                 {

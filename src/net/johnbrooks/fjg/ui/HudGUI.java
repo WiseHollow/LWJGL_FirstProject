@@ -3,8 +3,6 @@ package net.johnbrooks.fjg.ui;
 import net.johnbrooks.fjg.Clock;
 import net.johnbrooks.fjg.Main;
 import net.johnbrooks.fjg.Player;
-import net.johnbrooks.fjg.audio.AudioManager;
-import net.johnbrooks.fjg.audio.Sound;
 import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
 import net.johnbrooks.fjg.drawables.GameTexture;
@@ -12,7 +10,6 @@ import net.johnbrooks.fjg.drawables.tiles.TileType;
 import net.johnbrooks.fjg.drawables.tower.Tower;
 import net.johnbrooks.fjg.drawables.tower.TowerType;
 import net.johnbrooks.fjg.level.Level;
-import net.johnbrooks.fjg.level.WaveManager;
 import net.johnbrooks.fjg.level.levels.LevelEditor;
 import net.johnbrooks.fjg.ui.buttons.*;
 import org.newdawn.slick.opengl.Texture;
@@ -33,7 +30,6 @@ public class HudGUI extends UI
 
     private SettingsGUI settingsGUI;
 
-    //private List<TextBox> textBoxList;
     private List<List<Button>> editorPages;
     private List<Button> editorPage;
 
@@ -53,7 +49,6 @@ public class HudGUI extends UI
         this.settingsGUI = new SettingsGUI(level);
         this.editorPages = new ArrayList<>();
         this.editorPage = new ArrayList<>();
-        //this.textBoxList = new ArrayList<>();
 
         this.upgradeButton = null;
         this.sellButton = null;
@@ -227,17 +222,6 @@ public class HudGUI extends UI
     @Override
     public void update()
     {
-        /*for (int i = 0; i < textBoxList.size(); i++)
-        {
-            TextBox textBox = textBoxList.get(i);
-            textBox.update();
-            if (!textBox.isAlive())
-            {
-                textBoxList.remove(textBox);
-                i--;
-            }
-        }*/
-
         if (visible)
         {
             if (settingsGUI.visible)
@@ -255,7 +239,6 @@ public class HudGUI extends UI
                 sellButton.update();
             }
         }
-
     }
 
     public int getX() { return x; }
