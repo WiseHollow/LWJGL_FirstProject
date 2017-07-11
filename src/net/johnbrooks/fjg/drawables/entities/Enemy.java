@@ -27,7 +27,7 @@ public class Enemy
     private Texture deathTexture;
     private Texture healthBackground, healthForeground, healthBorder;
     private int textureIndex;
-    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement, sinceHurt;
+    private float health, maxHealth, healthPercent, x, y, speed, slowMultiplier, sinceLastTextureIncrement, sinceHurt, travelled;
 
 
 
@@ -135,8 +135,12 @@ public class Enemy
         {
             if (!checkpointReached() && isAlive())
             {
-                x += delta() * direction.getX() * speed * slowMultiplier;
-                y += delta() * direction.getY() * speed * slowMultiplier;
+                float xDir = delta() * direction.getX() * speed * slowMultiplier;
+                float yDir = delta() * direction.getY() * speed * slowMultiplier;
+                x += xDir;
+                y += yDir;
+
+                travelled += xDir + yDir;
 
                 if (x > DisplayManager.getScreenWidth() + 64 ||
                         x < -64 ||
@@ -229,4 +233,9 @@ public class Enemy
         return alive;
     }
     public boolean isActive() { return active; }
+
+    public float getTravelled()
+    {
+        return travelled;
+    }
 }

@@ -1,18 +1,12 @@
 package net.johnbrooks.fjg.drawables.tower;
 
 import net.johnbrooks.fjg.Clock;
-import net.johnbrooks.fjg.GameInput;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Sound;
-import net.johnbrooks.fjg.drawables.DisplayManager;
 import net.johnbrooks.fjg.drawables.Draw;
-import net.johnbrooks.fjg.drawables.GameTexture;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
 import net.johnbrooks.fjg.drawables.tiles.Tile;
 import net.johnbrooks.fjg.level.Level;
-import net.johnbrooks.fjg.ui.buttons.Button;
-import net.johnbrooks.fjg.ui.buttons.ButtonSell;
-import net.johnbrooks.fjg.ui.buttons.ButtonUpgrade;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,6 +30,8 @@ public class Tower
     protected List<Projectile> projectileList;
     protected boolean toRemove;
 
+    protected TargetStyle targetStyle;
+
     public Tower(TowerType towerType, Level level, Tile tile, List<Enemy> enemyList)
     {
         this.level = level;
@@ -51,6 +47,8 @@ public class Tower
         this.target = null;
         this.projectileList = new ArrayList<>();
         this.power = 1;
+
+        this.targetStyle = TargetStyle.FURTHEST_TRAVELLED;
     }
 
     public int getX() { return x; }
@@ -164,8 +162,10 @@ public class Tower
 
     protected Enemy calculateEnemyTarget()
     {
-        HashMap<Float, Enemy> distanceMap = new HashMap<>();
-        float closest = getTotalViewDistance() + 1;
+        HashMap<Float, Enemy> targetMap = new HashMap<>();
+        float closest = Float.MAX_VALUE;
+        if (targetStyle == TargetStyle.FURTHEST_TRAVELLED)
+            closest = 0f;
 
         for (Enemy enemy : enemyList)
         {
@@ -174,14 +174,22 @@ public class Tower
             float distance = (float) Math.sqrt(Math.pow(x - enemy.getX(), 2) + Math.pow(y - enemy.getY(), 2));
             if (distance <= getTotalViewDistance())
             {
-                distanceMap.put(distance, enemy);
-                if (distance < closest)
+                if (targetStyle == TargetStyle.CLOSEST)
+                    targetMap.put(distance, enemy);
+                else if (targetStyle == TargetStyle.FURTHEST_TRAVELLED || targetStyle == TargetStyle.LEAST_TRAVELLED)
+                    targetMap.put(enemy.getTravelled(), enemy);
+
+                if (targetStyle == TargetStyle.CLOSEST && distance < closest)
                     closest = distance;
+                else if (targetStyle == TargetStyle.FURTHEST_TRAVELLED && distance > closest)
+                    closest = enemy.getTravelled();
+                else if (targetStyle == TargetStyle.LEAST_TRAVELLED && distance < closest)
+                    closest = enemy.getTravelled();
             }
         }
 
-        if (!distanceMap.isEmpty())
-            return distanceMap.get(closest);
+        if (!targetMap.isEmpty())
+            return targetMap.get(closest);
         else
             return null;
     }

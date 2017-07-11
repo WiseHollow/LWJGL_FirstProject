@@ -180,11 +180,11 @@ public class Player
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
                 {
-                    //Clock.changeMultiplier(-0.2f);
+                    Clock.changeMultiplier(-0.2f);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_RIGHT)
                 {
-                    //Clock.changeMultiplier(0.2f);
+                    Clock.changeMultiplier(0.2f);
                 }
             }
         }
