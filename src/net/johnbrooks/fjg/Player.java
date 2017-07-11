@@ -175,8 +175,8 @@ public class Player
                 {
                     if (level instanceof LevelEditor)
                         level.save();
-                    //else
-                    //    level.setComplete(true);
+                    else
+                        level.setComplete(true);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_LEFT)
                 {

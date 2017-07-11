@@ -78,7 +78,7 @@ public abstract class Level
 
     public void softReset()
     {
-        waveManager = new WaveManager(this);
+        waveManager.restart();
     }
 
     public Player getPlayer() { return player; }

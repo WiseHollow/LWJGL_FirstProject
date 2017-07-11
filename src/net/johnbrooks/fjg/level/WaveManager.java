@@ -41,6 +41,13 @@ public class WaveManager
     }
     public Wave getWave(int index) { return waveList.get(index); }
 
+    public void restart()
+    {
+        this.started = false;
+        this.nextWaveIndex = 0;
+        this.waveList = new ArrayList<>();
+    }
+
     public boolean startWave()
     {
         started = true;

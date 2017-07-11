@@ -84,7 +84,10 @@ public class LevelSurvival extends Level
     public void setComplete(boolean complete)
     {
         if (complete)
+        {
             softReset();
+            waveManager.startWave();
+        }
     }
 
     @Override
