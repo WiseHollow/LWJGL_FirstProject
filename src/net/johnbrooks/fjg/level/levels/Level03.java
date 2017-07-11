@@ -43,8 +43,8 @@ public class Level03 extends Level
         // Add and start the wave in the WaveManager.
         waveManager.addWaves
                 (
-                        new Wave(this, 2.0f, 2, EnemyTemplate.BARNACLE),
                         new Wave(this, 1.5f, 4, EnemyTemplate.GREEN_SLIME),
+                        new Wave(this, 2.0f, 2, EnemyTemplate.BARNACLE),
                         new Wave(this, 1.5f, 4, EnemyTemplate.BEE),
                         new Wave(this, 1.5f, 8, EnemyTemplate.GREEN_SLIME),
                         new Wave(this, 1.0f, 6, EnemyTemplate.MOUSE_FAST),

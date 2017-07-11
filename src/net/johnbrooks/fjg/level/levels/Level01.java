@@ -45,19 +45,19 @@ public class Level01 extends Level
         waveManager.addWaves(
                 new Wave(this, 3.0f, 6, EnemyTemplate.FLY),
                 new Wave(this, 2.0f, 8, EnemyTemplate.MOUSE),
-                new Wave(this, 2.0f, 10, EnemyTemplate.FROG),
                 new Wave(this, 2.0f, 3, EnemyTemplate.GREEN_SLIME),
-                new Wave(this, 3.0f, 10, EnemyTemplate.MOUSE_FAST),
-                new Wave(this, 1.0f, 12, EnemyTemplate.LADY_BUG),
+                new Wave(this, 2.0f, 8, EnemyTemplate.FROG),
+                new Wave(this, 2.0f, 10, EnemyTemplate.MOUSE_FAST),
+                new Wave(this, 1.0f, 10, EnemyTemplate.LADY_BUG),
                 new Wave(this, 2.0f, 4, EnemyTemplate.BARNACLE),
                 new Wave(this, 2.0f, 8, EnemyTemplate.PINK_SLIME),
-                new Wave(this, 1.0f, 10, EnemyTemplate.SPIDER),
+                new Wave(this, 1.0f, 5, EnemyTemplate.SPIDER),
                 new Wave(this, 0.5f, 14, EnemyTemplate.FLY),
                 new Wave(this, 1.0f, 16, EnemyTemplate.FROG),
                 new Wave(this, 1.0f, 20, EnemyTemplate.MOUSE_FAST),
                 new Wave(this, 1.0f, 8, EnemyTemplate.BARNACLE),
                 new Wave(this, 0.5f, 10, EnemyTemplate.PINK_SLIME),
-                new Wave(this, 1.0f, 22, EnemyTemplate.LADY_BUG),
+                new Wave(this, 1.0f, 20, EnemyTemplate.LADY_BUG),
                 new Wave(this, 3.0f, 1, EnemyTemplate.SPINNER));
 
         //TODO: Display for how long until wave starts
