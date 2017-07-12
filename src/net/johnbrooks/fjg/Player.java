@@ -169,7 +169,11 @@ public class Player
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_C)
                 {
-                    //modifyCoins(10);
+                    modifyCoins(10);
+                }
+                else if (Keyboard.getEventKey() == Keyboard.KEY_E)
+                {
+                    modifyCharge(1);
                 }
                 else if (Keyboard.getEventKey() == Keyboard.KEY_S)
                 {

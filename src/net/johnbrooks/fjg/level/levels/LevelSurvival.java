@@ -69,8 +69,6 @@ public class LevelSurvival extends Level
                         new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER, EnemyTemplate.BLUE_SLIME, EnemyTemplate.GHOST),
                         new Wave(this, 1.0f, amount, EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER, EnemyTemplate.BLUE_SLIME, EnemyTemplate.GHOST, EnemyTemplate.SPINNER)
                 );
-
-        amount += 1;
     }
 
     @Override
@@ -86,6 +84,7 @@ public class LevelSurvival extends Level
         if (complete)
         {
             softReset();
+            waveManager.stackAllEnemies();
             waveManager.startWave();
         }
     }

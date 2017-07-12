@@ -11,6 +11,7 @@ import java.util.Random;
 public enum DropType
 {
     COIN(Draw.loadTexture("res/drops/coin.png"), 1, 0),
+    SUPER_COIN(Draw.loadTexture("res/drops/coin.png"), 10, 0),
     ENERGY(Draw.loadTexture("res/drops/energy.png"), 0, 1);
 
     private static Random random = new Random();
@@ -19,6 +20,8 @@ public enum DropType
         int rInt = random.nextInt(100);
         if (rInt < 15)
             return ENERGY;
+        else if (rInt < 25)
+            return SUPER_COIN;
         else
             return COIN;
     }

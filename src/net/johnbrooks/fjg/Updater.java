@@ -8,7 +8,7 @@ import java.net.URL;
  */
 public class Updater
 {
-    private static float version = 1.0f;
+    private static float version = 1.1f;
     private static boolean updateAvailable = false;
     public static boolean isUpdateAvailable() { return updateAvailable; }
 

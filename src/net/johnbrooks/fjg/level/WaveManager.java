@@ -4,6 +4,7 @@ import net.johnbrooks.fjg.Scheduler;
 import net.johnbrooks.fjg.audio.AudioManager;
 import net.johnbrooks.fjg.audio.Sound;
 import net.johnbrooks.fjg.drawables.entities.Enemy;
+import net.johnbrooks.fjg.drawables.entities.EnemyTemplate;
 import net.johnbrooks.fjg.state.states.Game;
 import org.newdawn.slick.util.Log;
 
@@ -45,7 +46,19 @@ public class WaveManager
     {
         this.started = false;
         this.nextWaveIndex = 0;
-        this.waveList = new ArrayList<>();
+        for (Wave wave : waveList)
+            wave.reset();
+        //this.waveList = new ArrayList<>();
+    }
+
+    /**
+     * Add one of each enemy type to the current set of waves. This is only planned to be used in LevelSurvival.
+     */
+    public void stackAllEnemies()
+    {
+        for (Wave wave : waveList)
+            wave.addEnemies(EnemyTemplate.FLY, EnemyTemplate.MOUSE, EnemyTemplate.FROG, EnemyTemplate.MOUSE_FAST, EnemyTemplate.LADY_BUG, EnemyTemplate.BEE, EnemyTemplate.GREEN_SLIME, EnemyTemplate.BARNACLE, EnemyTemplate.PINK_SLIME, EnemyTemplate.SPIDER, EnemyTemplate.BLUE_SLIME, EnemyTemplate.GHOST, EnemyTemplate.SPINNER);
+
     }
 
     public boolean startWave()
